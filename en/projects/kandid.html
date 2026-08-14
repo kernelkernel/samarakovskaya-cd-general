@@ -1,0 +1,873 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Candide · Tanya Samarakovskaya</title>
+<meta name="description" content="Candide — theatre video design and projection. Media art by Tanya Samarakovskaya.">
+<link rel="icon" type="image/webp" href="../../assets/icon.webp">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Tanya Samarakovskaya">
+<meta property="og:url" content="https://samarakovskaya.art/en/projects/kandid.html">
+<meta property="og:title" content="Candide · Tanya Samarakovskaya">
+<meta property="og:description" content="Candide — theatre video design and projection. Media art by Tanya Samarakovskaya.">
+<meta property="og:image" content="https://samarakovskaya.art/assets/kandid/preview.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Candide · Tanya Samarakovskaya">
+<meta name="twitter:description" content="Candide — theatre video design and projection. Media art by Tanya Samarakovskaya.">
+<meta name="twitter:image" content="https://samarakovskaya.art/assets/kandid/preview.webp">
+<link rel="canonical" href="https://samarakovskaya.art/en/projects/kandid.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --graphite:#16161A;--graphite-2:#1E1E22;--graphite-3:#26262C;
+    --cream:#F1ECDD;--cream-2:#E8E2CF;--cream-3:#DBD3B9;
+    --ink:#16161A;--ink-2:#3A3A40;--ink-3:#7A766B;
+    --bone:#F1ECDD;--bone-2:#A8A39A;--bone-3:#6E6960;
+    --lime:#C8FF2E;--lime-deep:#A8DD15;
+    --line-d:rgba(241,236,221,.10);--line-d2:rgba(241,236,221,.18);
+    --line-l:rgba(22,22,26,.12);--line-l2:rgba(22,22,26,.22);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  html,body{background:var(--graphite);color:var(--bone);font-family:"Space Grotesk","Helvetica Neue",sans-serif;-webkit-font-smoothing:antialiased}
+  body{overflow-x:hidden;min-height:100svh}
+  ::selection{background:var(--lime);color:var(--ink)}
+  a{color:inherit;text-decoration:none}
+  button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+  img{display:block;max-width:100%}
+  body::before{content:"";position:fixed;inset:-50%;pointer-events:none;z-index:1000;opacity:.04;mix-blend-mode:screen;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
+
+  .ph{position:relative;background:var(--graphite-2);overflow:hidden}
+  .ph::before{content:attr(data-ph);position:absolute;inset:0;display:grid;place-items:center;font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:var(--bone-3);padding:18px;text-align:center;z-index:0;background-image:repeating-linear-gradient(135deg,rgba(255,255,255,.04) 0 8px,transparent 8px 16px)}
+  .ph img{position:relative;z-index:1;width:100%;height:100%;object-fit:cover;display:block}
+
+  /* TOP NAV */
+  .top{position:fixed;top:14px;left:50%;transform:translateX(-50%);z-index:60;width:calc(100% - 24px);max-width:1320px}
+  .nav-bar{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:8px;background:rgba(22,22,26,.7);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid var(--line-d);border-radius:999px;padding:7px 8px 7px 18px}
+  .back{display:inline-flex;align-items:center;gap:10px;font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--bone);white-space:nowrap}
+  .back::before{content:"←";color:var(--lime);font-size:14px}
+  .breadcrumb{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--bone-2);text-transform:uppercase;letter-spacing:.08em;display:inline-flex;align-items:center;gap:10px}
+  .breadcrumb .dot{width:7px;height:7px;border-radius:50%;background:var(--lime);box-shadow:0 0 12px var(--lime);animation:blink 1.4s steps(1) infinite}
+  @keyframes blink{0%,100%{opacity:1}50%{opacity:.35}}
+  .nav-cta{display:inline-flex;align-items:center;gap:7px;background:var(--lime);color:var(--ink);padding:9px 16px;border-radius:999px;font-family:"JetBrains Mono",monospace;font-size:10px;text-transform:uppercase;letter-spacing:.1em;font-weight:600;white-space:nowrap;flex-shrink:0}
+  .nav-cta::after{content:"↗"}
+
+  /* MAGNETIC NAV */
+  .mag-nav{display:flex;align-items:center;justify-content:center;gap:2px;overflow:hidden}
+  .mag-pill{
+    display:inline-flex;align-items:center;
+    padding:7px 13px;border-radius:999px;
+    font-family:"JetBrains Mono",monospace;font-size:10px;text-transform:uppercase;letter-spacing:.1em;
+    color:var(--bone-3);
+    transition:background .2s,color .2s;
+    cursor:pointer;white-space:nowrap;will-change:transform;
+    text-decoration:none;
+  }
+  .mag-pill:hover{background:rgba(241,236,221,.08);color:var(--bone)}
+  .mag-pill.active{color:var(--lime)}
+  @media(max-width:900px){.mag-nav{display:none}}
+
+  .wrap{max-width:1320px;margin:0 auto;padding:0 24px;width:100%}
+
+  /* PILLS */
+  .pill{display:inline-flex;align-items:center;gap:8px;padding:8px 14px 8px 12px;background:var(--graphite-2);border:1px solid var(--line-d);border-radius:999px;font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:lowercase;letter-spacing:.04em;color:var(--bone)}
+  .pill::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--lime);box-shadow:0 0 12px var(--lime)}
+  .pill.solid{background:var(--lime);color:var(--ink);border-color:transparent;font-weight:600}
+  .pill.solid::before{background:var(--ink);box-shadow:none}
+  .pill.outline{background:transparent}
+
+  /* Big outlined circle button */
+  .circle-btn{
+    display:inline-grid;place-items:center;
+    width:88px;height:88px;border-radius:50%;
+    border:1.5px solid currentColor;font-size:34px;line-height:1;
+    transition:background .25s,color .25s,transform .25s;
+    cursor:pointer;flex-shrink:0;
+  }
+  .circle-btn.lime{color:var(--lime);border-color:var(--lime)}
+  .circle-btn.lime:hover{background:var(--lime);color:var(--ink)}
+  .circle-btn.ink{color:var(--ink);border-color:var(--ink)}
+  .circle-btn.ink:hover{background:var(--ink);color:var(--lime)}
+  .circle-btn.bone{color:var(--bone);border-color:var(--bone-2)}
+  .circle-btn.bone:hover{background:var(--bone);color:var(--ink)}
+  .circle-btn.sm{width:56px;height:56px;font-size:22px}
+
+  /* TEXT TREATMENTS */
+  .word-pill{position:relative;display:inline-block;color:var(--graphite);padding:0 .14em;z-index:1}
+  .word-pill::before{content:"";position:absolute;inset:.08em -.04em .14em -.04em;background:var(--lime);border-radius:999px;z-index:-1}
+  .word-oval{position:relative;display:inline-block;padding:0 .14em;z-index:1;white-space:nowrap}
+  .word-oval::before{content:"";position:absolute;inset:-.06em -.04em -.04em -.04em;border-radius:999px;border:3px solid var(--lime);transform:rotate(-2.5deg) skewX(-2deg);z-index:-1}
+  .word-rect{position:relative;display:inline-block;padding:.04em .14em;border:3px solid var(--lime)}
+  .word-strike{position:relative;display:inline-block;color:var(--bone-3)}
+  .word-strike::after{content:"";position:absolute;left:-3%;right:-3%;top:54%;height:6px;background:var(--lime);transform:rotate(-2deg)}
+  .word-ul{background-image:linear-gradient(var(--lime),var(--lime));background-repeat:no-repeat;background-size:100% 9px;background-position:0 95%;padding-bottom:.04em}
+  .word-block{background:var(--lime);color:var(--ink);padding:0 .14em}
+
+  /* HERO */
+  .hero{position:relative;min-height:100svh;overflow:hidden;padding:120px 0 40px;display:flex;flex-direction:column;justify-content:space-between;gap:36px}
+  .hero-bg{position:absolute;inset:0;z-index:0;opacity:.32}
+  .hero-bg .ph{position:absolute;inset:0}
+  .hero-bg img{filter:contrast(1.05) saturate(.9)}
+  .hero-bg::after{content:"";position:absolute;inset:0;background:radial-gradient(110% 70% at 50% 30%,transparent 0%,var(--graphite) 78%),linear-gradient(180deg,var(--graphite) 0%,transparent 25%,transparent 60%,var(--graphite) 100%)}
+
+  .hero-meta-row{position:relative;z-index:2;display:flex;justify-content:center;flex-wrap:wrap;gap:24px}
+  .hero-meta-row .pills{display:flex;flex-wrap:wrap;gap:8px}
+  .hero-meta-row .pill:nth-child(1){transform:rotate(-1deg)}
+  .hero-meta-row .pill:nth-child(2){transform:rotate(.8deg);margin-top:4px}
+
+  .hero-title{position:relative;z-index:2;display:flex;flex-direction:column;gap:14px;align-items:center;text-align:center}
+  .hero-h1{font-weight:700;font-size:clamp(80px,18vw,280px);line-height:.82;letter-spacing:-.06em;text-transform:uppercase;color:var(--bone)}
+  .hero-h1 .syl{display:inline-block;transition:font-family .08s,font-weight .08s,color .08s,letter-spacing .08s,background .15s,padding .15s}
+  .hero-h1 .syl.s1:hover{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;color:var(--lime);letter-spacing:-.08em}
+  .hero-h1 .syl.s2:hover{font-family:"JetBrains Mono",monospace;font-weight:700;background:var(--lime);color:var(--ink);padding:0 .04em}
+  .hero-h1 .syl.s3:hover{text-decoration:underline;text-decoration-color:var(--lime);text-decoration-thickness:8px;text-underline-offset:8px;letter-spacing:.04em}
+  .hero-sub{font-weight:500;font-size:clamp(20px,2.2vw,34px);line-height:1.1;letter-spacing:-.02em;color:var(--bone-2);max-width:32ch;text-wrap:balance;margin:8px auto 0}
+  .hero-sub b{color:var(--bone);font-weight:700}
+
+  .hero-foot{position:relative;z-index:2;display:grid;grid-template-columns:repeat(4,1fr);gap:18px;padding-top:20px;border-top:1px solid var(--line-d)}
+  @media(max-width:780px){.hero-foot{grid-template-columns:1fr 1fr;gap:16px}}
+  .hero-fact{display:flex;flex-direction:column;gap:6px}
+  .hero-fact b{font-family:"JetBrains Mono",monospace;font-size:10px;color:var(--lime);text-transform:uppercase;letter-spacing:.12em;font-weight:600}
+  .hero-fact span{font-weight:600;font-size:clamp(15px,1.5vw,18px);color:var(--bone);letter-spacing:-.005em;line-height:1.2}
+
+  /* MARQUEE */
+  .marq{background:var(--lime);color:var(--ink);overflow:hidden;padding:16px 0}
+  .marq-track{display:flex;gap:32px;width:max-content;animation:scroll 38s linear infinite;font-weight:700;font-size:clamp(20px,3vw,44px);letter-spacing:-.03em;line-height:1;white-space:nowrap;text-transform:uppercase}
+  .marq-track .dot{display:inline-block;width:.32em;height:.32em;border-radius:50%;background:var(--ink);vertical-align:middle;margin:0 .3em}
+  @keyframes scroll{to{transform:translateX(-50%)}}
+
+  /* SEC HEAD */
+  .sec{padding:90px 0 100px}
+  .sec.on-cream{background:var(--cream);color:var(--ink)}
+  .sec.on-graphite{background:var(--graphite);color:var(--bone)}
+  .sec-head{display:grid;grid-template-columns:auto 1fr auto;gap:32px;align-items:end;padding-bottom:28px;border-bottom:1px solid var(--line-d);margin-bottom:56px}
+  .sec.on-cream .sec-head{border-color:var(--line-l)}
+  @media(max-width:780px){.sec-head{grid-template-columns:1fr;gap:14px}}
+  .sec-label{font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:var(--bone-3);display:inline-flex;align-items:center;gap:10px}
+  .sec-label::before{content:"✦";color:var(--lime);font-size:12px}
+  .sec.on-cream .sec-label{color:var(--ink-3)}
+  .sec-side{font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--bone-2);text-align:right;line-height:1.7}
+  .sec.on-cream .sec-side{color:var(--ink-2)}
+  .sec-side b{font-weight:700;color:var(--bone)}
+  .sec.on-cream .sec-side b{color:var(--ink)}
+  .sec-h{font-weight:700;font-size:clamp(48px,8.5vw,128px);line-height:.9;letter-spacing:-.045em;text-wrap:balance}
+
+  /* CONCEPT (cream) — no borders, compact */
+  .concept{display:grid;grid-template-columns:1fr 1fr;gap:0;background:var(--cream)}
+  @media(max-width:900px){.concept{grid-template-columns:1fr}}
+  .concept-img{position:relative;min-height:44vh}
+  @media(max-width:900px){.concept-img{min-height:300px}}
+  .concept-img .ph{position:absolute;inset:0}
+  .concept-body{padding:48px;display:flex;flex-direction:column;gap:24px}
+  @media(max-width:780px){.concept-body{padding:32px 24px}}
+  .concept-lead{font-weight:500;font-size:clamp(26px,3.2vw,46px);line-height:1.08;letter-spacing:-.025em;text-wrap:balance}
+  .concept-text{font-size:15px;line-height:1.65;color:var(--ink-2);display:flex;flex-direction:column;gap:14px}
+  .concept-text b{color:var(--ink);font-weight:700}
+  .concept-meta{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;padding-top:20px;margin-top:auto;font-family:"JetBrains Mono",monospace;font-size:10px;text-transform:uppercase;letter-spacing:.08em}
+  .concept-meta dt{color:var(--ink-3);margin-bottom:4px}
+  .concept-meta dd{color:var(--ink);font-weight:600;font-size:13px}
+
+  /* PULL QUOTE */
+  .pullq{position:relative;min-height:90vh;display:flex;align-items:center;background:var(--graphite);overflow:hidden}
+  .pullq-bg{position:absolute;inset:0;z-index:0;opacity:.22}
+  .pullq-bg .ph{position:absolute;inset:0}
+  .pullq-bg::after{content:"";position:absolute;inset:0;background:radial-gradient(60% 60% at 50% 50%,transparent 0%,var(--graphite) 90%)}
+  .pullq-inner{position:relative;z-index:2;max-width:1320px;margin:0 auto;padding:80px 28px;text-align:center;width:100%}
+  .pullq-text{font-weight:600;font-size:clamp(36px,7vw,108px);line-height:.96;letter-spacing:-.04em;text-wrap:balance}
+
+  /* CHAPTERS — no borders */
+  .chap{display:grid;grid-template-columns:1fr 1fr;gap:0;background:var(--graphite-2);margin-bottom:0;min-height:60vh}
+  .chap.flip .chap-img{order:2}
+  .chap.full{grid-template-columns:1fr;min-height:90vh;position:relative}
+  @media(max-width:900px){.chap,.chap.flip{grid-template-columns:1fr}.chap.flip .chap-img{order:0}}
+  .chap-img{position:relative;min-height:50vh;overflow:hidden}
+  @media(max-width:900px){.chap-img{min-height:300px}}
+  .chap-img .ph{position:absolute;inset:0}
+  .chap-img img{transition:transform .8s ease}
+  .chap-img:hover img{transform:scale(1.04)}
+  .chap-body{padding:48px;display:flex;flex-direction:column;gap:20px;justify-content:center}
+  @media(max-width:780px){.chap-body{padding:32px 24px}}
+  .chap.full .chap-img{position:absolute;inset:0;min-height:0}
+  .chap.full .chap-img::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 35%,rgba(0,0,0,.88) 100%);z-index:1}
+  .chap.full .chap-body{position:relative;z-index:2;justify-content:flex-end;color:var(--bone);min-height:90vh}
+  .chap-title{font-weight:700;font-size:clamp(28px,4.6vw,64px);line-height:.98;letter-spacing:-.035em;text-wrap:balance}
+  .chap-title .mark{color:var(--lime)}
+  .chap-body p{font-size:15px;line-height:1.65;color:var(--bone-2);max-width:54ch}
+  .chap-body p b{color:var(--bone);font-weight:700}
+  .chap.full .chap-body p{color:var(--bone);max-width:64ch}
+  .chap.full .chap-body p b{color:var(--lime)}
+
+  /* ROLE CARDS — with photos, no borders */
+  .role-grid{display:grid;grid-template-columns:1fr 1fr;gap:0}
+  @media(max-width:780px){.role-grid{grid-template-columns:1fr}}
+  .role-card{background:var(--cream-2);display:flex;flex-direction:column;overflow:hidden;transition:background .25s}
+  .role-card:hover{background:var(--graphite-3)}
+  .role-photo{aspect-ratio:16/9;overflow:hidden;position:relative;flex-shrink:0}
+  .role-photo .ph{position:absolute;inset:0}
+  .role-photo img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .7s ease}
+  .role-card:hover .role-photo img{transform:scale(1.04)}
+  .role-text{padding:28px;display:flex;flex-direction:column;gap:14px;flex:1}
+  .role-card:hover .role-text{color:var(--bone)}
+  .role-card h3{font-weight:700;font-size:clamp(22px,2.6vw,30px);line-height:1.02;letter-spacing:-.025em;text-wrap:balance}
+  .role-card h3 .mark{color:var(--lime-deep);transition:color .25s}
+  .role-card:hover h3 .mark{color:var(--lime)}
+  .role-card p{font-size:14px;line-height:1.65;color:var(--ink-2);transition:color .25s}
+  .role-card:hover p{color:var(--bone-2)}
+  .role-card p b{color:var(--ink);font-weight:700;transition:color .25s}
+  .role-card:hover p b{color:var(--bone)}
+
+  /* GALLERY — clean 3-column structured grid */
+  .gal{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:0;
+  }
+  @media(max-width:780px){.gal{grid-template-columns:1fr 1fr}}
+  .gi{
+    position:relative;overflow:hidden;
+    background:var(--graphite-2);
+    cursor:zoom-in;
+    aspect-ratio:4/3;
+  }
+  .gi .ph{position:absolute;inset:0}
+  .gi img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s ease,filter .4s}
+  .gi:hover img{transform:scale(1.05)}
+  .gi::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.3) 0%,transparent 30%);opacity:.5;pointer-events:none;transition:opacity .3s}
+  .gi:hover::after{opacity:.1}
+
+  /* Lime text plates in gallery */
+  .gcap{
+    background:var(--lime);color:var(--ink);
+    padding:28px 24px;
+    display:flex;flex-direction:column;justify-content:flex-end;gap:8px;
+    aspect-ratio:4/3;
+  }
+  .gcap .big{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:clamp(28px,3.6vw,56px);line-height:.88;letter-spacing:-.04em;color:var(--ink)}
+  .gcap .sub{font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--ink-2)}
+  @media(max-width:780px){.gcap{display:none}}
+
+  /* lightbox */
+  .lb{display:none;position:fixed;inset:0;z-index:200;background:rgba(0,0,0,.96);align-items:center;justify-content:center}
+  .lb.open{display:flex}
+  .lb img{max-width:80vw;max-height:86vh;object-fit:contain;user-select:none;transition:opacity .18s ease}
+  .lb img.fade{opacity:0}
+  .lb-close{position:absolute;top:20px;right:24px;font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--bone-2);padding:8px;cursor:pointer;z-index:2}
+  .lb-close:hover{color:var(--lime)}
+  .lb-nav{position:absolute;top:50%;transform:translateY(-50%);font-family:"JetBrains Mono",monospace;font-size:24px;color:var(--bone-2);padding:16px 22px;cursor:pointer;z-index:2;transition:color .2s;line-height:1}
+  .lb-nav:hover{color:var(--lime)}
+  .lb-prev{left:20px}
+  .lb-next{right:20px}
+  .lb-counter{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:var(--bone-3)}
+
+  /* CREDITS (cream) */
+  .credits{padding:90px 0;background:var(--cream);color:var(--ink)}
+  .credits-top{display:grid;grid-template-columns:1fr 1fr;gap:32px;border-bottom:1px solid var(--line-l);padding-bottom:48px;margin-bottom:48px;align-items:end}
+  @media(max-width:900px){.credits-top{grid-template-columns:1fr}}
+  .credits-title{font-weight:700;font-size:clamp(48px,8vw,118px);line-height:.9;letter-spacing:-.04em}
+  .credits-facts{display:flex;gap:32px;flex-wrap:wrap;justify-content:flex-end}
+  @media(max-width:900px){.credits-facts{justify-content:flex-start}}
+  .cred-fact{font-family:"JetBrains Mono",monospace;font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--ink-3);text-align:center}
+  .cred-fact strong{display:block;font-family:"Space Grotesk",sans-serif;font-size:clamp(28px,3.5vw,52px);font-weight:700;letter-spacing:-.04em;line-height:.9;color:var(--ink);margin-bottom:6px}
+  .cred-fact strong .mark{color:var(--lime-deep)}
+  .credits-body{display:grid;grid-template-columns:1fr 1fr;gap:0}
+  @media(max-width:900px){.credits-body{grid-template-columns:1fr}}
+  .cred-row{display:grid;grid-template-columns:140px 1fr;gap:16px;padding:18px 0;border-bottom:1px solid var(--line-l);align-items:baseline}
+  .cred-row:first-child{border-top:1px solid var(--line-l)}
+  .cred-row dt{font-family:"JetBrains Mono",monospace;font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--ink-3)}
+  .cred-row dd{font-weight:600;font-size:clamp(16px,1.5vw,20px);letter-spacing:-.015em;line-height:1.25;color:var(--ink)}
+  .cred-row dd .mark{color:var(--lime-deep);font-weight:700}
+  .cred-row dd .sub{display:block;font-family:"JetBrains Mono",monospace;font-size:10px;color:var(--ink-3);font-weight:400;margin-top:4px;text-transform:uppercase;letter-spacing:.08em}
+  .credits-col-right{padding-left:36px}
+  @media(max-width:900px){.credits-col-right{padding-left:0}}
+
+  /* PROJ NAV */
+  .proj-nav{border-top:1px solid var(--line-d);background:var(--graphite)}
+  .proj-nav-inner{display:grid;grid-template-columns:1fr auto 1fr;max-width:1320px;margin:0 auto}
+  @media(max-width:760px){.proj-nav-inner{grid-template-columns:1fr}}
+  .pn-card{position:relative;overflow:hidden;padding:48px 36px;display:flex;flex-direction:column;justify-content:flex-end;gap:8px;transition:background .3s;border-right:1px solid var(--line-d)}
+  .pn-card:last-child{border-right:0;border-left:1px solid var(--line-d)}
+  .pn-card:hover{background:var(--graphite-2)}
+  .pn-card .bg{position:absolute;inset:0;object-fit:cover;width:100%;height:100%;opacity:.14;transition:opacity .4s;filter:saturate(.4)}
+  .pn-card:hover .bg{opacity:.28}
+  .pn-dir{position:relative;z-index:1;font-family:"JetBrains Mono",monospace;font-size:10px;text-transform:uppercase;letter-spacing:.14em;color:var(--bone-3);margin-bottom:8px}
+  .pn-name{position:relative;z-index:1;font-weight:700;font-size:clamp(28px,3.8vw,56px);line-height:1;letter-spacing:-.03em;color:var(--bone)}
+  .pn-sub{position:relative;z-index:1;font-family:"JetBrains Mono",monospace;font-size:10px;color:var(--bone-3);margin-top:6px;text-transform:uppercase;letter-spacing:.08em}
+  .pn-contact{display:flex;align-items:center;justify-content:center;padding:48px 36px;flex-direction:column;gap:14px}
+  .pn-contact-label{font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:var(--bone-3)}
+  .pn-btn{display:inline-flex;align-items:center;gap:10px;background:var(--lime);color:var(--ink);padding:14px 24px;border-radius:999px;font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.1em;font-weight:600;transition:transform .25s}
+  .pn-contact:hover .pn-btn{transform:translateY(-3px)}
+
+  footer{padding:28px 24px;border-top:1px solid var(--line-d);font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--bone-3);background:var(--graphite)}
+  .foot-row{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;align-items:center;max-width:1320px;margin:0 auto}
+  .foot-row b{color:var(--bone);font-weight:500}
+  .foot-row a:hover{color:var(--lime)}
+
+  .reveal{opacity:0;transform:translateY(20px);transition:opacity .8s ease,transform .8s ease}
+  .reveal.in{opacity:1;transform:none}
+</style>
+<style id="en-switch-css">
+.nav-end{display:inline-flex;align-items:center;gap:10px}
+.lang-toggle{display:inline-flex;gap:2px;padding:3px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.16);border-radius:999px;flex-shrink:0}
+.lang-toggle .lang-seg{padding:6px 9px;border-radius:999px;font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:rgba(241,236,221,.6);line-height:1;text-decoration:none;transition:color .2s,background .2s}
+.lang-toggle .lang-seg.on{background:#f1ecdd;color:#16161a;font-weight:600}
+.lang-toggle a.lang-seg:hover{color:#fff}
+
+/* NAV FIX 31.07.2026 — «Написать» всегда у правого края шапки, RU/EN только на десктопе */
+.nav-bar>.nav-end{margin-left:auto}
+.nav-bar>.lang-toggle{margin-left:auto}
+@media(max-width:780px){
+  .nav-bar .lang-toggle{display:none}
+  .nav-bar>.nav-cta{margin-left:auto}
+}
+
+/* FOOT LANG 31.07.2026 — переключатель языка в футере, только на мобильном (в шапке он скрыт) */
+.foot-lang{display:none}
+@media(max-width:780px){
+  .foot-lang{display:inline-flex;align-items:center;padding:6px 12px;border:1px solid currentColor;border-radius:999px;font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;color:inherit;opacity:.75}
+}
+</style>
+<link rel="alternate" hreflang="ru" href="https://samarakovskaya.art/projects/kandid.html">
+<link rel="alternate" hreflang="en" href="https://samarakovskaya.art/en/projects/kandid.html">
+<link rel="alternate" hreflang="x-default" href="https://samarakovskaya.art/projects/kandid.html">
+</head>
+<body>
+
+<div class="lb" id="lb">
+  <button class="lb-close" id="lbClose">[ESC] close</button>
+  <button class="lb-nav lb-prev" id="lbPrev">←</button>
+  <img loading="lazy" decoding="async" id="lbImg" src="" alt="">
+  <button class="lb-nav lb-next" id="lbNext">→</button>
+  <div class="lb-counter" id="lbCounter"></div>
+</div>
+
+<!-- TOP NAV -->
+<header class="top">
+  <div class="nav-bar">
+    <a class="back" href="../index.html#works">All projects</a>
+    <nav class="mag-nav" id="magNav">
+      <a class="mag-pill" href="#s-concept" data-section="s-concept">Concept</a>
+      <a class="mag-pill" href="#s-show" data-section="s-show">Performance</a>
+      <a class="mag-pill" href="#s-video" data-section="s-video">Video design</a>
+      <a class="mag-pill" href="#s-gallery" data-section="s-gallery">Gallery</a>
+      <a class="mag-pill" href="#s-credits" data-section="s-credits">Team</a>
+    </nav>
+    <div class="nav-end"><div class="lang-toggle" role="group" aria-label="Language"><a class="lang-seg" href="../../projects/kandid.html">RU</a><span class="lang-seg on">EN</span></div><a class="nav-cta" href="https://t.me/samarakovskaya_tanya" target="_blank" rel="noopener">Contact</a></div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-bg" aria-hidden="true">
+    <div class="ph" data-ph="candide · trio · red">
+      <img src="../../assets/kandid/photo/webp/kandid-02-trio-red.webp" alt="" loading="eager" decoding="async">
+    </div>
+  </div>
+
+  <div class="wrap" style="position:relative;z-index:2;display:flex;flex-direction:column;flex:1;gap:36px;justify-content:space-between">
+    <div class="hero-meta-row" style="justify-content:center">
+      <div class="pills" style="justify-content:center">
+        <span class="pill solid">rap opera</span>
+        <span class="pill">Praktika Theatre</span>
+        <span class="pill">Brusnikin Workshop</span>
+        <span class="pill">BHSAD</span>
+        <span class="pill outline">video design · with M. Akimova</span>
+      </div>
+    </div>
+
+    <div class="hero-title">
+      <h1 class="hero-h1">
+        <span class="syl s1">Can</span><span class="syl s2">dide</span>
+      </h1>
+      <p class="hero-sub">
+        or <b>Optimism</b> — a rap opera after Voltaire inside an 8-bit video game.
+      </p>
+    </div>
+
+    <div class="hero-foot">
+      <div class="hero-fact"><b>Format</b><span>Rap opera · 8-bit</span></div>
+      <div class="hero-fact"><b>Venue</b><span>Gradsky Hall · Moscow</span></div>
+      <div class="hero-fact"><b>Producer</b><span>Praktika Theatre</span></div>
+      <div class="hero-fact"><b>Role</b><span>Video design</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE — Voltaire quotes -->
+<div class="marq" aria-hidden="true">
+  <div class="marq-track">
+    <span>“We must cultivate our garden” <span class="dot"></span> “All is for the best in the best of all possible worlds” <span class="dot"></span> “Work keeps us from three great evils: boredom, vice, and need” <span class="dot"></span> “Optimism is the mania of insisting all is well when all is not” <span class="dot"></span> “Doubt is uncomfortable, but certainty is absurd” <span class="dot"></span></span>
+    <span>“We must cultivate our garden” <span class="dot"></span> “All is for the best in the best of all possible worlds” <span class="dot"></span> “Work keeps us from three great evils: boredom, vice, and need” <span class="dot"></span> “Optimism is the mania of insisting all is well when all is not” <span class="dot"></span> “Doubt is uncomfortable, but certainty is absurd” <span class="dot"></span></span>
+  </div>
+</div>
+
+<!-- CONCEPT (cream) -->
+<section class="sec on-cream" id="s-concept">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-label">Concept</span>
+      <h2 class="sec-h"><span class="word-pill">Idea</span> of the production.</h2>
+      <span class="sec-side"><b>Rap opera · 8-bit</b><br>Voltaire / Rodionov</span>
+    </div>
+
+    <div class="concept reveal">
+      <div class="concept-img">
+        <div class="ph" data-ph="candide · flying cubes">
+          <img loading="lazy" decoding="async" src="../../assets/kandid/photo/webp/kandid-03-flying-boxes.webp" alt="">
+        </div>
+      </div>
+      <div class="concept-body">
+        <p class="concept-lead">
+          A philosophical fairground after Voltaire, where life and death fight each other — <span class="word-block">inside an 8-bit video game.</span>
+        </p>
+        <div class="concept-text">
+          <p>“Candide” is a collaboration between <b>Praktika Theatre</b>, the <b>Brusnikin Workshop</b>, and scenography students from the <b>British Higher School of Art and Design</b>. Liza Bondar took Voltaire’s novella and turned it into a postmodern rap opera with a live orchestra, 14 performers, and large-scale video design.</p>
+          <p>The central idea is the 18th century inside a video game. Naive Candide travels through the absurdity of the world: Bulgaria, Holland, Argentina, Eldorado. Endless catastrophes with a smile — everything plays out as game levels, with the ending always waiting in the next scene.</p>
+        </div>
+        <dl class="concept-meta">
+          <div><dt>Director</dt><dd>Liza Bondar</dd></div>
+          <div><dt>Music</dt><dd>A. Besogonov</dd></div>
+          <div><dt>Label</dt><dd>Praktika Theatre</dd></div>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PULL QUOTE (graphite) -->
+<section class="pullq">
+  <div class="pullq-bg" aria-hidden="true">
+    <div class="ph" data-ph="pixel ensemble">
+      <img loading="lazy" decoding="async" src="../../assets/kandid/photo/webp/kandid-06-pixel-ensemble.webp" alt="">
+    </div>
+  </div>
+  <div class="pullq-inner reveal">
+    <p class="pullq-text">
+      Candide moves through <span class="word-oval">Voltaire’s</span> 18th century level by level — through catastrophes, temptations, and absurdity, where every ending becomes <span class="word-block">a new beginning.</span>
+    </p>
+  </div>
+</section>
+
+<!-- SHOW (graphite) -->
+<section class="sec on-graphite" id="s-show">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-label">Performance</span>
+      <h2 class="sec-h">Six levels of one <span class="word-pill">production</span>.</h2>
+      <span class="sec-side"><b>Rap opera</b><br>14 performers</span>
+    </div>
+
+    <article class="chap reveal">
+      <div class="chap-img">
+        <div class="ph" data-ph="ensemble blue"><img loading="lazy" decoding="async" src="../../assets/kandid/photo/webp/kandid-08-ensemble-blue.webp" alt=""></div>
+      </div>
+      <div class="chap-body">
+        <h3 class="chap-title">Candide moves through the world’s <span class="mark">absurdity</span></h3>
+        <p>Voltaire’s 1759 novella is retold by <b>Rodionov and Troepolskaya</b> — fast, brutal, and unsentimental. Each “level” destroys the hero’s faith in the best of all possible worlds, and the next one begins immediately. Bulgaria, Holland, Argentina, Eldorado. The ending is always ahead.</p>
+      </div>
+    </article>
+
+    <article class="chap full reveal">
+      <div class="chap-img">
+        <div class="ph" data-ph="solo noise"><img loading="lazy" decoding="async" src="../../assets/kandid/photo/webp/kandid-04-solo-noise.webp" alt=""></div>
+      </div>
+      <div class="chap-body">
+        <h3 class="chap-title"><span class="mark">Rap opera</span> as a genre mix</h3>
+        <p>The performers <b>sing, dance, and act</b> at the same time. A live score by Andrey Besogonov, performed by the Studio for New Music symphonic ensemble. Choreography by Ira Ga. The production invented its own genre as it developed: physical theatre, live opera, and choreography all work inside it at once.</p>
+      </div>
+    </article>
+
+    <article class="chap flip reveal">
+      <div class="chap-img">
+        <div class="ph" data-ph="pixel ensemble"><img loading="lazy" decoding="async" src="../../assets/kandid/photo/webp/kandid-06-pixel-ensemble.webp" alt=""></div>
+      </div>
+      <div class="chap-body">
+        <h3 class="chap-title">8-bit as the production’s <span class="mark">language</span></h3>
+        <p>Pixel graphics set the rules of the game. Each scene has its own level: colour, pattern, noise density. <b>The video-game logic is readable even when live bodies and voices are on stage</b> — the 18th century is stitched through with an 8-bit grid.</p>
+      </div>
+    </article>
+
+    <article class="chap full reveal">
+      <div class="chap-img">
+        <div class="ph" data-ph="full stage"><img loading="lazy" decoding="async" src="../../assets/kandid/photo/webp/kandid-01-stage.webp" alt=""></div>
+      </div>
+      <div class="chap-body">
+        <h3 class="chap-title">A large technical <span class="mark">stage</span></h3>
+        <p>Gradsky Hall was both a necessary and precise choice: <b>a live orchestra, 14 performers, large-scale projection</b>. Praktika could not physically accommodate a production of this size. It needed a large stage capable of holding both physical performers and a digital environment.</p>
+      </div>
+    </article>
+
+    <article class="chap reveal">
+      <div class="chap-img">
+        <div class="ph" data-ph="columns"><img loading="lazy" decoding="async" src="../../assets/kandid/photo/webp/kandid-05-columns.webp" alt=""></div>
+      </div>
+      <div class="chap-body">
+        <h3 class="chap-title">Three institutions — <span class="mark">one</span> performance</h3>
+        <p><b>Praktika Theatre</b> as producer. The <b>Brusnikin Workshop</b> as company. <b>BHSAD</b> students as scenographers and video designers. Three different working logics in one space, each with its own ethics and pace — all of which had to be held together within one production.</p>
+      </div>
+    </article>
+
+    <article class="chap flip reveal">
+      <div class="chap-img">
+        <div class="ph" data-ph="red masks"><img loading="lazy" decoding="async" src="../../assets/kandid/photo/webp/kandid-09-red-masks.webp" alt=""></div>
+      </div>
+      <div class="chap-body">
+        <h3 class="chap-title">The backdrop as a <span class="mark">living</span> environment</h3>
+        <p>The video design was built as a digital environment in which the physical stage exists: it breathes with the orchestra, responds to the performers’ rhythm, and sets the temperature of each moment. <b>Animation and live sound become one organism.</b></p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- VIDEODIZAIN / MY ROLE (cream) -->
+<section class="sec on-cream" id="s-video">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-label">Video design</span>
+      <h2 class="sec-h">Video<span class="word-pill">design</span>.</h2>
+      <span class="sec-side"><b>Video design</b><br>with M. Akimova</span>
+    </div>
+
+    <div class="role-grid reveal">
+      <div class="role-card">
+        <div class="role-photo">
+          <div class="ph" data-ph="kandid · solo pixel">
+            <img loading="lazy" decoding="async" src="../../assets/kandid/photo/webp/kandid-10-solo-pixel.webp" alt="">
+          </div>
+        </div>
+        <div class="role-text">
+          <h3>8-bit as an <span class="mark">end-to-end</span> system</h3>
+          <p>The pixel aesthetic works as structure. Each scene has its own visual “level”: a unique pattern, colour temperature, and set of elements. <b>Moving between scenes worked like switching levels in a game</b> — with a full reset of the visual context.</p>
+        </div>
+      </div>
+
+      <div class="role-card">
+        <div class="role-photo">
+          <div class="ph" data-ph="kandid · dance group">
+            <img loading="lazy" decoding="async" src="../../assets/kandid/photo/webp/kandid-12-dance-group.webp" alt="">
+          </div>
+        </div>
+        <div class="role-text">
+          <h3><span class="mark">Content</span> production</h3>
+          <p>All video material was created from scratch: <b>animated pixel patterns</b>, background scenes, character and object sprites, dynamic textures — from dense noise fields to classical colonnades in pixels. The content was projected onto a large backdrop.</p>
+        </div>
+      </div>
+
+      <div class="role-card">
+        <div class="role-photo">
+          <div class="ph" data-ph="kandid · sword">
+            <img loading="lazy" decoding="async" src="../../assets/kandid/photo/webp/kandid-11-sword.webp" alt="">
+          </div>
+        </div>
+        <div class="role-text">
+          <h3>Synchronisation with the <span class="mark">live</span></h3>
+          <p>The main challenge was that the video worked with a live orchestra, whose tempo shifts from performance to performance. It was necessary to plan in advance <b>where the video could “breathe”</b>, and where it had to land precisely on a note or movement. Constant iteration.</p>
+        </div>
+      </div>
+
+      <div class="role-card">
+        <div class="role-photo">
+          <div class="ph" data-ph="kandid · cactus">
+            <img loading="lazy" decoding="async" src="../../assets/kandid/photo/webp/kandid-07-cactus.webp" alt="">
+          </div>
+        </div>
+        <div class="role-text">
+          <h3>Working in a <span class="mark">large</span> team</h3>
+          <p>Close dialogue with the designers — <b>Yulia Staroverova</b> and <b>Pavel Nikitin</b> (set and costume design). Margarita Akimova and I divided the tasks: what belongs in the physical space, and what belongs in video. That boundary was constantly being negotiated.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VIDEO -->
+<section class="sec on-graphite" id="zone-video" style="padding-top:72px;padding-bottom:72px">
+  <div class="wrap">
+    <div class="sec-head reveal" style="margin-bottom:32px">
+      <span class="sec-label">Video</span>
+      <h2 class="sec-h">Watch the <span class="word-pill">performance</span>.</h2>
+      <span class="sec-side">YouTube · Documentation</span>
+    </div>
+    <div class="reveal" style="position:relative;width:100%;aspect-ratio:16/9;background:#000;cursor:pointer;overflow:hidden;border-radius:12px"
+      onclick="(function(el){var i=document.createElement('iframe');i.src='https://www.youtube.com/embed/XiNZ-rZzafQ?autoplay=1&rel=0';i.style.cssText='position:absolute;inset:0;width:100%;height:100%;border:0';i.allow='accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture';i.allowFullscreen=true;el.innerHTML='';el.appendChild(i);el.style.cursor='default';el.onclick=null})(this)">
+      <img loading="lazy" decoding="async" src="https://img.youtube.com/vi/XiNZ-rZzafQ/maxresdefault.jpg" onerror="this.src='https://img.youtube.com/vi/XiNZ-rZzafQ/hqdefault.jpg'" style="width:100%;height:100%;object-fit:cover;display:block" alt="Candide video">
+      <div style="position:absolute;inset:0;display:grid;place-items:center;background:rgba(0,0,0,.28)">
+        <div style="width:80px;height:80px;border-radius:50%;background:#C8FF2E;display:grid;place-items:center;color:#16161A"><svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M5 3.5v17l15-8.5z"/></svg></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY (graphite) -->
+<section class="sec on-graphite" id="s-gallery">
+  <div class="wrap">
+
+    <div class="gal reveal">
+
+      <figure class="gi">
+        <div class="ph" data-ph="full stage"><img loading="lazy" decoding="async" src="../../assets/kandid/photo/webp/kandid-01-stage.webp" alt=""></div>
+      </figure>
+
+      <figure class="gi">
+        <div class="ph" data-ph="pixel ensemble"><img loading="lazy" decoding="async" src="../../assets/kandid/photo/webp/kandid-06-pixel-ensemble.webp" alt=""></div>
+      </figure>
+
+      <div class="gcap">
+        <div class="big">Pixel aesthetics</div>
+        <div class="sub">as the production’s language</div>
+      </div>
+
+      <div class="gcap">
+        <div class="big">8-bit<br>The 18th century</div>
+        <div class="sub">inside a video game</div>
+      </div>
+
+      <figure class="gi">
+        <div class="ph" data-ph="solo noise"><img loading="lazy" decoding="async" src="../../assets/kandid/photo/webp/kandid-04-solo-noise.webp" alt=""></div>
+      </figure>
+
+      <figure class="gi">
+        <div class="ph" data-ph="trio red"><img loading="lazy" decoding="async" src="../../assets/kandid/photo/webp/kandid-02-trio-red.webp" alt=""></div>
+      </figure>
+
+      <figure class="gi">
+        <div class="ph" data-ph="flying boxes"><img loading="lazy" decoding="async" src="../../assets/kandid/photo/webp/kandid-03-flying-boxes.webp" alt=""></div>
+      </figure>
+
+      <figure class="gi">
+        <div class="ph" data-ph="columns"><img loading="lazy" decoding="async" src="../../assets/kandid/photo/webp/kandid-05-columns.webp" alt=""></div>
+      </figure>
+
+      <figure class="gi">
+        <div class="ph" data-ph="cactus"><img loading="lazy" decoding="async" src="../../assets/kandid/photo/webp/kandid-07-cactus.webp" alt=""></div>
+      </figure>
+
+      <figure class="gi">
+        <div class="ph" data-ph="ensemble blue"><img loading="lazy" decoding="async" src="../../assets/kandid/photo/webp/kandid-08-ensemble-blue.webp" alt=""></div>
+      </figure>
+
+      <div class="gcap">
+        <div class="big">Live orchestra</div>
+        <div class="sub">digital environment · one organism</div>
+      </div>
+
+      <figure class="gi">
+        <div class="ph" data-ph="red masks"><img loading="lazy" decoding="async" src="../../assets/kandid/photo/webp/kandid-09-red-masks.webp" alt=""></div>
+      </figure>
+
+      <figure class="gi">
+        <div class="ph" data-ph="solo pixel"><img loading="lazy" decoding="async" src="../../assets/kandid/photo/webp/kandid-10-solo-pixel.webp" alt=""></div>
+      </figure>
+
+      <figure class="gi">
+        <div class="ph" data-ph="sword"><img loading="lazy" decoding="async" src="../../assets/kandid/photo/webp/kandid-11-sword.webp" alt=""></div>
+      </figure>
+
+      <figure class="gi">
+        <div class="ph" data-ph="dance group"><img loading="lazy" decoding="async" src="../../assets/kandid/photo/webp/kandid-12-dance-group.webp" alt=""></div>
+      </figure>
+
+    </div>
+  </div>
+</section>
+
+<!-- CREDITS (cream) -->
+<section class="credits" id="s-credits">
+  <div class="wrap">
+    <div class="credits-top reveal">
+      <div>
+        <h2 class="credits-title">Team <span class="word-pill">project</span></h2>
+      </div>
+    </div>
+
+    <div class="credits-body reveal">
+      <dl>
+        <div class="cred-row">
+          <dt>Director</dt>
+          <dd>Elizaveta <span class="mark">Bondar</span></dd>
+        </div>
+        <div class="cred-row">
+          <dt>Company</dt>
+          <dd><span class="mark">Brusnikin</span> Workshop<span class="sub">14 performers</span></dd>
+        </div>
+        <div class="cred-row">
+          <dt>Designers</dt>
+          <dd>Yulia Staroverova &amp; Pavel Nikitin<span class="sub">British Higher School of Art and Design</span></dd>
+        </div>
+        <div class="cred-row">
+          <dt>Choreographer</dt>
+          <dd>Ira Ga</dd>
+        </div>
+      </dl>
+      <dl class="credits-col-right">
+        <div class="cred-row">
+          <dt>Text</dt>
+          <dd>A. Rodionov &amp; E. Troepolskaya</dd>
+        </div>
+        <div class="cred-row">
+          <dt>Music</dt>
+          <dd>Andrey Besogonov<span class="sub">Studio for New Music symphonic ensemble</span></dd>
+        </div>
+        <div class="cred-row">
+          <dt>Video design</dt>
+          <dd>Tatiana <span class="mark">Samarakovskaya</span> &amp; Margarita <span class="mark">Akimova</span></dd>
+        </div>
+        <div class="cred-row">
+          <dt>Producer</dt>
+          <dd>Theatre <span class="mark">Praktika</span><span class="sub">Gradsky Hall · Moscow</span></dd>
+        </div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<!-- PULL QUOTE 2 — before navigation -->
+<section class="pullq">
+  <div class="pullq-bg" aria-hidden="true">
+    <div class="ph" data-ph="cactus">
+      <img loading="lazy" decoding="async" src="../../assets/kandid/photo/webp/kandid-07-cactus.webp" alt="">
+    </div>
+  </div>
+  <div class="pullq-inner reveal">
+    <p class="pullq-text">
+      We must <span class="word-block">cultivate</span><br>our garden.
+    </p>
+  </div>
+</section>
+
+<!-- PROJ NAV -->
+<nav class="proj-nav" aria-label="Other projects">
+  <div class="proj-nav-inner">
+    <a class="pn-card" href="pole.html">
+      <img loading="lazy" decoding="async" class="bg" src="../../assets/preview_projects/pole.webp" alt="" aria-hidden="true">
+      <span class="pn-dir"><span class="circle-btn sm bone" aria-hidden="true" style="margin-bottom:14px">←</span><br>Previous</span>
+      <span class="pn-name">POLE</span>
+      <span class="pn-sub">Theater · Media artist · 2021</span>
+    </a>
+    <a class="pn-contact" href="https://t.me/samarakovskaya_tanya" target="_blank" rel="noopener">
+      <span class="pn-contact-label">Have a project?</span>
+      <span class="pn-btn">Contact ↗</span>
+    </a>
+    <a class="pn-card" href="baal.html" style="text-align:right">
+      <img loading="lazy" decoding="async" class="bg" src="../../assets/preview_projects/baal.webp" alt="" aria-hidden="true">
+      <span class="pn-dir"><span class="circle-btn sm bone" aria-hidden="true" style="margin-bottom:14px">→</span><br>Next</span>
+      <span class="pn-name">Baal</span>
+      <span class="pn-sub">Theater · Media artist · 2019</span>
+    </a>
+  </div>
+</nav>
+
+<footer>
+  <div class="foot-row">
+    <span>© 2026 · <b>Tanya Samarakovskaya</b></span>
+    <span><a href="#top">↑ Back to top</a></span>
+    <a class="foot-lang" href="../../projects/kandid.html" hreflang="ru">RU</a>
+  </div>
+</footer>
+
+<script>
+  const io = new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }}), {threshold:.08});
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  /* MAGNETIC PILLS */
+  document.querySelectorAll('.mag-pill').forEach(pill => {
+    pill.addEventListener('mousemove', e => {
+      const r = pill.getBoundingClientRect();
+      const dx = e.clientX - (r.left + r.width / 2);
+      const dy = e.clientY - (r.top + r.height / 2);
+      pill.style.transform = `translate(${dx * 0.38}px, ${dy * 0.42}px) scale(1.06)`;
+    });
+    pill.addEventListener('mouseleave', () => {
+      pill.style.transform = '';
+    });
+    pill.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.getElementById(pill.dataset.section);
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+
+  /* ACTIVE PILL on scroll */
+  const sectionIds = ['s-concept','s-show','s-video','s-gallery','s-credits'];
+  const pillMap = {};
+  document.querySelectorAll('.mag-pill').forEach(p => { pillMap[p.dataset.section] = p; });
+  const secObs = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        Object.values(pillMap).forEach(p => p.classList.remove('active'));
+        const active = pillMap[entry.target.id];
+        if (active) active.classList.add('active');
+      }
+    });
+  }, { threshold: 0.25 });
+  sectionIds.forEach(id => { const el = document.getElementById(id); if (el) secObs.observe(el); });
+
+  const lb = document.getElementById('lb');
+  const lbImg = document.getElementById('lbImg');
+  const lbCounter = document.getElementById('lbCounter');
+  const galImgs = Array.from(document.querySelectorAll('.gi img'));
+  let currentIdx = 0;
+
+  function showImg(idx, dir = 0) {
+    const img = galImgs[idx];
+    if (!img || !img.src) return;
+    if (dir !== 0) {
+      lbImg.classList.add('fade');
+      setTimeout(() => {
+        lbImg.src = img.src;
+        lbImg.alt = img.alt;
+        lbImg.classList.remove('fade');
+      }, 160);
+    } else {
+      lbImg.src = img.src;
+      lbImg.alt = img.alt;
+    }
+    currentIdx = idx;
+    lbCounter.textContent = (idx + 1) + ' / ' + galImgs.length;
+  }
+
+  function openLb(idx) {
+    showImg(idx, 0);
+    lb.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLb() {
+    lb.classList.remove('open');
+    document.body.style.overflow = '';
+    lbImg.src = '';
+  }
+
+  function prev() { showImg((currentIdx - 1 + galImgs.length) % galImgs.length, -1); }
+  function next() { showImg((currentIdx + 1) % galImgs.length, 1); }
+
+  galImgs.forEach((img, i) => {
+    img.style.cursor = 'zoom-in';
+    img.addEventListener('click', () => openLb(i));
+  });
+
+  lb.addEventListener('click', e => { if (e.target === lb) closeLb(); });
+  document.getElementById('lbClose').addEventListener('click', closeLb);
+  document.getElementById('lbPrev').addEventListener('click', e => { e.stopPropagation(); prev(); });
+  document.getElementById('lbNext').addEventListener('click', e => { e.stopPropagation(); next(); });
+
+  document.addEventListener('keydown', e => {
+    if (!lb.classList.contains('open')) return;
+    if (e.key === 'Escape') closeLb();
+    if (e.key === 'ArrowLeft') prev();
+    if (e.key === 'ArrowRight') next();
+  });
+
+  // swipe support
+  let touchStartX = 0;
+  lb.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, {passive:true});
+  lb.addEventListener('touchend', e => {
+    const dx = e.changedTouches[0].clientX - touchStartX;
+    if (Math.abs(dx) > 50) dx < 0 ? next() : prev();
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,797 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>POLE · Tanya Samarakovskaya</title>
+<meta name="description" content="POLE is a graphic suite after Aitmatov. Video design and projection. Bishkek.">
+<link rel="icon" type="image/webp" href="../../assets/icon.webp">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Tanya Samarakovskaya">
+<meta property="og:url" content="https://samarakovskaya.art/en/projects/pole.html">
+<meta property="og:title" content="POLE · Tanya Samarakovskaya">
+<meta property="og:description" content="POLE is a graphic suite after Aitmatov. Video design and projection. Bishkek.">
+<meta property="og:image" content="https://samarakovskaya.art/assets/pole/preview.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="POLE · Tanya Samarakovskaya">
+<meta name="twitter:description" content="POLE is a graphic suite after Aitmatov. Video design and projection. Bishkek.">
+<meta name="twitter:image" content="https://samarakovskaya.art/assets/pole/preview.webp">
+<link rel="canonical" href="https://samarakovskaya.art/en/projects/pole.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --graphite:#16161A;--graphite-2:#1E1E22;--graphite-3:#26262C;
+    --cream:#F1ECDD;--cream-2:#E8E2CF;--cream-3:#DBD3B9;
+    --ink:#16161A;--ink-2:#3A3A40;--ink-3:#7A766B;
+    --bone:#F1ECDD;--bone-2:#A8A39A;--bone-3:#6E6960;
+    --lime:#E9BB57;--lime-deep:#A87C1E;
+    --line-d:rgba(241,236,221,.10);--line-d2:rgba(241,236,221,.18);
+    --line-l:rgba(22,22,26,.12);--line-l2:rgba(22,22,26,.22);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  html,body{background:var(--graphite);color:var(--bone);font-family:"Space Grotesk","Helvetica Neue",sans-serif;-webkit-font-smoothing:antialiased}
+  body{overflow-x:hidden;min-height:100svh}
+  ::selection{background:var(--lime);color:var(--ink)}
+  a{color:inherit;text-decoration:none}
+  button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+  img{display:block;max-width:100%}
+  body::before{content:"";position:fixed;inset:-50%;pointer-events:none;z-index:1000;opacity:.04;mix-blend-mode:screen;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
+
+  .ph{position:relative;background:var(--graphite-2);overflow:hidden}
+  .ph::before{content:attr(data-ph);position:absolute;inset:0;display:grid;place-items:center;font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:var(--bone-3);padding:18px;text-align:center;z-index:0;background-image:repeating-linear-gradient(135deg,rgba(255,255,255,.04) 0 8px,transparent 8px 16px)}
+  .ph img{position:relative;z-index:1;width:100%;height:100%;object-fit:cover;display:block}
+
+  /* TOP NAV */
+  .top{position:fixed;top:14px;left:50%;transform:translateX(-50%);z-index:60;width:calc(100% - 24px);max-width:1320px}
+  .nav-bar{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:8px;background:rgba(22,22,26,.7);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid var(--line-d);border-radius:999px;padding:7px 8px 7px 18px}
+  .back{display:inline-flex;align-items:center;gap:10px;font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--bone);white-space:nowrap}
+  .back::before{content:"←";color:var(--lime);font-size:14px}
+  .breadcrumb{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--bone-2);text-transform:uppercase;letter-spacing:.08em;display:inline-flex;align-items:center;gap:10px}
+  .breadcrumb .dot{width:7px;height:7px;border-radius:50%;background:var(--lime);box-shadow:0 0 12px var(--lime);animation:blink 1.4s steps(1) infinite}
+  @keyframes blink{0%,100%{opacity:1}50%{opacity:.35}}
+  .nav-cta{display:inline-flex;align-items:center;gap:7px;background:var(--lime);color:var(--ink);padding:9px 16px;border-radius:999px;font-family:"JetBrains Mono",monospace;font-size:10px;text-transform:uppercase;letter-spacing:.1em;font-weight:600;white-space:nowrap;flex-shrink:0}
+  .nav-cta::after{content:"↗"}
+
+  /* MAGNETIC NAV */
+  .mag-nav{display:flex;align-items:center;justify-content:center;gap:2px;overflow:hidden}
+  .mag-pill{
+    display:inline-flex;align-items:center;
+    padding:7px 13px;border-radius:999px;
+    font-family:"JetBrains Mono",monospace;font-size:10px;text-transform:uppercase;letter-spacing:.1em;
+    color:var(--bone-3);
+    transition:background .2s,color .2s;
+    cursor:pointer;white-space:nowrap;will-change:transform;
+    text-decoration:none;
+  }
+  .mag-pill:hover{background:rgba(241,236,221,.08);color:var(--bone)}
+  .mag-pill.active{color:var(--lime)}
+  @media(max-width:900px){.mag-nav{display:none}}
+
+  .wrap{max-width:1320px;margin:0 auto;padding:0 24px;width:100%}
+
+  /* PILLS */
+  .pill{display:inline-flex;align-items:center;gap:8px;padding:8px 14px 8px 12px;background:var(--graphite-2);border:1px solid var(--line-d);border-radius:999px;font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:lowercase;letter-spacing:.04em;color:var(--bone)}
+  .pill::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--lime);box-shadow:0 0 12px var(--lime)}
+  .pill.solid{background:var(--lime);color:var(--ink);border-color:transparent;font-weight:600}
+  .pill.solid::before{background:var(--ink);box-shadow:none}
+  .pill.outline{background:transparent}
+
+  /* Big outlined circle button */
+  .circle-btn{
+    display:inline-grid;place-items:center;
+    width:88px;height:88px;border-radius:50%;
+    border:1.5px solid currentColor;font-size:34px;line-height:1;
+    transition:background .25s,color .25s,transform .25s;
+    cursor:pointer;flex-shrink:0;
+  }
+  .circle-btn.lime{color:var(--lime);border-color:var(--lime)}
+  .circle-btn.lime:hover{background:var(--lime);color:var(--ink)}
+  .circle-btn.ink{color:var(--ink);border-color:var(--ink)}
+  .circle-btn.ink:hover{background:var(--ink);color:var(--lime)}
+  .circle-btn.bone{color:var(--bone);border-color:var(--bone-2)}
+  .circle-btn.bone:hover{background:var(--bone);color:var(--ink)}
+  .circle-btn.sm{width:56px;height:56px;font-size:22px}
+
+  /* TEXT TREATMENTS */
+  .word-pill{position:relative;display:inline-block;color:var(--graphite);padding:0 .14em;z-index:1}
+  .word-pill::before{content:"";position:absolute;inset:.08em -.04em .14em -.04em;background:var(--lime);border-radius:999px;z-index:-1}
+  .word-oval{position:relative;display:inline-block;padding:0 .14em;z-index:1;white-space:nowrap}
+  .word-oval::before{content:"";position:absolute;inset:-.06em -.04em -.04em -.04em;border-radius:999px;border:3px solid var(--lime);transform:rotate(-2.5deg) skewX(-2deg);z-index:-1}
+  .word-rect{position:relative;display:inline-block;padding:.04em .14em;border:3px solid var(--lime)}
+  .word-strike{position:relative;display:inline-block;color:var(--bone-3)}
+  .word-strike::after{content:"";position:absolute;left:-3%;right:-3%;top:54%;height:6px;background:var(--lime);transform:rotate(-2deg)}
+  .word-ul{background-image:linear-gradient(var(--lime),var(--lime));background-repeat:no-repeat;background-size:100% 9px;background-position:0 95%;padding-bottom:.04em}
+  .word-block{background:var(--lime);color:var(--ink);padding:0 .14em}
+
+  /* HERO */
+  .hero{position:relative;min-height:100svh;overflow:hidden;padding:120px 0 40px;display:flex;flex-direction:column;justify-content:space-between;gap:36px}
+  .hero-bg{position:absolute;inset:0;z-index:0;opacity:.32}
+  .hero-bg .ph{position:absolute;inset:0}
+  .hero-bg img{filter:contrast(1.05) saturate(.9)}
+  .hero-bg::after{content:"";position:absolute;inset:0;background:radial-gradient(110% 70% at 50% 30%,transparent 0%,var(--graphite) 78%),linear-gradient(180deg,var(--graphite) 0%,transparent 25%,transparent 60%,var(--graphite) 100%)}
+
+  .hero-meta-row{position:relative;z-index:2;display:flex;justify-content:center;flex-wrap:wrap;gap:24px}
+  .hero-meta-row .pills{display:flex;flex-wrap:wrap;gap:8px}
+  .hero-meta-row .pill:nth-child(1){transform:rotate(-1deg)}
+  .hero-meta-row .pill:nth-child(2){transform:rotate(.8deg);margin-top:4px}
+
+  .hero-title{position:relative;z-index:2;display:flex;flex-direction:column;gap:14px;align-items:center;text-align:center}
+  .hero-h1{font-weight:700;font-size:clamp(80px,18vw,280px);line-height:.82;letter-spacing:-.06em;text-transform:uppercase;color:var(--bone)}
+  .hero-h1 .syl{display:inline-block;transition:font-family .08s,font-weight .08s,color .08s,letter-spacing .08s,background .15s,padding .15s}
+  .hero-h1 .syl.s1:hover{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;color:var(--lime);letter-spacing:-.08em}
+  .hero-h1 .syl.s2:hover{font-family:"JetBrains Mono",monospace;font-weight:700;background:var(--lime);color:var(--ink);padding:0 .04em}
+  .hero-h1 .syl.s3:hover{text-decoration:underline;text-decoration-color:var(--lime);text-decoration-thickness:8px;text-underline-offset:8px;letter-spacing:.04em}
+  .hero-sub{font-weight:500;font-size:clamp(20px,2.2vw,34px);line-height:1.1;letter-spacing:-.02em;color:var(--bone-2);max-width:34ch;text-wrap:balance;margin:8px auto 0}
+  .hero-sub b{color:var(--bone);font-weight:700}
+
+  .hero-foot{position:relative;z-index:2;display:grid;grid-template-columns:repeat(4,1fr);gap:18px;padding-top:20px;border-top:1px solid var(--line-d)}
+  @media(max-width:780px){.hero-foot{grid-template-columns:1fr 1fr;gap:16px}}
+  .hero-fact{display:flex;flex-direction:column;gap:6px}
+  .hero-fact b{font-family:"JetBrains Mono",monospace;font-size:10px;color:var(--lime);text-transform:uppercase;letter-spacing:.12em;font-weight:600}
+  .hero-fact span{font-weight:600;font-size:clamp(15px,1.5vw,18px);color:var(--bone);letter-spacing:-.005em;line-height:1.2}
+
+  /* MARQUEE */
+  .marq{background:var(--lime);color:var(--ink);overflow:hidden;padding:16px 0}
+  .marq-track{display:flex;gap:32px;width:max-content;animation:scroll 38s linear infinite;font-weight:700;font-size:clamp(20px,3vw,44px);letter-spacing:-.03em;line-height:1;white-space:nowrap;text-transform:uppercase}
+  .marq-track .dot{display:inline-block;width:.32em;height:.32em;border-radius:50%;background:var(--ink);vertical-align:middle;margin:0 .3em}
+  @keyframes scroll{to{transform:translateX(-50%)}}
+
+  /* SEC HEAD */
+  .sec{padding:90px 0 100px}
+  .sec.on-cream{background:var(--cream);color:var(--ink)}
+  .sec.on-graphite{background:var(--graphite);color:var(--bone)}
+  .sec-head{display:grid;grid-template-columns:auto 1fr auto;gap:32px;align-items:end;padding-bottom:28px;border-bottom:1px solid var(--line-d);margin-bottom:56px}
+  .sec.on-cream .sec-head{border-color:var(--line-l)}
+  @media(max-width:780px){.sec-head{grid-template-columns:1fr;gap:14px}}
+  .sec-label{font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:var(--bone-3);display:inline-flex;align-items:center;gap:10px}
+  .sec-label::before{content:"✦";color:var(--lime);font-size:12px}
+  .sec.on-cream .sec-label{color:var(--ink-3)}
+  .sec-side{font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--bone-2);text-align:right;line-height:1.7}
+  .sec.on-cream .sec-side{color:var(--ink-2)}
+  .sec-side b{font-weight:700;color:var(--bone)}
+  .sec.on-cream .sec-side b{color:var(--ink)}
+  .sec-h{font-weight:700;font-size:clamp(48px,8.5vw,128px);line-height:.9;letter-spacing:-.045em;text-wrap:balance}
+
+  /* CONCEPT (cream) — no borders, compact */
+  .concept{display:grid;grid-template-columns:1fr 1fr;gap:0;background:var(--cream)}
+  @media(max-width:900px){.concept{grid-template-columns:1fr}}
+  .concept-img{position:relative;min-height:44vh}
+  @media(max-width:900px){.concept-img{min-height:300px}}
+  .concept-img .ph{position:absolute;inset:0}
+  .concept-body{padding:48px;display:flex;flex-direction:column;gap:24px}
+  @media(max-width:780px){.concept-body{padding:32px 24px}}
+  .concept-lead{font-weight:500;font-size:clamp(26px,3.2vw,46px);line-height:1.08;letter-spacing:-.025em;text-wrap:balance}
+  .concept-text{font-size:15px;line-height:1.65;color:var(--ink-2);display:flex;flex-direction:column;gap:14px}
+  .concept-text b{color:var(--ink);font-weight:700}
+  .concept-meta{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;padding-top:20px;margin-top:auto;font-family:"JetBrains Mono",monospace;font-size:10px;text-transform:uppercase;letter-spacing:.08em}
+  .concept-meta dt{color:var(--ink-3);margin-bottom:4px}
+  .concept-meta dd{color:var(--ink);font-weight:600;font-size:13px}
+
+  /* PULL QUOTE */
+  .pullq{position:relative;min-height:90vh;display:flex;align-items:center;background:var(--graphite);overflow:hidden}
+  .pullq-bg{position:absolute;inset:0;z-index:0;opacity:.22}
+  .pullq-bg .ph{position:absolute;inset:0}
+  .pullq-bg::after{content:"";position:absolute;inset:0;background:radial-gradient(60% 60% at 50% 50%,transparent 0%,var(--graphite) 90%)}
+  .pullq-inner{position:relative;z-index:2;max-width:1320px;margin:0 auto;padding:80px 28px;text-align:center;width:100%}
+  .pullq-text{font-weight:600;font-size:clamp(36px,7vw,108px);line-height:.96;letter-spacing:-.04em;text-wrap:balance}
+
+  /* CHAPTERS — no borders */
+  .chap{display:grid;grid-template-columns:1fr 1fr;gap:0;background:var(--graphite-2);margin-bottom:0;min-height:60vh}
+  .chap.flip .chap-img{order:2}
+  .chap.full{grid-template-columns:1fr;min-height:90vh;position:relative}
+  @media(max-width:900px){.chap,.chap.flip{grid-template-columns:1fr}.chap.flip .chap-img{order:0}}
+  .chap-img{position:relative;min-height:50vh;overflow:hidden}
+  @media(max-width:900px){.chap-img{min-height:300px}}
+  .chap-img .ph{position:absolute;inset:0}
+  .chap-img img{transition:transform .8s ease}
+  .chap-img:hover img{transform:scale(1.04)}
+  .chap-body{padding:48px;display:flex;flex-direction:column;gap:20px;justify-content:center}
+  @media(max-width:780px){.chap-body{padding:32px 24px}}
+  .chap.full .chap-img{position:absolute;inset:0;min-height:0}
+  .chap.full .chap-img::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 35%,rgba(0,0,0,.88) 100%);z-index:1}
+  .chap.full .chap-body{position:relative;z-index:2;justify-content:flex-end;color:var(--bone);min-height:90vh}
+  .chap-title{font-weight:700;font-size:clamp(28px,4.6vw,64px);line-height:.98;letter-spacing:-.035em;text-wrap:balance}
+  .chap-title .mark{color:var(--lime)}
+  .chap-body p{font-size:15px;line-height:1.65;color:var(--bone-2);max-width:54ch}
+  .chap-body p b{color:var(--bone);font-weight:700}
+  .chap.full .chap-body p{color:var(--bone);max-width:64ch}
+  .chap.full .chap-body p b{color:var(--lime)}
+
+  /* ROLE CARDS — with photos, no borders */
+  .role-grid{display:grid;grid-template-columns:1fr 1fr;gap:0}
+  @media(max-width:780px){.role-grid{grid-template-columns:1fr}}
+  .role-card{background:var(--cream-2);display:flex;flex-direction:column;overflow:hidden;transition:background .25s}
+  .role-card:hover{background:var(--graphite-3)}
+  .role-photo{aspect-ratio:16/9;overflow:hidden;position:relative;flex-shrink:0}
+  .role-photo .ph{position:absolute;inset:0}
+  .role-photo img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .7s ease}
+  .role-card:hover .role-photo img{transform:scale(1.04)}
+  .role-text{padding:28px;display:flex;flex-direction:column;gap:14px;flex:1}
+  .role-card:hover .role-text{color:var(--bone)}
+  .role-card h3{font-weight:700;font-size:clamp(22px,2.6vw,30px);line-height:1.02;letter-spacing:-.025em;text-wrap:balance}
+  .role-card h3 .mark{color:var(--lime-deep);transition:color .25s}
+  .role-card:hover h3 .mark{color:var(--lime)}
+  .role-card p{font-size:14px;line-height:1.65;color:var(--ink-2);transition:color .25s}
+  .role-card:hover p{color:var(--bone-2)}
+  .role-card p b{color:var(--ink);font-weight:700;transition:color .25s}
+  .role-card:hover p b{color:var(--bone)}
+
+  /* GALLERY — clean 3-column structured grid */
+  .gal{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:0;
+  }
+  @media(max-width:780px){.gal{grid-template-columns:1fr 1fr}}
+  .gi{
+    position:relative;overflow:hidden;
+    background:var(--graphite-2);
+    cursor:zoom-in;
+    aspect-ratio:4/3;
+  }
+  .gi .ph{position:absolute;inset:0}
+  .gi img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s ease,filter .4s}
+  .gi:hover img{transform:scale(1.05)}
+  .gi::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.3) 0%,transparent 30%);opacity:.5;pointer-events:none;transition:opacity .3s}
+  .gi:hover::after{opacity:.1}
+
+  /* accent text plates in gallery */
+  .gcap{
+    background:var(--lime);color:var(--ink);
+    padding:28px 24px;
+    display:flex;flex-direction:column;justify-content:flex-end;gap:8px;
+    aspect-ratio:4/3;
+  }
+  .gcap .big{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:clamp(28px,3.6vw,56px);line-height:.88;letter-spacing:-.04em;color:var(--ink)}
+  .gcap .sub{font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--ink-2)}
+  @media(max-width:780px){.gcap{display:none}}
+
+  /* lightbox */
+  .lb{display:none;position:fixed;inset:0;z-index:200;background:rgba(0,0,0,.96);align-items:center;justify-content:center}
+  .lb.open{display:flex}
+  .lb img{max-width:80vw;max-height:86vh;object-fit:contain;user-select:none;transition:opacity .18s ease}
+  .lb img.fade{opacity:0}
+  .lb-close{position:absolute;top:20px;right:24px;font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--bone-2);padding:8px;cursor:pointer;z-index:2}
+  .lb-close:hover{color:var(--lime)}
+  .lb-nav{position:absolute;top:50%;transform:translateY(-50%);font-family:"JetBrains Mono",monospace;font-size:24px;color:var(--bone-2);padding:16px 22px;cursor:pointer;z-index:2;transition:color .2s;line-height:1}
+  .lb-nav:hover{color:var(--lime)}
+  .lb-prev{left:20px}
+  .lb-next{right:20px}
+  .lb-counter{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:var(--bone-3)}
+
+  /* CREDITS (cream) */
+  .credits{padding:90px 0;background:var(--cream);color:var(--ink)}
+  .credits-top{display:grid;grid-template-columns:1fr 1fr;gap:32px;border-bottom:1px solid var(--line-l);padding-bottom:48px;margin-bottom:48px;align-items:end}
+  @media(max-width:900px){.credits-top{grid-template-columns:1fr}}
+  .credits-title{font-weight:700;font-size:clamp(48px,8vw,118px);line-height:.9;letter-spacing:-.04em}
+  .credits-facts{display:flex;gap:32px;flex-wrap:wrap;justify-content:flex-end}
+  @media(max-width:900px){.credits-facts{justify-content:flex-start}}
+  .cred-fact{font-family:"JetBrains Mono",monospace;font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--ink-3);text-align:center}
+  .cred-fact strong{display:block;font-family:"Space Grotesk",sans-serif;font-size:clamp(28px,3.5vw,52px);font-weight:700;letter-spacing:-.04em;line-height:.9;color:var(--ink);margin-bottom:6px}
+  .cred-fact strong .mark{color:var(--lime-deep)}
+  .credits-body{display:grid;grid-template-columns:1fr 1fr;gap:0}
+  @media(max-width:900px){.credits-body{grid-template-columns:1fr}}
+  .cred-row{display:grid;grid-template-columns:140px 1fr;gap:16px;padding:18px 0;border-bottom:1px solid var(--line-l);align-items:baseline}
+  .cred-row:first-child{border-top:1px solid var(--line-l)}
+  .cred-row dt{font-family:"JetBrains Mono",monospace;font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--ink-3)}
+  .cred-row dd{font-weight:600;font-size:clamp(16px,1.5vw,20px);letter-spacing:-.015em;line-height:1.25;color:var(--ink)}
+  .cred-row dd .mark{color:var(--lime-deep);font-weight:700}
+  /* Project team — graphite text only, no gold accents */
+  .credits .cred-row dd .mark,
+  .credits .cred-fact strong .mark{color:var(--graphite)}
+  .cred-row dd .sub{display:block;font-family:"JetBrains Mono",monospace;font-size:10px;color:var(--ink-3);font-weight:400;margin-top:4px;text-transform:uppercase;letter-spacing:.08em}
+  .credits-col-right{padding-left:36px}
+  @media(max-width:900px){.credits-col-right{padding-left:0}}
+
+  /* PROJ NAV */
+  .proj-nav{border-top:1px solid var(--line-d);background:var(--graphite)}
+  .proj-nav-inner{display:grid;grid-template-columns:1fr auto 1fr;max-width:1320px;margin:0 auto}
+  @media(max-width:760px){.proj-nav-inner{grid-template-columns:1fr}}
+  .pn-card{position:relative;overflow:hidden;padding:48px 36px;display:flex;flex-direction:column;justify-content:flex-end;gap:8px;transition:background .3s;border-right:1px solid var(--line-d)}
+  .pn-card:last-child{border-right:0;border-left:1px solid var(--line-d)}
+  .pn-card:hover{background:var(--graphite-2)}
+  .pn-card .bg{position:absolute;inset:0;object-fit:cover;width:100%;height:100%;opacity:.14;transition:opacity .4s;filter:saturate(.4)}
+  .pn-card:hover .bg{opacity:.28}
+  .pn-dir{position:relative;z-index:1;font-family:"JetBrains Mono",monospace;font-size:10px;text-transform:uppercase;letter-spacing:.14em;color:var(--bone-3);margin-bottom:8px}
+  .pn-name{position:relative;z-index:1;font-weight:700;font-size:clamp(28px,3.8vw,56px);line-height:1;letter-spacing:-.03em;color:var(--bone)}
+  .pn-sub{position:relative;z-index:1;font-family:"JetBrains Mono",monospace;font-size:10px;color:var(--bone-3);margin-top:6px;text-transform:uppercase;letter-spacing:.08em}
+  .pn-contact{display:flex;align-items:center;justify-content:center;padding:48px 36px;flex-direction:column;gap:14px}
+  .pn-contact-label{font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:var(--bone-3)}
+  .pn-btn{display:inline-flex;align-items:center;gap:10px;background:var(--lime);color:var(--ink);padding:14px 24px;border-radius:999px;font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.1em;font-weight:600;transition:transform .25s}
+  .pn-contact:hover .pn-btn{transform:translateY(-3px)}
+
+  footer{padding:28px 24px;border-top:1px solid var(--line-d);font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--bone-3);background:var(--graphite)}
+  .foot-row{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;align-items:center;max-width:1320px;margin:0 auto}
+  .foot-row b{color:var(--bone);font-weight:500}
+  .foot-row a:hover{color:var(--lime)}
+
+  .reveal{opacity:0;transform:translateY(20px);transition:opacity .8s ease,transform .8s ease}
+  .reveal.in{opacity:1;transform:none}
+</style>
+<style id="en-switch-css">
+.nav-end{display:inline-flex;align-items:center;gap:10px}
+.lang-toggle{display:inline-flex;gap:2px;padding:3px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.16);border-radius:999px;flex-shrink:0}
+.lang-toggle .lang-seg{padding:6px 9px;border-radius:999px;font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:rgba(241,236,221,.6);line-height:1;text-decoration:none;transition:color .2s,background .2s}
+.lang-toggle .lang-seg.on{background:#f1ecdd;color:#16161a;font-weight:600}
+.lang-toggle a.lang-seg:hover{color:#fff}
+
+/* NAV FIX 31.07.2026 — «Написать» всегда у правого края шапки, RU/EN только на десктопе */
+.nav-bar>.nav-end{margin-left:auto}
+.nav-bar>.lang-toggle{margin-left:auto}
+@media(max-width:780px){
+  .nav-bar .lang-toggle{display:none}
+  .nav-bar>.nav-cta{margin-left:auto}
+}
+
+/* FOOT LANG 31.07.2026 — переключатель языка в футере, только на мобильном (в шапке он скрыт) */
+.foot-lang{display:none}
+@media(max-width:780px){
+  .foot-lang{display:inline-flex;align-items:center;padding:6px 12px;border:1px solid currentColor;border-radius:999px;font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;color:inherit;opacity:.75}
+}
+</style>
+<link rel="alternate" hreflang="ru" href="https://samarakovskaya.art/projects/pole.html">
+<link rel="alternate" hreflang="en" href="https://samarakovskaya.art/en/projects/pole.html">
+<link rel="alternate" hreflang="x-default" href="https://samarakovskaya.art/projects/pole.html">
+</head>
+<body>
+
+<div class="lb" id="lb">
+  <button class="lb-close" id="lbClose">[ESC] close</button>
+  <button class="lb-nav lb-prev" id="lbPrev">←</button>
+  <img loading="lazy" decoding="async" id="lbImg" src="" alt="">
+  <button class="lb-nav lb-next" id="lbNext">→</button>
+  <div class="lb-counter" id="lbCounter"></div>
+</div>
+
+<!-- TOP NAV -->
+<header class="top">
+  <div class="nav-bar">
+    <a class="back" href="../index.html#works">All projects</a>
+    <nav class="mag-nav" id="magNav">
+      <a class="mag-pill" href="#s-concept" data-section="s-concept">Concept</a>
+      <a class="mag-pill" href="#s-show" data-section="s-show">Performance</a>
+      <a class="mag-pill" href="#s-video" data-section="s-video">Video design</a>
+      <a class="mag-pill" href="#s-credits" data-section="s-credits">Team</a>
+    </nav>
+    <div class="nav-end"><div class="lang-toggle" role="group" aria-label="Language"><a class="lang-seg" href="../../projects/pole.html">RU</a><span class="lang-seg on">EN</span></div><a class="nav-cta" href="https://t.me/samarakovskaya_tanya" target="_blank" rel="noopener">Contact</a></div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-bg" aria-hidden="true">
+    <div class="ph" data-ph="pole · full stage">
+      <img src="../../assets/pole/photo/webp/pole-01-stage.webp" alt="" loading="eager" decoding="async">
+    </div>
+  </div>
+
+  <div class="wrap" style="position:relative;z-index:2;display:flex;flex-direction:column;flex:1;gap:36px;justify-content:space-between">
+    <div class="hero-meta-row" style="justify-content:center">
+      <div class="pills" style="justify-content:center">
+        <span class="pill">Aitmatov</span>
+        <span class="pill">Performance</span>
+        <span class="pill">Projection mapping</span>
+      </div>
+    </div>
+
+    <div class="hero-title">
+      <h1 class="hero-h1">
+        <span class="syl s1">PO</span><span class="syl s2">LE</span>
+      </h1>
+      <p class="hero-sub">
+        A graphic suite after <span class="word-oval">Aitmatov</span> — fate, war, and love.
+      </p>
+    </div>
+
+    <div class="hero-foot">
+      <div class="hero-fact"><b>Format</b><span>Graphic suite</span></div>
+      <div class="hero-fact"><b>Venue</b><span>Bishkek · Kyrgyzstan</span></div>
+      <div class="hero-fact"><b>Theatre</b><span>named after Ch. Aitmatov</span></div>
+      <div class="hero-fact"><b>Role</b><span>Video artist</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marq" aria-hidden="true">
+  <div class="marq-track">
+    <span>POLE <span class="dot"></span> Aitmatov <span class="dot"></span> Bishkek <span class="dot"></span> Projection <span class="dot"></span> Movement <span class="dot"></span> Graphic suite <span class="dot"></span> Kyrgyz mountains <span class="dot"></span> Wordless performance <span class="dot"></span></span>
+    <span>POLE <span class="dot"></span> Aitmatov <span class="dot"></span> Bishkek <span class="dot"></span> Projection <span class="dot"></span> Movement <span class="dot"></span> Graphic suite <span class="dot"></span> Kyrgyz mountains <span class="dot"></span> Wordless performance <span class="dot"></span></span>
+  </div>
+</div>
+
+<!-- CONCEPT (cream) -->
+<section class="sec on-cream" id="s-concept">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-label">Concept</span>
+      <h2 class="sec-h"><span class="word-pill">Idea</span> of the production.</h2>
+      <span class="sec-side"><b>Graphic suite</b><br>after Aitmatov</span>
+    </div>
+
+    <div class="concept reveal">
+      <div class="concept-img">
+        <div class="ph" data-ph="pole · field · mountains">
+          <img loading="lazy" decoding="async" src="../../assets/pole/photo/webp/pole-02-field.webp" alt="">
+        </div>
+      </div>
+      <div class="concept-body">
+        <p class="concept-lead">
+          Aitmatov returns to Bishkek, where his words are <span class="word-block">woven into the cultural code.</span>
+        </p>
+        <div class="concept-text">
+          <p>“POLE” deliberately strips away spoken text. In a space saturated with memory, meaning emerges through rhythm, movement, and silence. This is not a literary adaptation — it is a <b>physical experience</b>, where the stage becomes a living battlefield between love, war, and fate.</p>
+          <p>The team chose visual honesty: when complex sets are not possible, movement, light, rhythm, and video become the main tools. <b>Projection becomes a full-fledged character</b> — it carries the story and intensifies the emotion. The video was filmed in the Kyrgyz mountains to bring the stark beauty of Aitmatov’s landscapes onto the stage.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PULL QUOTE (graphite) -->
+<section class="pullq">
+  <div class="pullq-bg" aria-hidden="true">
+    <div class="ph" data-ph="solo blue">
+      <img loading="lazy" decoding="async" src="../../assets/pole/photo/webp/pole-06-solo-blue.webp" alt="">
+    </div>
+  </div>
+  <div class="pullq-inner reveal">
+    <p class="pullq-text">
+      A limited set of stage tools becomes an <span class="word-block">expressive artistic language</span>.
+    </p>
+  </div>
+</section>
+
+<!-- SHOW (graphite) -->
+<section class="sec on-graphite" id="s-show">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-label">Performance</span>
+      <h2 class="sec-h">The <span class="word-pill">field</span> of the performance.</h2>
+      <span class="sec-side"><b>Graphic suite</b><br>Bishkek</span>
+    </div>
+
+    <article class="chap reveal">
+      <div class="chap-img">
+        <div class="ph" data-ph="projection · face"><img loading="lazy" decoding="async" src="../../assets/pole/photo/webp/pole-04-projection.webp" alt=""></div>
+      </div>
+      <div class="chap-body">
+        <h3 class="chap-title">A space permeated by <span class="mark">memory</span></h3>
+        <p>“POLE” brings Aitmatov back to the place where his words exist not simply as literature, but as a cultural reflex. <b>The performance gives up spoken text</b>: meaning is born in rhythm, movement, and in what remains after a pause. Projection carries faces, landscapes, archives — everything that cannot be spoken aloud.</p>
+      </div>
+    </article>
+
+    <article class="chap full reveal">
+      <div class="chap-img">
+        <div class="ph" data-ph="full stage"><img loading="lazy" decoding="async" src="../../assets/pole/photo/webp/pole-01-stage-zoom.webp" alt=""></div>
+      </div>
+      <div class="chap-body">
+        <h3 class="chap-title"><span class="mark">The body</span> as text, movement as speech</h3>
+        <p>Choreography builds a narrative of war and love <b>without a single spoken line</b> — only through physical expression, bodies in relation, and movement.</p>
+      </div>
+    </article>
+
+    <article class="chap flip reveal">
+      <div class="chap-img">
+        <div class="ph" data-ph="solo · blue"><img loading="lazy" decoding="async" src="../../assets/pole/photo/webp/pole-06-solo-blue.webp" alt=""></div>
+      </div>
+      <div class="chap-body">
+        <h3 class="chap-title">Projection holds the <span class="mark">stage</span></h3>
+        <p>When complex scenery is not an option, projection takes on everything: it creates the space, carries the narrative, and sets the emotional temperature. <b>The video was filmed in the Kyrgyz mountains</b> to bring the genuine spirit and stark beauty of Aitmatov’s places onto the stage.</p>
+      </div>
+    </article>
+
+    <article class="chap full reveal">
+      <div class="chap-img">
+        <div class="ph" data-ph="soloist · stars"><img loading="lazy" decoding="async" src="../../assets/pole/photo/webp/pole-08-soloist-wide.webp" alt=""></div>
+      </div>
+      <div class="chap-body">
+        <h3 class="chap-title">Projection extends the <span class="mark">stage</span></h3>
+        <p>Projection mapping creates <b>an additional layer of embodied storytelling</b> and emotional perception.</p>
+      </div>
+    </article>
+
+    <article class="chap reveal">
+      <div class="chap-img">
+        <div class="ph" data-ph="archive image"><img loading="lazy" decoding="async" src="../../assets/pole/photo/webp/pole-14.webp" alt=""></div>
+      </div>
+      <div class="chap-body">
+        <h3 class="chap-title">Fate, <span class="mark">war</span>, and love</h3>
+        <p>The three forces that define Aitmatov’s characters unfold through three registers: choreography, live light, and projection. <b>The circle is the production’s central geometry</b>: fate closing in, time returning, a ritual field where there is no escape — only choice.</p>
+      </div>
+    </article>
+
+    <article class="chap full reveal">
+      <div class="chap-img">
+        <div class="ph" data-ph="rehearsal"><img loading="lazy" decoding="async" src="../../assets/pole/photo/webp/pole-12-rehearsal.webp" alt=""></div>
+      </div>
+      <div class="chap-body">
+        <h3 class="chap-title">Rehearsal as a <span class="mark">search</span> for language</h3>
+        <p>A physical theatre piece is born in the rehearsal room: movement, light, and video are brought together live, frame by frame. <b>Every transition was tested on stage</b> and rewritten again until body, music, and projection began to work as one whole.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- VIDEODIZAIN / MY ROLE (cream) -->
+<section class="sec on-cream" id="s-video">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-label">Video design</span>
+      <h2 class="sec-h">Video<span class="word-pill">design</span>.</h2>
+      <span class="sec-side"><b>Video design</b><br>projection · movement</span>
+    </div>
+
+    <div class="role-grid reveal">
+      <div class="role-card">
+        <div class="role-photo">
+          <div class="ph" data-ph="pole · filming · mountains">
+            <img loading="lazy" decoding="async" src="../../assets/pole/photo/webp/pole-03-process.webp" alt="">
+          </div>
+        </div>
+        <div class="role-text">
+          <h3>An expedition to <span class="mark">Aitmatov’s landscapes</span></h3>
+          <p>The projection footage was filmed on location in the Kyrgyz mountains. The task was to bring onto the stage <b>the real sense of place</b> that permeates Aitmatov’s prose. Steppe, mountains, sky, faces — filmed in real locations, they do not imitate; they document. Projection becomes not a backdrop, but a witness.</p>
+        </div>
+      </div>
+
+      <div class="role-card">
+        <div class="role-photo">
+          <div class="ph" data-ph="pole · ensemble · teal">
+            <img loading="lazy" decoding="async" src="../../assets/pole/photo/webp/pole-05-ensemble-teal.webp" alt="">
+          </div>
+        </div>
+        <div class="role-text">
+          <h3>A language of <span class="mark">images</span></h3>
+          <p>Each section of the suite was given its own visual temperature: <b>cold blue for anxiety and separation, gold for force and fate, white for emptiness and openness</b>. Projection does not illustrate — it defines the emotional register in which the body exists on stage. The visual language was developed in close dialogue with the choreographer.</p>
+        </div>
+      </div>
+
+      <div class="role-card">
+        <div class="role-photo">
+          <div class="ph" data-ph="pole · frame 13">
+            <img loading="lazy" decoding="async" src="../../assets/pole/photo/webp/pole-13.webp" alt="">
+          </div>
+        </div>
+        <div class="role-text">
+          <h3>Synchronising with the <span class="mark">live body</span></h3>
+          <p>The central task of the video design was for the <b>video to breathe with the choreography</b>. Projection is not a background: it responds to movement, to a pause, to the moment of falling. Every transition was edited around a specific movement by a specific performer. Rehearsals became a constant iteration between the stage and the editing desk.</p>
+        </div>
+      </div>
+
+      <div class="role-card">
+        <div class="role-photo">
+          <div class="ph" data-ph="pole · silhouettes">
+            <img loading="lazy" decoding="async" src="../../assets/pole/photo/webp/pole-09-silhouettes.webp" alt="">
+          </div>
+        </div>
+        <div class="role-text">
+          <h3>Minimalism as a <span class="mark">method</span></h3>
+          <p>Working with limited resources teaches precision. <b>Every frame has to carry meaning</b> — there is no room for decoration. A silhouette on a white screen can say more than a complex animation. This performance is about stripping away the excess and leaving only what cannot help but be felt.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VIDEO -->
+<section class="sec on-graphite" id="zone-video" style="padding-top:24px;padding-bottom:64px">
+  <div class="wrap">
+    <div class="reveal" style="position:relative;width:100%;aspect-ratio:16/9;background:#000;cursor:pointer;overflow:hidden;border-radius:12px"
+      onclick="(function(el){var i=document.createElement('iframe');i.src='https://www.youtube.com/embed/veRpa1JUwHM?autoplay=1&rel=0';i.style.cssText='position:absolute;inset:0;width:100%;height:100%;border:0';i.allow='accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture';i.allowFullscreen=true;el.innerHTML='';el.appendChild(i);el.style.cursor='default';el.onclick=null})(this)">
+      <img loading="lazy" decoding="async" src="https://img.youtube.com/vi/veRpa1JUwHM/hqdefault.jpg" onerror="this.onerror=null;this.src='../../assets/pole/preview.webp'" style="width:100%;height:100%;object-fit:cover;display:block" alt="POLE video">
+      <div style="position:absolute;inset:0;display:grid;place-items:center;background:rgba(0,0,0,.28)">
+        <div style="width:80px;height:80px;border-radius:50%;background:#E9BB57;display:grid;place-items:center;color:#16161A"><svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M5 3.5v17l15-8.5z"/></svg></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CREDITS (cream) -->
+<section class="credits" id="s-credits">
+  <div class="wrap">
+    <div class="credits-top reveal">
+      <div>
+        <h2 class="credits-title">Team <span class="word-pill">project</span></h2>
+      </div>
+      <div class="credits-facts">
+        <div class="cred-fact"><strong>Grand Prix</strong>Best Performance<br>Aitmatov and Theatre Festival · 2018</div>
+      </div>
+    </div>
+
+    <div class="credits-body reveal">
+      <dl>
+        <div class="cred-row">
+          <dt>Director</dt>
+          <dd>Evgenia <span class="mark">Aks</span></dd>
+        </div>
+        <div class="cred-row">
+          <dt>Choreographer</dt>
+          <dd>Maria <span class="mark">Popova</span></dd>
+        </div>
+        <div class="cred-row">
+          <dt>Set designer</dt>
+          <dd>Nikolay Zhestovsky</dd>
+        </div>
+        <div class="cred-row">
+          <dt>Costume designer</dt>
+          <dd>Alyona Irgasheva</dd>
+        </div>
+        <div class="cred-row">
+          <dt>Video artist</dt>
+          <dd>Tatiana <span class="mark">Samarakovskaya</span></dd>
+        </div>
+      </dl>
+      <dl class="credits-col-right">
+        <div class="cred-row">
+          <dt>Composers</dt>
+          <dd>Evgeny Ziborov, Boris Rakhaev,<br>Arseny Tishin</dd>
+        </div>
+        <div class="cred-row">
+          <dt>Theatre</dt>
+          <dd>Russian Drama Theatre<br>named after Ch. <span class="mark">Aitmatov</span><span class="sub">Bishkek · Kyrgyzstan</span></dd>
+        </div>
+        <div class="cred-row">
+          <dt>Source</dt>
+          <dd>Ch. Aitmatov<span class="sub">novella “Mother’s Field”</span></dd>
+        </div>
+        <div class="cred-row">
+          <dt>Format</dt>
+          <dd>Graphic <span class="mark">suite</span><span class="sub">projection · movement · light</span></dd>
+        </div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<!-- PULL QUOTE 2 — before navigation -->
+<section class="pullq">
+  <div class="pullq-bg" aria-hidden="true">
+    <div class="ph" data-ph="silhouettes">
+      <img loading="lazy" decoding="async" src="../../assets/pole/photo/webp/pole-09-silhouettes.webp" alt="">
+    </div>
+  </div>
+  <div class="pullq-inner reveal">
+    <p class="pullq-text">
+      Minimal <span class="word-block">means</span>.<br>Maximum meaning.
+    </p>
+  </div>
+</section>
+
+<!-- PROJ NAV -->
+<nav class="proj-nav" aria-label="Other projects">
+  <div class="proj-nav-inner">
+    <a class="pn-card" href="capybarabooom.html">
+      <img loading="lazy" decoding="async" class="bg" src="../../assets/preview_projects/capybaraboom.webp" alt="" aria-hidden="true">
+      <span class="pn-dir"><span class="circle-btn sm bone" aria-hidden="true" style="margin-bottom:14px">←</span><br>Previous</span>
+      <span class="pn-name">Capybarabooom</span>
+      <span class="pn-sub">Exhibitions · IP system · 2024—26</span>
+    </a>
+    <a class="pn-contact" href="https://t.me/samarakovskaya_tanya" target="_blank" rel="noopener">
+      <span class="pn-contact-label">Have a project?</span>
+      <span class="pn-btn">Contact ↗</span>
+    </a>
+    <a class="pn-card" href="kandid.html" style="text-align:right">
+      <img loading="lazy" decoding="async" class="bg" src="../../assets/preview_projects/kandid.webp" alt="" aria-hidden="true">
+      <span class="pn-dir"><span class="circle-btn sm bone" aria-hidden="true" style="margin-bottom:14px">→</span><br>Next</span>
+      <span class="pn-name">Candide</span>
+      <span class="pn-sub">Theater · Video design · 2016</span>
+    </a>
+  </div>
+</nav>
+
+<footer>
+  <div class="foot-row">
+    <span>© 2026 · <b>Tanya Samarakovskaya</b></span>
+    <span><a href="#top">↑ Back to top</a></span>
+    <a class="foot-lang" href="../../projects/pole.html" hreflang="ru">RU</a>
+  </div>
+</footer>
+
+<script>
+  const io = new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }}), {threshold:.08});
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  /* MAGNETIC PILLS */
+  document.querySelectorAll('.mag-pill').forEach(pill => {
+    pill.addEventListener('mousemove', e => {
+      const r = pill.getBoundingClientRect();
+      const dx = e.clientX - (r.left + r.width / 2);
+      const dy = e.clientY - (r.top + r.height / 2);
+      pill.style.transform = `translate(${dx * 0.38}px, ${dy * 0.42}px) scale(1.06)`;
+    });
+    pill.addEventListener('mouseleave', () => {
+      pill.style.transform = '';
+    });
+    pill.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.getElementById(pill.dataset.section);
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+
+  /* ACTIVE PILL on scroll */
+  const sectionIds = ['s-concept','s-show','s-video','s-credits'];
+  const pillMap = {};
+  document.querySelectorAll('.mag-pill').forEach(p => { pillMap[p.dataset.section] = p; });
+  const secObs = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        Object.values(pillMap).forEach(p => p.classList.remove('active'));
+        const active = pillMap[entry.target.id];
+        if (active) active.classList.add('active');
+      }
+    });
+  }, { threshold: 0.25 });
+  sectionIds.forEach(id => { const el = document.getElementById(id); if (el) secObs.observe(el); });
+
+  const lb = document.getElementById('lb');
+  const lbImg = document.getElementById('lbImg');
+  const lbCounter = document.getElementById('lbCounter');
+  const galImgs = Array.from(document.querySelectorAll('.gi img'));
+  let currentIdx = 0;
+
+  function showImg(idx, dir = 0) {
+    const img = galImgs[idx];
+    if (!img || !img.src) return;
+    if (dir !== 0) {
+      lbImg.classList.add('fade');
+      setTimeout(() => {
+        lbImg.src = img.src;
+        lbImg.alt = img.alt;
+        lbImg.classList.remove('fade');
+      }, 160);
+    } else {
+      lbImg.src = img.src;
+      lbImg.alt = img.alt;
+    }
+    currentIdx = idx;
+    lbCounter.textContent = (idx + 1) + ' / ' + galImgs.length;
+  }
+
+  function openLb(idx) {
+    showImg(idx, 0);
+    lb.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLb() {
+    lb.classList.remove('open');
+    document.body.style.overflow = '';
+    lbImg.src = '';
+  }
+
+  function prev() { showImg((currentIdx - 1 + galImgs.length) % galImgs.length, -1); }
+  function next() { showImg((currentIdx + 1) % galImgs.length, 1); }
+
+  galImgs.forEach((img, i) => {
+    img.style.cursor = 'zoom-in';
+    img.addEventListener('click', () => openLb(i));
+  });
+
+  lb.addEventListener('click', e => { if (e.target === lb) closeLb(); });
+  document.getElementById('lbClose').addEventListener('click', closeLb);
+  document.getElementById('lbPrev').addEventListener('click', e => { e.stopPropagation(); prev(); });
+  document.getElementById('lbNext').addEventListener('click', e => { e.stopPropagation(); next(); });
+
+  document.addEventListener('keydown', e => {
+    if (!lb.classList.contains('open')) return;
+    if (e.key === 'Escape') closeLb();
+    if (e.key === 'ArrowLeft') prev();
+    if (e.key === 'ArrowRight') next();
+  });
+
+  // swipe support
+  let touchStartX = 0;
+  lb.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, {passive:true});
+  lb.addEventListener('touchend', e => {
+    const dx = e.changedTouches[0].clientX - touchStartX;
+    if (Math.abs(dx) > 50) dx < 0 ? next() : prev();
+  });
+</script>
+</body>
+</html>

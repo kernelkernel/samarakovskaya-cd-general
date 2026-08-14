@@ -1,0 +1,977 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CGI for World Cup 2026 · Tanya Samarakovskaya</title>
+<meta name="description" content="CGI for World Cup 2026 — two concepts for a viral CGI campaign around the World Cup final: the adidas Golden Boot and the Powerade Empower State Building.">
+<link rel="icon" type="image/webp" href="../../assets/icon.webp">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Tanya Samarakovskaya">
+<meta property="og:url" content="https://samarakovskaya.art/en/projects/cgi-worldcup.html">
+<meta property="og:title" content="CGI for World Cup 2026 · Tanya Samarakovskaya">
+<meta property="og:description" content="Two concepts for a viral CGI campaign around the 2026 World Cup final: the adidas Golden Boot and the Powerade Empower State Building.">
+<meta property="og:image" content="https://samarakovskaya.art/assets/preview_projects/cgi-worldcup.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="CGI for World Cup 2026 · Tanya Samarakovskaya">
+<meta name="twitter:description" content="Two concepts for a viral CGI campaign around the 2026 World Cup final: the adidas Golden Boot and the Powerade Empower State Building.">
+<meta name="twitter:image" content="https://samarakovskaya.art/assets/preview_projects/cgi-worldcup.webp">
+<link rel="canonical" href="https://samarakovskaya.art/en/projects/cgi-worldcup.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --graphite:#16161A;--graphite-2:#1E1E22;--graphite-3:#26262C;
+    --cream:#F1ECDD;--cream-2:#E8E2CF;--cream-3:#DBD3B9;
+    --ink:#16161A;--ink-2:#3A3A40;--ink-3:#7A766B;
+    --bone:#F1ECDD;--bone-2:#A8A39A;--bone-3:#6E6960;
+    --lime:#C8FF2E;--lime-deep:#A8DD15;
+    --line-d:rgba(241,236,221,.10);--line-d2:rgba(241,236,221,.18);
+    --line-l:rgba(22,22,26,.12);--line-l2:rgba(22,22,26,.22);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  html,body{background:var(--graphite);color:var(--bone);font-family:"Space Grotesk","Helvetica Neue",sans-serif;-webkit-font-smoothing:antialiased}
+  body{overflow-x:hidden;min-height:100svh}
+  ::selection{background:var(--lime);color:var(--ink)}
+  a{color:inherit;text-decoration:none}
+  button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+  img{display:block;max-width:100%}
+  body::before{content:"";position:fixed;inset:-50%;pointer-events:none;z-index:1000;opacity:.04;mix-blend-mode:screen;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
+
+  .ph{position:relative;background:var(--graphite-2);overflow:hidden}
+  .ph::before{content:attr(data-ph);position:absolute;inset:0;display:grid;place-items:center;font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:var(--bone-3);padding:18px;text-align:center;z-index:0;background-image:repeating-linear-gradient(135deg,rgba(255,255,255,.04) 0 8px,transparent 8px 16px)}
+  .ph img{position:relative;z-index:1;width:100%;height:100%;object-fit:cover;display:block}
+
+  /* TOP NAV */
+  .top{position:fixed;top:14px;left:50%;transform:translateX(-50%);z-index:60;width:calc(100% - 24px);max-width:1320px}
+  .nav-bar{display:flex;align-items:center;justify-content:space-between;gap:14px;background:rgba(22,22,26,.7);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid var(--line-d);border-radius:999px;padding:7px 8px 7px 18px}
+  .back{display:inline-flex;align-items:center;gap:10px;font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--bone)}
+  .back::before{content:"←";color:var(--lime);font-size:14px}
+  .mag-nav{display:flex;align-items:center;justify-content:center;gap:2px;overflow:hidden}
+  .mag-pill{display:inline-flex;align-items:center;padding:7px 13px;border-radius:999px;font-family:"JetBrains Mono",monospace;font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--bone-3);transition:background .2s,color .2s;cursor:pointer;white-space:nowrap;will-change:transform;text-decoration:none}
+  .mag-pill:hover{background:rgba(241,236,221,.08);color:var(--bone)}
+  .mag-pill.active{color:var(--lime)}
+  @media(max-width:900px){.mag-nav{display:none}}
+  .nav-cta{display:inline-flex;align-items:center;gap:7px;background:var(--lime);color:var(--ink);padding:9px 16px;border-radius:999px;font-family:"JetBrains Mono",monospace;font-size:10px;text-transform:uppercase;letter-spacing:.1em;font-weight:600}
+  .nav-cta::after{content:"↗"}
+
+  .wrap{max-width:1320px;margin:0 auto;padding:0 24px;width:100%}
+
+  /* PILLS */
+  .pill{display:inline-flex;align-items:center;gap:8px;padding:8px 14px 8px 12px;background:var(--graphite-2);border:1px solid var(--line-d);border-radius:999px;font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:lowercase;letter-spacing:.04em;color:var(--bone)}
+  .pill::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--lime);box-shadow:0 0 12px var(--lime)}
+  .pill.solid{background:var(--lime);color:var(--ink);border-color:transparent;font-weight:600}
+  .pill.solid::before{background:var(--ink);box-shadow:none}
+  .pill.outline{background:transparent}
+
+  /* TEXT TREATMENTS */
+  .word-pill{position:relative;display:inline-block;color:var(--graphite);padding:0 .14em;z-index:1}
+  .word-pill::before{content:"";position:absolute;inset:.08em -.04em .14em -.04em;background:var(--lime);border-radius:999px;z-index:-1}
+  .word-oval{position:relative;display:inline-block;padding:0 .14em;z-index:1;white-space:nowrap}
+  .word-oval::before{content:"";position:absolute;inset:-.06em -.04em -.04em -.04em;border-radius:999px;border:3px solid var(--lime);transform:rotate(-2.5deg) skewX(-2deg);z-index:-1}
+  .word-block{background:var(--lime);color:var(--ink);padding:0 .14em}
+  .word-ul{background-image:linear-gradient(var(--lime),var(--lime));background-repeat:no-repeat;background-size:100% 9px;background-position:0 95%;padding-bottom:.04em}
+
+  /* HERO */
+  .hero{position:relative;min-height:100svh;overflow:hidden;padding:120px 0 40px;display:flex;flex-direction:column;justify-content:space-between;gap:36px}
+  .hero-bg{position:absolute;inset:0;z-index:0;opacity:.5}
+  .hero-bg .ph{position:absolute;inset:0}
+  .hero-bg img{filter:contrast(1.08) saturate(1.1);object-position:20% center}
+  .hero-bg::after{content:"";position:absolute;inset:0;background:radial-gradient(110% 70% at 50% 30%,transparent 0%,var(--graphite) 80%),linear-gradient(180deg,var(--graphite) 0%,transparent 22%,transparent 55%,var(--graphite) 100%)}
+
+  .hero-meta-row{position:relative;z-index:2;display:flex;justify-content:center;flex-wrap:wrap;gap:24px}
+  .hero-meta-row .pills{display:flex;flex-wrap:wrap;gap:8px}
+  .hero-meta-row .pill:nth-child(1){transform:rotate(-1deg)}
+  .hero-meta-row .pill:nth-child(2){transform:rotate(.8deg);margin-top:4px}
+
+  .hero-title{position:relative;z-index:2;display:flex;flex-direction:column;gap:14px;align-items:center;text-align:center}
+  .hero-h1{font-weight:700;line-height:.82;letter-spacing:-.06em;text-transform:uppercase;color:var(--bone);display:flex;flex-direction:column;align-items:center;gap:.04em}
+  .hero-h1 .hl{display:block}
+  .hero-h1 .hl-1{font-size:clamp(74px,16.5vw,250px)}
+  .hero-h1 .hl-2{font-size:clamp(40px,8.6vw,150px);letter-spacing:-.04em}
+  .hero-h1 .syl{display:inline-block;transition:font-family .08s,font-weight .08s,color .08s,letter-spacing .08s,background .15s,padding .15s}
+  .hero-h1 .syl.s1:hover{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;color:var(--lime);letter-spacing:-.08em}
+  .hero-h1 .syl.s2:hover{font-family:"JetBrains Mono",monospace;font-weight:700;background:var(--lime);color:var(--ink);padding:0 .04em}
+  .hero-h1 .syl.s3:hover{font-family:"JetBrains Mono",monospace;font-weight:700;background:var(--lime);color:var(--ink);padding:0 .04em}
+  .hero-sub{font-weight:500;font-size:clamp(20px,2.2vw,34px);line-height:1.1;letter-spacing:-.02em;color:var(--bone-2);max-width:36ch;text-wrap:balance;margin:8px auto 0}
+  .hero-sub b{color:var(--bone);font-weight:700}
+
+  .hero-foot{position:relative;z-index:2;display:grid;grid-template-columns:repeat(4,1fr);gap:18px;padding-top:20px;border-top:1px solid var(--line-d)}
+  @media(max-width:780px){.hero-foot{grid-template-columns:1fr 1fr;gap:16px}}
+  .hero-fact{display:flex;flex-direction:column;gap:6px;align-items:center;text-align:center}
+  .hero-fact b{font-family:"JetBrains Mono",monospace;font-size:10px;color:var(--lime);text-transform:uppercase;letter-spacing:.12em;font-weight:600}
+  .hero-fact span{font-weight:600;font-size:clamp(15px,1.5vw,18px);color:var(--bone);letter-spacing:-.005em;line-height:1.2}
+
+  /* MARQUEE */
+  .marq{background:var(--lime);color:var(--ink);overflow:hidden;padding:16px 0}
+  .marq-track{display:flex;gap:32px;width:max-content;animation:scroll 48s linear infinite;font-weight:700;font-size:clamp(20px,3vw,44px);letter-spacing:-.03em;line-height:1;white-space:nowrap;text-transform:uppercase}
+  .marq-track .dot{display:inline-block;width:.32em;height:.32em;border-radius:50%;background:var(--ink);vertical-align:middle;margin:0 .3em}
+  @keyframes scroll{to{transform:translateX(-50%)}}
+
+  /* SEC HEAD */
+  .sec{padding:90px 0 100px}
+  .sec.on-cream{background:var(--cream);color:var(--ink)}
+  .sec.on-graphite{background:var(--graphite);color:var(--bone)}
+  .sec.on-dark{background:var(--graphite-2);color:var(--bone)}
+  .sec-head{display:grid;grid-template-columns:auto 1fr auto;gap:32px;align-items:end;padding-bottom:28px;border-bottom:1px solid var(--line-d);margin-bottom:56px}
+  .sec.on-cream .sec-head{border-color:var(--line-l)}
+  @media(max-width:780px){.sec-head{grid-template-columns:1fr;gap:14px}}
+  .sec-label{font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:var(--bone-3);display:inline-flex;align-items:center;gap:10px}
+  .sec-label::before{content:"✦";color:var(--lime);font-size:12px}
+  .sec.on-cream .sec-label{color:var(--ink-3)}
+  .sec-side{font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--bone-2);text-align:right;line-height:1.7}
+  .sec.on-cream .sec-side{color:var(--ink-2)}
+  .sec-side b{font-weight:700;color:var(--bone)}
+  .sec.on-cream .sec-side b{color:var(--ink)}
+  .sec-h{font-weight:700;font-size:clamp(48px,8.5vw,128px);line-height:.9;letter-spacing:-.045em;text-wrap:balance}
+
+  /* CONCEPT (cream) */
+  .concept{display:grid;grid-template-columns:clamp(240px,28vw,400px) 1fr;gap:0;align-items:start}
+  @media(max-width:900px){.concept{grid-template-columns:1fr}}
+  .concept-img{position:relative;aspect-ratio:9/16}
+  @media(max-width:900px){.concept-img{aspect-ratio:9/16;max-width:380px;margin:0 auto;width:100%}}
+  .concept-img .ph{position:absolute;inset:0}
+  .concept-body{padding:48px;display:flex;flex-direction:column;gap:24px}
+  @media(max-width:780px){.concept-body{padding:32px 24px}}
+  .concept-lead{font-weight:500;font-size:clamp(26px,3.2vw,46px);line-height:1.08;letter-spacing:-.025em;text-wrap:balance}
+  .concept-text{font-size:15px;line-height:1.65;color:var(--ink-2);display:flex;flex-direction:column;gap:14px}
+  .concept-text b{color:var(--ink);font-weight:700}
+  .concept-meta{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;padding-top:20px;margin-top:auto;font-family:"JetBrains Mono",monospace;font-size:10px;text-transform:uppercase;letter-spacing:.08em}
+  .concept-meta dt{color:var(--ink-3);margin-bottom:4px}
+  .concept-meta dd{color:var(--ink);font-weight:600;font-size:13px}
+  .meme-note{margin:0;max-width:320px}
+  .meme-note .meme-ph{position:relative;aspect-ratio:16/9;border-radius:10px;overflow:hidden;border:1px solid var(--line-l2);background:var(--cream-3)}
+  .meme-note .meme-ph::before{color:var(--ink-3)}
+  .meme-note figcaption{margin-top:10px;font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-3)}
+
+  /* PULL QUOTE */
+  .pullq{position:relative;min-height:88vh;display:flex;align-items:center;background:var(--graphite);overflow:hidden}
+  .pullq-bg{position:absolute;inset:0;z-index:0;opacity:.35}
+  .pullq-bg .ph{position:absolute;inset:0}
+  .pullq-bg::after{content:"";position:absolute;inset:0;background:radial-gradient(60% 60% at 50% 50%,transparent 0%,var(--graphite) 88%)}
+  .pullq-inner{position:relative;z-index:2;max-width:1320px;margin:0 auto;padding:80px 28px;text-align:center;width:100%}
+  .pullq-text{font-weight:600;font-size:clamp(36px,7vw,108px);line-height:.96;letter-spacing:-.04em;text-wrap:balance}
+
+  /* CHAPTERS */
+  .chap{display:grid;grid-template-columns:clamp(260px,30vw,430px) 1fr;gap:0;background:var(--graphite-2);margin-bottom:0;align-items:stretch}
+  .chap.flip{grid-template-columns:1fr clamp(260px,30vw,430px)}
+  .chap.flip .chap-img{order:2}
+  .chap.full{grid-template-columns:1fr;position:relative;padding:clamp(48px,5vw,84px) 0;gap:clamp(30px,3.4vw,48px)}
+  @media(max-width:900px){.chap,.chap.flip{grid-template-columns:1fr;padding-top:32px}.chap.flip .chap-img{order:0}}
+  .chap-img{position:relative;aspect-ratio:9/16;overflow:hidden}
+  @media(max-width:900px){.chap-img{aspect-ratio:9/16;max-width:420px;margin:0 auto;width:100%}}
+  .chap-img .ph{position:absolute;inset:0}
+  .chap-img img{transition:transform .8s ease}
+  .chap-img:hover img{transform:scale(1.04)}
+  .chap-body{padding:48px;display:flex;flex-direction:column;gap:20px;justify-content:center}
+  @media(max-width:780px){.chap-body{padding:32px 24px}}
+  .chap.full .chap-img{position:relative;inset:auto;width:min(460px,84vw);margin:0 auto;aspect-ratio:9/16}
+  .chap.full .chap-img::after{display:none}
+  .chap.full .chap-body{position:relative;z-index:2;color:var(--bone);align-items:center;text-align:center;max-width:840px;margin:0 auto;padding-top:0}
+  .chap-title{font-weight:700;font-size:clamp(28px,4.6vw,64px);line-height:.98;letter-spacing:-.035em;text-wrap:balance}
+  .chap-title .mark{color:var(--lime)}
+  .chap-body p{font-size:15px;line-height:1.65;color:var(--bone-2);max-width:54ch}
+  .chap-body p b{color:var(--bone);font-weight:700}
+  .chap.full .chap-body p{color:var(--bone);max-width:60ch;margin:0 auto}
+  .chap.full .chap-body p b{color:var(--lime)}
+
+  /* STAT CHIPS */
+  .stat-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:4px}
+  .stat-chip{font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.08em;padding:6px 14px;border:1px solid var(--line-d2);border-radius:999px;color:var(--bone-2)}
+  .stat-chip b{color:var(--lime);font-weight:700}
+
+  /* CITY GRID */
+  .city-grid{display:grid;grid-template-columns:1fr 1fr;gap:0}
+  @media(max-width:780px){.city-grid{grid-template-columns:1fr}}
+  .city-item{position:relative;overflow:hidden;background:var(--graphite);cursor:zoom-in}
+  .city-item.wide{grid-column:span 2}
+  @media(max-width:780px){.city-item.wide{grid-column:span 1}}
+  .city-item img{width:100%;height:100%;object-fit:cover;display:block;aspect-ratio:16/9;transition:transform .7s ease}
+  .city-item.wide img{aspect-ratio:32/9}
+  @media(max-width:780px){.city-item.wide img{aspect-ratio:16/9}}
+  .city-item:hover img{transform:scale(1.04)}
+  .city-cap{position:absolute;bottom:0;left:0;right:0;padding:18px 22px;background:linear-gradient(to top,rgba(0,0,0,.78),transparent);font-family:"JetBrains Mono",monospace;font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--bone-2);z-index:1}
+  .city-cap b{color:var(--lime);display:block;font-size:12px;letter-spacing:.06em;margin-bottom:3px;font-weight:700}
+
+  /* VIDEO ROW */
+  .vid-row{display:grid;grid-template-columns:repeat(3,1fr);gap:0;background:var(--graphite-2)}
+  @media(max-width:780px){.vid-row{grid-template-columns:1fr}}
+  @media(max-width:780px){.vid-row{grid-template-columns:1fr}}
+  .vid-item{position:relative;overflow:hidden;background:var(--graphite)}
+  .vid-item video{width:100%;display:block;aspect-ratio:16/9;object-fit:cover}
+  .vid-cap{position:absolute;bottom:0;left:0;right:0;padding:14px 18px;background:linear-gradient(to top,rgba(0,0,0,.72),transparent);font-family:"JetBrains Mono",monospace;font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--bone-2)}
+
+  /* ROLE CARDS */
+  .role-grid{display:grid;grid-template-columns:1fr 1fr;gap:0}
+  @media(max-width:780px){.role-grid{grid-template-columns:1fr}}
+  .role-card{background:var(--cream-2);display:grid;grid-template-columns:clamp(130px,15vw,190px) 1fr;overflow:hidden;transition:background .25s;align-items:stretch}
+  .role-card:hover{background:var(--graphite-3)}
+  .role-photo{aspect-ratio:9/16;overflow:hidden;position:relative}
+  .role-photo .ph{position:absolute;inset:0}
+  .role-photo img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .7s ease}
+  .role-card:hover .role-photo img{transform:scale(1.04)}
+  .role-text{padding:clamp(20px,2.2vw,30px);display:flex;flex-direction:column;gap:14px;justify-content:center}
+  .role-card:hover .role-text{color:var(--bone)}
+  .role-card h3{font-weight:700;font-size:clamp(22px,2.6vw,30px);line-height:1.02;letter-spacing:-.025em;text-wrap:balance}
+  .role-card h3 .mark{color:var(--lime-deep);transition:color .25s}
+  .role-card:hover h3 .mark{color:var(--lime)}
+  .role-card p{font-size:14px;line-height:1.65;color:var(--ink-2);transition:color .25s}
+  .role-card:hover p{color:var(--bone-2)}
+  .role-card p b{color:var(--ink);font-weight:700;transition:color .25s}
+  .role-card:hover p b{color:var(--bone)}
+
+  /* GALLERY */
+  .gal{display:grid;grid-template-columns:repeat(3,1fr);gap:0}
+  @media(max-width:780px){.gal{grid-template-columns:1fr 1fr}}
+  .gi{position:relative;overflow:hidden;background:var(--graphite-2);cursor:zoom-in;aspect-ratio:4/3}
+  .gi.tall{grid-row:span 2;aspect-ratio:auto;cursor:default}
+  .gi.tall video{width:100%;height:100%;object-fit:cover;display:block}
+  @media(max-width:780px){.gi.tall{grid-row:span 1;aspect-ratio:9/16}}
+  .gi .ph{position:absolute;inset:0}
+  .gi img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s ease}
+  .gi:hover img{transform:scale(1.05)}
+  .gi::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.3) 0%,transparent 30%);opacity:.5;pointer-events:none;transition:opacity .3s}
+  .gi:hover::after{opacity:.1}
+  .gi.tall::after{display:none}
+  .gcap{background:var(--lime);color:var(--ink);padding:28px 24px;display:flex;flex-direction:column;justify-content:flex-end;gap:8px;aspect-ratio:4/3}
+  .gcap .big{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:clamp(28px,3.6vw,56px);line-height:.88;letter-spacing:-.04em;color:var(--ink)}
+  .gcap .sub{font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--ink-2)}
+  @media(max-width:780px){.gcap{display:none}}
+
+  /* LIGHTBOX */
+  .lb{display:none;position:fixed;inset:0;z-index:200;background:rgba(0,0,0,.96);align-items:center;justify-content:center}
+  .lb.open{display:flex}
+  .lb img{max-width:80vw;max-height:86vh;object-fit:contain;user-select:none;transition:opacity .18s ease}
+  .lb img.fade{opacity:0}
+  .lb-close{position:absolute;top:20px;right:24px;font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--bone-2);padding:8px;cursor:pointer;z-index:2}
+  .lb-close:hover{color:var(--lime)}
+  .lb-nav{position:absolute;top:50%;transform:translateY(-50%);font-family:"JetBrains Mono",monospace;font-size:24px;color:var(--bone-2);padding:16px 22px;cursor:pointer;z-index:2;transition:color .2s;line-height:1}
+  .lb-nav:hover{color:var(--lime)}
+  .lb-prev{left:20px}
+  .lb-next{right:20px}
+  .lb-counter{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:var(--bone-3)}
+
+  /* CREDITS */
+  .credits{padding:90px 0;background:var(--cream);color:var(--ink)}
+  .credits-top{display:grid;grid-template-columns:1fr 1fr;gap:32px;border-bottom:1px solid var(--line-l);padding-bottom:48px;margin-bottom:48px;align-items:end}
+  @media(max-width:900px){.credits-top{grid-template-columns:1fr}}
+  .credits-title{font-weight:700;font-size:clamp(48px,8vw,118px);line-height:.9;letter-spacing:-.04em}
+  .credits-facts{display:flex;gap:32px;flex-wrap:wrap;justify-content:flex-end}
+  @media(max-width:900px){.credits-facts{justify-content:flex-start}}
+  .cred-fact{font-family:"JetBrains Mono",monospace;font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--ink-3);text-align:center}
+  .cred-fact strong{display:block;font-family:"Space Grotesk",sans-serif;font-size:clamp(28px,3.5vw,52px);font-weight:700;letter-spacing:-.04em;line-height:.9;color:var(--ink);margin-bottom:6px}
+  .cred-fact strong .mark{color:var(--lime-deep)}
+  .cred-fact strong .pre{font-size:.4em;font-weight:600;letter-spacing:.02em;color:var(--ink-3);margin-right:.12em}
+  .credits-body{display:grid;grid-template-columns:1fr 1fr;gap:0}
+  @media(max-width:900px){.credits-body{grid-template-columns:1fr}}
+  .cred-row{display:grid;grid-template-columns:140px 1fr;gap:16px;padding:18px 0;border-bottom:1px solid var(--line-l);align-items:baseline}
+  .cred-row:first-child{border-top:1px solid var(--line-l)}
+  .cred-row dt{font-family:"JetBrains Mono",monospace;font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--ink-3)}
+  .cred-row dd{font-weight:600;font-size:clamp(16px,1.5vw,20px);letter-spacing:-.015em;line-height:1.25;color:var(--ink)}
+  .cred-row dd .mark{color:var(--lime-deep);font-weight:700}
+  .cred-row dd .sub{display:block;font-family:"JetBrains Mono",monospace;font-size:10px;color:var(--ink-3);font-weight:400;margin-top:4px;text-transform:uppercase;letter-spacing:.08em}
+  .credits-col-right{padding-left:36px}
+  @media(max-width:900px){.credits-col-right{padding-left:0}}
+
+  /* PROJ NAV */
+  .proj-nav{border-top:1px solid var(--line-d);background:var(--graphite)}
+  .proj-nav-inner{display:grid;grid-template-columns:1fr auto 1fr;max-width:1320px;margin:0 auto}
+  @media(max-width:760px){.proj-nav-inner{grid-template-columns:1fr}}
+  .pn-card{position:relative;overflow:hidden;padding:48px 36px;display:flex;flex-direction:column;justify-content:flex-end;gap:8px;transition:background .3s;border-right:1px solid var(--line-d)}
+  .pn-card:last-child{border-right:0;border-left:1px solid var(--line-d)}
+  .pn-card:hover{background:var(--graphite-2)}
+  .pn-card .bg{position:absolute;inset:0;object-fit:cover;width:100%;height:100%;opacity:.14;transition:opacity .4s;filter:saturate(.4)}
+  .pn-card:hover .bg{opacity:.28}
+  .pn-dir{position:relative;z-index:1;font-family:"JetBrains Mono",monospace;font-size:10px;text-transform:uppercase;letter-spacing:.14em;color:var(--bone-3);margin-bottom:8px}
+  .pn-name{position:relative;z-index:1;font-weight:700;font-size:clamp(28px,3.8vw,56px);line-height:1;letter-spacing:-.03em;color:var(--bone)}
+  .pn-sub{position:relative;z-index:1;font-family:"JetBrains Mono",monospace;font-size:10px;color:var(--bone-3);margin-top:6px;text-transform:uppercase;letter-spacing:.08em}
+  .pn-contact{display:flex;align-items:center;justify-content:center;padding:48px 36px;flex-direction:column;gap:14px}
+  .pn-contact-label{font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:var(--bone-3)}
+  .pn-btn{display:inline-flex;align-items:center;gap:10px;background:var(--lime);color:var(--ink);padding:14px 24px;border-radius:999px;font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.1em;font-weight:600;transition:transform .25s}
+  .pn-contact:hover .pn-btn{transform:translateY(-3px)}
+  .pn-circ{display:inline-grid;place-items:center;width:56px;height:56px;border-radius:50%;border:1.5px solid var(--bone-2);font-size:22px;margin-bottom:14px;color:var(--bone)}
+
+  footer{padding:28px 24px;border-top:1px solid var(--line-d);font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--bone-3);background:var(--graphite)}
+  .foot-row{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;align-items:center;max-width:1320px;margin:0 auto}
+  .foot-row b{color:var(--bone);font-weight:500}
+  .foot-row a:hover{color:var(--lime)}
+
+  .reveal{opacity:0;transform:translateY(20px);transition:opacity .8s ease,transform .8s ease}
+  .reveal.in{opacity:1;transform:none}
+</style>
+<style id="ru-switch-css">
+.nav-end{display:inline-flex;align-items:center;gap:10px}
+.lang-toggle{display:inline-flex;gap:2px;padding:3px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.16);border-radius:999px;flex-shrink:0}
+.lang-toggle .lang-seg{padding:6px 9px;border-radius:999px;font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:rgba(241,236,221,.6);line-height:1;text-decoration:none;transition:color .2s,background .2s}
+.lang-toggle .lang-seg.on{background:#f1ecdd;color:#16161a;font-weight:600}
+.lang-toggle a.lang-seg:hover{color:#fff}
+</style>
+<style id="page-gallery-css">
+/* Gallery on this page — vertical 9:16 format, the key trait of FOOH */
+#zone-gallery .gal{grid-template-columns:repeat(4,1fr)}
+#zone-gallery .gi{aspect-ratio:9/16}
+#zone-gallery .gi.tall{grid-row:auto;aspect-ratio:9/16;cursor:default}
+#zone-gallery .gcap{aspect-ratio:9/16;padding:24px 20px}
+#zone-gallery .gcap .big{font-size:clamp(24px,2.1vw,34px);line-height:.92}
+@media(max-width:1080px){#zone-gallery .gal{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:780px){
+  #zone-gallery .gal{grid-template-columns:repeat(2,1fr)}
+  #zone-gallery .gi.tall{aspect-ratio:9/16}
+}
+
+/* NAV FIX 31.07.2026 — Contact always pinned to the right edge of the bar, RU/EN on desktop only */
+.nav-bar>.nav-end{margin-left:auto}
+.nav-bar>.lang-toggle{margin-left:auto}
+@media(max-width:780px){
+  .nav-bar .lang-toggle{display:none}
+  .nav-bar>.nav-cta{margin-left:auto}
+}
+
+/* FOOT LANG 31.07.2026 — переключатель языка в футере, только на мобильном (в шапке он скрыт) */
+.foot-lang{display:none}
+@media(max-width:780px){
+  .foot-lang{display:inline-flex;align-items:center;padding:6px 12px;border:1px solid currentColor;border-radius:999px;font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;color:inherit;opacity:.75}
+}
+</style>
+<link rel="alternate" hreflang="ru" href="https://samarakovskaya.art/projects/cgi-worldcup.html">
+<link rel="alternate" hreflang="en" href="https://samarakovskaya.art/en/projects/cgi-worldcup.html">
+
+<link rel="alternate" hreflang="x-default" href="https://samarakovskaya.art/projects/cgi-worldcup.html">
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=110759704', 'ym');
+    ym(110759704, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/110759704" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+</head>
+<body>
+
+<div class="lb" id="lb">
+  <button class="lb-close" id="lbClose">[ESC] close</button>
+  <button class="lb-nav lb-prev" id="lbPrev">←</button>
+  <img loading="lazy" decoding="async" id="lbImg" src="" alt="">
+  <button class="lb-nav lb-next" id="lbNext">→</button>
+  <div class="lb-counter" id="lbCounter"></div>
+</div>
+
+<!-- TOP NAV -->
+<header class="top">
+  <div class="nav-bar">
+    <a class="back" href="../index.html#works">All projects</a>
+    <nav class="mag-nav" id="magNav">
+      <a class="mag-pill" href="#zone-concept" data-section="zone-concept">Occasion</a>
+      <a class="mag-pill" href="#zone-adidas" data-section="zone-adidas">adidas</a>
+      <a class="mag-pill" href="#zone-powerade" data-section="zone-powerade">Powerade</a>
+      <a class="mag-pill" href="#zone-method" data-section="zone-method">Method</a>
+      <a class="mag-pill" href="#zone-gallery" data-section="zone-gallery">Gallery</a>
+    </nav>
+    <div class="nav-end"><div class="lang-toggle" role="group" aria-label="Language"><a class="lang-seg" href="../../projects/cgi-worldcup.html">RU</a><span class="lang-seg on">EN</span></div><a class="nav-cta" href="https://t.me/samarakovskaya_tanya" target="_blank" rel="noopener">Contact</a></div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-bg" aria-hidden="true" style="opacity:.36">
+    <div class="ph" data-ph="golden boot · buenos aires">
+      <img src="../../assets/cgi-worldcup/photo/webp/adidas-01-money-shot.webp" alt="" loading="eager" decoding="async">
+    </div>
+  </div>
+
+  <div class="wrap" style="position:relative;z-index:2;display:flex;flex-direction:column;flex:1;gap:36px;justify-content:space-between">
+    <div class="hero-meta-row">
+      <div class="pills">
+        <span class="pill solid">2026</span>
+        <span class="pill">fifa world cup</span>
+        <span class="pill">cgi · fooh</span>
+      </div>
+      <div class="pills">
+        <span class="pill outline">adidas</span>
+        <span class="pill outline">powerade</span>
+      </div>
+    </div>
+
+    <div class="hero-title">
+      <h1 class="hero-h1">
+        <span class="hl hl-1"><span class="syl s1">CGI</span></span>
+        <span class="hl hl-2"><span class="syl s3">WORLD CUP 2026</span></span>
+      </h1>
+      <p class="hero-sub">
+        Two concepts for a viral CGI campaign around the World Cup final. <b>adidas</b> brings the Golden Boot home to the winner. <b>Powerade</b> turns the Empire State Building into the biggest cooler on the planet.
+      </p>
+    </div>
+
+    <div class="hero-foot">
+      <div class="hero-fact"><b>Format</b><span>CGI · FOOH · 9:16</span></div>
+      <div class="hero-fact"><b>Occasion</b><span>World Cup final · 19 July 2026</span></div>
+      <div class="hero-fact"><b>Cities</b><span>Buenos Aires · Paris · London · New York</span></div>
+      <div class="hero-fact"><b>Role</b><span>Creative concept and art direction</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marq" aria-hidden="true">
+  <div class="marq-track">
+    <span>ONE WIN. BIGGER THAN ONE. <span class="dot"></span> THE GOLDEN BOOT HAS LANDED <span class="dot"></span> EMPOWER STATE BUILDING <span class="dot"></span> THE WORLD&rsquo;S BIGGEST COOLER <span class="dot"></span> POWER YOUR GAME <span class="dot"></span> FIFA WORLD CUP 2026 <span class="dot"></span> FOOH <span class="dot"></span></span>
+    <span>ONE WIN. BIGGER THAN ONE. <span class="dot"></span> THE GOLDEN BOOT HAS LANDED <span class="dot"></span> EMPOWER STATE BUILDING <span class="dot"></span> THE WORLD&rsquo;S BIGGEST COOLER <span class="dot"></span> POWER YOUR GAME <span class="dot"></span> FIFA WORLD CUP 2026 <span class="dot"></span> FOOH <span class="dot"></span></span>
+  </div>
+</div>
+
+<!-- CONCEPT (cream) -->
+<section class="sec on-cream" id="zone-concept">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-label">Occasion</span>
+      <h2 class="sec-h">One tournament, <span class="word-pill">two brands</span>.</h2>
+      <span class="sec-side"><b>CGI · FOOH</b><br>Final · 19 July 2026</span>
+    </div>
+
+    <div class="concept reveal">
+      <div class="concept-img">
+        <div class="ph" data-ph="format · vertical inside a phone screen"><img loading="lazy" decoding="async" src="../../assets/cgi-worldcup/photo/webp/adidas-09-fan-phone.webp" alt="The shot is framed like phone footage: the event is visible both live and on screen"></div>
+      </div>
+      <div class="concept-body">
+        <p class="concept-lead">
+          A month when the whole world watches <span class="word-block">one story</span>.
+        </p>
+        <div class="concept-text">
+          <p>The World Cup is the largest sporting event on the planet. For a month, billions of people follow a single storyline in real time. Any story that enters that orbit becomes impossible to ignore.</p>
+          <p>Both concepts are built on the same logic: <b>the idea grows out of a brand asset</b> instead of being stapled to the occasion with a sponsor logo. For adidas that asset is a trophy that officially carries the brand name. For Powerade it is the status of official drink of the tournament, plus the one subject everyone is already discussing: the heat.</p>
+          <p>Both run in a single format: <b>FOOH</b>. Hyperreal CGI shot in the logic of accidental phone footage, made for a vertical feed rather than for the street. There is almost always a bystander with a phone in frame: <b>the viewer sees the event exactly as it will appear in the feed</b>, and the first instinct is to check whether it is real.</p>
+        </div>
+        <dl class="concept-meta">
+          <div><dt>Occasion</dt><dd>FIFA World Cup 2026</dd></div>
+          <div><dt>Format</dt><dd>CGI · FOOH</dd></div>
+          <div><dt>Concepts</dt><dd>2</dd></div>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PULL QUOTE 1 -->
+<section class="pullq">
+  <div class="pullq-bg" aria-hidden="true">
+    <div class="ph" data-ph="gold under fabric"><img loading="lazy" decoding="async" src="../../assets/cgi-worldcup/photo/webp/adidas-07-landing-draped.webp" alt=""></div>
+  </div>
+  <div class="pullq-inner reveal">
+    <p class="pullq-text">
+      Don&rsquo;t invent an occasion.<br><span class="word-block">Show the one</span> the whole world is already discussing.
+    </p>
+  </div>
+</section>
+
+<!-- CONCEPT 01 · ADIDAS (graphite) -->
+<section class="sec on-graphite" id="zone-adidas">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-label">Concept 01</span>
+      <h2 class="sec-h">adidas · <span class="word-block">Golden Boot</span>.</h2>
+      <span class="sec-side"><b>ONE WIN. BIGGER THAN ONE.</b><br>A personal award becomes a national one</span>
+    </div>
+
+    <article class="chap  reveal">
+      <div class="chap-img">
+        <div class="ph" data-ph="signature engraving · robot"><img loading="lazy" decoding="async" src="../../assets/cgi-worldcup/photo/webp/adidas-12-sign-robot.webp" alt=""></div>
+      </div>
+      <div class="chap-body">
+        <h3 class="chap-title">The right to <span class="mark">the name</span></h3>
+        <p>adidas makes <b>TRIONDA</b>, the official match ball, kits for dozens of national teams, works with key players and has been a FIFA partner for more than 50 years. The decisive detail: the award for the tournament&rsquo;s top scorer is officially called the <b>adidas Golden Boot</b>. The brand is not borrowing a news hook — it owns the object that carries its name.</p>
+        <div class="stat-row">
+          <span class="stat-chip">Award since 1982</span>
+          <span class="stat-chip">11 winners</span>
+          <span class="stat-chip">50+ years with FIFA</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="chap full reveal">
+      <div class="chap-img">
+        <div class="ph" data-ph="fireworks 10 · night"><img loading="lazy" decoding="async" src="../../assets/cgi-worldcup/photo/webp/adidas-13-fireworks-10.webp" alt=""></div>
+      </div>
+      <div class="chap-body">
+        <h3 class="chap-title">The moment the brand <span class="mark">gives away</span></h3>
+        <p>The race for the Golden Boot is one of the tournament&rsquo;s live dramas. But at the final whistle attention drifts away from the stadium, the presentation stays a small moment on the podium, and the brand turns up hours later with a congratulatory post. <b>adidas pays for the win and then steps into the background at the exact moment it happens.</b></p>
+      </div>
+    </article>
+
+    <article class="chap flip reveal">
+      <div class="chap-img">
+        <div class="ph" data-ph="helicopters carrying the object"><img loading="lazy" decoding="async" src="../../assets/cgi-worldcup/photo/webp/adidas-06-sky-object.webp" alt=""></div>
+      </div>
+      <div class="chap-body">
+        <h3 class="chap-title">TOO BIG <span class="mark">FOR ONE</span></h3>
+        <p>The moment the top scorer is confirmed, three heavy-lift helicopters deliver a giant golden boot to the main square of the winner&rsquo;s capital. The image reads without explanation and is ready to become news the same minute.</p>
+      </div>
+    </article>
+
+    <article class="chap full reveal">
+      <div class="chap-img">
+        <div class="ph" data-ph="money shot · boot above the plinth"><img loading="lazy" decoding="async" src="../../assets/cgi-worldcup/photo/webp/adidas-01-money-shot.webp" alt=""></div>
+      </div>
+      <div class="chap-body">
+        <h3 class="chap-title">Money <span class="mark">shot</span></h3>
+        <p>The boot hangs a metre above the plinth. The winner stands beneath it, back to the camera, with the capital, the crowd and a forest of raised phones all around. The frame is not a finished monument, it is <b>the second before contact</b>. That is where the tension lives. A single shot works at once as a film, a cover, a news picture and an outdoor poster.</p>
+      </div>
+    </article>
+
+
+    <article class="chap flip reveal">
+      <div class="chap-img">
+        <div class="ph" data-ph="gold under fabric · paris"><img loading="lazy" decoding="async" src="../../assets/cgi-worldcup/photo/webp/adidas-08-unveil-paris.webp" alt="The object under a gold cover on a square in Paris"></div>
+      </div>
+      <div class="chap-body">
+        <h3 class="chap-title">Three endings, prepared <span class="mark">in advance</span></h3>
+        <p>A week before the final, the three teams leading the race are selected. An empty plinth appears in London, Paris and Buenos Aires, carrying the line <b>ONE OF THESE WILL BE FILLED TONIGHT</b>, the object still hidden under a gold cover. A crowd gathers around something that is not there yet. Once the result is in, two plinths stay empty and one is filled: all three cities are produced in parallel, and the right film goes live the minute the name is announced.</p>
+        <div class="stat-row">
+          <span class="stat-chip">3 capitals</span>
+          <span class="stat-chip">3 scenarios</span>
+          <span class="stat-chip">T+5 min after the result</span>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- PULL QUOTE 2 -->
+<section class="pullq">
+  <div class="pullq-bg" aria-hidden="true">
+    <div class="ph" data-ph="boot and fireworks · night"><img loading="lazy" decoding="async" src="../../assets/cgi-worldcup/photo/webp/adidas-14-fireworks-boot.webp" alt=""></div>
+  </div>
+  <div class="pullq-inner reveal">
+    <p class="pullq-text">
+      ONE WIN.<br><span class="word-block">BIGGER THAN ONE.</span>
+    </p>
+  </div>
+</section>
+
+<!-- CONCEPT 02 · POWERADE (dark) -->
+<section class="sec on-dark" id="zone-powerade">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-label">Concept 02</span>
+      <h2 class="sec-h">Powerade · <span class="word-block">Empower</span> State.</h2>
+      <span class="sec-side"><b>THE WORLD&rsquo;S BIGGEST COOLER</b><br>The final in New York</span>
+    </div>
+
+    <article class="chap  reveal">
+      <div class="chap-img">
+        <div class="ph" data-ph="heat over manhattan"><img loading="lazy" decoding="async" src="../../assets/cgi-worldcup/photo/webp/powerade-02-heat-before.webp" alt="Overheated Manhattan before the campaign appears"></div>
+      </div>
+      <div class="chap-body">
+        <h3 class="chap-title">Heat as the tournament&rsquo;s own <span class="mark">storyline</span></h3>
+        <p>A heat dome over the host cities and a cooling break in every match. Hydration has stopped being a quiet moment on the touchline: players need the pause, fans feel it break the rhythm of the game. Powerade can flip how that moment is read and carry the break off the pitch, into the overheated city. <b>From a break in the game to a break from the heat.</b></p>
+      </div>
+    </article>
+
+    <article class="chap flip reveal">
+      <div class="chap-img">
+        <div class="ph" data-ph="official drink · stadium pitch"><img loading="lazy" decoding="async" src="../../assets/cgi-worldcup/photo/webp/powerade-11-field.webp" alt=""></div>
+      </div>
+      <div class="chap-body">
+        <h3 class="chap-title">The right to <span class="mark">the subject</span></h3>
+        <p><b>Powerade is the official sports drink of the FIFA World Cup 2026.</b> If the whole world is talking about how to survive the heat, the brand has to answer at the scale of the event itself. The final is played in New York, which puts one of the planet&rsquo;s most recognisable landmarks within reach.</p>
+      </div>
+    </article>
+
+
+    <article class="chap full reveal">
+      <div class="chap-img">
+        <div class="ph" data-ph="empower state building · key visual"><img loading="lazy" decoding="async" src="../../assets/cgi-worldcup/photo/webp/powerade-01-key-visual.webp" alt=""></div>
+      </div>
+      <div class="chap-body">
+        <h3 class="chap-title">EMPOWER <span class="mark">STATE</span> BUILDING</h3>
+        <p>On the day of the final, the Empire State Building starts to freeze over. Ice spreads across the façade, a giant section opens and reveals thousands of ice-cold bottles bursting out into the Manhattan heat. <b>The city&rsquo;s landmark stops being scenery and becomes the idea itself.</b> Empire turns into Empower: one letter changes the meaning.</p>
+      </div>
+    </article>
+
+    <article class="chap flip reveal">
+      <div class="chap-img">
+        <div class="ph" data-ph="facade opening · vapour"><img loading="lazy" decoding="async" src="../../assets/cgi-worldcup/photo/webp/powerade-07-facade-open.webp" alt=""></div>
+      </div>
+      <div class="chap-body">
+        <h3 class="chap-title">Shot like <span class="mark">accidental</span> footage</h3>
+        <p>Hyperreal CGI built on the logic of phone footage: photoreal frost, vapour, live camera movement. The hero film is not released first — it lands as the answer to a run of cryptic clips. <b>The same impossible event seen from different streets, rooftops and phones</b>, rolled out in waves rather than a single drop.</p>
+      </div>
+    </article>
+
+
+    <article class="chap full reveal">
+      <div class="chap-img">
+        <div class="ph" data-ph="frozen bus stop · new york"><img loading="lazy" decoding="async" src="../../assets/cgi-worldcup/photo/webp/powerade-12-bus-stop.webp" alt=""></div>
+      </div>
+      <div class="chap-body">
+        <h3 class="chap-title">The on-screen event turns <span class="mark">physical</span></h3>
+        <p>At the final, the pitch itself becomes the surface of a cooler: the brand name is cut into the grass and reaches every broadcast camera. Across the host cities, bus stops ice over and turn into working coolers you can step into and take a cold drink from. <b>New York takes a three-minute cooling break, all at the same moment.</b> Screens in fan zones, bars and arenas frost over simultaneously. The cold travels from city to city, following the tournament.</p>
+        <div class="stat-row">
+          <span class="stat-chip">Powerade field</span>
+          <span class="stat-chip">Frozen bus stops</span>
+          <span class="stat-chip">NY takes three</span>
+          <span class="stat-chip">DOOH freeze</span>
+          <span class="stat-chip">Host-city relay</span>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- METHOD (cream) -->
+<section class="sec on-cream" id="zone-method">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-label">Method</span>
+      <h2 class="sec-h">Why it <span class="word-pill">works</span>.</h2>
+      <span class="sec-side"><b>The formula</b><br>for viral CGI</span>
+    </div>
+
+    <div class="role-grid reveal">
+      <div class="role-card">
+        <div class="role-photo">
+          <div class="ph" data-ph="view from the helicopter"><img loading="lazy" decoding="async" src="../../assets/cgi-worldcup/photo/webp/adidas-11-heli-view.webp" alt=""></div>
+        </div>
+        <div class="role-text">
+          <h3>Brand truth instead of a sponsor <span class="mark">sticker</span></h3>
+          <p>The idea grows out of an asset the brand already owns. An award carrying the adidas name. Powerade&rsquo;s status as the official drink. No competitor can hijack that link, and the client never has to explain why it is the one speaking.</p>
+        </div>
+      </div>
+
+      <div class="role-card">
+        <div class="role-photo">
+          <div class="ph" data-ph="fan selfie"><img loading="lazy" decoding="async" src="../../assets/cgi-worldcup/photo/webp/adidas-10-fan-selfie.webp" alt=""></div>
+        </div>
+        <div class="role-text">
+          <h3>One <span class="mark">impossible</span> image</h3>
+          <p>Helicopters, a golden boot and the main square. A freezing skyscraper and an avalanche of bottles. The frame reads in a second, with no copy and no context, in any language.</p>
+        </div>
+      </div>
+
+      <div class="role-card">
+        <div class="role-photo">
+          <div class="ph" data-ph="bottle in ice"><img loading="lazy" decoding="async" src="../../assets/cgi-worldcup/photo/webp/powerade-09-ice-bottle.webp" alt=""></div>
+        </div>
+        <div class="role-text">
+          <h3>Credibility instead of a <span class="mark">special effect</span></h3>
+          <p>Phone angles, dust, rigging cables, frost on the asphalt. It reads as documentary evidence, not as a render. The argument over whether it is real is the sharing mechanic.</p>
+        </div>
+      </div>
+
+      <div class="role-card">
+        <div class="role-photo">
+          <div class="ph" data-ph="wide shot · shelves of bottles"><img loading="lazy" decoding="async" src="../../assets/cgi-worldcup/photo/webp/powerade-05-freeze-wide.webp" alt=""></div>
+        </div>
+        <div class="role-text">
+          <h3>Timing instead of <span class="mark">budget</span></h3>
+          <p>The image lands together with the news, not a few hours behind it. The formula: a live result, an impossible scale, local pride and credible evidence.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY (graphite) -->
+<section class="sec on-graphite" id="zone-gallery">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-label">Gallery</span>
+      <h2 class="sec-h">Frames and <span class="word-oval">motion</span>.</h2>
+      <span class="sec-side"><b>CGI · FOOH</b><br>vertical 9:16</span>
+    </div>
+
+    <div class="gal reveal">
+
+      <!-- row 1 · adidas, films -->
+      <figure class="gi tall">
+        <video muted loop playsinline preload="none" data-lazyvideo>
+          <source data-src="../../assets/cgi-worldcup/video/adidas-fan-selfie.mp4" type="video/mp4">
+        </video>
+      </figure>
+      <figure class="gi tall">
+        <video muted loop playsinline preload="none" data-lazyvideo>
+          <source data-src="../../assets/cgi-worldcup/video/adidas-boot-plinth.mp4" type="video/mp4">
+        </video>
+      </figure>
+      <figure class="gi tall">
+        <video muted loop playsinline preload="none" data-lazyvideo>
+          <source data-src="../../assets/cgi-worldcup/video/adidas-crowd.mp4" type="video/mp4">
+        </video>
+      </figure>
+      <figure class="gi tall">
+        <video muted loop playsinline preload="none" data-lazyvideo>
+          <source data-src="../../assets/cgi-worldcup/video/adidas-boot-landing.mp4" type="video/mp4">
+        </video>
+      </figure>
+
+      <!-- row 2 · adidas, three capitals -->
+      <figure class="gi">
+        <div class="ph" data-ph="empty plinth · buenos aires"><img loading="lazy" decoding="async" src="../../assets/cgi-worldcup/photo/webp/adidas-02-plinth-buenos-aires.webp" alt=""></div>
+      </figure>
+      <figure class="gi">
+        <div class="ph" data-ph="empty plinth · paris"><img loading="lazy" decoding="async" src="../../assets/cgi-worldcup/photo/webp/adidas-03-plinth-paris.webp" alt=""></div>
+      </figure>
+      <figure class="gi">
+        <div class="ph" data-ph="empty plinth · london"><img loading="lazy" decoding="async" src="../../assets/cgi-worldcup/photo/webp/adidas-04-plinth-london.webp" alt=""></div>
+      </figure>
+      <div class="gcap">
+        <div class="big">ONE WIN.<br>BIGGER<br>THAN ONE.</div>
+        <div class="sub">adidas × golden boot</div>
+      </div>
+
+      <!-- row 3 · powerade, films -->
+      <figure class="gi tall">
+        <video muted loop playsinline preload="none" data-lazyvideo>
+          <source data-src="../../assets/cgi-worldcup/video/powerade-facade-open.mp4" type="video/mp4">
+        </video>
+      </figure>
+      <figure class="gi tall">
+        <video muted loop playsinline preload="none" data-lazyvideo>
+          <source data-src="../../assets/cgi-worldcup/video/powerade-ice-burst.mp4" type="video/mp4">
+        </video>
+      </figure>
+      <figure class="gi tall">
+        <video muted loop playsinline preload="none" data-lazyvideo>
+          <source data-src="../../assets/cgi-worldcup/video/powerade-tower-orbit.mp4" type="video/mp4">
+        </video>
+      </figure>
+      <figure class="gi">
+        <div class="ph" data-ph="bottles bursting from the facade"><img loading="lazy" decoding="async" src="../../assets/cgi-worldcup/photo/webp/powerade-08-bottles-burst.webp" alt=""></div>
+      </figure>
+
+      <!-- row 4 · powerade, stills -->
+      <figure class="gi">
+        <div class="ph" data-ph="aerial · manhattan"><img loading="lazy" decoding="async" src="../../assets/cgi-worldcup/photo/webp/powerade-06-aerial.webp" alt=""></div>
+      </figure>
+      <figure class="gi">
+        <div class="ph" data-ph="front view · frozen tower"><img loading="lazy" decoding="async" src="../../assets/cgi-worldcup/photo/webp/powerade-04-freeze-front.webp" alt=""></div>
+      </figure>
+      <figure class="gi">
+        <div class="ph" data-ph="frost on the spire"><img loading="lazy" decoding="async" src="../../assets/cgi-worldcup/photo/webp/powerade-10-tower-frost.webp" alt=""></div>
+      </figure>
+      <div class="gcap">
+        <div class="big">EMPOWER<br>STATE<br>BUILDING</div>
+        <div class="sub">powerade × the world&rsquo;s biggest cooler</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CREDITS (cream) -->
+<section class="credits" id="zone-credits">
+  <div class="wrap">
+    <div class="credits-top reveal">
+      <div>
+        <h2 class="credits-title">What&rsquo;s <span class="word-pill">inside</span></h2>
+      </div>
+      <div class="credits-facts">
+        <div class="cred-fact"><strong>2</strong>concepts</div>
+        <div class="cred-fact"><strong>2</strong>brands</div>
+        <div class="cred-fact"><strong>4</strong>capitals</div>
+        <div class="cred-fact"><strong>19<span class="mark">.07</span></strong>date of the final</div>
+      </div>
+    </div>
+
+    <div class="credits-body reveal">
+      <dl>
+        <div class="cred-row">
+          <dt>Role</dt>
+          <dd>Creative <span class="mark">concept</span> and art direction<span class="sub">idea · script · storyboard · visuals</span></dd>
+        </div>
+        <div class="cred-row">
+          <dt>Format</dt>
+          <dd>CGI · FOOH<span class="sub">vertical 9:16 · a series of films and stills</span></dd>
+        </div>
+        <div class="cred-row">
+          <dt>Occasion</dt>
+          <dd>FIFA World Cup 2026<span class="sub">final 19 July · New York / New Jersey</span></dd>
+        </div>
+        <div class="cred-row">
+          <dt>Status</dt>
+          <dd>Concept project<span class="sub">speculative work, not a commissioned campaign</span></dd>
+        </div>
+      </dl>
+      <dl class="credits-col-right">
+        <div class="cred-row">
+          <dt>Concept 01</dt>
+          <dd>adidas <span class="mark">Golden Boot</span><span class="sub">One win. Bigger than one.</span></dd>
+        </div>
+        <div class="cred-row">
+          <dt>Concept 02</dt>
+          <dd>Powerade<span class="sub">Empower State Building · Power your game.</span></dd>
+        </div>
+        <div class="cred-row">
+          <dt>Cities</dt>
+          <dd>Buenos Aires · Paris · London<span class="sub">New York / New Jersey</span></dd>
+        </div>
+        <div class="cred-row">
+          <dt>Year</dt>
+          <dd>2026</dd>
+        </div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<!-- PULL QUOTE 3 -->
+<section class="pullq">
+  <div class="pullq-bg" aria-hidden="true">
+    <div class="ph" data-ph="street · frozen skyscraper"><img loading="lazy" decoding="async" src="../../assets/cgi-worldcup/photo/webp/powerade-13-street-wide.webp" alt=""></div>
+  </div>
+  <div class="pullq-inner reveal">
+    <p class="pullq-text">
+      THE HOTTEST FINAL<br>NEEDS THE <span class="word-block">WORLD&rsquo;S BIGGEST</span> COOLER.
+    </p>
+  </div>
+</section>
+
+<!-- PROJ NAV -->
+<nav class="proj-nav" aria-label="Other projects">
+  <div class="proj-nav-inner">
+    <a class="pn-card" href="wayofwater.html">
+      <img loading="lazy" decoding="async" class="bg" src="../../assets/preview_projects/art-direction.webp" alt="" aria-hidden="true">
+      <span class="pn-dir"><span class="pn-circ">←</span><br>Previous</span>
+      <span class="pn-name">Way of Water</span>
+      <span class="pn-sub">Art direction · 2023—25</span>
+    </a>
+    <a class="pn-contact" href="https://t.me/samarakovskaya_tanya" target="_blank" rel="noopener">
+      <span class="pn-contact-label">Have a project?</span>
+      <span class="pn-btn">Contact ↗</span>
+    </a>
+    <a class="pn-card" href="nebula.html" style="text-align:right">
+      <img loading="lazy" decoding="async" class="bg" src="../../assets/preview_projects/nebula.webp" alt="" aria-hidden="true">
+      <span class="pn-dir"><span class="pn-circ">→</span><br>Next</span>
+      <span class="pn-name">Nebula</span>
+      <span class="pn-sub">Exhibitions · Experience design · 2023</span>
+    </a>
+  </div>
+</nav>
+
+<footer>
+  <div class="foot-row">
+    <span>© 2026 · <b>Tanya Samarakovskaya</b></span>
+    <span><a href="#top">↑ Back to top</a></span>
+    <a class="foot-lang" href="../../projects/cgi-worldcup.html" hreflang="ru">RU</a>
+  </div>
+</footer>
+
+<script>
+  /* MAGNETIC PILLS */
+  document.querySelectorAll('.mag-pill').forEach(pill => {
+    pill.addEventListener('mousemove', e => {
+      const r = pill.getBoundingClientRect();
+      const dx = e.clientX - (r.left + r.width / 2);
+      const dy = e.clientY - (r.top + r.height / 2);
+      pill.style.transform = `translate(${dx * 0.38}px, ${dy * 0.42}px) scale(1.06)`;
+    });
+    pill.addEventListener('mouseleave', () => { pill.style.transform = ''; });
+    pill.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.getElementById(pill.dataset.section);
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+  /* ACTIVE PILL on scroll */
+  const navSectionIds = ['zone-concept','zone-adidas','zone-powerade','zone-method','zone-gallery'];
+  const navPillMap = {};
+  document.querySelectorAll('.mag-pill').forEach(p => { navPillMap[p.dataset.section] = p; });
+  const navSecObs = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        Object.values(navPillMap).forEach(p => p.classList.remove('active'));
+        const active = navPillMap[entry.target.id];
+        if (active) active.classList.add('active');
+      }
+    });
+  }, { threshold: 0.25 });
+  navSectionIds.forEach(id => { const el = document.getElementById(id); if (el) navSecObs.observe(el); });
+</script>
+
+<script>
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+  }), {threshold:.08});
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // Lightbox — gallery only (.gi img)
+  const lb = document.getElementById('lb');
+  const lbImg = document.getElementById('lbImg');
+  const lbCounter = document.getElementById('lbCounter');
+  const galImgs = Array.from(document.querySelectorAll('.gi img'));
+  let currentIdx = 0;
+
+  function showImg(idx, dir) {
+    const img = galImgs[idx];
+    if (!img) return;
+    if (dir !== 0) {
+      lbImg.classList.add('fade');
+      setTimeout(() => { lbImg.src = img.src; lbImg.alt = img.alt; lbImg.classList.remove('fade'); }, 160);
+    } else {
+      lbImg.src = img.src; lbImg.alt = img.alt;
+    }
+    currentIdx = idx;
+    lbCounter.textContent = (idx + 1) + ' / ' + galImgs.length;
+  }
+
+  galImgs.forEach((img, i) => img.addEventListener('click', () => {
+    showImg(i, 0); lb.classList.add('open'); document.body.style.overflow = 'hidden';
+  }));
+
+  document.getElementById('lbClose').addEventListener('click', () => {
+    lb.classList.remove('open'); document.body.style.overflow = ''; lbImg.src = '';
+  });
+  document.getElementById('lbPrev').addEventListener('click', e => {
+    e.stopPropagation(); showImg((currentIdx - 1 + galImgs.length) % galImgs.length, -1);
+  });
+  document.getElementById('lbNext').addEventListener('click', e => {
+    e.stopPropagation(); showImg((currentIdx + 1) % galImgs.length, 1);
+  });
+  lb.addEventListener('click', e => {
+    if (e.target === lb) { lb.classList.remove('open'); document.body.style.overflow = ''; lbImg.src = ''; }
+  });
+  document.addEventListener('keydown', e => {
+    if (!lb.classList.contains('open')) return;
+    if (e.key === 'Escape') { lb.classList.remove('open'); document.body.style.overflow = ''; lbImg.src = ''; }
+    if (e.key === 'ArrowLeft') showImg((currentIdx - 1 + galImgs.length) % galImgs.length, -1);
+    if (e.key === 'ArrowRight') showImg((currentIdx + 1) % galImgs.length, 1);
+  });
+  let tx = 0;
+  lb.addEventListener('touchstart', e => { tx = e.touches[0].clientX; }, {passive:true});
+  lb.addEventListener('touchend', e => {
+    const dx = e.changedTouches[0].clientX - tx;
+    if (Math.abs(dx) > 50) dx < 0
+      ? showImg((currentIdx + 1) % galImgs.length, 1)
+      : showImg((currentIdx - 1 + galImgs.length) % galImgs.length, -1);
+  });
+</script>
+<script>
+  // Lazy-load heavy book/AR videos: load + play only near viewport, pause when off-screen
+  (function(){
+    var vids = document.querySelectorAll('video[data-lazyvideo]');
+    if(!vids.length) return;
+    function load(v){
+      if(!v.dataset.loaded){
+        v.dataset.loaded = '1';
+        v.querySelectorAll('source[data-src]').forEach(function(s){ s.src = s.dataset.src; });
+        v.load();
+      }
+      var p = v.play(); if(p && p.catch) p.catch(function(){});
+    }
+    if(!('IntersectionObserver' in window)){ vids.forEach(load); return; }
+    var io = new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if(e.isIntersecting) load(e.target);
+        else if(e.target.dataset.loaded) e.target.pause();
+      });
+    }, {rootMargin:'250px'});
+    vids.forEach(function(v){ io.observe(v); });
+  })();
+</script>
+</body>
+</html>

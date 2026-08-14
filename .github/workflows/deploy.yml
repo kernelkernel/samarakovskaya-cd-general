@@ -1,0 +1,60 @@
+name: Deploy to Yandex Object Storage
+
+# CD_GENERAL: публикация второй версии сайта в бакет t.samarakovskaya.art.
+# Заменяет авто-деплой Netlify. Логика веток сохранена:
+#   cd_general_upd — рабочая ветка (проверка), деплой НЕ запускается
+#   main          — продакшен, мерж сюда публикует сайт
+# Запустить вручную можно через вкладку Actions → Run workflow.
+
+on:
+  # Автозапуск ВЫКЛЮЧЕН на время сборки CD_GENERAL.
+  # Вернуть блок push только после шага 13 чек-листа,
+  # когда бакет t.samarakovskaya.art проверен и домен подключён.
+  workflow_dispatch:
+
+env:
+  AWS_ACCESS_KEY_ID: ${{ secrets.YC_ACCESS_KEY_ID }}
+  AWS_SECRET_ACCESS_KEY: ${{ secrets.YC_SECRET_ACCESS_KEY }}
+  AWS_DEFAULT_REGION: ru-central1
+  BUCKET: t.samarakovskaya.art
+  ENDPOINT: https://storage.yandexcloud.net
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # 1. Ассеты (фото, видео): меняются редко, кешируем надолго.
+      - name: Sync assets (long cache)
+        run: |
+          aws s3 sync . s3://$BUCKET --endpoint-url=$ENDPOINT \
+            --exclude "*" --include "assets/*" \
+            --cache-control "public, max-age=31536000, immutable"
+
+      # 2. JS: средний кеш.
+      - name: Sync JS (medium cache)
+        run: |
+          aws s3 sync . s3://$BUCKET --endpoint-url=$ENDPOINT \
+            --exclude "*" --include "*.js" \
+            --cache-control "public, max-age=86400, stale-while-revalidate=604800"
+
+      # 3. HTML и карта сайта: короткий кеш, чтобы правки появлялись быстро.
+      - name: Sync HTML/XML/TXT (short cache)
+        run: |
+          aws s3 sync . s3://$BUCKET --endpoint-url=$ENDPOINT \
+            --exclude "*" --include "*.html" --include "*.xml" --include "*.txt" \
+            --cache-control "public, max-age=600, stale-while-revalidate=3600"
+
+      # 4. Финальная синхронизация: догружает всё остальное и УДАЛЯЕТ из бакета
+      #    то, что удалено из репозитория. --size-only не трогает уже выставленный кеш.
+      - name: Cleanup and final sync
+        run: |
+          aws s3 sync . s3://$BUCKET --endpoint-url=$ENDPOINT --delete --size-only \
+            --exclude ".git/*" \
+            --exclude ".github/*" \
+            --exclude ".gitignore" \
+            --exclude ".DS_Store" \
+            --exclude "netlify.toml" \
+            --exclude "*.md"

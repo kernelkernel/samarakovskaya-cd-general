@@ -1,0 +1,814 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Soyuzmultpark · Tanya Samarakovskaya</title>
+<meta name="description" content="Soyuzmultpark: the world’s first phygital park based on the Soyuzmultfilm universe at VDNH. 10 interactive zones and 14 games where beloved cartoons become tangible. Creator in the Hello Computer team: Tanya Samarakovskaya.">
+<link rel="icon" type="image/webp" href="../../assets/icon.webp">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Tanya Samarakovskaya">
+<meta property="og:url" content="https://samarakovskaya.art/en/projects/souzmultpark.html">
+<meta property="og:title" content="Soyuzmultpark · Tanya Samarakovskaya">
+<meta property="og:description" content="The world’s first phygital park based on the Soyuzmultfilm universe: 10 interactive zones and 14 games at VDNH.">
+<meta property="og:image" content="https://samarakovskaya.art/assets/souzmultpark/preview.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Soyuzmultpark · Tanya Samarakovskaya">
+<meta name="twitter:description" content="The world’s first phygital park based on the Soyuzmultfilm universe at VDNH.">
+<meta name="twitter:image" content="https://samarakovskaya.art/assets/souzmultpark/preview.webp">
+<link rel="canonical" href="https://samarakovskaya.art/en/projects/souzmultpark.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --graphite:#16161A;--graphite-2:#1E1E22;--graphite-3:#26262C;
+    --cream:#F1ECDD;--cream-2:#E8E2CF;--cream-3:#DBD3B9;
+    --ink:#16161A;--ink-2:#3A3A40;--ink-3:#7A766B;
+    --bone:#F1ECDD;--bone-2:#A8A39A;--bone-3:#6E6960;
+    --lime:#C8360A;--lime-bright:#E8551F;--lime-deep:#A82C08;
+    --line-d:rgba(241,236,221,.10);--line-d2:rgba(241,236,221,.18);
+    --line-l:rgba(22,22,26,.12);--line-l2:rgba(22,22,26,.22);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  html,body{background:var(--graphite);color:var(--bone);font-family:"Space Grotesk","Helvetica Neue",sans-serif;-webkit-font-smoothing:antialiased}
+  body{overflow-x:hidden;min-height:100svh}
+  ::selection{background:var(--lime);color:#fff}
+  a{color:inherit;text-decoration:none}
+  button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+  img{display:block;max-width:100%}
+  body::before{content:"";position:fixed;inset:-50%;pointer-events:none;z-index:1000;opacity:.04;mix-blend-mode:screen;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
+
+  .ph{position:relative;background:var(--graphite-2);overflow:hidden}
+  .ph::before{content:attr(data-ph);position:absolute;inset:0;display:grid;place-items:center;font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:var(--bone-3);padding:18px;text-align:center;z-index:0;background-image:repeating-linear-gradient(135deg,rgba(255,255,255,.04) 0 8px,transparent 8px 16px)}
+  .ph img{position:relative;z-index:1;width:100%;height:100%;object-fit:cover;display:block}
+
+  /* TOP NAV */
+  .top{position:fixed;top:14px;left:50%;transform:translateX(-50%);z-index:60;width:calc(100% - 24px);max-width:1320px}
+  .nav-bar{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:8px;background:rgba(22,22,26,.7);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid var(--line-d);border-radius:999px;padding:7px 8px 7px 18px}
+  .back{display:inline-flex;align-items:center;gap:10px;font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--bone);white-space:nowrap}
+  .back::before{content:"←";color:var(--lime-bright);font-size:14px}
+  .nav-cta{display:inline-flex;align-items:center;gap:7px;background:var(--lime);color:#fff;padding:9px 16px;border-radius:999px;font-family:"JetBrains Mono",monospace;font-size:10px;text-transform:uppercase;letter-spacing:.1em;font-weight:600;white-space:nowrap;flex-shrink:0}
+  .nav-cta::after{content:"↗"}
+
+  /* MAGNETIC NAV */
+  .mag-nav{display:flex;align-items:center;justify-content:center;gap:2px;overflow:hidden}
+  .mag-pill{
+    display:inline-flex;align-items:center;
+    padding:7px 13px;border-radius:999px;
+    font-family:"JetBrains Mono",monospace;font-size:10px;text-transform:uppercase;letter-spacing:.1em;
+    color:var(--bone-3);
+    transition:background .2s,color .2s;
+    cursor:pointer;white-space:nowrap;will-change:transform;
+    text-decoration:none;
+  }
+  .mag-pill:hover{background:rgba(241,236,221,.08);color:var(--bone)}
+  .mag-pill.active{color:var(--lime-bright)}
+  @media(max-width:900px){.mag-nav{display:none}}
+
+  .wrap{max-width:1320px;margin:0 auto;padding:0 24px;width:100%}
+
+  /* PILLS */
+  .pill{display:inline-flex;align-items:center;gap:8px;padding:8px 14px 8px 12px;background:var(--graphite-2);border:1px solid var(--line-d);border-radius:999px;font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:lowercase;letter-spacing:.04em;color:var(--bone)}
+  .pill::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--lime);box-shadow:0 0 12px var(--lime)}
+  .pill.solid{background:var(--lime);color:#fff;border-color:transparent;font-weight:600}
+  .pill.solid::before{background:#fff;box-shadow:none}
+  .pill.outline{background:transparent}
+
+  /* Big outlined circle button */
+  .circle-btn{
+    display:inline-grid;place-items:center;
+    width:88px;height:88px;border-radius:50%;
+    border:1.5px solid currentColor;font-size:34px;line-height:1;
+    transition:background .25s,color .25s,transform .25s;
+    cursor:pointer;flex-shrink:0;
+  }
+  .circle-btn.bone{color:var(--bone);border-color:var(--bone-2)}
+  .circle-btn.bone:hover{background:var(--bone);color:var(--ink)}
+  .circle-btn.sm{width:56px;height:56px;font-size:22px}
+
+  /* TEXT TREATMENTS */
+  .word-pill{position:relative;display:inline-block;color:#fff;padding:0 .14em;z-index:1}
+  .word-pill::before{content:"";position:absolute;inset:.08em -.04em .14em -.04em;background:var(--lime);border-radius:999px;z-index:-1}
+  .word-oval{position:relative;display:inline-block;padding:0 .14em;z-index:1;white-space:nowrap}
+  .word-oval::before{content:"";position:absolute;inset:-.06em -.04em -.04em -.04em;border-radius:999px;border:3px solid var(--lime);transform:rotate(-2.5deg) skewX(-2deg);z-index:-1}
+  .word-block{background:var(--lime);color:#fff;padding:0 .14em}
+
+  /* HERO */
+  .hero{position:relative;min-height:100svh;overflow:hidden;padding:120px 0 40px;display:flex;flex-direction:column;justify-content:space-between;gap:36px}
+  .hero-bg{position:absolute;inset:0;z-index:0;opacity:.34}
+  .hero-bg .ph{position:absolute;inset:0}
+  .hero-bg img{filter:contrast(1.05) saturate(.95)}
+  .hero-bg::after{content:"";position:absolute;inset:0;background:radial-gradient(110% 70% at 50% 30%,transparent 0%,var(--graphite) 78%),linear-gradient(180deg,var(--graphite) 0%,transparent 25%,transparent 60%,var(--graphite) 100%)}
+
+  .hero-meta-row{position:relative;z-index:2;display:flex;justify-content:center;flex-wrap:wrap;gap:24px}
+  .hero-meta-row .pills{display:flex;flex-wrap:wrap;gap:8px}
+  .hero-meta-row .pill:nth-child(1){transform:rotate(-1deg)}
+  .hero-meta-row .pill:nth-child(2){transform:rotate(.8deg);margin-top:4px}
+
+  .hero-title{position:relative;z-index:2;display:flex;flex-direction:column;gap:14px;align-items:center;text-align:center}
+  .hero-h1{font-weight:700;font-size:clamp(58px,12vw,168px);line-height:.84;letter-spacing:-.05em;text-transform:uppercase;color:var(--bone)}
+  .hero-h1 .syl{display:inline-block;transition:font-family .08s,font-weight .08s,color .08s,letter-spacing .08s,background .15s,padding .15s}
+  .hero-h1 .syl.s1:hover{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;color:var(--lime-bright);letter-spacing:-.08em}
+  .hero-h1 .syl.s2:hover{font-family:"JetBrains Mono",monospace;font-weight:700;background:var(--lime);color:#fff;padding:0 .04em}
+  .hero-sub{font-weight:500;font-size:clamp(20px,2.2vw,34px);line-height:1.1;letter-spacing:-.02em;color:var(--bone-2);max-width:38ch;text-wrap:balance;margin:8px auto 0}
+  .hero-sub b{color:var(--bone);font-weight:700}
+
+  .hero-foot{position:relative;z-index:2;display:grid;grid-template-columns:repeat(4,1fr);gap:18px;padding-top:20px;border-top:1px solid var(--line-d)}
+  @media(max-width:780px){.hero-foot{grid-template-columns:1fr 1fr;gap:16px}}
+  .hero-fact{display:flex;flex-direction:column;gap:6px}
+  .hero-fact b{font-family:"JetBrains Mono",monospace;font-size:10px;color:var(--lime-bright);text-transform:uppercase;letter-spacing:.12em;font-weight:600}
+  .hero-fact span{font-weight:600;font-size:clamp(15px,1.5vw,18px);color:var(--bone);letter-spacing:-.005em;line-height:1.2}
+
+  /* MARQUEE */
+  .marq{background:var(--lime);color:#fff;overflow:hidden;padding:16px 0}
+  .marq-track{display:flex;gap:32px;width:max-content;animation:scroll 38s linear infinite;font-weight:700;font-size:clamp(20px,3vw,44px);letter-spacing:-.03em;line-height:1;white-space:nowrap;text-transform:uppercase}
+  .marq-track .dot{display:inline-block;width:.32em;height:.32em;border-radius:50%;background:#fff;vertical-align:middle;margin:0 .3em}
+  @keyframes scroll{to{transform:translateX(-50%)}}
+
+  /* SEC HEAD */
+  .sec{padding:90px 0 100px}
+  .sec.on-cream{background:var(--cream);color:var(--ink)}
+  .sec.on-graphite{background:var(--graphite);color:var(--bone)}
+  .sec-head{display:grid;grid-template-columns:auto 1fr auto;gap:32px;align-items:end;padding-bottom:28px;border-bottom:1px solid var(--line-d);margin-bottom:56px}
+  .sec.on-cream .sec-head{border-color:var(--line-l)}
+  @media(max-width:780px){.sec-head{grid-template-columns:1fr;gap:14px}}
+  .sec-label{font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:var(--bone-3);display:inline-flex;align-items:center;gap:10px;white-space:nowrap}
+  .sec-label .num{color:var(--lime-bright);font-weight:700;letter-spacing:.06em}
+  .sec.on-cream .sec-label{color:var(--ink-3)}
+  .sec.on-cream .sec-label .num{color:var(--lime-deep)}
+  .sec-head.no-title{grid-template-columns:auto 1fr}
+  @media(max-width:780px){.sec-head.no-title{grid-template-columns:1fr}}
+  .sec-side{font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--bone-2);text-align:right;line-height:1.7}
+  .sec.on-cream .sec-side{color:var(--ink-2)}
+  .sec-side b{font-weight:700;color:var(--bone)}
+  .sec.on-cream .sec-side b{color:var(--ink)}
+  .sec-h{font-weight:700;font-size:clamp(44px,7.5vw,112px);line-height:.9;letter-spacing:-.045em;text-wrap:balance}
+
+  /* STATS BAND */
+  .stats{background:var(--lime);color:#fff;padding:64px 0}
+  .stats-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:28px;max-width:1320px;margin:0 auto;padding:0 24px}
+  @media(max-width:900px){.stats-grid{grid-template-columns:repeat(2,1fr);gap:36px 24px}}
+  .stat b{display:block;font-weight:700;font-size:clamp(46px,5.6vw,84px);line-height:.84;letter-spacing:-.045em;color:#fff}
+  .stat span{display:block;margin-top:14px;font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.09em;color:rgba(255,255,255,.82);line-height:1.5}
+
+  /* VIDEO */
+  .yt-wrap{position:relative;aspect-ratio:16/9;background:var(--graphite-2);overflow:hidden;border:1px solid var(--line-d)}
+  .yt-wrap iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+  .video-caption{margin-top:18px;font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--bone-3);line-height:1.7}
+  .video-caption a{color:var(--lime-bright);text-decoration:underline;text-underline-offset:3px}
+
+  /* CONCEPT (cream) */
+  .concept{display:grid;grid-template-columns:1fr 1fr;gap:0;background:var(--cream)}
+  @media(max-width:900px){.concept{grid-template-columns:1fr}}
+  .concept-img{position:relative;min-height:44vh}
+  @media(max-width:900px){.concept-img{min-height:300px}}
+  .concept-img .ph{position:absolute;inset:0}
+  .concept-body{padding:48px;display:flex;flex-direction:column;gap:24px}
+  @media(max-width:780px){.concept-body{padding:32px 24px}}
+  .concept-lead{font-weight:500;font-size:clamp(26px,3.2vw,46px);line-height:1.08;letter-spacing:-.025em;text-wrap:balance}
+  .concept-text{font-size:15px;line-height:1.65;color:var(--ink-2);display:flex;flex-direction:column;gap:14px}
+  .concept-text b{color:var(--ink);font-weight:700}
+  .concept-meta{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;padding-top:20px;margin-top:auto;font-family:"JetBrains Mono",monospace;font-size:10px;text-transform:uppercase;letter-spacing:.08em}
+  .concept-meta dt{color:var(--ink-3);margin-bottom:4px}
+  .concept-meta dd{color:var(--ink);font-weight:600;font-size:13px}
+
+  /* PULL QUOTE */
+  .pullq{position:relative;min-height:90vh;display:flex;align-items:center;background:var(--graphite);overflow:hidden}
+  .pullq-bg{position:absolute;inset:0;z-index:0;opacity:.24}
+  .pullq-bg .ph{position:absolute;inset:0}
+  .pullq-bg::after{content:"";position:absolute;inset:0;background:radial-gradient(60% 60% at 50% 50%,transparent 0%,var(--graphite) 90%)}
+  .pullq-inner{position:relative;z-index:2;max-width:1320px;margin:0 auto;padding:80px 28px;text-align:center;width:100%}
+  .pullq-text{font-weight:600;font-size:clamp(34px,6.4vw,100px);line-height:.96;letter-spacing:-.04em;text-wrap:balance}
+
+  /* CHAPTERS */
+  .chap{display:grid;grid-template-columns:1fr 1fr;gap:0;background:var(--graphite-2);margin-bottom:0;min-height:60vh}
+  .chap.flip .chap-img{order:2}
+  .chap.full{grid-template-columns:1fr;min-height:90vh;position:relative}
+  @media(max-width:900px){.chap,.chap.flip{grid-template-columns:1fr}.chap.flip .chap-img{order:0}}
+  .chap-img{position:relative;min-height:50vh;overflow:hidden}
+  @media(max-width:900px){.chap-img{min-height:300px}}
+  .chap-img .ph{position:absolute;inset:0}
+  .chap-img img{transition:transform .8s ease}
+  .chap-img:hover img{transform:scale(1.04)}
+  .chap-body{padding:48px;display:flex;flex-direction:column;gap:20px;justify-content:center}
+  @media(max-width:780px){.chap-body{padding:32px 24px}}
+  .chap.full .chap-img{position:absolute;inset:0;min-height:0}
+  .chap.full .chap-img::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 35%,rgba(0,0,0,.88) 100%);z-index:1}
+  .chap.full .chap-body{position:relative;z-index:2;justify-content:flex-end;color:var(--bone);min-height:90vh}
+  .chap-title{font-weight:700;font-size:clamp(28px,4.6vw,64px);line-height:.98;letter-spacing:-.035em;text-wrap:balance}
+  .chap-title .mark{color:var(--lime-bright)}
+  .chap-body p{font-size:15px;line-height:1.65;color:var(--bone-2);max-width:54ch}
+  .chap-body p b{color:var(--bone);font-weight:700}
+  .chap.full .chap-body p{color:var(--bone);max-width:64ch}
+  .chap.full .chap-body p b{color:var(--lime-bright)}
+
+  /* ROLE CARDS */
+  .role-grid{display:grid;grid-template-columns:1fr 1fr;gap:0}
+  @media(max-width:780px){.role-grid{grid-template-columns:1fr}}
+  .role-card{background:var(--cream-2);display:flex;flex-direction:column;overflow:hidden;transition:background .25s}
+  .role-card:hover{background:var(--graphite-3)}
+  .role-photo{aspect-ratio:16/9;overflow:hidden;position:relative;flex-shrink:0}
+  .role-photo .ph{position:absolute;inset:0}
+  .role-photo img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .7s ease}
+  .role-card:hover .role-photo img{transform:scale(1.04)}
+  .role-text{padding:28px;display:flex;flex-direction:column;gap:14px;flex:1}
+  .role-card:hover .role-text{color:var(--bone)}
+  .role-card h3{font-weight:700;font-size:clamp(22px,2.6vw,30px);line-height:1.02;letter-spacing:-.025em;text-wrap:balance}
+  .role-card h3 .mark{color:var(--lime-deep);transition:color .25s}
+  .role-card:hover h3 .mark{color:var(--lime-bright)}
+  .role-card p{font-size:14px;line-height:1.65;color:var(--ink-2);transition:color .25s}
+  .role-card:hover p{color:var(--bone-2)}
+  .role-card p b{color:var(--ink);font-weight:700;transition:color .25s}
+  .role-card:hover p b{color:var(--bone)}
+
+  /* GALLERY */
+  .gal{display:grid;grid-template-columns:repeat(3,1fr);gap:0}
+  @media(max-width:780px){.gal{grid-template-columns:1fr 1fr}}
+  .gi{position:relative;overflow:hidden;background:var(--graphite-2);cursor:zoom-in;aspect-ratio:4/3}
+  .gi .ph{position:absolute;inset:0}
+  .gi img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s ease,filter .4s}
+  .gi:hover img{transform:scale(1.05)}
+  .gi::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.3) 0%,transparent 30%);opacity:.5;pointer-events:none;transition:opacity .3s}
+  .gi:hover::after{opacity:.1}
+
+  .gcap{background:var(--lime);color:#fff;padding:28px 24px;display:flex;flex-direction:column;justify-content:flex-end;gap:8px;aspect-ratio:4/3}
+  .gcap .big{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:clamp(28px,3.6vw,56px);line-height:.88;letter-spacing:-.04em;color:#fff}
+  .gcap .sub{font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.78)}
+  @media(max-width:780px){.gcap{display:none}}
+
+  /* lightbox */
+  .lb{display:none;position:fixed;inset:0;z-index:200;background:rgba(0,0,0,.96);align-items:center;justify-content:center}
+  .lb.open{display:flex}
+  .lb img{max-width:80vw;max-height:86vh;object-fit:contain;user-select:none;transition:opacity .18s ease}
+  .lb img.fade{opacity:0}
+  .lb-close{position:absolute;top:20px;right:24px;font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--bone-2);padding:8px;cursor:pointer;z-index:2}
+  .lb-close:hover{color:var(--lime-bright)}
+  .lb-nav{position:absolute;top:50%;transform:translateY(-50%);font-family:"JetBrains Mono",monospace;font-size:24px;color:var(--bone-2);padding:16px 22px;cursor:pointer;z-index:2;transition:color .2s;line-height:1}
+  .lb-nav:hover{color:var(--lime-bright)}
+  .lb-prev{left:20px}
+  .lb-next{right:20px}
+  .lb-counter{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:var(--bone-3)}
+
+  /* CREDITS (cream) */
+  .credits{padding:90px 0;background:var(--cream);color:var(--ink)}
+  .credits-top{display:grid;grid-template-columns:1fr 1fr;gap:32px;border-bottom:1px solid var(--line-l);padding-bottom:48px;margin-bottom:48px;align-items:end}
+  @media(max-width:900px){.credits-top{grid-template-columns:1fr}}
+  .credits-title{font-weight:700;font-size:clamp(48px,8vw,118px);line-height:.9;letter-spacing:-.04em}
+  .credits-facts{display:flex;gap:32px;flex-wrap:wrap;justify-content:flex-end}
+  @media(max-width:900px){.credits-facts{justify-content:flex-start}}
+  .cred-fact{font-family:"JetBrains Mono",monospace;font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--ink-3);text-align:center}
+  .cred-fact strong{display:block;font-family:"Space Grotesk",sans-serif;font-size:clamp(24px,3vw,42px);font-weight:700;letter-spacing:-.03em;line-height:.9;color:var(--ink);margin-bottom:6px}
+  .cred-fact strong .mark{color:var(--lime-deep)}
+  .credits-body{display:grid;grid-template-columns:1fr 1fr;gap:0}
+  @media(max-width:900px){.credits-body{grid-template-columns:1fr}}
+  .cred-row{display:grid;grid-template-columns:140px 1fr;gap:16px;padding:18px 0;border-bottom:1px solid var(--line-l);align-items:baseline}
+  .cred-row:first-child{border-top:1px solid var(--line-l)}
+  .cred-row dt{font-family:"JetBrains Mono",monospace;font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--ink-3)}
+  .cred-row dd{font-weight:600;font-size:clamp(16px,1.5vw,20px);letter-spacing:-.015em;line-height:1.25;color:var(--ink)}
+  .cred-row dd .mark{color:var(--lime-deep);font-weight:700}
+  .cred-row dd .sub{display:block;font-family:"JetBrains Mono",monospace;font-size:10px;color:var(--ink-3);font-weight:400;margin-top:4px;text-transform:uppercase;letter-spacing:.08em}
+  .credits-col-right{padding-left:36px}
+  @media(max-width:900px){.credits-col-right{padding-left:0}}
+
+  /* PROJ NAV */
+  .proj-nav{border-top:1px solid var(--line-d);background:var(--graphite)}
+  .proj-nav-inner{display:grid;grid-template-columns:1fr auto 1fr;max-width:1320px;margin:0 auto}
+  @media(max-width:760px){.proj-nav-inner{grid-template-columns:1fr}}
+  .pn-card{position:relative;overflow:hidden;padding:48px 36px;display:flex;flex-direction:column;justify-content:flex-end;gap:8px;transition:background .3s;border-right:1px solid var(--line-d)}
+  .pn-card:last-child{border-right:0;border-left:1px solid var(--line-d)}
+  .pn-card:hover{background:var(--graphite-2)}
+  .pn-card .bg{position:absolute;inset:0;object-fit:cover;width:100%;height:100%;opacity:.14;transition:opacity .4s;filter:saturate(.4)}
+  .pn-card:hover .bg{opacity:.28}
+  .pn-dir{position:relative;z-index:1;font-family:"JetBrains Mono",monospace;font-size:10px;text-transform:uppercase;letter-spacing:.14em;color:var(--bone-3);margin-bottom:8px}
+  .pn-name{position:relative;z-index:1;font-weight:700;font-size:clamp(28px,3.8vw,56px);line-height:1;letter-spacing:-.03em;color:var(--bone)}
+  .pn-sub{position:relative;z-index:1;font-family:"JetBrains Mono",monospace;font-size:10px;color:var(--bone-3);margin-top:6px;text-transform:uppercase;letter-spacing:.08em}
+  .pn-contact{display:flex;align-items:center;justify-content:center;padding:48px 36px;flex-direction:column;gap:14px}
+  .pn-contact-label{font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:var(--bone-3)}
+  .pn-btn{display:inline-flex;align-items:center;gap:10px;background:var(--lime);color:#fff;padding:14px 24px;border-radius:999px;font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.1em;font-weight:600;transition:transform .25s}
+  .pn-contact:hover .pn-btn{transform:translateY(-3px)}
+  .pn-circ{display:inline-grid;place-items:center;width:56px;height:56px;border-radius:50%;border:1.5px solid var(--bone-2);font-size:22px;margin-bottom:14px;color:var(--bone)}
+
+  footer{padding:28px 24px;border-top:1px solid var(--line-d);font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--bone-3);background:var(--graphite)}
+  .foot-row{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;align-items:center;max-width:1320px;margin:0 auto}
+  .foot-row b{color:var(--bone);font-weight:500}
+  .foot-row a:hover{color:var(--lime-bright)}
+
+  .reveal{opacity:0;transform:translateY(20px);transition:opacity .8s ease,transform .8s ease}
+  .reveal.in{opacity:1;transform:none}
+</style>
+<style id="en-switch-css">
+.nav-end{display:inline-flex;align-items:center;gap:10px}
+.lang-toggle{display:inline-flex;gap:2px;padding:3px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.16);border-radius:999px;flex-shrink:0}
+.lang-toggle .lang-seg{padding:6px 9px;border-radius:999px;font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:rgba(241,236,221,.6);line-height:1;text-decoration:none;transition:color .2s,background .2s}
+.lang-toggle .lang-seg.on{background:#f1ecdd;color:#16161a;font-weight:600}
+.lang-toggle a.lang-seg:hover{color:#fff}
+
+/* NAV FIX 31.07.2026 — «Написать» всегда у правого края шапки, RU/EN только на десктопе */
+.nav-bar>.nav-end{margin-left:auto}
+.nav-bar>.lang-toggle{margin-left:auto}
+@media(max-width:780px){
+  .nav-bar .lang-toggle{display:none}
+  .nav-bar>.nav-cta{margin-left:auto}
+}
+
+/* FOOT LANG 31.07.2026 — переключатель языка в футере, только на мобильном (в шапке он скрыт) */
+.foot-lang{display:none}
+@media(max-width:780px){
+  .foot-lang{display:inline-flex;align-items:center;padding:6px 12px;border:1px solid currentColor;border-radius:999px;font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;color:inherit;opacity:.75}
+}
+</style>
+<link rel="alternate" hreflang="ru" href="https://samarakovskaya.art/projects/souzmultpark.html">
+<link rel="alternate" hreflang="en" href="https://samarakovskaya.art/en/projects/souzmultpark.html">
+<link rel="alternate" hreflang="x-default" href="https://samarakovskaya.art/projects/souzmultpark.html">
+</head>
+<body>
+
+<div class="lb" id="lb">
+  <button class="lb-close" id="lbClose">[ESC] close</button>
+  <button class="lb-nav lb-prev" id="lbPrev">←</button>
+  <img loading="lazy" decoding="async" id="lbImg" src="" alt="">
+  <button class="lb-nav lb-next" id="lbNext">→</button>
+  <div class="lb-counter" id="lbCounter"></div>
+</div>
+
+<!-- TOP NAV -->
+<header class="top">
+  <div class="nav-bar">
+    <a class="back" href="../index.html#works">All projects</a>
+    <nav class="mag-nav" id="magNav">
+      <a class="mag-pill" href="#s-concept" data-section="s-concept">About</a>
+      <a class="mag-pill" href="#s-video" data-section="s-video">Video</a>
+      <a class="mag-pill" href="#s-zones" data-section="s-zones">Zones</a>
+      <a class="mag-pill" href="#s-process" data-section="s-process">Role</a>
+      <a class="mag-pill" href="#s-gallery" data-section="s-gallery">Gallery</a>
+      <a class="mag-pill" href="#s-credits" data-section="s-credits">Context</a>
+    </nav>
+    <div class="nav-end"><div class="lang-toggle" role="group" aria-label="Language"><a class="lang-seg" href="../../projects/souzmultpark.html">RU</a><span class="lang-seg on">EN</span></div><a class="nav-cta" href="https://t.me/samarakovskaya_tanya" target="_blank" rel="noopener">Contact</a></div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-bg" aria-hidden="true">
+    <div class="ph" data-ph="soyuzmultpark · projection zone">
+      <img src="../../assets/souzmultpark/photo/webp/smp-city-roofs.webp" alt="" loading="eager" decoding="async">
+    </div>
+  </div>
+
+  <div class="wrap" style="position:relative;z-index:2;display:flex;flex-direction:column;flex:1;gap:36px;justify-content:space-between">
+    <div class="hero-meta-row" style="justify-content:center">
+      <div class="pills" style="justify-content:center">
+        <span class="pill solid">phygital park</span>
+        <span class="pill">10 zones · 14 games</span>
+        <span class="pill">vdnh · moscow</span>
+        <span class="pill">hello computer</span>
+        <span class="pill outline">ar · xr · tof · ble · mocap</span>
+      </div>
+    </div>
+
+    <div class="hero-title">
+      <h1 class="hero-h1">
+        <span class="syl s1">SOYUZ</span><br>
+        <span class="syl s2">MULT</span><br>
+        <span class="syl s1">PARK</span>
+      </h1>
+      <p class="hero-sub">
+        The world’s first phygital park based on the <b>Soyuzmultfilm</b> universe: 10 interactive zones and 14 games where beloved cartoons become tangible.
+      </p>
+    </div>
+
+    <div class="hero-foot">
+      <div class="hero-fact"><b>Scale</b><span>2,500 m² · 3 floors</span></div>
+      <div class="hero-fact"><b>Location</b><span>VDNH, Pavilion No. 7 “Seeds”</span></div>
+      <div class="hero-fact"><b>Role</b><span>Creator · Hello Computer</span></div>
+      <div class="hero-fact"><b>Technologies</b><span>AR · XR · ToF · BLE · mocap</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marq" aria-hidden="true">
+  <div class="marq-track">
+    <span>Step inside a cartoon <span class="dot"></span> Hedgehog in the Fog <span class="dot"></span> The Mystery of the Third Planet <span class="dot"></span> Karlsson-on-the-Roof <span class="dot"></span> Vovka <span class="dot"></span> Winnie-the-Pooh <span class="dot"></span> Cheburashka <span class="dot"></span></span>
+    <span>Step inside a cartoon <span class="dot"></span> Hedgehog in the Fog <span class="dot"></span> The Mystery of the Third Planet <span class="dot"></span> Karlsson-on-the-Roof <span class="dot"></span> Vovka <span class="dot"></span> Winnie-the-Pooh <span class="dot"></span> Cheburashka <span class="dot"></span></span>
+  </div>
+</div>
+
+<!-- 01 · ABOUT → CONCEPT (cream) -->
+<section class="sec on-cream" id="s-concept">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-label"><span class="num">01</span> About</span>
+      <h2 class="sec-h">A studio loved for <span class="word-pill">generations</span>.</h2>
+      <span class="sec-side"><b>Soyuzmultfilm · 1936</b><br>VDNH, Moscow</span>
+    </div>
+
+    <div class="concept reveal">
+      <div class="concept-img">
+        <div class="ph" data-ph="museum timeline · studio filmstrip">
+          <img loading="lazy" decoding="async" src="../../assets/souzmultpark/photo/webp/smp-filmstrip-family.webp" alt="A family at the interactive filmstrip in the Soyuzmultfilm museum">
+        </div>
+      </div>
+      <div class="concept-body">
+        <p class="concept-lead">
+          Cartoons that shaped <span class="word-block">children and their parents.</span>
+        </p>
+        <div class="concept-text">
+          <p><b>Soyuzmultfilm</b> was founded in 1936 as the Soviet answer to Disney, and by the 1970s–80s had become Europe’s largest animation studio. Its legacy includes more than 1,500 films and over 400 festival awards. Cheburashka, Hedgehog in the Fog, Karlsson-on-the-Roof, Winnie-the-Pooh, Vovka in the Far Far Away Kingdom: <b>characters people in Russia know by heart.</b></p>
+          <p>Soyuzmultpark brings this universe into physical space. It is the world’s first phygital park dedicated to Soviet animation: <b>10 interactive zones and 14 games</b> across 2,500 m² and three floors, powered by 69 projectors. Classic cartoons become tangible. A Hello Computer team of more than 50 specialists spent a year rebuilding the characters and their worlds from scratch, recording new voices and developing the game mechanics. AR, XR, ToF, BLE and motion capture serve one purpose: the visitor steps inside a legendary story and experiences it firsthand.</p>
+        </div>
+        <dl class="concept-meta">
+          <div><dt>Studio</dt><dd>Soyuzmultfilm · 1936</dd></div>
+          <div><dt>Zones</dt><dd>10 zones · 14 games</dd></div>
+          <div><dt>Team</dt><dd>50+ specialists</dd></div>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ЦИФРЫ / STATS -->
+<section class="stats" aria-label="The park in numbers">
+  <div class="stats-grid">
+    <div class="stat"><b>∞</b><span>number<br>of players</span></div>
+    <div class="stat"><b>3+</b><span>age</span></div>
+    <div class="stat"><b>800+</b><span>visitors per day</span></div>
+    <div class="stat"><b>4.9</b><span>rated on Yandex</span></div>
+    <div class="stat"><b>2020</b><span>opening date</span></div>
+  </div>
+</section>
+
+<!-- 02 · VIDEO -->
+<section class="sec on-graphite" id="s-video" style="padding:80px 0">
+  <div class="wrap">
+    <div class="sec-head no-title reveal" style="margin-bottom:40px">
+      <span class="sec-label"><span class="num">02</span> Video</span>
+      <span class="sec-side"><b>Soyuzmultpark at VDNH</b><br>the park in motion</span>
+    </div>
+    <div class="reveal" style="max-width:1100px;margin:0 auto">
+      <div class="yt-wrap">
+        <iframe src="https://www.youtube.com/embed/ptHsjPwl5zY?rel=0&amp;modestbranding=1"
+                title="Soyuzmultpark — project video" loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+      </div>
+      <p class="video-caption">Soyuzmultpark · VDNH, Pavilion No. 7 · <a href="https://www.youtube.com/watch?v=ptHsjPwl5zY" target="_blank" rel="noopener">watch on YouTube</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- 03 · ZONES → CHAPTERS (graphite) -->
+<section class="sec on-graphite" id="s-zones">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-label"><span class="num">03</span> Zones and installations</span>
+      <h2 class="sec-h">Every cartoon becomes a <span class="word-pill">zone</span>.</h2>
+      <span class="sec-side"><b>10 zones · 14 games</b><br>phygital mechanics</span>
+    </div>
+
+    <article class="chap reveal">
+      <div class="chap-img">
+        <div class="ph" data-ph="“Hedgehog in the Fog” zone"><img loading="lazy" decoding="async" src="../../assets/souzmultpark/photo/webp/smp-hedgehog-lanterns.webp" alt="“Hedgehog in the Fog” zone: lanterns and a projected night forest"></div>
+      </div>
+      <div class="chap-body">
+        <h3 class="chap-title">Hedgehog in the <span class="mark">Fog</span></h3>
+        <p>The zone is built around fog and constellations. Through set design and light, visitors help the characters see the constellation and find their way home. <b>The mystery of the space is intensified by original music and sounds triggered by touching the projections.</b> Four games: light the path, find the bundle, help the Hedgehog and the Fish, and assemble the constellations.</p>
+      </div>
+    </article>
+
+    <article class="chap full reveal">
+      <div class="chap-img">
+        <div class="ph" data-ph="interactive projection · floor and walls"><img loading="lazy" decoding="async" src="../../assets/souzmultpark/photo/webp/smp-paint-zone-wide.webp" alt="Interactive projection across the floor and walls of the zone"></div>
+      </div>
+      <div class="chap-body">
+        <h3 class="chap-title">10 zones with beloved <span class="mark">characters</span></h3>
+        <p>Each zone lives according to its own cartoon, with its own light, sound and set of games. Visitors wear an RFID wristband, complete missions, collect points and receive their photos and videos by email. <b>AR, XR, ToF, BLE and motion capture allow dozens of children to influence a shared projection at the same time.</b> No headsets or personal devices are required, making the format safe for any age.</p>
+      </div>
+    </article>
+
+    <article class="chap flip reveal">
+      <div class="chap-img">
+        <div class="ph" data-ph="“The Mystery of the Third Planet” zone"><img loading="lazy" decoding="async" src="../../assets/souzmultpark/photo/webp/smp-planet-pool-blue.webp" alt="“The Mystery of the Third Planet” zone: ball pool and planet projection"></div>
+      </div>
+      <div class="chap-body">
+        <h3 class="chap-title">The Mystery of the Third <span class="mark">Planet</span></h3>
+        <p>At the centre of the zone stands Professor Seleznyov’s actual spaceship. The floor becomes a multimedia shooting gallery: soft balls fly into the projections like targets in an arcade. Nearby is a flower mirror where visitors can try on character costumes, take a funny photo or video and send it to their email. <b>Three games: save the robots, protect the animals, and the flower mirror.</b></p>
+      </div>
+    </article>
+
+    <article class="chap reveal">
+      <div class="chap-img">
+        <div class="ph" data-ph="“Vovka in the Far Far Away Kingdom” zone"><img loading="lazy" decoding="async" src="../../assets/souzmultpark/photo/webp/smp-gallery-01.webp" alt="“Vovka in the Far Far Away Kingdom” zone"></div>
+      </div>
+      <div class="chap-body">
+        <h3 class="chap-title">Vovka in the Far Far Away <span class="mark">Kingdom</span></h3>
+        <p>The zone is dedicated to the three fairy-tale worlds Vovka travels through. Help the Tsar paint the fence, heat the stove, relax on the throne and build a castle together with the Wise Vasilisas. <b>Five games: heat the stove, feed Vovka, help the Tsar, the lazy throne, and visiting the Vasilisas.</b></p>
+      </div>
+    </article>
+
+    <article class="chap flip reveal">
+      <div class="chap-img">
+        <div class="ph" data-ph="“Winnie-the-Pooh” zone · set design"><img loading="lazy" decoding="async" src="../../assets/souzmultpark/photo/webp/smp-winnie-house.webp" alt="“Winnie-the-Pooh” zone: a built house with a hollow passage and a painted forest"></div>
+      </div>
+      <div class="chap-body">
+        <h3 class="chap-title">Not only <span class="mark">projections</span></h3>
+        <p>Some zones are built physically: Winnie-the-Pooh’s house with a hollow to crawl through, a painted forest, three-dimensional textures children can climb into. <b>Set design and projection work as a pair: one gives you touch, the other gives you scale and movement.</b> A child first feels the world with their hands, then watches it come alive.</p>
+      </div>
+    </article>
+
+    <article class="chap reveal">
+      <div class="chap-img">
+        <div class="ph" data-ph="museum timeline · filmstrip"><img loading="lazy" decoding="async" src="../../assets/souzmultpark/photo/webp/smp-museum-wall.webp" alt="Soyuzmultfilm museum timeline: visitors at the interactive wall"></div>
+      </div>
+      <div class="chap-body">
+        <h3 class="chap-title">The studio <span class="mark">museum timeline</span></h3>
+        <p>A giant filmstrip brings Soyuzmultfilm’s golden collection into one space: Winnie-the-Pooh, The Bremen Town Musicians, Prostokvashino, The Ladybird. <b>The history of animation becomes a walk through interactive frames.</b> Visitors move along the filmstrip and launch their favourite scenes themselves.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- 04 · ROLE → ROLE GRID (cream) -->
+<section class="sec on-cream" id="s-process">
+  <div class="wrap">
+    <div class="sec-head no-title reveal">
+      <span class="sec-label"><span class="num">04</span> Role</span>
+      <span class="sec-side"><b>Creator · Hello Computer</b><br>concept · scripts · zones</span>
+    </div>
+
+    <div class="role-grid reveal">
+      <div class="role-card">
+        <div class="role-photo">
+          <div class="ph" data-ph="park plan · three floors">
+            <img loading="lazy" decoding="async" src="../../assets/souzmultpark/photo/webp/smp-park-plan.webp" alt="Park plan: three floors and the layout of the zones">
+          </div>
+        </div>
+        <div class="role-text">
+          <h3>Park <span class="mark">concept</span></h3>
+          <p>Collaborative development of the park concept within the Hello Computer team: <b>what kind of park it should be, how the visitor experience works, and which cartoons shape the zones.</b></p>
+        </div>
+      </div>
+
+      <div class="role-card">
+        <div class="role-photo">
+          <div class="ph" data-ph="installation · script">
+            <img loading="lazy" decoding="async" src="../../assets/souzmultpark/photo/webp/smp-concept-filmstrip.webp" alt="">
+          </div>
+        </div>
+        <div class="role-text">
+          <h3>Installation <span class="mark">scripts</span></h3>
+          <p>Development of scripts for several installations: game logic, the visitor route inside each zone, and <b>how a cartoon becomes an interactive experience.</b></p>
+        </div>
+      </div>
+
+      <div class="role-card">
+        <div class="role-photo">
+          <div class="ph" data-ph="visual language of the zones">
+            <img loading="lazy" decoding="async" src="../../assets/souzmultpark/photo/webp/smp-vovka.webp" alt="">
+          </div>
+        </div>
+        <div class="role-text">
+          <h3>Visual <span class="mark">language</span></h3>
+          <p>The visual dimension of the project: the imagery of the zones and <b>how classic animation lives in projections and spatial design</b> while preserving the studio’s original style.</p>
+        </div>
+      </div>
+
+      <div class="role-card">
+        <div class="role-photo">
+          <div class="ph" data-ph="zone design">
+            <img loading="lazy" decoding="async" src="../../assets/souzmultpark/photo/webp/smp-museum-timeline.webp" alt="">
+          </div>
+        </div>
+        <div class="role-text">
+          <h3>Design and <span class="mark">spatial treatment</span></h3>
+          <p>Design and spatial treatment of the zones: <b>atmosphere, light, colour and space</b> as a coherent whole with each cartoon.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 05 · GALLERY → GALLERY (graphite) -->
+<section class="sec on-graphite" id="s-gallery">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-label"><span class="num">05</span> Materials</span>
+      <h2 class="sec-h">Gallery</h2>
+      <span class="sec-side"><b>Zones · projections</b><br>photography and renders</span>
+    </div>
+
+    <div class="gal reveal">
+
+      <figure class="gi">
+        <div class="ph" data-ph="tablet game"><img loading="lazy" decoding="async" src="../../assets/souzmultpark/photo/webp/smp-tablet-game.webp" alt="“The Orange Cow” game on a tablet in the park"></div>
+      </figure>
+
+      <figure class="gi">
+        <div class="ph" data-ph="painted set design"><img loading="lazy" decoding="async" src="../../assets/souzmultpark/photo/webp/smp-rabbit-kitchen.webp" alt="Visitors in a zone with painted set design"></div>
+      </figure>
+
+      <figure class="gi">
+        <div class="ph" data-ph="glowing tree stumps"><img loading="lazy" decoding="async" src="../../assets/souzmultpark/photo/webp/smp-forest-stumps.webp" alt="Forest zone with glowing tree stumps"></div>
+      </figure>
+
+      <figure class="gi">
+        <div class="ph" data-ph="ball pool · alien planet"><img loading="lazy" decoding="async" src="../../assets/souzmultpark/photo/webp/smp-planet-pool-green.webp" alt="Ball pool and a projection of an alien planet"></div>
+      </figure>
+
+      <figure class="gi">
+        <div class="ph" data-ph="interactive paint"><img loading="lazy" decoding="async" src="../../assets/souzmultpark/photo/webp/smp-paint-run.webp" alt="Children running across an interactive projection"></div>
+      </figure>
+
+      <figure class="gi">
+        <div class="ph" data-ph="interactive zone · render"><img loading="lazy" decoding="async" src="../../assets/souzmultpark/photo/webp/smp-interactive-zone.webp" alt="Interactive zone, render"></div>
+      </figure>
+
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE → PULL QUOTE (graphite) -->
+<section class="pullq">
+  <div class="pullq-bg" aria-hidden="true">
+    <div class="ph" data-ph="projection zone">
+      <img loading="lazy" decoding="async" src="../../assets/souzmultpark/photo/webp/smp-hedgehog-fog.webp" alt="">
+    </div>
+  </div>
+  <div class="pullq-inner reveal">
+    <p class="pullq-text">
+      Here, the visitor is more than a spectator. They are the <span class="word-block">main character</span> in a legendary story that <span class="word-oval">responds</span> to every movement.
+    </p>
+  </div>
+</section>
+
+<!-- 06 · CONTEXT → CREDITS (cream) -->
+<section class="credits" id="s-credits">
+  <div class="wrap">
+    <div class="credits-top reveal">
+      <div>
+        <span class="sec-label" style="color:var(--ink-3);margin-bottom:18px;display:inline-flex"><span class="num" style="color:var(--lime-deep)">06</span> Context</span>
+        <h2 class="credits-title">Project <span class="word-pill">context</span></h2>
+      </div>
+      <div class="credits-facts">
+        <div class="cred-fact"><strong>2500</strong>m² · 3 floors</div>
+        <div class="cred-fact"><strong><span class="mark">10</span></strong>zones · 14 games</div>
+        <div class="cred-fact"><strong>69</strong>projectors</div>
+      </div>
+    </div>
+
+    <div class="credits-body reveal">
+      <dl>
+        <div class="cred-row">
+          <dt>Client</dt>
+          <dd><span class="mark">Soyuzmultfilm</span><span class="sub">animation studio · 1936</span></dd>
+        </div>
+        <div class="cred-row">
+          <dt>Studio</dt>
+          <dd>Hello <span class="mark">Computer</span><span class="sub">multimedia parks · hello.io</span></dd>
+        </div>
+        <div class="cred-row">
+          <dt>Location</dt>
+          <dd>VDNH, Pavilion No. 7 <span class="mark">“Seeds”</span><span class="sub">Moscow</span></dd>
+        </div>
+        <div class="cred-row">
+          <dt>Opened</dt>
+          <dd><span class="mark">2020</span><span class="sub">the park is still running</span></dd>
+        </div>
+        <div class="cred-row">
+          <dt>Scale</dt>
+          <dd>10 zones · 14 games · 69 projectors<span class="sub">2,500 m² · 3 floors · team 50+</span></dd>
+        </div>
+      </dl>
+      <dl class="credits-col-right">
+        <div class="cred-row">
+          <dt>Role</dt>
+          <dd>Tanya <span class="mark">Samarakovskaya</span><span class="sub">creator in the Hello Computer team</span></dd>
+        </div>
+        <div class="cred-row">
+          <dt>Scope</dt>
+          <dd>Park concept, installation scripts, visual language, design and spatial treatment of the zones</dd>
+        </div>
+        <div class="cred-row">
+          <dt>Technologies</dt>
+          <dd>AR, XR, ToF, BLE, motion capture, RFID</dd>
+        </div>
+        <div class="cred-row">
+          <dt>Audience</dt>
+          <dd>Children 3+ and parents</dd>
+        </div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<!-- PROJ NAV -->
+<nav class="proj-nav" aria-label="Other projects">
+  <div class="proj-nav-inner">
+    <a class="pn-card" href="clean-ocean.html">
+      <img loading="lazy" decoding="async" class="bg" src="../../assets/preview_projects/clean-ocean.webp" alt="" aria-hidden="true">
+      <span class="pn-dir"><span class="pn-circ">←</span><br>Previous</span>
+      <span class="pn-name">Speaking Honestly with the Ocean</span>
+      <span class="pn-sub">WebAR · Quest · 2026</span>
+    </a>
+    <a class="pn-contact" href="https://t.me/samarakovskaya_tanya" target="_blank" rel="noopener">
+      <span class="pn-contact-label">Have a project?</span>
+      <span class="pn-btn">Contact ↗</span>
+    </a>
+    <a class="pn-card" href="nebula.html" style="text-align:right">
+      <img loading="lazy" decoding="async" class="bg" src="../../assets/preview_projects/nebula.webp" alt="" aria-hidden="true">
+      <span class="pn-dir"><span class="pn-circ">→</span><br>Next</span>
+      <span class="pn-name">Nebula</span>
+      <span class="pn-sub">Exhibitions · Experience design · 2023</span>
+    </a>
+  </div>
+</nav>
+
+<footer>
+  <div class="foot-row">
+    <span>© 2026 · <b>Tanya Samarakovskaya</b> · Soyuzmultpark</span>
+    <span><a href="#top">↑ Back to top</a></span>
+    <a class="foot-lang" href="../../projects/souzmultpark.html" hreflang="ru">RU</a>
+  </div>
+</footer>
+
+<script>
+  const io = new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }}), {threshold:.08});
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  /* MAGNETIC PILLS */
+  document.querySelectorAll('.mag-pill').forEach(pill => {
+    pill.addEventListener('mousemove', e => {
+      const r = pill.getBoundingClientRect();
+      const dx = e.clientX - (r.left + r.width / 2);
+      const dy = e.clientY - (r.top + r.height / 2);
+      pill.style.transform = `translate(${dx * 0.38}px, ${dy * 0.42}px) scale(1.06)`;
+    });
+    pill.addEventListener('mouseleave', () => { pill.style.transform = ''; });
+    pill.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.getElementById(pill.dataset.section);
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+
+  /* ACTIVE PILL on scroll */
+  const sectionIds = ['s-concept','s-video','s-zones','s-process','s-gallery','s-credits'];
+  const pillMap = {};
+  document.querySelectorAll('.mag-pill').forEach(p => { pillMap[p.dataset.section] = p; });
+  const secObs = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        Object.values(pillMap).forEach(p => p.classList.remove('active'));
+        const active = pillMap[entry.target.id];
+        if (active) active.classList.add('active');
+      }
+    });
+  }, { threshold: 0.25 });
+  sectionIds.forEach(id => { const el = document.getElementById(id); if (el) secObs.observe(el); });
+
+  const lb = document.getElementById('lb');
+  const lbImg = document.getElementById('lbImg');
+  const lbCounter = document.getElementById('lbCounter');
+  const galImgs = Array.from(document.querySelectorAll('.gi img'));
+  let currentIdx = 0;
+
+  function showImg(idx, dir = 0) {
+    const img = galImgs[idx];
+    if (!img || !img.src) return;
+    if (dir !== 0) {
+      lbImg.classList.add('fade');
+      setTimeout(() => { lbImg.src = img.src; lbImg.alt = img.alt; lbImg.classList.remove('fade'); }, 160);
+    } else { lbImg.src = img.src; lbImg.alt = img.alt; }
+    currentIdx = idx;
+    lbCounter.textContent = (idx + 1) + ' / ' + galImgs.length;
+  }
+  function openLb(idx){ showImg(idx,0); lb.classList.add('open'); document.body.style.overflow='hidden'; }
+  function closeLb(){ lb.classList.remove('open'); document.body.style.overflow=''; lbImg.src=''; }
+  function prev(){ showImg((currentIdx-1+galImgs.length)%galImgs.length,-1); }
+  function next(){ showImg((currentIdx+1)%galImgs.length,1); }
+
+  galImgs.forEach((img,i)=>{ img.style.cursor='zoom-in'; img.addEventListener('click',()=>openLb(i)); });
+
+  lb.addEventListener('click', e => { if (e.target === lb) closeLb(); });
+  document.getElementById('lbClose').addEventListener('click', closeLb);
+  document.getElementById('lbPrev').addEventListener('click', e => { e.stopPropagation(); prev(); });
+  document.getElementById('lbNext').addEventListener('click', e => { e.stopPropagation(); next(); });
+  document.addEventListener('keydown', e => {
+    if (!lb.classList.contains('open')) return;
+    if (e.key === 'Escape') closeLb();
+    if (e.key === 'ArrowLeft') prev();
+    if (e.key === 'ArrowRight') next();
+  });
+
+  let touchStartX = 0;
+  lb.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, {passive:true});
+  lb.addEventListener('touchend', e => {
+    const dx = e.changedTouches[0].clientX - touchStartX;
+    if (Math.abs(dx) > 50) dx < 0 ? next() : prev();
+  });
+</script>
+</body>
+</html>

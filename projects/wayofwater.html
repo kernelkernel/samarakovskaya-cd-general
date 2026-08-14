@@ -1,0 +1,2401 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Путь воды — Case · Tanya Samarakovskaya</title>
+<meta name="description" content="«Путь воды» — мультимедийная выставка: experience design от концепции до запуска. Москвариум, 2022—2024.">
+<link rel="icon" type="image/webp" href="../assets/icon.webp">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:site_name" content="Tanya Samarakovskaya">
+<meta property="og:url" content="https://t.samarakovskaya.art/projects/wayofwater.html">
+<meta property="og:title" content="Путь воды — Case · Tanya Samarakovskaya">
+<meta property="og:description" content="«Путь воды» — мультимедийная выставка: experience design от концепции до запуска. Москвариум, 2022—2024.">
+<meta property="og:image" content="https://t.samarakovskaya.art/assets/wayofwater/preview.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Путь воды — Case · Tanya Samarakovskaya">
+<meta name="twitter:description" content="«Путь воды» — мультимедийная выставка: experience design от концепции до запуска. Москвариум, 2022—2024.">
+<meta name="twitter:image" content="https://t.samarakovskaya.art/assets/wayofwater/preview.webp">
+<link rel="canonical" href="https://t.samarakovskaya.art/projects/wayofwater.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400;1,9..144,500&family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#efe9da;
+  --paper-2:#e6dfcd;
+  --paper-3:#d9d0bb;
+  --ink:#0c1218;
+  --ink-2:#3a444e;
+  --ink-3:#7b8590;
+  --deep:#08243b;
+  --deep-2:#0d3553;
+  --water:#1268a6;
+  --wave:#3ec5e8;
+  --lime:#C8FF2E;
+  --ice:#d7eaef;
+  --foam:#ebf6f9;
+  --forest:#163d28;
+  --leaf:#7fc78a;
+  --urban:#13191f;
+  --amber:#d68a3a;
+  --sun:#f4c66b;
+  --arctic:#c9e1ea;
+  --frost:#eaf4f8;
+  --sans:"Geist","Helvetica Neue",Arial,sans-serif;
+  --mono:"Geist Mono",ui-monospace,monospace;
+  --display:"Bricolage Grotesque",sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+html,body{background:var(--paper);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased;font-weight:400}
+body{overflow-x:hidden}
+::selection{background:var(--wave);color:var(--deep)}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+button{font-family:inherit;background:none;border:0;color:inherit;cursor:pointer}
+
+/* paper grain */
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:1000;opacity:.045;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.92' numOctaves='2'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.85 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
+
+/* ===== LEFT RIVER RAIL — minimalist thin ===== */
+.rail{position:fixed;top:0;bottom:0;left:0;width:44px;z-index:30;pointer-events:none}
+@media(max-width:1100px){.rail{width:36px}}
+@media(max-width:780px){.rail{display:none}}
+.rail-svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.rail-bed{stroke:rgba(12,18,24,.05);stroke-width:10;fill:none;stroke-linecap:round;vector-effect:non-scaling-stroke}
+.rail-track{stroke:rgba(12,18,24,.1);stroke-width:4;fill:none;stroke-linecap:round;vector-effect:non-scaling-stroke}
+.rail-shimmer{stroke:rgba(62,197,232,.18);stroke-width:4;fill:none;stroke-linecap:round;vector-effect:non-scaling-stroke}
+.rail-fill{stroke:var(--wave);stroke-width:2;fill:none;stroke-linecap:round;vector-effect:non-scaling-stroke;filter:drop-shadow(0 0 4px rgba(62,197,232,.5))}
+.rail-pool{position:absolute;left:50%;transform:translate(-50%,-50%);width:20px;height:20px;border-radius:50%;background:rgba(12,18,24,.05);pointer-events:none}
+.rail-drop{position:absolute;left:50%;top:0;width:8px;height:8px;border-radius:50% 50% 50% 0;transform:translate(-50%,-50%) rotate(-45deg);background:var(--wave);box-shadow:0 0 0 3px rgba(62,197,232,.18),0 0 12px rgba(62,197,232,.5);will-change:top;pointer-events:none;z-index:3}
+.rail-stations{position:absolute;inset:0;pointer-events:auto;z-index:4}
+.rail-st{position:absolute;left:50%;transform:translate(-50%,-50%);display:flex;align-items:center;gap:6px;font-family:var(--mono);font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:rgba(12,18,24,.5);transition:color .25s}
+.rail-st .ring{width:7px;height:7px;border-radius:50%;border:1px solid currentColor;background:var(--paper);transition:background .25s,border-color .25s,transform .25s;flex-shrink:0}
+.rail-st .lbl{background:var(--paper);padding:2px 7px;border-radius:3px;white-space:nowrap;opacity:0;transform:translateX(-4px);transition:opacity .2s,transform .2s;box-shadow:0 2px 8px rgba(12,18,24,.08);font-size:8px}
+.rail-st:hover .lbl{opacity:1;transform:none}
+.rail-st.passed{color:var(--water)}
+.rail-st.passed .ring{background:var(--wave);border-color:var(--wave)}
+.rail-st.active{color:var(--deep)}
+.rail-st.active .ring{background:var(--deep);border-color:var(--deep);transform:scale(1.5)}
+
+/* On dark sections, rail inverts */
+body.dark-rail .rail-bed{stroke:rgba(255,255,255,.04)}
+body.dark-rail .rail-track{stroke:rgba(199,232,239,.12)}
+body.dark-rail .rail-shimmer{stroke:rgba(62,197,232,.14)}
+body.dark-rail .rail-pool{background:rgba(255,255,255,.03)}
+body.dark-rail .rail-st{color:rgba(255,255,255,.35)}
+body.dark-rail .rail-st .ring{background:transparent}
+body.dark-rail .rail-st .lbl{background:rgba(8,36,59,.92);color:#fff;box-shadow:0 2px 8px rgba(0,0,0,.3)}
+body.dark-rail .rail-st.active{color:var(--wave)}
+body.dark-rail .rail-st.active .ring{background:var(--wave);border-color:var(--wave)}
+
+/* ===== TOP NAV — Kandid style ===== */
+.top{position:fixed;top:14px;left:50%;transform:translateX(-50%);z-index:60;width:calc(100% - 24px);max-width:1320px}
+.nav-bar{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:8px;background:rgba(8,20,32,.78);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(62,197,232,.18);border-radius:999px;padding:7px 8px 7px 18px}
+.back{display:inline-flex;align-items:center;gap:9px;font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--ice);white-space:nowrap;transition:.2s}
+.back::before{content:"←";color:var(--wave);font-size:14px}
+.back:hover{color:#fff}
+.mag-nav{display:flex;align-items:center;justify-content:center;gap:2px;overflow:hidden}
+.mag-pill{display:inline-flex;align-items:center;padding:7px 13px;border-radius:999px;font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:rgba(199,232,239,.55);transition:background .2s,color .2s;cursor:pointer;white-space:nowrap;text-decoration:none}
+.mag-pill:hover{background:rgba(62,197,232,.1);color:var(--ice)}
+.mag-pill.active{color:var(--wave)}
+@media(max-width:900px){.mag-nav{display:none}}
+.nav-cta{display:inline-flex;align-items:center;gap:7px;background:var(--wave);color:var(--deep);padding:9px 16px;border-radius:999px;font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.1em;font-weight:600;white-space:nowrap;flex-shrink:0;transition:.2s}
+.nav-cta::after{content:"↗"}
+.nav-end{display:inline-flex;align-items:center;gap:8px;flex-shrink:0}
+.lang-toggle{display:inline-flex;gap:2px;padding:3px;background:rgba(199,232,239,.06);border:1px solid rgba(62,197,232,.18);border-radius:999px}
+.lang-seg{padding:6px 8px;border-radius:999px;font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:rgba(199,232,239,.55);line-height:1;transition:background .2s,color .2s;cursor:pointer}
+.lang-seg.on{background:var(--wave);color:var(--deep);font-weight:600}
+.lang-seg:hover:not(.on){color:#fff}
+.nav-cta:hover{background:#fff}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.55;transform:scale(.85)}}
+
+/* ===== TYPE ===== */
+.eyebrow{font-family:var(--mono);font-size:10.5px;text-transform:uppercase;letter-spacing:.18em;color:var(--ink-3)}
+.display{font-family:var(--display);font-weight:400;font-style:normal;letter-spacing:-.025em;line-height:.9}
+.h1{font-family:var(--sans);font-weight:400;font-size:clamp(60px,12vw,220px);letter-spacing:-.045em;line-height:.86}
+
+/* ===== HERO — FULL BLEED PHOTO ===== */
+.hero{position:relative;min-height:100vh;background:var(--ink);overflow:hidden;color:#fff;display:flex;flex-direction:column;padding-left:60px}
+@media(max-width:1100px){.hero{padding-left:48px}}
+@media(max-width:780px){.hero{padding-left:0}}
+.hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;z-index:0}
+.hero-veil{position:absolute;inset:0;z-index:1;background:
+  linear-gradient(180deg,rgba(8,20,32,.55) 0%,rgba(8,20,32,.15) 22%,rgba(8,20,32,.15) 55%,rgba(8,20,32,.92) 100%),
+  linear-gradient(90deg,rgba(8,20,32,.45) 0%,rgba(8,20,32,.05) 50%,rgba(8,20,32,.35) 100%)}
+.hero-rainbow{position:absolute;left:50%;top:46%;transform:translate(-50%,-50%);width:min(70vw,820px);height:auto;z-index:2;pointer-events:none;opacity:.42;mix-blend-mode:screen}
+.hero-content{position:relative;z-index:5;flex:1;display:flex;flex-direction:column;align-items:center;text-align:center;padding:104px 24px 32px}
+@media(max-width:780px){.hero-content{padding:96px 18px 24px}}
+
+.hero-top{display:flex;justify-content:center;align-items:flex-start;gap:18px;flex-wrap:wrap;color:rgba(239,233,218,.85);width:100%}
+.hero-coord{font-family:var(--mono);font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;display:flex;align-items:center;gap:10px}
+.hero-coord .dot{width:7px;height:7px;border-radius:50%;background:var(--wave);box-shadow:0 0 0 4px rgba(62,197,232,.25)}
+.hero-coord b{color:#fff;font-weight:500}
+.hero-tagline{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:rgba(239,233,218,.6);text-align:center;line-height:1.7}
+.hero-tagline b{color:#fff;display:block}
+@media(max-width:780px){.hero-tagline{text-align:left}}
+
+.hero-center{flex:1;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;text-align:center;padding:60px 0 12px}
+.hero-h{font-family:var(--sans);font-weight:300;font-size:clamp(48px,12.5vw,240px);letter-spacing:-.055em;line-height:.84;color:#fff;text-shadow:0 4px 30px rgba(0,0,0,.4);white-space:nowrap;text-align:center}
+.hero-h .a{display:inline}
+.hero-h .b{display:inline;font-family:var(--display);font-weight:400;font-style:normal;color:var(--wave);margin-left:.16em}
+.hero-h .stroke{display:inline-block;height:.05em;width:.32em;background:var(--wave);vertical-align:middle;margin:0 .08em .14em 0;border-radius:99px}
+
+.hero-sub{margin:22px auto 0;font-size:clamp(15px,1.3vw,18px);line-height:1.55;color:rgba(239,233,218,.85);max-width:580px;text-wrap:pretty;text-shadow:0 2px 12px rgba(0,0,0,.5)}
+.hero-sub b{color:#fff;font-weight:500}
+.word-oval{position:relative;display:inline-block;padding:0 .14em;z-index:1;white-space:nowrap}
+.word-oval::before{content:"";position:absolute;inset:-.06em -.04em -.04em -.04em;border-radius:999px;border:3px solid var(--lime);transform:rotate(-2.5deg) skewX(-2deg);z-index:-1}
+
+.hero-tags{display:flex;flex-wrap:wrap;justify-content:center;gap:7px;margin-top:24px}
+.pill{display:inline-flex;align-items:center;gap:6px;padding:7px 13px;border-radius:99px;font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.12em;font-weight:500;line-height:1}
+.pill.line{border:1px solid rgba(239,233,218,.35);color:rgba(239,233,218,.9);background:rgba(8,20,32,.35);backdrop-filter:blur(8px)}
+.pill.ink{background:var(--ink);color:var(--paper)}
+.pill.wave{background:var(--wave);color:var(--deep)}
+.pill.deep{background:rgba(8,36,59,.7);color:var(--ice);border:1px solid rgba(62,197,232,.3);backdrop-filter:blur(8px)}
+
+.hero-bottom{margin-top:28px;display:flex;justify-content:space-between;align-items:flex-end;gap:18px;flex-wrap:wrap}
+.scroll-hint{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:rgba(239,233,218,.55);display:flex;align-items:center;gap:8px}
+.scroll-hint .dn{display:inline-block;animation:bob 2.2s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(5px)}}
+
+/* hero stats strip — large UTP numbers */
+.hero-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin:32px 0 0;border:1px solid rgba(62,197,232,.18);border-radius:14px;overflow:hidden;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);background:rgba(8,20,32,.55)}
+@media(max-width:780px){.hero-stats{grid-template-columns:repeat(2,1fr)}}
+.hs-cell{padding:22px 20px 18px;border-right:1px solid rgba(62,197,232,.12);position:relative}
+.hs-cell:last-child{border-right:0}
+@media(max-width:780px){.hs-cell:nth-child(2n){border-right:0}.hs-cell:nth-child(-n+2){border-bottom:1px solid rgba(62,197,232,.12)}}
+.hs-val{font-family:var(--display);font-style:normal;font-size:clamp(36px,5vw,64px);line-height:.88;color:#fff;letter-spacing:-.04em;font-weight:400}
+.hs-val sup{font-size:.38em;vertical-align:top;margin-top:.15em;display:inline-block;color:var(--wave);font-style:normal}
+.hs-lbl{font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:.18em;color:rgba(199,232,239,.5);margin-top:6px}
+
+/* hero meta strip — below hero, separate band */
+.meta-strip{background:var(--paper);border-top:1px solid rgba(12,18,24,.12);border-bottom:1px solid rgba(12,18,24,.12);padding:0 24px 0 60px}
+@media(max-width:1100px){.meta-strip{padding-left:48px}}
+@media(max-width:780px){.meta-strip{padding:0 18px}}
+.meta-strip-inner{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+@media(max-width:780px){.meta-strip-inner{grid-template-columns:1fr 1fr}}
+.hm-cell{padding:20px 22px;border-right:1px solid rgba(12,18,24,.1)}
+.hm-cell:last-child{border-right:0}
+@media(max-width:780px){.hm-cell:nth-child(2n){border-right:0}.hm-cell:nth-child(-n+2){border-bottom:1px solid rgba(12,18,24,.1)}}
+@media(max-width:480px){.hm-cell{padding:16px 14px}.hm-v{font-size:16px}.hm-s{font-size:9px}}
+.hm-k{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.16em;color:var(--ink-3);margin-bottom:4px}
+.hm-v{font-family:var(--display);font-style:normal;font-size:20px;color:var(--ink);line-height:1}
+.hm-s{font-family:var(--mono);font-size:10px;color:var(--ink-3);text-transform:uppercase;letter-spacing:.06em;margin-top:3px}
+
+/* zones-strip — 4 photo cards below meta-strip */
+.zones-strip{background:var(--paper);padding:36px 24px 56px 60px}
+@media(max-width:1100px){.zones-strip{padding-left:48px}}
+@media(max-width:780px){.zones-strip{padding:30px 18px 40px}}
+.zones-strip-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:18px;gap:12px;flex-wrap:wrap}
+.zones-strip-h{font-family:var(--display);font-style:normal;font-size:clamp(20px,2.2vw,28px);color:var(--ink);letter-spacing:-.01em}
+.zones-strip-sub{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3)}
+.hero-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;position:relative}
+@media(max-width:780px){.hero-strip{grid-template-columns:1fr 1fr}}
+.zstrip{position:relative;border:1px solid rgba(12,18,24,.12);overflow:hidden;background:var(--paper-2);aspect-ratio:5/4;transition:transform .35s ease}
+.zstrip:hover{transform:translateY(-4px)}
+.zstrip img{width:100%;height:100%;object-fit:cover;display:block;filter:contrast(1.02) saturate(.92)}
+.zstrip-tag{position:absolute;left:10px;top:10px;font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;background:rgba(8,36,59,.78);color:var(--ice);padding:4px 8px;backdrop-filter:blur(6px)}
+.zstrip-bottom{position:absolute;left:10px;bottom:10px;right:10px;display:flex;justify-content:space-between;align-items:flex-end;font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:#fff;line-height:1.3}
+.zstrip-bottom b{display:block;font-family:var(--display);font-style:normal;font-size:21px;letter-spacing:-.01em;font-weight:400;text-transform:none}
+.zstrip-bottom .km{opacity:.7}
+
+/* SVG wave divider between sections */
+.wave-div{display:block;width:100%;height:48px}
+.wave-div svg{display:block;width:100%;height:100%}
+
+/* ===== TICKER ===== */
+.ticker{background:var(--deep);color:var(--ice);padding:18px 0;overflow:hidden;border-top:1px solid rgba(62,197,232,.18);border-bottom:1px solid rgba(62,197,232,.12);position:relative}
+.ticker-track{display:flex;gap:34px;width:max-content;animation:ticker-scroll 48s linear infinite;font-family:var(--display);font-weight:400;font-style:normal;font-size:clamp(28px,4vw,56px);letter-spacing:-.02em;line-height:1;white-space:nowrap;align-items:center}
+.ticker-track .seg{display:inline-flex;align-items:center;gap:24px}
+.ticker-track .sn{font-family:var(--sans);font-style:normal;font-weight:400;color:var(--wave);font-size:.6em;letter-spacing:.02em;text-transform:uppercase;padding:0 8px}
+.ticker-track .drop{width:14px;height:14px;border-radius:50% 50% 50% 0;background:var(--wave);transform:rotate(-45deg);box-shadow:0 0 0 5px rgba(62,197,232,.16);display:inline-block;animation:drip 2.6s ease-in-out infinite}
+@keyframes drip{0%,100%{transform:rotate(-45deg) translateY(0)}50%{transform:rotate(-45deg) translateY(5px)}}
+@keyframes ticker-scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* ===== SHOWREEL ===== */
+.showreel-sec{background:var(--ink);padding:80px 24px 32px 60px;position:relative}
+@media(max-width:1100px){.showreel-sec{padding-left:48px}}
+@media(max-width:780px){.showreel-sec{padding:60px 18px}}
+.sr-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:24px;color:var(--paper)}
+.sr-label{font-family:var(--mono);font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:rgba(239,233,218,.45)}
+.sr-title{font-family:var(--display);font-style:normal;font-size:clamp(20px,2.2vw,28px);color:var(--paper)}
+.showreel-frame{position:relative;width:100%;border-radius:18px;overflow:hidden;background:var(--deep);aspect-ratio:16/9}
+.showreel-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0;z-index:3}
+.showreel-frame .play-cover{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;background:linear-gradient(180deg,rgba(8,36,59,.18),rgba(8,36,59,.78));z-index:2;transition:opacity .4s}
+.showreel-frame .play-cover.hidden{opacity:0;pointer-events:none}
+.sr-poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1}
+.play-btn{width:80px;height:80px;border-radius:50%;background:var(--wave);display:grid;place-items:center;color:var(--deep);font-size:24px;transition:transform .25s,background .25s;box-shadow:0 0 0 8px rgba(62,197,232,.18),0 0 0 18px rgba(62,197,232,.08)}
+.showreel-frame:hover .play-btn{transform:scale(1.08);background:#fff}
+.play-title{font-family:var(--display);font-style:normal;font-size:30px;color:#fff}
+.play-sub{font-family:var(--mono);font-size:10.5px;text-transform:uppercase;letter-spacing:.16em;color:rgba(199,232,239,.6)}
+
+/* ===== MINI GALLERY after video ===== */
+.mini-gal{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;padding:0 24px 0 60px;background:var(--ink)}
+@media(max-width:1100px){.mini-gal{padding-left:48px}}
+@media(max-width:780px){.mini-gal{padding:0 18px;grid-template-columns:1fr 1fr}}
+.mg-item{position:relative;overflow:hidden;border-radius:14px;background:var(--deep);aspect-ratio:4/3}
+.mg-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .55s;filter:brightness(.9) saturate(.9)}
+.mg-item:hover img{transform:scale(1.04);filter:brightness(1) saturate(1)}
+.mg-lbl{position:absolute;left:10px;bottom:10px;font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:.14em;color:rgba(255,255,255,.85);background:rgba(8,20,32,.65);padding:4px 9px;border-radius:99px;backdrop-filter:blur(6px)}
+
+/* ===== GENERAL SECTION ===== */
+.sec{padding:96px 24px 96px 60px;position:relative;border-top:1px solid rgba(12,18,24,.1)}
+@media(max-width:1100px){.sec{padding-left:48px}}
+@media(max-width:780px){.sec{padding:64px 18px}}
+.sec.dark{background:var(--ink);color:var(--paper);border-color:rgba(255,255,255,.08)}
+.sec.deep{background:var(--deep);color:#fff;border-color:rgba(199,232,239,.1)}
+.sec.paper2{background:var(--paper-2);border-color:rgba(12,18,24,.1)}
+
+.chapter{display:grid;grid-template-columns:auto 1fr auto;gap:36px;align-items:end;padding-bottom:24px;border-bottom:1px solid currentColor;margin-bottom:60px;opacity:.85}
+.chapter.lite{opacity:1;border-bottom-color:rgba(12,18,24,.18)}
+@media(max-width:880px){.chapter{grid-template-columns:1fr;gap:14px}}
+.ch-left{display:flex;align-items:center;gap:14px;font-family:var(--mono);font-size:10.5px;text-transform:uppercase;letter-spacing:.16em}
+.ch-num{display:inline-flex;align-items:center;justify-content:center;font-family:var(--display);font-style:normal;font-size:34px;line-height:1;color:var(--water);font-weight:400}
+.ch-num::before{content:"§";font-family:var(--display);font-style:normal;font-size:.55em;margin-right:.1em;opacity:.45}
+.sec.dark .ch-num,.sec.deep .ch-num{color:var(--wave)}
+.ch-title{font-family:var(--display);font-style:normal;font-weight:400;font-size:clamp(46px,8vw,128px);letter-spacing:-.035em;line-height:.86;text-align:center;text-wrap:balance}
+.ch-title em{font-style:normal;color:var(--water);font-family:var(--sans);font-weight:300}
+.sec.dark .ch-title em,.sec.deep .ch-title em{color:var(--wave)}
+.ch-right{font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.12em;text-align:right;line-height:1.7;opacity:.6}
+.ch-right b{display:block;font-weight:500;opacity:1}
+
+/* ===== INTRO ===== */
+.intro{display:grid;grid-template-columns:1fr 1.7fr;gap:72px;align-items:start}
+@media(max-width:1000px){.intro{grid-template-columns:1fr;gap:36px}}
+.intro-aside{display:flex;flex-direction:column;gap:18px}
+@media(min-width:1001px){.intro-aside{position:sticky;top:110px}}
+.aside-frame{aspect-ratio:3/4;border-radius:18px;overflow:hidden;background:rgba(8,36,59,.06);border:1px solid rgba(12,18,24,.08);position:relative}
+.aside-frame img{width:100%;height:100%;object-fit:cover}
+@media(max-width:680px){.aside-frame{aspect-ratio:4/3}.aside-frame img{transform:scale(1.4);transform-origin:50% 42%}}
+.aside-cap{position:absolute;left:12px;bottom:12px;font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:.14em;color:#fff;background:rgba(8,36,59,.7);padding:4px 9px;border-radius:99px}
+.aside-dl{display:grid;grid-template-columns:1fr 1.2fr;gap:9px 16px;font-family:var(--mono);font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;padding-top:18px;border-top:1px solid rgba(12,18,24,.12)}
+.aside-dl dt{color:var(--ink-3)}
+.aside-dl dd{color:var(--ink);font-weight:500}
+
+.intro-body h3{font-family:var(--display);font-weight:400;font-style:normal;font-size:clamp(30px,3.8vw,54px);line-height:1;letter-spacing:-.02em;text-wrap:balance;color:var(--ink)}
+.intro-body h3 b{font-style:normal;font-family:var(--sans);font-weight:400;color:var(--water);background:linear-gradient(0deg,rgba(62,197,232,.22) 0 .2em,transparent .2em);padding:0 .04em}
+.intro-text{display:flex;flex-direction:column;gap:18px;margin-top:30px;font-size:16px;line-height:1.7;color:var(--ink-2);max-width:62ch}
+.intro-text b{font-weight:600;color:var(--ink)}
+
+.hook{margin-top:48px;padding:38px 40px;background:var(--deep);border-radius:20px;color:var(--ice);position:relative;overflow:hidden}
+.hook::before{content:"";position:absolute;top:-40px;right:-40px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle at 30% 30%,rgba(62,197,232,.4),transparent 60%);pointer-events:none}
+.hook-label{font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.18em;color:rgba(199,232,239,.45);margin-bottom:18px;position:relative}
+.hook-text{font-family:var(--display);font-style:normal;font-size:clamp(22px,2.5vw,32px);line-height:1.18;letter-spacing:-.015em;color:#fff;position:relative}
+.hook-text em{font-style:normal;color:var(--wave);font-family:var(--sans);font-weight:400}
+
+/* ===== CHARACTERS ===== */
+.chars{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid rgba(12,18,24,.12);border-radius:20px;overflow:hidden;background:var(--paper)}
+@media(max-width:820px){.chars{grid-template-columns:1fr}}
+.char{padding:40px 28px 32px;display:flex;flex-direction:column;align-items:center;gap:0;border-right:1px solid rgba(12,18,24,.1);text-align:center;position:relative;transition:background .3s}
+.char:last-child{border-right:0}
+@media(max-width:820px){.char{border-right:0;border-bottom:1px solid rgba(12,18,24,.1)}.char:last-child{border-bottom:0}}
+.char.liquid{background:linear-gradient(180deg,rgba(18,104,166,.04),rgba(62,197,232,.05))}
+.char.ice{background:linear-gradient(180deg,rgba(201,225,234,.4),rgba(214,236,243,.2))}
+.char.steam{background:linear-gradient(180deg,rgba(244,198,107,.06),rgba(214,138,58,.04))}
+.char:hover{background:var(--paper-2)}
+.char-img{width:170px;height:200px;object-fit:contain;object-position:bottom;display:block;transition:transform .5s cubic-bezier(.34,1.56,.64,1)}
+.char:hover .char-img{transform:translateY(-12px) scale(1.05)}
+.char-state{font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.22em;margin-top:18px}
+.char.liquid .char-state{color:var(--water)}
+.char.ice .char-state{color:#2f6f8e}
+.char.steam .char-state{color:#946321}
+.char-name{font-family:var(--display);font-style:normal;font-size:32px;font-weight:400;letter-spacing:-.01em;margin:6px 0 10px;color:var(--ink)}
+.char-desc{font-size:13px;line-height:1.6;color:var(--ink-2);max-width:220px}
+.char-svg-arrow{position:absolute;top:50%;right:-14px;width:28px;height:28px;transform:translateY(-50%);color:var(--ink-3);z-index:2}
+@media(max-width:820px){.char-svg-arrow{display:none}}
+
+/* ===== GIANT CHARS SPREAD ===== */
+.chars-spread{display:grid;grid-template-columns:1fr 1fr;background:var(--ink);position:relative;overflow:hidden;min-height:480px}
+@media(max-width:700px){.chars-spread{grid-template-columns:1fr}}
+.chars-spread::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 60% 55% at 50% 80%,rgba(62,197,232,.08),transparent 70%);pointer-events:none;z-index:1}
+.cs-side{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding:0 0 32px;overflow:hidden;border-right:1px solid rgba(255,255,255,.05)}
+.cs-side:last-child{border-right:0}
+.cs-side.watty{background:linear-gradient(180deg,rgba(18,104,166,.0) 0%,rgba(62,197,232,.06) 100%)}
+.cs-side.icey{background:linear-gradient(180deg,rgba(201,225,234,.0) 0%,rgba(201,225,234,.08) 100%)}
+.cs-side img{display:block;max-height:420px;width:auto;max-width:80%;object-fit:contain;position:relative;z-index:2;transition:transform .6s cubic-bezier(.34,1.4,.64,1);filter:drop-shadow(0 40px 60px rgba(0,0,0,.5))}
+.cs-side:hover img{transform:translateY(-14px) scale(1.04)}
+.cs-label{position:relative;z-index:3;font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.2em;color:rgba(199,232,239,.45);margin-top:18px;text-align:center}
+.cs-name{position:relative;z-index:3;font-family:var(--display);font-style:normal;font-size:clamp(32px,4vw,56px);color:#fff;line-height:.9;letter-spacing:-.025em;margin-top:4px;text-align:center}
+.cs-side.watty .cs-name{color:var(--wave)}
+.cs-side.icey .cs-name{color:var(--arctic)}
+.cs-glow-w{position:absolute;bottom:-60px;left:50%;transform:translateX(-50%);width:280px;height:280px;border-radius:50%;background:radial-gradient(circle at center,rgba(62,197,232,.2),transparent 65%);pointer-events:none;z-index:1}
+.cs-glow-i{position:absolute;bottom:-60px;left:50%;transform:translateX(-50%);width:280px;height:280px;border-radius:50%;background:radial-gradient(circle at center,rgba(201,225,234,.15),transparent 65%);pointer-events:none;z-index:1}
+
+/* ===== CONCEPT GRID ===== */
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid rgba(12,18,24,.14);border-radius:20px;overflow:hidden;background:var(--paper)}
+@media(max-width:880px){.why-grid{grid-template-columns:1fr}}
+.why{padding:30px 26px 28px;border-right:1px solid rgba(12,18,24,.1);border-bottom:1px solid rgba(12,18,24,.1);display:flex;flex-direction:column;gap:14px;transition:background .3s;position:relative}
+.why:nth-child(3n){border-right:0}
+.why:nth-last-child(-n+3){border-bottom:0}
+@media(max-width:880px){.why{border-right:0;border-bottom:1px solid rgba(12,18,24,.1)}.why:last-child{border-bottom:0}}
+.why:hover{background:var(--deep);color:#fff}
+.why:hover .why-meta,.why:hover .why-desc{color:rgba(199,232,239,.7)}
+.why:hover .why-tag{color:var(--wave)}
+.why:hover .why-svg{color:var(--wave)}
+.why-meta{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);display:flex;justify-content:space-between;align-items:center;transition:.3s}
+.why-svg{color:var(--ink-3);transition:transform .35s,color .3s}
+.why:hover .why-svg{transform:rotate(8deg) scale(1.1)}
+.why-tag{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--water);transition:.3s}
+.why-h{font-family:var(--sans);font-weight:500;font-size:19px;letter-spacing:-.01em;line-height:1.18;color:inherit}
+.why-desc{font-size:13px;line-height:1.62;color:var(--ink-2);transition:.3s}
+
+/* ===== AXO + GALLERY ===== */
+.axo{position:relative;margin-top:56px;border-radius:24px;overflow:hidden;background:var(--deep);min-height:340px}
+.axo img{width:100%;display:block;opacity:.92}
+.axo-overlay{position:absolute;inset:0;pointer-events:none}
+.utp{position:absolute;display:flex;align-items:flex-start;gap:8px;pointer-events:auto}
+.utp-dot{width:10px;height:10px;border-radius:50%;background:var(--wave);flex-shrink:0;margin-top:5px;box-shadow:0 0 0 3px rgba(62,197,232,.32),0 0 14px rgba(62,197,232,.5)}
+.utp-body{background:rgba(8,20,32,.78);backdrop-filter:blur(10px);border:1px solid rgba(62,197,232,.25);border-radius:10px;padding:8px 12px;max-width:170px}
+.utp-val{font-family:var(--display);font-style:normal;font-size:clamp(18px,2.1vw,24px);color:var(--ice);line-height:1;letter-spacing:-.01em}
+.utp-lbl{font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:.12em;color:rgba(199,232,239,.55);margin-top:3px}
+@media(max-width:760px){.utp{display:none}}
+.axo-cap{position:absolute;left:0;right:0;bottom:0;padding:18px 24px;background:linear-gradient(0deg,rgba(0,0,0,.7),transparent);font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.14em;color:rgba(199,232,239,.75);display:flex;justify-content:space-between;align-items:flex-end;gap:18px}
+.axo-cap b{color:#fff}
+
+.gallery{display:grid;grid-template-columns:1.5fr 1fr 1fr;grid-template-rows:280px 280px;gap:12px;margin-top:60px}
+@media(max-width:880px){.gallery{grid-template-columns:1fr 1fr;grid-template-rows:auto}}
+.g-item{border-radius:16px;overflow:hidden;position:relative;background:var(--paper-3)}
+.g-item.span2{grid-row:span 2}
+.g-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s}
+.g-item:hover img{transform:scale(1.04)}
+.g-item .glbl{position:absolute;left:11px;bottom:11px;font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:.14em;color:#fff;background:rgba(8,36,59,.7);padding:4px 10px;border-radius:99px;backdrop-filter:blur(6px)}
+
+/* ===== PLAN ===== */
+.plan-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:0}
+@media(max-width:880px){.plan-grid{grid-template-columns:1fr}}
+.plan-img{position:relative;border-radius:18px;overflow:hidden;background:rgba(62,197,232,.06)}
+.plan-img img{width:100%;display:block;filter:brightness(.92) contrast(1.05)}
+.plan-img-cap{position:absolute;left:0;right:0;bottom:0;padding:14px 20px;background:linear-gradient(0deg,rgba(0,0,0,.7),transparent);font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.14em;color:rgba(255,255,255,.7)}
+
+/* ===== ZONE HEADER (chapter card) ===== */
+.zone-card{position:relative;padding:60px 24px 60px 60px;overflow:hidden;border-top:1px solid rgba(255,255,255,.08)}
+@media(max-width:1100px){.zone-card{padding-left:48px}}
+@media(max-width:780px){.zone-card{padding:48px 18px}}
+.zone-card.priroda{background:var(--forest);color:#eaf3eb}
+.zone-card.gorod{background:var(--urban);color:#fff}
+.zone-card.okean{background:var(--deep);color:#fff}
+.zone-card.arktika{background:var(--frost);color:var(--deep)}
+
+.zone-row{display:grid;grid-template-columns:auto 1fr auto;gap:32px;align-items:center}
+@media(max-width:780px){.zone-row{grid-template-columns:1fr}}
+.zone-marker{display:flex;align-items:center;gap:14px;font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.16em;opacity:.6}
+.zone-marker .badge{display:inline-flex;align-items:center;justify-content:center;width:48px;height:48px;border-radius:50%;border:1px solid currentColor;font-family:var(--display);font-style:normal;font-size:22px;font-weight:400;line-height:1;opacity:1}
+.zone-name{font-family:var(--display);font-style:normal;font-weight:400;font-size:clamp(64px,11vw,160px);line-height:.82;letter-spacing:-.045em;text-align:left}
+.zone-card.priroda .zone-name{color:var(--leaf)}
+.zone-card.gorod .zone-name{color:var(--sun)}
+.zone-card.okean .zone-name{color:var(--wave)}
+.zone-card.arktika .zone-name{color:var(--water)}
+.zone-side{text-align:right;font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.14em;opacity:.65;line-height:1.6}
+.zone-side b{display:block;font-weight:500;opacity:1;font-size:11px}
+@media(max-width:780px){.zone-side{text-align:left}}
+.zone-sub{margin-top:20px;font-size:15px;line-height:1.55;max-width:560px;opacity:.75}
+
+/* zone svg illustration on right of zone card */
+.zone-illust{position:absolute;right:24px;top:50%;transform:translateY(-50%);width:160px;height:160px;opacity:.85;pointer-events:none}
+@media(max-width:980px){.zone-illust{display:none}}
+
+/* ===== INSTALLATION SCROLL ===== */
+.istrip{position:relative;padding:60px 0 60px;overflow:hidden}
+.istrip.priroda{background:var(--forest)}
+.istrip.gorod{background:var(--urban)}
+.istrip.okean{background:var(--deep)}
+.istrip.arktika{background:var(--frost)}
+.istrip-head{padding:0 24px 0 60px;margin-bottom:30px;display:flex;justify-content:space-between;align-items:center;gap:18px}
+@media(max-width:1100px){.istrip-head{padding-left:48px}}
+@media(max-width:780px){.istrip-head{padding:0 18px;margin-bottom:22px}}
+.istrip-t{font-family:var(--display);font-style:normal;font-size:clamp(22px,2.4vw,30px);color:#fff;letter-spacing:-.01em}
+.istrip.arktika .istrip-t{color:var(--deep)}
+.istrip-hint{font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.14em;color:rgba(255,255,255,.42);display:flex;align-items:center;gap:8px}
+.istrip.arktika .istrip-hint{color:rgba(8,36,59,.4)}
+.hint-arrow{display:inline-block;animation:hint-slide 1.8s ease-in-out infinite}
+@keyframes hint-slide{0%,100%{transform:translateX(0)}50%{transform:translateX(6px)}}
+.itrack-wrap{position:relative}
+.itrack-wrap::before,.itrack-wrap::after{content:"";position:absolute;top:0;bottom:0;width:90px;z-index:4;pointer-events:none}
+.itrack-wrap::before{left:0}.itrack-wrap::after{right:0}
+.istrip.priroda .itrack-wrap::before{background:linear-gradient(90deg,var(--forest),transparent)}
+.istrip.priroda .itrack-wrap::after{background:linear-gradient(-90deg,var(--forest),transparent)}
+.istrip.gorod .itrack-wrap::before{background:linear-gradient(90deg,var(--urban),transparent)}
+.istrip.gorod .itrack-wrap::after{background:linear-gradient(-90deg,var(--urban),transparent)}
+.istrip.okean .itrack-wrap::before{background:linear-gradient(90deg,var(--deep),transparent)}
+.istrip.okean .itrack-wrap::after{background:linear-gradient(-90deg,var(--deep),transparent)}
+.istrip.arktika .itrack-wrap::before{background:linear-gradient(90deg,var(--frost),transparent)}
+.istrip.arktika .itrack-wrap::after{background:linear-gradient(-90deg,var(--frost),transparent)}
+.itrack{display:flex;gap:16px;overflow-x:auto;padding:0 90px 22px;scroll-snap-type:x mandatory;scrollbar-width:none;-webkit-overflow-scrolling:touch;cursor:grab}
+.itrack:active{cursor:grabbing}
+.itrack::-webkit-scrollbar{display:none}
+.icard{flex:0 0 clamp(300px,42vw,500px);scroll-snap-align:start;border-radius:18px;overflow:hidden;display:flex;flex-direction:column;transition:transform .35s;position:relative}
+.icard:hover{transform:translateY(-5px)}
+.istrip.priroda .icard{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09)}
+.istrip.gorod .icard{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08)}
+.istrip.okean .icard{background:rgba(62,197,232,.06);border:1px solid rgba(62,197,232,.14)}
+.istrip.arktika .icard{background:#fff;border:1px solid rgba(8,36,59,.1)}
+.icard-vis{aspect-ratio:16/10;position:relative;background:rgba(0,0,0,.2);overflow:hidden;display:flex;align-items:center;justify-content:center}
+.icard-vis img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s}
+.icard:hover .icard-vis img{transform:scale(1.04)}
+.icard-vis-fallback{font-size:64px;opacity:.18;font-family:var(--display);font-style:normal}
+.icard-num{position:absolute;top:11px;left:11px;font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.7);background:rgba(8,20,32,.55);backdrop-filter:blur(6px);padding:4px 9px;border-radius:99px;z-index:2}
+.istrip.arktika .icard-num{color:#fff;background:rgba(8,36,59,.6)}
+.icard-body{padding:20px 20px 22px;display:flex;flex-direction:column;gap:9px;flex:1}
+.icard-tag{font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase}
+.istrip.priroda .icard-tag{color:rgba(127,199,138,.85)}
+.istrip.gorod .icard-tag{color:rgba(244,198,107,.85)}
+.istrip.okean .icard-tag{color:rgba(62,197,232,.85)}
+.istrip.arktika .icard-tag{color:var(--water)}
+.icard-title{font-family:var(--display);font-style:normal;font-weight:400;font-size:clamp(22px,2.5vw,30px);line-height:.95;letter-spacing:-.02em;color:#fff}
+.istrip.arktika .icard-title{color:var(--deep)}
+.icard-desc{font-size:13px;line-height:1.58;flex:1}
+.istrip.priroda .icard-desc,.istrip.gorod .icard-desc,.istrip.okean .icard-desc{color:rgba(255,255,255,.55)}
+.istrip.arktika .icard-desc{color:var(--ink-2)}
+.icard-fact{font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.06em;padding-top:11px;border-top:1px solid rgba(255,255,255,.09);line-height:1.5;display:flex;gap:8px;align-items:flex-start}
+.istrip.arktika .icard-fact{border-color:rgba(8,36,59,.1);color:rgba(8,36,59,.55)}
+.istrip.priroda .icard-fact{color:rgba(127,199,138,.5)}
+.istrip.gorod .icard-fact{color:rgba(244,198,107,.5)}
+.istrip.okean .icard-fact{color:rgba(199,232,239,.5)}
+.icard-fact::before{content:"→";flex-shrink:0;font-family:var(--sans)}
+.inav{display:flex;gap:8px;padding:0 24px 0 60px;margin-top:0}
+@media(max-width:1100px){.inav{padding-left:48px}}
+@media(max-width:780px){.inav{padding:0 18px}}
+.inav button{width:42px;height:42px;border-radius:50%;border:1px solid rgba(255,255,255,.18);background:transparent;color:rgba(255,255,255,.7);font-size:16px;display:grid;place-items:center;transition:.22s}
+.inav button:hover{background:#fff;color:var(--ink);border-color:#fff}
+.istrip.arktika .inav button{border-color:rgba(8,36,59,.2);color:rgba(8,36,59,.55)}
+.istrip.arktika .inav button:hover{background:var(--deep);color:#fff;border-color:var(--deep)}
+
+/* ===== QUEST as journey map ===== */
+.quest-map{position:relative;background:var(--paper);border:1px solid rgba(12,18,24,.12);border-radius:24px;padding:42px 36px 60px;overflow:hidden}
+@media(max-width:780px){.quest-map{padding:32px 22px 44px}}
+.qm-bg{position:absolute;inset:0;pointer-events:none;opacity:.4}
+.qm-bg svg{width:100%;height:100%;display:block}
+.qm-flow{position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:0}
+@media(max-width:880px){.qm-flow{grid-template-columns:1fr 1fr}}
+.qstep{padding:28px 22px;display:flex;flex-direction:column;gap:11px;position:relative}
+.qstep::before{content:"";position:absolute;left:0;top:32px;bottom:0;width:1px;background:rgba(12,18,24,.08)}
+.qstep:first-child::before{display:none}
+@media(max-width:880px){.qstep::before{display:none}.qstep:nth-child(n+3){border-top:1px solid rgba(12,18,24,.1)}}
+.qstep-marker{position:absolute;left:-6px;top:24px;width:14px;height:14px;border-radius:50% 50% 50% 0;background:var(--water);transform:rotate(-45deg);z-index:2;box-shadow:0 0 0 4px var(--paper)}
+.qstep:first-child .qstep-marker{display:none}
+.qstep-num{font-family:var(--display);font-style:normal;font-size:42px;line-height:1;color:var(--wave);font-weight:400}
+.qstep-h{font-family:var(--sans);font-size:16px;font-weight:600;letter-spacing:-.01em;color:var(--ink)}
+.qstep-d{font-size:13px;line-height:1.6;color:var(--ink-2)}
+.qstep-tag{font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:.12em;color:var(--water);margin-top:auto;padding-top:12px}
+
+.quest-two{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}
+@media(max-width:880px){.quest-two{grid-template-columns:1fr}}
+.qbox{padding:40px 34px;border-radius:20px;display:flex;flex-direction:column;gap:16px}
+.qbox.deep{background:var(--deep);color:#fff}
+.qbox.light{background:var(--paper);border:1px solid rgba(12,18,24,.12)}
+.qbox-l{font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.18em;opacity:.5}
+.qbox-h{font-family:var(--display);font-style:normal;font-size:clamp(26px,3.5vw,44px);line-height:.95;letter-spacing:-.025em}
+.qbox.deep .qbox-h{color:var(--ice)}
+.qbox.light .qbox-h{color:var(--deep)}
+.qbox-b{font-size:14px;line-height:1.65}
+.qbox.deep .qbox-b{color:rgba(199,232,239,.7)}
+.qbox.light .qbox-b{color:var(--ink-2)}
+.drops{display:flex;flex-direction:column;gap:8px;margin-top:4px}
+.drow{display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:12px}
+.qbox.deep .drow{background:rgba(62,197,232,.08);border:1px solid rgba(62,197,232,.15)}
+.qbox.light .drow{background:rgba(18,104,166,.06);border:1px solid rgba(18,104,166,.1)}
+.drow .dr-svg{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;flex-shrink:0}
+.qbox.deep .dr-svg{background:rgba(62,197,232,.18);color:var(--wave)}
+.qbox.light .dr-svg{background:rgba(18,104,166,.12);color:var(--water)}
+.dr-text b{display:block;font-size:13px;font-weight:600;line-height:1.2}
+.qbox.deep .dr-text b{color:#fff}
+.qbox.light .dr-text b{color:var(--deep)}
+.dr-text span{font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:.08em;opacity:.5;display:block;margin-top:2px}
+.dr-count{font-family:var(--mono);font-size:10px;padding:4px 9px;border-radius:99px;flex-shrink:0;margin-left:auto;font-weight:500}
+.qbox.deep .dr-count{background:rgba(62,197,232,.2);color:var(--wave)}
+.qbox.light .dr-count{background:rgba(18,104,166,.12);color:var(--water)}
+
+/* ===== PULL QUOTE ===== */
+.pq{position:relative;overflow:hidden;background:var(--deep);padding:140px 60px;display:flex;align-items:center;justify-content:center}
+@media(max-width:780px){.pq{padding:90px 28px}}
+.pq-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.30;filter:saturate(.92)}
+.pq::after{content:"";position:absolute;inset:0;background:radial-gradient(120% 90% at 50% 30%,rgba(8,36,59,.55),rgba(8,36,59,.94));z-index:0}
+.pq-inner{position:relative;z-index:1;max-width:1100px;width:100%;text-align:center}
+.pq-mark{display:block;font-family:var(--display);font-size:clamp(56px,8vw,110px);line-height:.35;color:var(--wave);opacity:.55;margin-bottom:22px}
+.pq-text{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-style:normal;font-size:clamp(30px,5.4vw,80px);line-height:1.0;letter-spacing:-.035em;color:#fff;text-wrap:balance}
+.pq-hl{position:relative;display:inline-block;color:var(--ink);padding:0 .14em;z-index:1}
+.pq-hl::before{content:"";position:absolute;inset:.08em -.04em .14em -.04em;background:var(--wave);border-radius:999px;z-index:-1}
+.pq-attr{font-family:"Geist Mono",monospace;font-size:10px;text-transform:uppercase;letter-spacing:.16em;color:rgba(255,255,255,.5);margin-top:40px;display:block}
+/* keep old quote class in case referenced */
+.quote-sec{display:none}
+.quote-sec::before{content:"";position:absolute;inset:0;background:radial-gradient(60% 50% at 50% 50%,rgba(62,197,232,.2),transparent 70%);pointer-events:none}
+.quote-frame{position:relative;max-width:980px;margin:0 auto;padding:80px 64px 64px}
+@media(max-width:780px){.quote-frame{padding:62px 24px 50px}}
+.quote-frame-svg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible}
+.quote-frame-svg path{fill:none;stroke:rgba(239,233,218,.4);stroke-width:1.4;vector-effect:non-scaling-stroke}
+.quote-frame-svg path.inner{stroke:rgba(239,233,218,.55);stroke-dasharray:3 7}
+.quote-marks{position:absolute;left:50%;top:14px;transform:translateX(-50%);font-family:var(--display);font-style:normal;font-size:90px;line-height:.5;color:rgba(239,233,218,.7);background:var(--water);padding:0 18px;z-index:2}
+.quote-text{font-family:var(--display);font-style:normal;font-weight:400;font-size:clamp(26px,3.6vw,52px);line-height:1.06;letter-spacing:-.025em;text-align:center;color:#fff;text-wrap:balance;position:relative;z-index:1;margin:0}
+.quote-attr{font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.16em;color:rgba(239,233,218,.7);margin-top:34px;text-align:center;position:relative;z-index:1}
+.quote-attr span{display:inline-block;background:var(--water);padding:0 14px}
+
+/* ===== PROCESS ===== */
+.proc-label{font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.18em;color:rgba(199,232,239,.45);margin:48px 0 18px;padding-bottom:12px;border-bottom:1px solid rgba(255,255,255,.1);display:flex;justify-content:space-between;align-items:baseline}
+.proc-label .small{color:rgba(199,232,239,.3)}
+/* Kandid-style process gallery */
+.pgal{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:8px}
+@media(max-width:880px){.pgal{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.pgal{grid-template-columns:1fr}}
+.pgal.cols2{grid-template-columns:repeat(2,1fr)}
+.pgal.cols4{grid-template-columns:repeat(4,1fr)}
+@media(max-width:880px){.pgal.cols4{grid-template-columns:repeat(2,1fr)}}
+.pi{position:relative;overflow:hidden;background:rgba(255,255,255,.03);display:flex;flex-direction:column}
+.pi.wide{grid-column:span 2}
+.pi.wide3{grid-column:span 3}
+.pi-vis{position:relative;overflow:hidden}
+.pi-vis img{width:100%;display:block;aspect-ratio:4/3;object-fit:cover;transition:transform .6s}
+.pi.tall .pi-vis img{aspect-ratio:3/4}
+.pi.square .pi-vis img{aspect-ratio:1}
+.pi:hover .pi-vis img{transform:scale(1.03)}
+.pi-cap{padding:10px 0 4px;display:flex;flex-direction:column;gap:3px}
+.pi-tag{font-family:var(--mono);font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:rgba(62,197,232,.6)}
+.pi-title{font-family:var(--display);font-style:normal;font-size:17px;color:rgba(255,255,255,.85);letter-spacing:-.01em;line-height:1}
+/* char vis (transparent bg) */
+.pi-char-vis{display:flex;align-items:center;justify-content:center;padding:20px 14px;min-height:180px;background:rgba(255,255,255,.025)}
+.pi-char-vis img{max-height:170px;width:auto;max-width:100%;object-fit:contain;display:block;transition:transform .5s cubic-bezier(.34,1.4,.64,1)}
+.pi:hover .pi-char-vis img{transform:translateY(-8px) scale(1.05)}
+/* === PROCESS-GRID (dark adaptation) === */
+.process-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:40px}
+.proc-card{border:1px solid rgba(255,255,255,.1);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;background:rgba(255,255,255,.04);transition:transform .3s,background .25s}
+.proc-card:hover{transform:translateY(-4px);background:rgba(255,255,255,.07)}
+.proc-card.wide{grid-column:span 2}
+.proc-img{position:relative;aspect-ratio:16/9;overflow:hidden;background:rgba(0,0,0,.35);border-bottom:1px solid rgba(255,255,255,.08)}
+.proc-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .55s}
+.proc-card:hover .proc-img img{transform:scale(1.04)}
+.proc-info{padding:18px 20px 20px;display:flex;flex-direction:column;gap:6px}
+.proc-tag{font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:rgba(62,197,232,.7)}
+.proc-tag::before{content:"[*] ";color:var(--wave);font-weight:500}
+.proc-info h4{font-family:var(--sans);font-size:17px;font-weight:500;letter-spacing:-.02em;line-height:1.15;margin-top:4px;color:rgba(255,255,255,.9)}
+.proc-info p{font-size:13px;line-height:1.55;color:rgba(255,255,255,.55)}
+@media(max-width:1100px){.process-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.process-grid{grid-template-columns:1fr}.proc-card.wide{grid-column:span 1}}
+/* === PROCESS-FLOW (full-width gallery) === */
+.process-flow{display:grid;grid-template-columns:repeat(12,1fr);gap:12px;margin:40px 0 56px;width:100vw;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);padding:0 24px;box-sizing:border-box}
+.pf-card{position:relative;border:1px solid rgba(255,255,255,.1);border-radius:16px;overflow:hidden;background:rgba(255,255,255,.04);cursor:zoom-in;transition:transform .35s,border-color .25s,box-shadow .35s;display:flex;flex-direction:column;margin:0}
+.pf-card:hover{transform:translateY(-5px);border-color:var(--wave);box-shadow:0 18px 40px rgba(0,0,0,.4)}
+.pf-card.s-6{grid-column:span 6}.pf-card.s-4{grid-column:span 4}.pf-card.s-3{grid-column:span 3}.pf-card.s-8{grid-column:span 8}.pf-card.s-12{grid-column:span 12}
+.pf-img{position:relative;overflow:hidden;background:rgba(0,0,0,.4);display:block;line-height:0}
+.pf-img img{width:100%;height:auto;display:block;transition:transform .65s;max-height:72vh;object-fit:cover}
+.pf-card:hover .pf-img img{transform:scale(1.02)}
+.pf-card.pf-tall .pf-img{display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 50% 42%,rgba(62,197,232,.07),rgba(0,0,0,.55))}
+.pf-card.pf-tall .pf-img img{width:auto;max-width:100%;height:auto;max-height:min(76vh,780px);object-fit:contain}
+.pf-step{position:absolute;top:14px;left:14px;font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.08em;background:rgba(8,36,59,.9);color:rgba(199,232,239,.9);padding:6px 12px;border-radius:99px;z-index:2;border:1px solid rgba(62,197,232,.25)}
+.pf-zoom{position:absolute;bottom:14px;right:14px;width:36px;height:36px;border-radius:50%;background:rgba(199,232,239,.9);color:var(--ink);display:grid;place-items:center;font-size:14px;z-index:2;border:1px solid rgba(255,255,255,.3);transition:background .25s,transform .35s}
+.pf-card:hover .pf-zoom{background:var(--wave);transform:scale(1.1)}
+.pf-cap{padding:16px 20px 18px;display:flex;flex-direction:column;gap:5px;background:var(--deep-2);border-top:1px solid rgba(255,255,255,.08)}
+.pf-cap b{font-family:var(--sans);font-size:16px;font-weight:500;letter-spacing:-.015em;line-height:1.2;color:rgba(255,255,255,.9)}
+.pf-cap span{font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.07em;color:rgba(62,197,232,.65);line-height:1.45}
+@media(max-width:900px){.process-flow{grid-template-columns:repeat(6,1fr);padding:0 16px}.pf-card.s-6,.pf-card.s-8,.pf-card.s-12{grid-column:span 6}.pf-card.s-4,.pf-card.s-3{grid-column:span 3}}
+@media(max-width:560px){.process-flow{grid-template-columns:1fr;gap:10px;padding:0 16px}.pf-card.s-6,.pf-card.s-4,.pf-card.s-3,.pf-card.s-8,.pf-card.s-12{grid-column:span 1}}
+/* === VIDEO CARD in process-flow === */
+.pf-video{cursor:default}
+.pf-video-inner{position:relative;overflow:hidden;background:#000;line-height:0;aspect-ratio:16/9;border-radius:16px 16px 0 0}
+.pf-video-poster{width:100%;height:100%;object-fit:cover;display:block;position:absolute;top:0;left:0;transition:opacity .5s;z-index:1}
+.pf-video-poster.hidden{opacity:0;pointer-events:none}
+.pf-video-play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;z-index:3;cursor:pointer;transition:opacity .3s;background:rgba(0,0,0,.15)}
+.pf-video-play svg{width:88px;height:88px;filter:drop-shadow(0 6px 24px rgba(0,0,0,.6));transition:transform .3s}
+.pf-video-play:hover svg{transform:scale(1.1)}
+.pf-video-play.hidden{opacity:0;pointer-events:none}
+.pf-video-iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:none;opacity:0;transition:opacity .5s;z-index:2}
+.pf-video-iframe.active{opacity:1}
+/* === LIGHTBOX (dark theme adaptation) === */
+.lightbox{position:fixed;inset:0;background:rgba(6,6,6,.96);display:none;z-index:9999;align-items:stretch;justify-content:stretch;padding:0;cursor:default;-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}
+.lightbox.open{display:flex}
+.lightbox-stage{position:relative;flex:1;min-width:0;min-height:0;display:flex;align-items:center;justify-content:center;padding:60px 70px;overflow:hidden;box-sizing:border-box}
+.lightbox-imgwrap{position:relative;width:100%;height:100%;display:flex;align-items:center;justify-content:center;overflow:hidden;border-radius:10px;cursor:zoom-in}
+.lightbox-imgwrap.zoomed{cursor:grab;overflow:auto;align-items:flex-start;justify-content:flex-start}
+.lightbox-imgwrap.zoomed:active{cursor:grabbing}
+.lightbox-img{display:block;width:auto;height:auto;max-width:100%;max-height:100%;object-fit:contain;border-radius:8px;transform-origin:center center;transition:transform .35s cubic-bezier(.2,.7,.25,1);user-select:none;-webkit-user-drag:none}
+.lightbox-imgwrap.zoomed .lightbox-img{transform:scale(2);transform-origin:top left;max-width:none;max-height:none}
+.lightbox-close{position:fixed;top:20px;right:20px;width:46px;height:46px;border-radius:50%;border:1px solid rgba(255,255,255,.3);background:rgba(20,20,20,.85);color:#fff;font-size:22px;display:grid;place-items:center;cursor:pointer;z-index:10001;transition:all .25s;font-family:var(--sans);font-weight:300}
+.lightbox-close:hover{background:var(--wave);color:var(--ink);border-color:var(--wave);transform:rotate(90deg)}
+.lightbox-zoom-btn{position:fixed;top:20px;right:78px;height:46px;padding:0 16px;border-radius:99px;border:1px solid rgba(255,255,255,.3);background:rgba(20,20,20,.85);color:#fff;font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.08em;cursor:pointer;z-index:10001;transition:all .25s;display:flex;align-items:center;gap:8px}
+.lightbox-zoom-btn:hover{background:var(--wave);color:var(--ink);border-color:var(--wave)}
+.lightbox-zoom-btn[hidden]{display:none}
+.lightbox-nav{position:fixed;top:50%;width:54px;height:54px;border-radius:50%;border:1px solid rgba(255,255,255,.25);background:rgba(20,20,20,.7);color:#fff;font-size:22px;display:grid;place-items:center;cursor:pointer;z-index:10001;transition:all .25s;transform:translateY(-50%);font-family:var(--sans);font-weight:300}
+.lightbox-nav:hover{background:var(--wave);color:var(--ink);border-color:var(--wave)}
+.lightbox-nav.prev{left:18px}
+.lightbox-nav.next{right:24px}
+.lightbox-nav[hidden]{display:none}
+.lightbox-counter{position:fixed;bottom:24px;left:30px;font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.65);background:rgba(20,20,20,.7);padding:8px 14px;border-radius:99px;z-index:10001}
+.lightbox-counter[hidden]{display:none}
+.lightbox-hint{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.12em;color:rgba(255,255,255,.45);background:rgba(20,20,20,.6);padding:8px 14px;border-radius:99px;z-index:10000;pointer-events:none}
+/* === CHAR PAIR BLOCK === */
+.char-pair{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:0 0 40px}
+@media(max-width:600px){.char-pair{grid-template-columns:1fr}}
+/* legacy — keep for older sections still using these */
+.proc-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px}
+@media(max-width:880px){.proc-grid{grid-template-columns:1fr}}
+.proc-full{margin-bottom:14px}
+.proc-item{border-radius:0;overflow:hidden;background:transparent;border:none;display:flex;flex-direction:column;position:relative}
+.proc-item img{width:100%;display:block;transition:transform .6s}
+.proc-item:hover img{transform:scale(1.02)}
+.proc-cap{padding:16px 18px 20px;display:flex;flex-direction:column;gap:5px}
+.proc-cap-tag{font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:rgba(62,197,232,.7)}
+.proc-cap-title{font-family:var(--display);font-style:normal;font-size:20px;color:#fff;letter-spacing:-.01em}
+.proc-cap-desc{font-size:12.5px;line-height:1.6;color:rgba(255,255,255,.5);margin-top:2px}
+.proc-chars-flow{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:14px}
+@media(max-width:880px){.proc-chars-flow{grid-template-columns:1fr}}
+.proc-chars-row{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+@media(max-width:880px){.proc-chars-row{grid-template-columns:1fr 1fr}}
+.cp-vis{background:rgba(255,255,255,.03);display:flex;align-items:center;justify-content:center;padding:24px 16px;min-height:200px}
+.cp-vis img{max-height:180px;width:auto;max-width:100%;object-fit:contain;display:block}
+
+/* "От UI до рабочей инсталляции" pipeline */
+.pipeline-set{margin-bottom:18px;display:flex;flex-direction:column;gap:10px}
+.pipeline-set-h{display:flex;align-items:baseline;justify-content:space-between;padding:14px 0 12px;border-bottom:1px solid rgba(255,255,255,.07);margin-bottom:6px;gap:14px;flex-wrap:wrap}
+.pipeline-set-h .pset-num{font-family:var(--display);font-style:normal;font-size:28px;color:var(--wave);letter-spacing:-.02em;line-height:1;font-weight:400}
+.pipeline-set-h .pset-name{font-family:var(--sans);font-size:17px;font-weight:500;color:#fff;letter-spacing:-.005em;flex:1;margin-left:14px}
+.pipeline-set-h .pset-meta{font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:rgba(199,232,239,.45)}
+.pipeline-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+@media(max-width:880px){.pipeline-row{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.pipeline-row{grid-template-columns:1fr}}
+.pp-cell{position:relative;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);overflow:hidden;display:flex;flex-direction:column}
+.pp-cell .pp-img-wrap{position:relative;aspect-ratio:4/3;overflow:hidden;background:rgba(0,0,0,.25)}
+.pp-cell img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s}
+.pp-cell:hover img{transform:scale(1.03)}
+.pp-step{position:absolute;top:10px;left:10px;font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.85);background:rgba(8,20,32,.6);padding:4px 9px;backdrop-filter:blur(6px);z-index:2}
+.pp-step.wave{background:var(--wave);color:var(--deep)}
+.pp-cap{padding:11px 14px 14px;font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:rgba(199,232,239,.45);display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.pp-cap b{color:#fff;font-weight:500;font-family:var(--display);font-style:normal;font-size:13.5px;text-transform:none;letter-spacing:-.005em}
+
+/* moodboard wall */
+.moodboard{display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:140px;gap:8px;margin-bottom:14px}
+@media(max-width:880px){.moodboard{grid-template-columns:repeat(3,1fr);grid-auto-rows:120px}}
+.mb-cell{position:relative;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);overflow:hidden}
+.mb-cell.span2{grid-column:span 2}
+.mb-cell.span3{grid-column:span 3}
+.mb-cell.tall{grid-row:span 2}
+.mb-cell img{width:100%;height:100%;object-fit:cover;display:block}
+.mb-cell .mb-tag{position:absolute;left:7px;bottom:7px;font-family:var(--mono);font-size:8.5px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.85);background:rgba(8,20,32,.55);padding:3px 7px;backdrop-filter:blur(6px)}
+
+/* ===== ROLE / DELIVERABLES — editorial spec sheet ===== */
+.spec-wrap{background:var(--deep);color:#fff;padding:48px 44px;position:relative;overflow:hidden;border-top:6px solid var(--wave)}
+@media(max-width:780px){.spec-wrap{padding:32px 22px}}
+.spec-wrap::after{content:"";position:absolute;right:-80px;bottom:-80px;width:280px;height:280px;border-radius:50%;background:radial-gradient(circle at 30% 30%,rgba(62,197,232,.2),transparent 65%);pointer-events:none}
+.spec-h{font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:rgba(199,232,239,.5);margin-bottom:24px;display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:14px;position:relative}
+.spec-h b{color:#fff;font-family:var(--display);font-style:normal;font-size:clamp(22px,2.6vw,32px);letter-spacing:-.015em;text-transform:none}
+.spec-list{position:relative}
+.spec-row{display:grid;grid-template-columns:54px 1.05fr 12px 1.2fr 1.3fr;gap:18px;align-items:baseline;padding:16px 0;border-bottom:1px dashed rgba(199,232,239,.18)}
+.spec-row:first-child{border-top:1px solid rgba(199,232,239,.25)}
+.spec-row:last-child{border-bottom:1px solid rgba(199,232,239,.25)}
+.spec-n{font-family:var(--mono);font-size:9.5px;letter-spacing:.16em;color:rgba(199,232,239,.4);text-transform:uppercase}
+.spec-num{font-family:var(--display);font-style:normal;font-size:clamp(34px,4.2vw,56px);line-height:.9;color:var(--ice);letter-spacing:-.025em;font-weight:400;white-space:nowrap}
+.spec-num sup{font-size:.42em;opacity:.65;vertical-align:top;margin-left:.12em;font-style:normal}
+.spec-dot{display:block;width:8px;height:8px;border-radius:50% 50% 50% 0;background:var(--wave);transform:rotate(-45deg);justify-self:center;margin-top:18px}
+.spec-lbl{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--wave);font-weight:500}
+.spec-note{font-size:13px;color:rgba(199,232,239,.6);line-height:1.5}
+@media(max-width:880px){.spec-row{grid-template-columns:auto 1fr;gap:10px 16px}.spec-n{grid-column:span 2;color:rgba(199,232,239,.35);font-size:9px}.spec-dot{display:none}.spec-num{font-size:36px}.spec-lbl{font-size:10px}.spec-note{grid-column:span 2;margin-top:-6px;font-size:12px}}
+
+/* spec compact horizontal */
+.spec-compact{background:var(--deep);color:#fff;padding:40px 44px;position:relative;overflow:hidden;border-top:4px solid var(--wave)}
+@media(max-width:780px){.spec-compact{padding:30px 22px}}
+.spec-compact-h{font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:rgba(199,232,239,.45);margin-bottom:28px;display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:12px}
+.spec-compact-h b{color:#fff;font-family:"Bricolage Grotesque",sans-serif;font-style:normal;font-weight:800;font-size:clamp(20px,2.2vw,28px);letter-spacing:-.02em;text-transform:none}
+.spec-nums{display:grid;grid-template-columns:repeat(5,1fr);gap:0;border-top:1px solid rgba(199,232,239,.15)}
+@media(max-width:880px){.spec-nums{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:560px){.spec-nums{grid-template-columns:repeat(2,1fr)}}
+.spec-num-cell{padding:22px 16px 20px;border-right:1px solid rgba(199,232,239,.1);border-bottom:1px solid rgba(199,232,239,.1)}
+.spec-num-cell:last-child{border-right:0}
+.spec-num-v{font-family:"Bricolage Grotesque",sans-serif;font-style:normal;font-size:clamp(32px,3.8vw,58px);line-height:.88;color:#fff;letter-spacing:-.035em;font-weight:800}
+.spec-num-v sup{font-size:.4em;opacity:1;color:var(--wave);vertical-align:top;margin-left:.08em;font-weight:700}
+.spec-num-l{font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:.12em;color:var(--wave);margin-top:6px}
+.spec-num-d{font-size:11px;color:rgba(199,232,239,.5);margin-top:4px;line-height:1.4}
+
+/* Solutions — dark themed */
+.solutions{background:rgba(255,255,255,.03);padding:32px 44px;border:1px solid rgba(255,255,255,.07);border-top:0;margin-top:0}
+@media(max-width:780px){.solutions{padding:28px 22px}}
+.solutions-h{font-family:var(--display);font-size:clamp(20px,2.2vw,28px);color:rgba(255,255,255,.7);margin-bottom:20px;letter-spacing:-.015em}
+.solutions-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid rgba(255,255,255,.07)}
+@media(max-width:780px){.solutions-grid{grid-template-columns:1fr}}
+.sol{padding:16px 0;border-bottom:1px solid rgba(255,255,255,.06);display:flex;gap:14px;align-items:flex-start}
+.sol:nth-child(odd){padding-right:22px;border-right:1px solid rgba(255,255,255,.06)}
+.sol:nth-child(even){padding-left:22px}
+@media(max-width:780px){.sol:nth-child(odd){padding-right:0;border-right:0}.sol:nth-child(even){padding-left:0}}
+.sol-mark{flex-shrink:0;font-family:var(--mono);font-size:10px;letter-spacing:.1em;color:rgba(37,99,235,.7);font-weight:500;min-width:24px;padding-top:2px}
+.sol-body{flex:1}
+.sol-name{font-size:14px;font-weight:500;color:rgba(255,255,255,.8);letter-spacing:-.005em;line-height:1.35}
+.sol-sub{font-family:var(--mono);font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-top:4px;line-height:1.4}
+
+/* Role — dark graphite editorial */
+.role-stack{background:#0c1218;padding:60px 60px 56px;margin-top:14px;position:relative;overflow:hidden;border-top:1px solid rgba(255,255,255,.06)}
+@media(max-width:1100px){.role-stack{padding-left:48px;padding-right:48px}}
+@media(max-width:780px){.role-stack{padding:40px 22px}}
+.role-stack-head{display:grid;grid-template-columns:1fr auto;align-items:start;margin-bottom:48px;gap:20px;border-bottom:1px solid rgba(255,255,255,.08);padding-bottom:32px}
+@media(max-width:780px){.role-stack-head{grid-template-columns:1fr}}
+.role-stack-h{font-family:var(--display);font-size:clamp(36px,5vw,72px);color:#fff;letter-spacing:-.03em;line-height:.88}
+.role-stack-sub{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.3);text-align:right;line-height:1.8;padding-top:8px}
+.role-stack-sub b{color:rgba(255,255,255,.7);display:block}
+.role-row{display:grid;grid-template-columns:56px 1fr 1.6fr;gap:28px 40px;align-items:start;padding:22px 0;border-top:1px solid rgba(255,255,255,.07);transition:border-color .25s;position:relative}
+.role-row:last-child{border-bottom:1px solid rgba(255,255,255,.07)}
+.role-row:hover{border-top-color:rgba(37,99,235,.4)}
+.role-row-n{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(37,99,235,.7);padding-top:4px;font-weight:500}
+.role-row-body{display:flex;flex-direction:column;gap:5px}
+.role-row-name{font-family:var(--sans);font-size:17px;font-weight:500;letter-spacing:-.01em;color:#fff;line-height:1.2}
+.role-row-sub{font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-top:2px}
+.role-row-tags{display:flex;flex-wrap:wrap;gap:6px;padding-top:2px}
+.role-tag{font-family:var(--mono);font-size:9px;letter-spacing:.08em;text-transform:uppercase;padding:4px 10px;border-radius:4px;background:rgba(255,255,255,.05);color:rgba(255,255,255,.5);border:1px solid rgba(255,255,255,.1);transition:background .2s,color .2s}
+.role-row:hover .role-tag{background:rgba(37,99,235,.12);color:rgba(255,255,255,.75);border-color:rgba(37,99,235,.3)}
+@media(max-width:880px){.role-row{grid-template-columns:auto 1fr;gap:12px 20px}.role-row-tags{grid-column:span 2}}
+
+.credits{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;padding-top:40px;border-top:1px solid rgba(255,255,255,.08);margin-top:40px}
+@media(max-width:880px){.credits{grid-template-columns:1fr 1fr}}
+.credit-role{font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:5px}
+.credit-name{font-size:14px;font-weight:500;color:rgba(255,255,255,.75)}
+
+/* ===== PROJ NAV ===== */
+.proj-nav{border-top:1px solid rgba(12,18,24,.1);background:var(--paper-2)}
+.proj-nav-inner{display:grid;grid-template-columns:1fr auto 1fr;min-height:260px}
+@media(max-width:780px){.proj-nav-inner{grid-template-columns:1fr}}
+.proj-nav-card{position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;padding:32px 28px 32px 124px;gap:6px;transition:background .3s;cursor:pointer}
+@media(max-width:1100px){.proj-nav-card{padding-left:88px}}
+@media(max-width:780px){.proj-nav-card{padding:28px 24px}}
+.proj-nav-card:first-child{border-right:1px solid rgba(12,18,24,.08)}
+.proj-nav-card:last-child{border-left:1px solid rgba(12,18,24,.08)}
+@media(max-width:780px){.proj-nav-card:first-child,.proj-nav-card:last-child{border:none;border-top:1px solid rgba(12,18,24,.08)}}
+.proj-nav-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.14;transition:opacity .4s;filter:saturate(.4)}
+.proj-nav-card:hover .proj-nav-bg{opacity:.28}
+.proj-nav-card:hover{background:rgba(18,104,166,.05)}
+.proj-nav-content{position:relative;z-index:1}
+.proj-nav-dir{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);margin-bottom:10px}
+.proj-nav-name{font-family:var(--display);font-style:normal;font-size:clamp(28px,4vw,52px);font-weight:400;color:var(--ink);line-height:1;letter-spacing:-.015em}
+.proj-nav-sub{font-family:var(--mono);font-size:10.5px;color:var(--ink-3);margin-top:6px;text-transform:uppercase;letter-spacing:.08em}
+.proj-nav-contact{display:flex;align-items:center;justify-content:center;padding:36px 28px;flex-direction:column;gap:16px;transition:background .3s}
+.proj-nav-contact:hover{background:rgba(18,104,166,.05)}
+.proj-nav-contact-label{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3)}
+.proj-nav-contact-btn{display:inline-flex;align-items:center;gap:8px;background:var(--ink);color:var(--paper);padding:13px 30px;border-radius:99px;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:500;transition:.2s}
+.proj-nav-contact:hover .proj-nav-contact-btn{background:var(--water);color:#fff}
+
+/* ===== FOOT ===== */
+.foot{padding:28px 24px 28px 60px;border-top:1px solid rgba(12,18,24,.1);display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;background:var(--paper)}
+@media(max-width:1100px){.foot{padding-left:48px}}
+@media(max-width:780px){.foot{padding:24px 18px}}
+.foot-copy{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3)}
+.foot-back{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);display:inline-flex;align-items:center;gap:7px;transition:.2s}
+.foot-back:hover{color:var(--water)}
+.foot-back .ar{transition:transform .2s}
+.foot-back:hover .ar{transform:translateX(-3px)}
+
+/* upright display — restore visual weight after removing italic (no cursive) */
+.ch-title,.zone-name,.hero-h,.hero-h .b,.intro-body h3,.hook-text,.qbox-h,.icard-title,
+.char-name,.cs-name,.zones-strip-h,.zstrip-bottom b,.istrip-t,.proc-cap-title,.pi-title,
+.proj-nav-name,.spec-num,.hs-val,.hm-v,.utp-val,.qstep-num,.ch-num,.pset-num,.spec-compact-h b{font-weight:700}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .65s ease,transform .65s ease}
+.reveal.shown{opacity:1;transform:none}
+
+/* utility svg drop for inline */
+.drop-svg{width:1em;height:1em;display:inline-block;vertical-align:-.12em;color:currentColor}
+
+/* graceful image fallback — striped placeholder with caption */
+img.broken{visibility:hidden}
+.img-fallback{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  background-image:repeating-linear-gradient(45deg,rgba(12,18,24,.04) 0 8px,rgba(12,18,24,.07) 8px 16px);
+  background-color:rgba(12,18,24,.04);font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.14em;color:rgba(12,18,24,.45);text-align:center;padding:14px;line-height:1.5}
+.istrip.priroda .img-fallback,.istrip.gorod .img-fallback,.istrip.okean .img-fallback{
+  background-image:repeating-linear-gradient(45deg,rgba(255,255,255,.04) 0 8px,rgba(255,255,255,.08) 8px 16px);
+  background-color:rgba(255,255,255,.03);color:rgba(255,255,255,.4)}
+.zstrip .img-fallback,.aside-frame .img-fallback,.g-item .img-fallback,.icard-vis .img-fallback,.axo .img-fallback,.plan-img .img-fallback{position:absolute;inset:0}
+</style>
+<style id="ru-switch-css">
+.nav-end{display:inline-flex;align-items:center;gap:10px}
+.lang-toggle{display:inline-flex;gap:2px;padding:3px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.16);border-radius:999px;flex-shrink:0}
+.lang-toggle .lang-seg{padding:6px 9px;border-radius:999px;font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:rgba(241,236,221,.6);line-height:1;text-decoration:none;transition:color .2s,background .2s}
+.lang-toggle .lang-seg.on{background:#f1ecdd;color:#16161a;font-weight:600}
+.lang-toggle a.lang-seg:hover{color:#fff}
+
+/* NAV FIX 31.07.2026 — «Написать» всегда у правого края шапки, RU/EN только на десктопе */
+.nav-bar>.nav-end{margin-left:auto}
+.nav-bar>.lang-toggle{margin-left:auto}
+@media(max-width:780px){
+  .nav-bar .lang-toggle{display:none}
+  .nav-bar>.nav-cta{margin-left:auto}
+}
+
+/* FOOT LANG 31.07.2026 — переключатель языка в футере, только на мобильном (в шапке он скрыт) */
+.foot-lang{display:none}
+@media(max-width:780px){
+  .foot-lang{display:inline-flex;align-items:center;padding:6px 12px;border:1px solid currentColor;border-radius:999px;font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;color:inherit;opacity:.75}
+}
+</style>
+<link rel="alternate" hreflang="ru" href="https://t.samarakovskaya.art/projects/wayofwater.html">
+<link rel="alternate" hreflang="en" href="https://t.samarakovskaya.art/en/projects/wayofwater.html">
+<link rel="alternate" hreflang="x-default" href="https://t.samarakovskaya.art/projects/wayofwater.html">
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=110759704', 'ym');
+    ym(110759704, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/110759704" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+</head>
+<body>
+
+<!-- ============== LEFT RIVER RAIL (PATH) ============== -->
+<aside class="rail" aria-hidden="true">
+  <svg class="rail-svg" viewBox="0 0 100 1000" preserveAspectRatio="none">
+    <defs>
+      <linearGradient id="riverGrad" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#3ec5e8" stop-opacity=".15"/>
+        <stop offset=".5" stop-color="#3ec5e8" stop-opacity=".4"/>
+        <stop offset="1" stop-color="#1268a6" stop-opacity=".3"/>
+      </linearGradient>
+    </defs>
+    <!-- wide soft riverbed -->
+    <path class="rail-bed" d="M 50 0 C 88 50, 12 110, 50 170 C 92 230, 14 290, 50 350 C 78 410, 20 470, 50 530 C 90 590, 18 650, 50 710 C 80 770, 22 830, 50 890 C 92 940, 28 980, 50 1000" />
+    <!-- main river body -->
+    <path class="rail-track" d="M 50 0 C 88 50, 12 110, 50 170 C 92 230, 14 290, 50 350 C 78 410, 20 470, 50 530 C 90 590, 18 650, 50 710 C 80 770, 22 830, 50 890 C 92 940, 28 980, 50 1000" />
+    <!-- shimmer overlay -->
+    <path class="rail-shimmer" d="M 50 0 C 88 50, 12 110, 50 170 C 92 230, 14 290, 50 350 C 78 410, 20 470, 50 530 C 90 590, 18 650, 50 710 C 80 770, 22 830, 50 890 C 92 940, 28 980, 50 1000" stroke-dasharray="2 18" />
+    <!-- scroll-progress current line -->
+    <path class="rail-fill" id="railFill" d="M 50 0 C 88 50, 12 110, 50 170 C 92 230, 14 290, 50 350 C 78 410, 20 470, 50 530 C 90 590, 18 650, 50 710 C 80 770, 22 830, 50 890 C 92 940, 28 980, 50 1000" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100" />
+  </svg>
+  <!-- widening pools at bends -->
+  <div class="rail-pool" style="top:17%"></div>
+  <div class="rail-pool" style="top:53%;width:54px;height:54px"></div>
+  <div class="rail-pool" style="top:89%;width:40px;height:40px"></div>
+  <div class="rail-drop" id="railDrop"></div>
+  <div class="rail-stations" id="railStations">
+    <a class="rail-st" href="#zone-hero" data-anchor="zone-hero"><span class="ring"></span><span class="lbl" data-i18n="rail.start">Старт</span></a>
+    <a class="rail-st" href="#zone-intro" data-anchor="zone-intro"><span class="ring"></span><span class="lbl" data-i18n="rail.about">О проекте</span></a>
+    <a class="rail-st" href="#zone-priroda" data-anchor="zone-priroda"><span class="ring"></span><span class="lbl" data-i18n="rail.nature">Природа</span></a>
+    <a class="rail-st" href="#zone-gorod" data-anchor="zone-gorod"><span class="ring"></span><span class="lbl" data-i18n="rail.city">Город</span></a>
+    <a class="rail-st" href="#zone-okean" data-anchor="zone-okean"><span class="ring"></span><span class="lbl" data-i18n="rail.ocean">Океан</span></a>
+    <a class="rail-st" href="#zone-arktika" data-anchor="zone-arktika"><span class="ring"></span><span class="lbl" data-i18n="rail.arctic">Арктика</span></a>
+    <a class="rail-st" href="#zone-quest" data-anchor="zone-quest"><span class="ring"></span><span class="lbl" data-i18n="rail.quest">Квест</span></a>
+    <a class="rail-st" href="#zone-end" data-anchor="zone-end"><span class="ring"></span><span class="lbl" data-i18n="rail.finale">Финал</span></a>
+  </div>
+</aside>
+
+<!-- ============== TOP NAV ============== -->
+<header class="top">
+  <div class="nav-bar">
+    <a class="back" href="../index.html#works" data-i18n="n.back">Все проекты</a>
+    <nav class="mag-nav" id="magNav">
+      <a class="mag-pill" href="#zone-intro" data-section="zone-intro" data-i18n="n.about">О проекте</a>
+      <a class="mag-pill" href="#zone-priroda" data-section="zone-priroda" data-i18n="n.zones">Зоны</a>
+      <a class="mag-pill" href="#zone-quest" data-section="zone-quest" data-i18n="n.quest">Квест</a>
+      <a class="mag-pill" href="#zone-process" data-section="zone-process" data-i18n="n.process">Процесс</a>
+      <a class="mag-pill" href="#zone-end" data-section="zone-end" data-i18n="n.role">Роль</a>
+    </nav>
+    <div class="nav-end">
+      <div class="lang-toggle" id="langToggle" role="group" aria-label="Language / Язык">
+        <span class="lang-seg on" data-lang="ru">RU</span>
+        <a class="lang-seg" data-lang="en" href="../en/projects/wayofwater.html">EN</a>
+      </div>
+      <a class="nav-cta" href="https://youtu.be/jnXBmeKDf_w" target="_blank" rel="noopener" data-i18n="n.cta">Видео</a>
+    </div>
+  </div>
+</header>
+
+<!-- ============== HERO — FULL BLEED PHOTO ============== -->
+<section class="hero" id="zone-hero">
+  <img loading="lazy" decoding="async" class="hero-bg" src="../assets/wayofwater/preview.webp" alt="Путь воды — выставка">
+  <div class="hero-veil"></div>
+
+  <!-- decorative rainbow arch (echoes the photo) -->
+  <svg class="hero-rainbow" viewBox="0 0 820 460" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+    <defs>
+      <linearGradient id="rb1" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0" stop-color="#3ab36a"/>
+        <stop offset=".25" stop-color="#3ec5e8"/>
+        <stop offset=".5" stop-color="#f4c66b"/>
+        <stop offset=".75" stop-color="#e8762e"/>
+        <stop offset="1" stop-color="#c2398f"/>
+      </linearGradient>
+    </defs>
+    <path d="M30,460 V230 A380,230 0 0 1 790,230 V460" fill="none" stroke="url(#rb1)" stroke-width="14" stroke-linecap="round" opacity=".55"/>
+    <path d="M30,460 V230 A380,230 0 0 1 790,230 V460" fill="none" stroke="#fff" stroke-width="2" opacity=".18"/>
+  </svg>
+
+  <div class="hero-content">
+    <div class="hero-top">
+      <div class="hero-coord">
+        <span class="dot"></span>
+        <span data-i18n="h.coord"><b>55°49′N 37°37′E</b> · Москвариум, ВДНХ</span>
+      </div>
+      <div class="hero-tagline" data-i18n="h.tag">
+        Кейс · 500 м² · 19 инсталляций<br>
+        <b>2022 — 2024</b>
+      </div>
+    </div>
+
+    <div class="hero-center">
+      <h1 class="hero-h" data-i18n="h.h">
+        <span class="a">Путь</span>
+        <span class="b">воды</span>
+      </h1>
+      <p class="hero-sub" data-i18n="h.sub">Мультимедийная выставка <span class="word-oval">Москвариума</span> на ВДНХ.</p>
+      <div class="hero-stats">
+        <div class="hs-cell" data-i18n="h.stat1">
+          <div class="hs-val">500<sup>м²</sup></div>
+          <div class="hs-lbl">Площадь</div>
+        </div>
+        <div class="hs-cell" data-i18n="h.stat2">
+          <div class="hs-val">19</div>
+          <div class="hs-lbl">Инсталляций</div>
+        </div>
+        <div class="hs-cell" data-i18n="h.stat3">
+          <div class="hs-val">4</div>
+          <div class="hs-lbl">Зоны · маршрут</div>
+        </div>
+        <div class="hs-cell" data-i18n="h.stat4">
+          <div class="hs-val">2<sup>года</sup></div>
+          <div class="hs-lbl">2022 — 2024</div>
+        </div>
+      </div>
+      <div class="hero-bottom">
+        <div class="scroll-hint" data-i18n="h.scroll1"><span class="dn">↓</span> Прокрутите вниз — Старт маршрута</div>
+        <div class="scroll-hint" data-i18n="h.scroll2">Кейс N° 01 · Tanya Samarakovskaya</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Meta strip below hero -->
+<div class="meta-strip">
+  <div class="meta-strip-inner">
+    <div class="hm-cell">
+      <div class="hm-k" data-i18n="ms.1k">N° 01 — Формат</div>
+      <div class="hm-v" data-i18n="ms.1v">Мультимедийная выставка</div>
+      <div class="hm-s" data-i18n="ms.1s">Edutainment · Семейная</div>
+    </div>
+    <div class="hm-cell">
+      <div class="hm-k" data-i18n="ms.2k">N° 02 — Локация</div>
+      <div class="hm-v" data-i18n="ms.2v">Москвариум, ВДНХ</div>
+      <div class="hm-s">55°49′N 37°37′E</div>
+    </div>
+    <div class="hm-cell">
+      <div class="hm-k" data-i18n="ms.3k">N° 03 — Масштаб</div>
+      <div class="hm-v" data-i18n="ms.3v">500 м² · 19 инсталл.</div>
+      <div class="hm-s" data-i18n="ms.3s">4 зоны · 14 персонажей</div>
+    </div>
+    <div class="hm-cell">
+      <div class="hm-k" data-i18n="ms.4k">N° 04 — Период</div>
+      <div class="hm-v">2022 — 2024</div>
+      <div class="hm-s" data-i18n="ms.4s">Постоянная экспозиция</div>
+    </div>
+  </div>
+</div>
+
+<!-- wave divider into ticker -->
+<div class="wave-div" aria-hidden="true">
+  <svg viewBox="0 0 1440 48" preserveAspectRatio="none">
+    <path d="M0,48 C240,0 480,48 720,24 C960,0 1200,48 1440,12 L1440,48 Z" fill="#08243b"/>
+  </svg>
+</div>
+
+<!-- ============== TICKER ============== -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <span class="seg" data-i18n="tk.seg">Природа <span class="drop"></span> Город <span class="drop"></span> Океан <span class="drop"></span> Арктика <span class="sn">·</span> путь воды <span class="drop"></span></span>
+    <span class="seg" data-i18n="tk.seg">Природа <span class="drop"></span> Город <span class="drop"></span> Океан <span class="drop"></span> Арктика <span class="sn">·</span> путь воды <span class="drop"></span></span>
+  </div>
+</div>
+
+<!-- ============== SHOWREEL ============== -->
+<div class="showreel-sec">
+  <div class="sr-head">
+    <span class="sr-label" data-i18n="sr.label">N° 00 — Шоурил проекта</span>
+    <span class="sr-title" data-i18n="sr.title">2 мин · Москвариум · 500 м²</span>
+  </div>
+  <div class="showreel-frame" id="showreelFrame">
+    <iframe id="showreelIframe" src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="display:none"></iframe>
+    <img class="sr-poster" src="../assets/wayofwater/preview.webp" alt="Путь воды — превью шоурила" loading="lazy" decoding="async">
+    <div class="play-cover" id="playCover">
+      <button class="play-btn" id="playBtn" aria-label="Воспроизвести шоурил">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M5 3.5v17l15-8.5z"/></svg>
+      </button>
+      <div class="play-title" data-i18n="sr.ptitle">Путь воды — шоурил</div>
+      <div class="play-sub" data-i18n="sr.psub">Москвариум · 2022—2024 · 500 м²</div>
+    </div>
+  </div>
+</div>
+
+<!-- ============== MINI GALLERY ============== -->
+<div class="mini-gal">
+  <div class="mg-item">
+    <img decoding="async" src="../assets/wayofwater/photo/webp/wow-nature-01.webp" alt="Зона Природа" loading="lazy">
+    <span class="mg-lbl" data-i18n="mg.nature">Зона Природа</span>
+  </div>
+  <div class="mg-item">
+    <img decoding="async" src="../assets/wayofwater/photo/webp/wow-city-01.webp" alt="Зона Город" loading="lazy">
+    <span class="mg-lbl" data-i18n="mg.city">Зона Город</span>
+  </div>
+  <div class="mg-item">
+    <img decoding="async" src="../assets/wayofwater/photo/webp/wow-ocean-01.webp" alt="Зона Океан" loading="lazy">
+    <span class="mg-lbl" data-i18n="mg.ocean">Зона Океан</span>
+  </div>
+  <div class="mg-item">
+    <img decoding="async" src="../assets/wayofwater/photo/webp/wow-arktika-02.webp" alt="Зона Арктика" loading="lazy">
+    <span class="mg-lbl" data-i18n="mg.arctic">Зона Арктика</span>
+  </div>
+</div>
+<div style="height:40px;background:var(--ink)"></div>
+
+<!-- ============== INTRO ============== -->
+<section class="sec" id="zone-intro">
+  <div class="chapter lite reveal">
+    <span class="ch-left" data-i18n="i.chl"><span class="ch-num">01</span> О проекте</span>
+    <h2 class="ch-title" data-i18n="i.cht">Как влюбить<br>в воду</h2>
+    <span class="ch-right" data-i18n="i.chr">Edutainment<br>Семейная аудитория<br><b>Москвариум · ВДНХ</b></span>
+  </div>
+
+  <div class="intro reveal">
+    <aside class="intro-aside">
+      <div class="aside-frame">
+        <img decoding="async" src="../assets/wayofwater/photo/webp/wow-entrance.webp" alt="Вход на выставку" loading="lazy">
+        <span class="aside-cap" data-i18n="i.asidecap">Вход · стартовая точка</span>
+      </div>
+      <dl class="aside-dl" data-i18n="i.asidedl">
+        <dt>Проект</dt><dd>Москвариум</dd>
+        <dt>Место</dt><dd>ВДНХ, Москва</dd>
+        <dt>Площадь</dt><dd>500 м²</dd>
+        <dt>Формат</dt><dd>Постоянная экс.</dd>
+        <dt>Роль</dt><dd>CD Москвариума</dd>
+        <dt>Период</dt><dd>2022—2024</dd>
+        <dt>Инсталляций</dt><dd>19</dd>
+        <dt>Зон</dt><dd>4</dd>
+      </dl>
+    </aside>
+    <div class="intro-body">
+      <h3 data-i18n="i.h3">Вода — не фон. Это <b>главный герой</b>, у которого есть путь, характер и история.</h3>
+      <div class="intro-text">
+        <p data-i18n="i.p1">«Путь воды» — мультимедийная образовательная выставка Москвариума на ВДНХ. <b>500 м²</b>, 19 интерактивных инсталляций, четыре смысловые зоны. Экспозиция проводит посетителя по настоящему маршруту воды: лес → река → город → очистка → океан → арктика.</p>
+        <p data-i18n="i.p2">Задача была не испугать экологической повесткой, а <b>сделать воду интересной</b>. Каждая зона — отдельная глава. Каждая инсталляция — момент открытия. Ребёнок здесь трогает воду руками. Взрослый впервые думает о том, откуда она берётся. Подросток разбирается в механике очистки — и это не скучно.</p>
+        <p data-i18n="i.p3">Посетитель не смотрит на воду со стороны — он идёт вместе с ней. Маршрут выстроен как физическое путешествие: движение по залу совпадает с движением молекулы H₂O от истока до Арктики.</p>
+      </div>
+
+      <div class="hook reveal">
+        <div class="hook-label" data-i18n="i.hooklbl">↳ Почему вода — сложная тема</div>
+        <p class="hook-text" data-i18n="i.hooktext">Мы пьём воду, моемся, стираем — и почти не замечаем. Между тем это единственное вещество на планете, без которого невозможна ни одна форма жизни. Наша задача — сделать это видимым и ощутимым.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== CHARACTERS ============== -->
+<section class="sec paper2">
+  <div class="chapter lite reveal">
+    <span class="ch-left" data-i18n="ch.chl"><span class="ch-num">02</span> Персонажи</span>
+    <h2 class="ch-title" data-i18n="ch.cht">Три состояния</h2>
+    <span class="ch-right" data-i18n="ch.chr">Жидкое<br>Твёрдое · Газообразное<br><b>Watty · Icey · Hotty</b></span>
+  </div>
+
+  <div class="chars reveal">
+    <div class="char liquid">
+      <img loading="lazy" decoding="async" class="char-img" src="../assets/wayofwater/characters/Watty.webp" alt="Watty">
+      <div class="char-state" data-i18n="ch.s1">Жидкое · H₂O (l)</div>
+      <div class="char-name">Watty</div>
+      <p class="char-desc" data-i18n="ch.d1">Текучий, непредсказуемый. Принимает форму любого сосуда — но всегда остаётся собой. Главный проводник по выставке.</p>
+      <svg class="char-svg-arrow" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round">
+        <path d="M4 14 L24 14 M18 8 L24 14 L18 20" stroke-dasharray="2 3"/>
+      </svg>
+    </div>
+    <div class="char ice">
+      <img loading="lazy" decoding="async" class="char-img" src="../assets/wayofwater/characters/Icey_new.webp" alt="Icey">
+      <div class="char-state" data-i18n="ch.s2">Твёрдое · H₂O (s)</div>
+      <div class="char-name">Icey</div>
+      <p class="char-desc" data-i18n="ch.d2">Холодный, чёткий, хранит память. Лёд — это архив планеты. Каждый пузырёк внутри — воздух прошлых эпох.</p>
+      <svg class="char-svg-arrow" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round">
+        <path d="M4 14 L24 14 M18 8 L24 14 L18 20" stroke-dasharray="2 3"/>
+      </svg>
+    </div>
+    <div class="char steam">
+      <img loading="lazy" decoding="async" class="char-img" src="../assets/wayofwater/characters/Hotty_new.webp" alt="Hotty">
+      <div class="char-state" data-i18n="ch.s3">Газообразное · H₂O (g)</div>
+      <div class="char-name">Hotty</div>
+      <p class="char-desc" data-i18n="ch.d3">Невидимый, повсюду. Пар — это вода в движении, энергия без формы. Именно он возвращает воду к истоку.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============== CONCEPT ============== -->
+<section class="sec">
+  <div class="chapter lite reveal">
+    <span class="ch-left" data-i18n="co.chl"><span class="ch-num">03</span> Концепция</span>
+    <h2 class="ch-title" data-i18n="co.cht">Как это устроено</h2>
+    <span class="ch-right" data-i18n="co.chr">Связный маршрут<br>Сбор капель<br><b>Edutainment</b></span>
+  </div>
+
+  <div class="why-grid reveal">
+    <div class="why">
+      <div class="why-meta">
+        <span>[ 01 ]</span>
+        <svg class="why-svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M3 8 L9 5 L15 8 L21 5 V16 L15 19 L9 16 L3 19 Z"/><path d="M9 5 V16 M15 8 V19"/></svg>
+      </div>
+      <span class="why-tag" data-i18n="co.tag1">Маршрут</span>
+      <h4 class="why-h" data-i18n="co.h1">Единый нарратив от входа до выхода</h4>
+      <p class="why-desc" data-i18n="co.d1">Четыре зоны выстроены в сквозную цепь. Посетитель следует за водой: от природного истока через город и океан — к Арктике. Зоны — главы, инсталляции — абзацы.</p>
+    </div>
+    <div class="why">
+      <div class="why-meta">
+        <span>[ 02 ]</span>
+        <svg class="why-svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M12 3 C8 9 6 13 6 16 a6 6 0 0 0 12 0 C18 13 16 9 12 3 Z"/></svg>
+      </div>
+      <span class="why-tag" data-i18n="co.tag2">Геймификация</span>
+      <h4 class="why-h" data-i18n="co.h2">RFID-квест: собери капли</h4>
+      <p class="why-desc" data-i18n="co.d2">Каждый посетитель получает браслет. У каждой инсталляции — считыватель. Касание = капля в личном «Атласе воды». В конце — персональный итог пути.</p>
+    </div>
+    <div class="why">
+      <div class="why-meta">
+        <span>[ 03 ]</span>
+        <svg class="why-svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="11" cy="11" r="6"/><path d="M15.5 15.5 L21 21"/></svg>
+      </div>
+      <span class="why-tag" data-i18n="co.tag3">Edutainment</span>
+      <h4 class="why-h" data-i18n="co.h3">Факты через телесный опыт</h4>
+      <p class="why-desc" data-i18n="co.d3">Каждая инсталляция несёт одну ключевую мысль — физически, визуально, без текстовых стендов. Посетитель управляет руслом реки, вырабатывает энергию на ГЭС, строит водопровод.</p>
+    </div>
+    <div class="why">
+      <div class="why-meta">
+        <span>[ 04 ]</span>
+        <svg class="why-svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="7" cy="9" r="2.5"/><circle cx="17" cy="9" r="2.5"/><circle cx="12" cy="14" r="2"/><path d="M3 20 C4 16 6 14.5 7 14 M21 20 C20 16 18 14.5 17 14 M10 20 C11 17 11 17 12 16.5 C13 17 13 17 14 20"/></svg>
+      </div>
+      <span class="why-tag" data-i18n="co.tag4">Аудитория</span>
+      <h4 class="why-h" data-i18n="co.h4">Семейный формат · три уровня восприятия</h4>
+      <p class="why-desc" data-i18n="co.d4">Семилетний ребёнок запускает водопад руками. Подросток разбирает механику гидростанции. Взрослый читает данные об экологии. Три поколения — один маршрут.</p>
+    </div>
+    <div class="why">
+      <div class="why-meta">
+        <span>[ 05 ]</span>
+        <svg class="why-svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M3 16 C6 12 9 16 12 12 C15 8 18 14 21 10"/><path d="M3 20 C6 16 9 20 12 16 C15 12 18 18 21 14" opacity=".55"/></svg>
+      </div>
+      <span class="why-tag" data-i18n="co.tag5">Эмоция</span>
+      <h4 class="why-h" data-i18n="co.h5">Эмоциональная дуга · восхищение → понимание</h4>
+      <p class="why-desc" data-i18n="co.d5">Зоны идут по нарастанию: Природа — лёгкость и красота, Город — механика и ресурс, Океан — масштаб, Арктика — хрупкость. В финале посетитель сам делает вывод.</p>
+    </div>
+    <div class="why">
+      <div class="why-meta">
+        <span>[ 06 ]</span>
+        <svg class="why-svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="7" cy="14" r="4"/><circle cx="17" cy="14" r="4"/><circle cx="12" cy="9" r="3"/></svg>
+      </div>
+      <span class="why-tag" data-i18n="co.tag6">Персонажи</span>
+      <h4 class="why-h" data-i18n="co.h6">Watty, Icey, Hotty — проводники по выставке</h4>
+      <p class="why-desc" data-i18n="co.d6">Три персонажа — три состояния воды. Они живут в каждой зоне, объясняют процессы и становятся главным эмоциональным якорем для детей.</p>
+    </div>
+  </div>
+
+  <!-- AXONOMETRY -->
+  <div class="axo reveal">
+    <img loading="lazy" decoding="async" src="../assets/wayofwater/concept/axo-01.webp" alt="Аксонометрия выставки">
+    <div class="axo-overlay">
+      <div class="utp" style="top:8%;left:4%"><div class="utp-dot"></div><div class="utp-body"><div class="utp-val">19</div><div class="utp-lbl" data-i18n="ax.l1">интерактивных инсталл.</div></div></div>
+      <div class="utp" style="top:8%;left:26%"><div class="utp-dot"></div><div class="utp-body"><div class="utp-val" data-i18n="ax.v2">4 зоны</div><div class="utp-lbl" data-i18n="ax.l2">Природа · Город · Океан · Арктика</div></div></div>
+      <div class="utp" style="top:8%;left:52%"><div class="utp-dot"></div><div class="utp-body"><div class="utp-val">360°</div><div class="utp-lbl" data-i18n="ax.l3">панорамная проекция</div></div></div>
+      <div class="utp" style="top:8%;right:4%"><div class="utp-dot"></div><div class="utp-body"><div class="utp-val">40+</div><div class="utp-lbl" data-i18n="ax.l4">проекторов и экранов</div></div></div>
+      <div class="utp" style="bottom:28%;left:4%"><div class="utp-dot"></div><div class="utp-body"><div class="utp-val">RFID</div><div class="utp-lbl" data-i18n="ax.l5">квест · Дух Водопада</div></div></div>
+      <div class="utp" style="bottom:28%;left:28%"><div class="utp-dot"></div><div class="utp-body"><div class="utp-val">14</div><div class="utp-lbl" data-i18n="ax.l6">уникальных персонажей</div></div></div>
+      <div class="utp" style="bottom:28%;left:54%"><div class="utp-dot"></div><div class="utp-body"><div class="utp-val" data-i18n="ax.v7">10 т</div><div class="utp-lbl" data-i18n="ax.l7">живой воды ежедневно</div></div></div>
+      <div class="utp" style="bottom:28%;right:4%"><div class="utp-dot"></div><div class="utp-body"><div class="utp-val">ML</div><div class="utp-lbl" data-i18n="ax.l8">машинное зрение</div></div></div>
+    </div>
+    <div class="axo-cap">
+      <span data-i18n="ax.cap1">Планировка выставки · аксонометрия</span>
+      <span data-i18n="ax.cap2"><b>500 м²</b> · Москвариум, ВДНХ</span>
+    </div>
+  </div>
+
+  <!-- GALLERY -->
+  <div class="gallery reveal">
+    <div class="g-item span2">
+      <img loading="lazy" decoding="async" src="../assets/wayofwater/photo/webp/wow-final-01.webp" alt="Природа">
+      <div class="glbl" data-i18n="ga.1">Зона Природа</div>
+    </div>
+    <div class="g-item"><img loading="lazy" decoding="async" src="../assets/wayofwater/photo/webp/wow-entrance.webp" alt="Вход · Водопад"><div class="glbl" data-i18n="ga.2">Вход · Водопад</div></div>
+    <div class="g-item"><img loading="lazy" decoding="async" src="../assets/wayofwater/photo/webp/wow-city-01.webp" alt="Город"><div class="glbl" data-i18n="ga.3">Зона Город</div></div>
+    <div class="g-item"><img loading="lazy" decoding="async" src="../assets/wayofwater/photo/webp/wow-ocean-01.webp" alt="Океан"><div class="glbl" data-i18n="ga.4">Зона Океан</div></div>
+    <div class="g-item"><img loading="lazy" decoding="async" src="../assets/wayofwater/photo/webp/wow-arktika-02.webp" alt="Арктика"><div class="glbl" data-i18n="ga.5">Арктика</div></div>
+  </div>
+</section>
+
+<!-- ============== PLAN ============== -->
+<!-- ============== ZONE A: ПРИРОДА ============== -->
+<div class="zone-card priroda reveal" id="zone-priroda">
+  <div class="zone-row">
+    <div class="zone-marker">
+      <span class="badge">A</span>
+      <span data-i18n="zA.km">Зона 01/04 · км 00.00</span>
+    </div>
+    <div>
+      <h2 class="zone-name" data-i18n="zA.name">Природа</h2>
+      <p class="zone-sub" data-i18n="zA.sub">Вода рождается в лесу. Дождь, роса, родник — первые шаги молекулы H₂O. Здесь начинается маршрут.</p>
+    </div>
+    <div class="zone-side" data-i18n="zA.side">6 инсталл.<br><b>исток · лес · река</b></div>
+  </div>
+  <!-- decorative svg -->
+  <svg class="zone-illust" viewBox="0 0 160 160" fill="none" stroke="#7fc78a" stroke-width="1.1">
+    <path d="M10 130 C40 100 70 140 100 110 C130 80 145 105 155 90" stroke-dasharray="3 4"/>
+    <path d="M10 140 C40 110 70 150 100 120 C130 90 145 115 155 100" opacity=".5"/>
+    <circle cx="80" cy="70" r="3" fill="#7fc78a"/>
+    <circle cx="120" cy="50" r="2.5" fill="#7fc78a"/>
+    <path d="M60 50 L60 30 M55 40 L60 30 L65 40" opacity=".7"/>
+  </svg>
+</div>
+
+<div class="istrip priroda">
+  <div class="istrip-head">
+    <div class="istrip-t" data-i18n="zA.it">Инсталляции зоны Природа</div>
+    <div class="istrip-hint" data-i18n="is.hint">Листать <span class="hint-arrow">→</span></div>
+  </div>
+  <div class="itrack-wrap">
+    <div class="itrack" id="track-priroda">
+      <div class="icard">
+        <div class="icard-vis"><img loading="lazy" decoding="async" src="../assets/wayofwater/photo/webp/wow-entrance.webp" alt="Вход в выставку"><span class="icard-num">01 / 19</span></div>
+        <div class="icard-body">
+          <span class="icard-tag" data-i18n="w01.tag">Пре-шоу · Вход</span>
+          <h3 class="icard-title" data-i18n="w01.t">Водопад</h3>
+          <p class="icard-desc" data-i18n="w01.d">Первое впечатление — физическое. Стена воды, шум, влажность. Посетитель ещё не внутри выставки, но вода уже здесь.</p>
+          <p class="icard-fact" data-i18n="w01.f">Переключает восприятие до первого экспоната</p>
+        </div>
+      </div>
+      <div class="icard">
+        <div class="icard-vis"><img loading="lazy" decoding="async" src="../assets/wayofwater/photo/webp/wow-intro_show.webp" alt="Туннель воды"><span class="icard-num">02 / 19</span></div>
+        <div class="icard-body">
+          <span class="icard-tag" data-i18n="w02.tag">Проходной · Иммерсив</span>
+          <h3 class="icard-title" data-i18n="w02.t">Туннель воды</h3>
+          <p class="icard-desc" data-i18n="w02.d">Проекционный туннель: посетитель проходит сквозь водную среду. Свет, звук, движущаяся анимация создают ощущение погружения в поток.</p>
+          <p class="icard-fact" data-i18n="w02.f">Физический переход между мирами</p>
+        </div>
+      </div>
+      <div class="icard">
+        <div class="icard-vis"><img loading="lazy" decoding="async" src="../assets/wayofwater/photo/webp/wow-nature_river-06.webp" alt="Речной стол"><span class="icard-num">03 / 19</span></div>
+        <div class="icard-body">
+          <span class="icard-tag" data-i18n="w03.tag">Интерактивный стол</span>
+          <h3 class="icard-title" data-i18n="w03.t">Речной стол</h3>
+          <p class="icard-desc" data-i18n="w03.d">Управляй потоком, меняй рельеф, создавай русло. Вода ведёт себя по реальным законам — в реальном времени.</p>
+          <p class="icard-fact" data-i18n="w03.f">Скорость реки зависит от уклона дна</p>
+        </div>
+      </div>
+      <div class="icard">
+        <div class="icard-vis"><img loading="lazy" decoding="async" src="../assets/wayofwater/photo/webp/wow-nature_circle-01.webp" alt="Круговорот"><span class="icard-num">04 / 19</span></div>
+        <div class="icard-body">
+          <span class="icard-tag" data-i18n="w04.tag">Образование · Визуализация</span>
+          <h3 class="icard-title" data-i18n="w04.t">Круговорот</h3>
+          <p class="icard-desc" data-i18n="w04.d">Большая мультимедийная инсталляция: испарение, облака, дождь, почва, источник. Замкнутый цикл, который не заканчивается никогда.</p>
+          <p class="icard-fact" data-i18n="w04.f">Одна молекула воды проходит полный цикл за 9 дней</p>
+        </div>
+      </div>
+      <div class="icard">
+        <div class="icard-vis"><img loading="lazy" decoding="async" src="../assets/wayofwater/photo/webp/wow-nature-02.webp" alt="Подводный мир"><span class="icard-num">05 / 19</span></div>
+        <div class="icard-body">
+          <span class="icard-tag" data-i18n="w05.tag">Интерактив · Ощущения</span>
+          <h3 class="icard-title" data-i18n="w05.t">Подводный мир</h3>
+          <p class="icard-desc" data-i18n="w05.d">Погружение в живую экосистему пресного водоёма. Рыбы, растения, свет сквозь воду — всё реагирует на движение посетителя.</p>
+          <p class="icard-fact" data-i18n="w05.f">Каждое касание меняет сцену</p>
+        </div>
+      </div>
+      <div class="icard">
+        <div class="icard-vis"><img loading="lazy" decoding="async" src="../assets/wayofwater/photo/webp/wow-nature-05.webp" alt="Ресурс"><span class="icard-num">06 / 19</span></div>
+        <div class="icard-body">
+          <span class="icard-tag" data-i18n="w06.tag">Факты · Данные</span>
+          <h3 class="icard-title" data-i18n="w06.t">Ресурс</h3>
+          <p class="icard-desc" data-i18n="w06.d">Сколько пресной воды на планете — и почему её так мало. Визуализация мировых запасов в сравнении с тем, что реально доступно людям.</p>
+          <p class="icard-fact" data-i18n="w06.f">Пресная вода — 2.5% всей воды Земли. Доступна — 0.007%</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="inav">
+    <button onclick="scrollTrack('track-priroda',-1)" aria-label="Назад">←</button>
+    <button onclick="scrollTrack('track-priroda',1)" aria-label="Вперёд">→</button>
+  </div>
+</div>
+
+<!-- ============== ZONE B: ГОРОД ============== -->
+<div class="zone-card gorod reveal" id="zone-gorod">
+  <div class="zone-row">
+    <div class="zone-marker">
+      <span class="badge">B</span>
+      <span data-i18n="zB.km">Зона 02/04 · км 00.14</span>
+    </div>
+    <div>
+      <h2 class="zone-name" data-i18n="zB.name">Город</h2>
+      <p class="zone-sub" data-i18n="zB.sub">Вода входит в город как ресурс. Она проходит через ГЭС, трубы, краны — и выходит изменённой.</p>
+    </div>
+    <div class="zone-side" data-i18n="zB.side">8 инсталл.<br><b>ГЭС · трубы · кран</b></div>
+  </div>
+  <svg class="zone-illust" viewBox="0 0 160 160" fill="none" stroke="#f4c66b" stroke-width="1.2">
+    <rect x="20" y="60" width="20" height="80" stroke-dasharray="3 3"/>
+    <rect x="50" y="40" width="22" height="100"/>
+    <rect x="82" y="70" width="18" height="70"/>
+    <rect x="110" y="50" width="24" height="90" stroke-dasharray="3 3"/>
+    <rect x="55" y="55" width="4" height="4" fill="#f4c66b"/>
+    <rect x="63" y="55" width="4" height="4" fill="#f4c66b"/>
+    <rect x="55" y="70" width="4" height="4" fill="#f4c66b"/>
+    <rect x="63" y="80" width="4" height="4" fill="#f4c66b"/>
+    <path d="M0 140 L160 140"/>
+  </svg>
+</div>
+
+<div class="istrip gorod">
+  <div class="istrip-head">
+    <div class="istrip-t" data-i18n="zB.it">Инсталляции зоны Город</div>
+    <div class="istrip-hint" data-i18n="is.hint">Листать <span class="hint-arrow">→</span></div>
+  </div>
+  <div class="itrack-wrap">
+    <div class="itrack" id="track-gorod">
+      <div class="icard">
+        <div class="icard-vis"><img loading="lazy" decoding="async" src="../assets/wayofwater/photo/webp/wow-city-01.webp" alt="ГЭС"><span class="icard-num">07 / 19</span></div>
+        <div class="icard-body">
+          <span class="icard-tag" data-i18n="w07.tag">Энергетика</span>
+          <h3 class="icard-title" data-i18n="w07.t">ГЭС</h3>
+          <p class="icard-desc" data-i18n="w07.d">Как поток воды становится электричеством. Модель гидроэлектростанции — от турбины до розетки. Энергия потока, которую слышно и видно.</p>
+          <p class="icard-fact" data-i18n="w07.f">Гидроэнергия даёт 17% мировой электроэнергии</p>
+        </div>
+      </div>
+      <div class="icard">
+        <div class="icard-vis"><img loading="lazy" decoding="async" src="../assets/wayofwater/photo/webp/wow-city-02.webp" alt="Трубы"><span class="icard-num">08 / 19</span></div>
+        <div class="icard-body">
+          <span class="icard-tag" data-i18n="w08.tag">Инфраструктура</span>
+          <h3 class="icard-title" data-i18n="w08.t">Трубы</h3>
+          <p class="icard-desc" data-i18n="w08.d">Сеть городского водоснабжения: от водозабора до крана. Как вода попадает к вам домой — и почему это сложнее, чем кажется.</p>
+          <p class="icard-fact" data-i18n="w08.f">Длина труб водоснабжения Москвы — 12 000 км</p>
+        </div>
+      </div>
+      <div class="icard">
+        <div class="icard-vis"><img loading="lazy" decoding="async" src="../assets/wayofwater/photo/webp/wow-city_03.webp" alt="Очистка"><span class="icard-num">09 / 19</span></div>
+        <div class="icard-body">
+          <span class="icard-tag" data-i18n="w09.tag">Технология · Процесс</span>
+          <h3 class="icard-title" data-i18n="w09.t">Цепочка очистки</h3>
+          <p class="icard-desc" data-i18n="w09.d">Полный маршрут воды через очистные сооружения. Механическая, химическая, биологическая очистка — каждый этап можно потрогать руками.</p>
+          <p class="icard-fact" data-i18n="w09.f">Прежде чем попасть к вам, вода проходит 10+ этапов</p>
+        </div>
+      </div>
+      <div class="icard">
+        <div class="icard-vis"><img loading="lazy" decoding="async" src="../assets/wayofwater/photo/webp/wow-city_04.webp" alt="Дом"><span class="icard-num">10 / 19</span></div>
+        <div class="icard-body">
+          <span class="icard-tag" data-i18n="w10.tag">Личное · Быт</span>
+          <h3 class="icard-title" data-i18n="w10.t">Дом</h3>
+          <p class="icard-desc" data-i18n="w10.d">Сколько воды уходит на ваш день? Интерактивный счётчик считает расход при каждом бытовом действии — душ, готовка, стирка, кофе.</p>
+          <p class="icard-fact" data-i18n="w10.f">Средний россиянин потребляет 250 л воды в сутки</p>
+        </div>
+      </div>
+      <div class="icard">
+        <div class="icard-vis"><span class="icard-vis-fallback">~</span><span class="icard-num">11 / 19</span></div>
+        <div class="icard-body">
+          <span class="icard-tag" data-i18n="w11.tag">Производство</span>
+          <h3 class="icard-title" data-i18n="w11.t">Скрытая вода</h3>
+          <p class="icard-desc" data-i18n="w11.d">Сколько воды нужно, чтобы произвести футболку, телефон или чашку кофе? Водный след вещей, которые мы не замечаем.</p>
+          <p class="icard-fact" data-i18n="w11.f">1 кг говядины = 15 000 литров воды</p>
+        </div>
+      </div>
+      <div class="icard">
+        <div class="icard-vis"><span class="icard-vis-fallback">≋</span><span class="icard-num">12 / 19</span></div>
+        <div class="icard-body">
+          <span class="icard-tag" data-i18n="w12.tag">Химия воды</span>
+          <h3 class="icard-title" data-i18n="w12.t">Жёсткость</h3>
+          <p class="icard-desc" data-i18n="w12.d">Что такое жёсткость воды, почему накипь — это не просто неприятность, и как разная вода по-разному влияет на вкус еды и напитков.</p>
+          <p class="icard-fact" data-i18n="w12.f">Вкус чая зависит от pH воды на 40%</p>
+        </div>
+      </div>
+      <div class="icard">
+        <div class="icard-vis"><span class="icard-vis-fallback">⋮⋮</span><span class="icard-num">13 / 19</span></div>
+        <div class="icard-body">
+          <span class="icard-tag" data-i18n="w13.tag">Загрязнение</span>
+          <h3 class="icard-title" data-i18n="w13.t">Сток</h3>
+          <p class="icard-desc" data-i18n="w13.d">Что уходит в канализацию из городских улиц после дождя. Как ливневая вода стала отдельной экологической проблемой современного города.</p>
+          <p class="icard-fact" data-i18n="w13.f">80% загрязнений океана приходят с суши</p>
+        </div>
+      </div>
+      <div class="icard">
+        <div class="icard-vis"><span class="icard-vis-fallback">◌</span><span class="icard-num">14 / 19</span></div>
+        <div class="icard-body">
+          <span class="icard-tag" data-i18n="w14.tag">Будущее · Технологии</span>
+          <h3 class="icard-title" data-i18n="w14.t">Умный город</h3>
+          <p class="icard-desc" data-i18n="w14.d">Как современные технологии помогают городам экономить воду: датчики, умные краны, повторное использование сточных вод.</p>
+          <p class="icard-fact" data-i18n="w14.f">Умное водоснабжение снижает потери на 30%</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="inav">
+    <button onclick="scrollTrack('track-gorod',-1)">←</button>
+    <button onclick="scrollTrack('track-gorod',1)">→</button>
+  </div>
+</div>
+
+<!-- ============== ZONE C: ОКЕАН ============== -->
+<div class="zone-card okean reveal" id="zone-okean">
+  <div class="zone-row">
+    <div class="zone-marker">
+      <span class="badge">C</span>
+      <span data-i18n="zC.km">Зона 03/04 · км 00.28</span>
+    </div>
+    <div>
+      <h2 class="zone-name" data-i18n="zC.name">Океан</h2>
+      <p class="zone-sub" data-i18n="zC.sub">Посетитель встаёт за штурвал. Платформа качается — как настоящая палуба. Управление лодкой в шторм: 360° проекция, живое движение, физическое ощущение воды.</p>
+    </div>
+    <div class="zone-side" data-i18n="zC.side">2 инсталл.<br><b>штурвал · шторм · глубина</b></div>
+  </div>
+  <!-- Штурвал SVG -->
+  <svg class="zone-illust" viewBox="0 0 160 160" fill="none" stroke="#3ec5e8" stroke-width="1.4">
+    <!-- rim -->
+    <circle cx="80" cy="80" r="52"/>
+    <!-- hub -->
+    <circle cx="80" cy="80" r="11"/>
+    <!-- spokes (8) -->
+    <line x1="80" y1="28" x2="80" y2="69"/>
+    <line x1="80" y1="91" x2="80" y2="132"/>
+    <line x1="28" y1="80" x2="69" y2="80"/>
+    <line x1="91" y1="80" x2="132" y2="80"/>
+    <line x1="43.5" y1="43.5" x2="72.2" y2="72.2"/>
+    <line x1="87.8" y1="87.8" x2="116.5" y2="116.5"/>
+    <line x1="116.5" y1="43.5" x2="87.8" y2="72.2"/>
+    <line x1="72.2" y1="87.8" x2="43.5" y2="116.5"/>
+    <!-- handle knobs -->
+    <circle cx="80" cy="28" r="4" fill="#3ec5e8" opacity=".8"/>
+    <circle cx="80" cy="132" r="4" fill="#3ec5e8" opacity=".8"/>
+    <circle cx="28" cy="80" r="4" fill="#3ec5e8" opacity=".8"/>
+    <circle cx="132" cy="80" r="4" fill="#3ec5e8" opacity=".8"/>
+    <circle cx="43.5" cy="43.5" r="3.5" fill="#3ec5e8" opacity=".6"/>
+    <circle cx="116.5" cy="116.5" r="3.5" fill="#3ec5e8" opacity=".6"/>
+    <circle cx="116.5" cy="43.5" r="3.5" fill="#3ec5e8" opacity=".6"/>
+    <circle cx="43.5" cy="116.5" r="3.5" fill="#3ec5e8" opacity=".6"/>
+    <!-- wave beneath -->
+    <path d="M20 148 C40 142 60 154 80 148 C100 142 120 154 140 148" stroke-width="1" opacity=".4"/>
+  </svg>
+</div>
+
+<div class="istrip okean">
+  <div class="istrip-head">
+    <div class="istrip-t" data-i18n="zC.it">Инсталляции зоны Океан</div>
+    <div class="istrip-hint" data-i18n="is.hint">Листать <span class="hint-arrow">→</span></div>
+  </div>
+  <div class="itrack-wrap">
+    <div class="itrack" id="track-okean">
+      <div class="icard">
+        <div class="icard-vis"><img loading="lazy" decoding="async" src="../assets/wayofwater/photo/webp/wow-ocean-01.webp" alt="Штурвал"><span class="icard-num">15 / 19</span></div>
+        <div class="icard-body">
+          <span class="icard-tag" data-i18n="w15.tag">Управление · Шторм</span>
+          <h3 class="icard-title" data-i18n="w15.t">Штурвал</h3>
+          <p class="icard-desc" data-i18n="w15.d">Посетитель встаёт за штурвал на подвижной платформе. Платформа качается — имитация палубы в шторм. Вокруг — 360° проекция океана. Управляешь лодкой, которая реагирует на движения рук.</p>
+          <p class="icard-fact" data-i18n="w15.f">Подвижная платформа: физическое ощущение качки и морского хода</p>
+        </div>
+      </div>
+      <div class="icard">
+        <div class="icard-vis"><img loading="lazy" decoding="async" src="../assets/wayofwater/photo/webp/wow-ocean-03.webp" alt="Морские обитатели"><span class="icard-num">16 / 19</span></div>
+        <div class="icard-body">
+          <span class="icard-tag" data-i18n="w16.tag">Биология океана</span>
+          <h3 class="icard-title" data-i18n="w16.t">Морские обитатели</h3>
+          <p class="icard-desc" data-i18n="w16.d">Погружение в глубины: от поверхностных вод до абиссали. Каждый слой — особая среда, особые формы жизни, особый свет и давление.</p>
+          <p class="icard-fact" data-i18n="w16.f">80% видов Земли живёт в океане — исследовано менее 5% глубин</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="inav">
+    <button onclick="scrollTrack('track-okean',-1)">←</button>
+    <button onclick="scrollTrack('track-okean',1)">→</button>
+  </div>
+</div>
+
+<!-- ============== ZONE D: АРКТИКА ============== -->
+<div class="zone-card arktika reveal" id="zone-arktika">
+  <div class="zone-row">
+    <div class="zone-marker">
+      <span class="badge">D</span>
+      <span data-i18n="zD.km">Зона 04/04 · км 00.41</span>
+    </div>
+    <div>
+      <h2 class="zone-name" data-i18n="zD.name">Арктика</h2>
+      <p class="zone-sub" data-i18n="zD.sub">Финальная глава. Лёд — это память воды. Арктика хранит историю климата за сотни тысяч лет — и тает быстрее, чем мы думали.</p>
+    </div>
+    <div class="zone-side" data-i18n="zD.side">3 инсталл.<br><b>лёд · архив · финал</b></div>
+  </div>
+  <svg class="zone-illust" viewBox="0 0 160 160" fill="none" stroke="#1268a6" stroke-width="1.2">
+    <polygon points="40,120 60,60 80,120" stroke-dasharray="3 3"/>
+    <polygon points="80,130 105,40 130,130"/>
+    <polygon points="10,130 35,90 60,130" opacity=".6"/>
+    <path d="M0 140 L160 140"/>
+    <circle cx="100" cy="30" r="2.5" fill="#1268a6"/>
+  </svg>
+</div>
+
+<div class="istrip arktika">
+  <div class="istrip-head">
+    <div class="istrip-t" data-i18n="zD.it">Инсталляции зоны Арктика</div>
+    <div class="istrip-hint" data-i18n="is.hint">Листать <span class="hint-arrow">→</span></div>
+  </div>
+  <div class="itrack-wrap">
+    <div class="itrack" id="track-arktika">
+      <div class="icard">
+        <div class="icard-vis"><img loading="lazy" decoding="async" src="../assets/wayofwater/photo/webp/wow-arktika-02.webp" alt="Ледяной архив"><span class="icard-num">17 / 19</span></div>
+        <div class="icard-body">
+          <span class="icard-tag" data-i18n="w17.tag">Климатология · Время</span>
+          <h3 class="icard-title" data-i18n="w17.t">Ледяной архив</h3>
+          <p class="icard-desc" data-i18n="w17.d">Ледяные керны как хранители времени. Пузырьки воздуха в арктическом льду — это воздух, которым дышали динозавры. Буквально.</p>
+          <p class="icard-fact" data-i18n="w17.f">Самый старый лёд хранит воздух возрастом 800 000 лет</p>
+        </div>
+      </div>
+      <div class="icard">
+        <div class="icard-vis"><img loading="lazy" decoding="async" src="../assets/wayofwater/photo/webp/wow-arktika-03.webp" alt="Таяние"><span class="icard-num">18 / 19</span></div>
+        <div class="icard-body">
+          <span class="icard-tag" data-i18n="w18.tag">Климат · Будущее</span>
+          <h3 class="icard-title" data-i18n="w18.t">Таяние</h3>
+          <p class="icard-desc" data-i18n="w18.d">Интерактивная модель: что изменится при подъёме уровня моря. Никакой паники — только честные данные и пространство для собственного вывода.</p>
+          <p class="icard-fact" data-i18n="w18.f">Если растает весь лёд — уровень океана поднимется на 65 м</p>
+        </div>
+      </div>
+      <div class="icard">
+        <div class="icard-vis"><img loading="lazy" decoding="async" src="../assets/wayofwater/photo/webp/wow-final.webp" alt="Дух Водопада"><span class="icard-num">19 / 19</span></div>
+        <div class="icard-body">
+          <span class="icard-tag" data-i18n="w19.tag">Финал · Личный документ</span>
+          <h3 class="icard-title" data-i18n="w19.t">Дух Водопада</h3>
+          <p class="icard-desc" data-i18n="w19.d">Финальная точка маршрута. Посетитель прикладывает браслет — и возвращает Духу Водопада силы, собранные в каждой из зон. Персональный артефакт: путь записан, задание выполнено.</p>
+          <p class="icard-fact" data-i18n="w19.f">Цель — вернуть силы Духу Водопада, пройдя весь маршрут</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="inav">
+    <button onclick="scrollTrack('track-arktika',-1)">←</button>
+    <button onclick="scrollTrack('track-arktika',1)">→</button>
+  </div>
+</div>
+
+<!-- ============== QUEST ============== -->
+<section class="sec paper2" id="zone-quest">
+  <div class="chapter lite reveal">
+    <span class="ch-left" data-i18n="q.chl"><span class="ch-num">05</span> Квест</span>
+    <h2 class="ch-title" data-i18n="q.cht">Собери капли</h2>
+    <span class="ch-right" data-i18n="q.chr">RFID-браслет<br>19 точек сбора<br><b>Дух Водопада</b></span>
+  </div>
+
+  <div class="quest-map reveal">
+    <!-- decorative svg trail -->
+    <div class="qm-bg">
+      <svg viewBox="0 0 1200 220" preserveAspectRatio="none">
+        <defs>
+          <linearGradient id="qtrail" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0" stop-color="#1268a6" stop-opacity=".2"/>
+            <stop offset="1" stop-color="#3ec5e8" stop-opacity=".6"/>
+          </linearGradient>
+        </defs>
+        <path d="M40 110 C 220 60, 380 160, 600 110 C 820 60, 980 160, 1160 110" stroke="url(#qtrail)" stroke-width="2" stroke-dasharray="4 6" fill="none"/>
+        <circle cx="40" cy="110" r="6" fill="#1268a6"/>
+        <circle cx="380" cy="120" r="5" fill="#3ec5e8"/>
+        <circle cx="820" cy="90" r="5" fill="#3ec5e8"/>
+        <circle cx="1160" cy="110" r="6" fill="#1268a6"/>
+      </svg>
+    </div>
+
+    <div class="qm-flow">
+      <div class="qstep">
+        <span class="qstep-marker"></span>
+        <div class="qstep-num">01</div>
+        <div class="qstep-h" data-i18n="q.h1">Браслет на входе</div>
+        <p class="qstep-d" data-i18n="q.d1">Каждый посетитель получает персональный RFID-браслет. Он становится ключом ко всем инсталляциям выставки.</p>
+        <div class="qstep-tag" data-i18n="q.tag1">↳ Старт</div>
+      </div>
+      <div class="qstep">
+        <span class="qstep-marker"></span>
+        <div class="qstep-num">02</div>
+        <div class="qstep-h" data-i18n="q.h2">Касание = капля</div>
+        <p class="qstep-d" data-i18n="q.d2">У каждой из 19 инсталляций — считыватель. Прикоснулся браслетом — получил каплю. Пройти всё — главная цель.</p>
+        <div class="qstep-tag" data-i18n="q.tag2">↳ Маршрут</div>
+      </div>
+      <div class="qstep">
+        <span class="qstep-marker"></span>
+        <div class="qstep-num">03</div>
+        <div class="qstep-h" data-i18n="q.h3">Четыре зоны</div>
+        <p class="qstep-d" data-i18n="q.d3">Природа, Город, Океан, Арктика — каждая зона открывает свои капли. Маршрут ведёт вперёд, как течение реки.</p>
+        <div class="qstep-tag" data-i18n="q.tag3">↳ Прогресс</div>
+      </div>
+      <div class="qstep">
+        <span class="qstep-marker"></span>
+        <div class="qstep-num">04</div>
+        <div class="qstep-h" data-i18n="q.h4">Вернуть силы Духу</div>
+        <p class="qstep-d" data-i18n="q.d4">Финальная станция: браслет считывается — Дух Водопада получает силы, собранные на маршруте. Задача выполнена.</p>
+        <div class="qstep-tag" data-i18n="q.tag4">↳ Финал</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== PULL QUOTE ============== -->
+<section class="pq">
+  <img class="pq-bg" src="../assets/wayofwater/photo/webp/wow-ocean-01.webp" alt="" aria-hidden="true" loading="lazy" decoding="async">
+  <div class="pq-inner">
+    <span class="pq-mark">“</span>
+    <p class="pq-text" data-i18n="pq.text">Вода была здесь до нас и будет после.<br>Задача: дать ощутить это <span class="pq-hl">телом</span>.</p>
+    <span class="pq-attr" data-i18n="pq.attr">Tanya Samarakovskaya · Creative Director · Путь воды</span>
+  </div>
+</section>
+
+<!-- ============== PROCESS ============== -->
+<section class="sec dark" id="zone-process">
+  <div class="chapter reveal" style="border-color:rgba(255,255,255,.12);opacity:1">
+    <span class="ch-left" data-i18n="pr.chl"><span class="ch-num">06</span> Процесс</span>
+    <h2 class="ch-title" data-i18n="pr.cht">Как это создавалось</h2>
+    <span class="ch-right" data-i18n="pr.chr">От брифа<br>до финала<br><b>Full cycle</b></span>
+  </div>
+
+  <!-- Рабочие материалы: скриншоты процесса -->
+  <div class="proc-label reveal"><span data-i18n="pr.lbl1">Рабочие материалы · скриншоты процесса</span><span class="small">N° 06.1</span></div>
+  <div class="process-flow reveal">
+
+    <!-- ROW 1: 2 (s-6 + s-6) -->
+    <figure class="pf-card s-6" data-src="../assets/wayofwater/process/start-creation.webp">
+      <div class="pf-img">
+        <span class="pf-step" data-i18n="pr.s1">01 · старт</span>
+        <img src="../assets/wayofwater/process/start-creation.webp" alt="Начало разработки" loading="lazy">
+        <span class="pf-zoom">⤢</span>
+      </div>
+      <figcaption class="pf-cap" data-i18n="pr.c1"><b>Начало разработки</b><span>Первые рабочие схемы и доски</span></figcaption>
+    </figure>
+
+    <figure class="pf-card s-6" data-src="../assets/wayofwater/process/wireframe-tec.webp">
+      <div class="pf-img">
+        <span class="pf-step" data-i18n="pr.s2">02 · вайрфрейм</span>
+        <img src="../assets/wayofwater/process/wireframe-tec.webp" alt="Вайрфрейм зала ТЭЦ" loading="lazy">
+        <span class="pf-zoom">⤢</span>
+      </div>
+      <figcaption class="pf-cap" data-i18n="pr.c2"><b>Вайрфрейм зала ТЭЦ</b><span>Схема размещения инсталляций</span></figcaption>
+    </figure>
+
+    <!-- ROW 2: 1 (s-12) -->
+    <figure class="pf-card s-12" data-src="../assets/wayofwater/process/river1.webp">
+      <div class="pf-img">
+        <span class="pf-step" data-i18n="pr.s3">03 · панорама</span>
+        <img src="../assets/wayofwater/process/river1.webp" alt="Панорамная раскладка зоны Река" loading="lazy">
+        <span class="pf-zoom">⤢</span>
+      </div>
+      <figcaption class="pf-cap" data-i18n="pr.c3"><b>Полная раскладка зоны Река</b><span>Панорамный разворот · сценарий взаимодействия</span></figcaption>
+    </figure>
+
+    <!-- ROW 3: 1 (s-12) — логика речной игры -->
+    <figure class="pf-card s-12" data-src="../assets/wayofwater/process/river_logic_game.webp">
+      <div class="pf-img">
+        <span class="pf-step" data-i18n="pr.s4">03.1 · логика игры</span>
+        <img src="../assets/wayofwater/process/river_logic_game.webp" alt="Логика речной игры" loading="lazy">
+        <span class="pf-zoom">⤢</span>
+      </div>
+      <figcaption class="pf-cap" data-i18n="pr.c4"><b>Логика речной игры</b><span>Игровые правила и поведение русла</span></figcaption>
+    </figure>
+
+    <!-- ROW 4: ges целиком (s-8) + kran рядом (s-4) -->
+    <figure class="pf-card s-8" data-src="../assets/wayofwater/process/ges.webp">
+      <div class="pf-img">
+        <span class="pf-step" data-i18n="pr.s5">04 · интерфейс</span>
+        <img src="../assets/wayofwater/process/ges.webp" alt="Сценарная схема" loading="lazy">
+        <span class="pf-zoom">⤢</span>
+      </div>
+      <figcaption class="pf-cap" data-i18n="pr.c5"><b>Сценарная схема</b><span>Логика переходов · структура маршрута</span></figcaption>
+    </figure>
+
+    <figure class="pf-card s-4" data-src="../assets/wayofwater/process/kran-fontan.webp">
+      <div class="pf-img">
+        <span class="pf-step" data-i18n="pr.s6">04.1 · объект</span>
+        <img src="../assets/wayofwater/process/kran-fontan.webp" alt="Кран-фонтан" loading="lazy">
+        <span class="pf-zoom">⤢</span>
+      </div>
+      <figcaption class="pf-cap" data-i18n="pr.c6"><b>Кран-фонтан</b><span>Объект экспозиции</span></figcaption>
+    </figure>
+
+    <!-- ROW 5: Зона Природа на всю ширину -->
+    <figure class="pf-card s-12" data-src="../assets/wayofwater/process/river2.webp">
+      <div class="pf-img">
+        <span class="pf-step" data-i18n="pr.s7">05 · зона Природа</span>
+        <img src="../assets/wayofwater/process/river2.webp" alt="Разработка зоны Река" loading="lazy">
+        <span class="pf-zoom">⤢</span>
+      </div>
+      <figcaption class="pf-cap" data-i18n="pr.c7"><b>Зона Природа</b><span>Разработка речного интерактива</span></figcaption>
+    </figure>
+
+    <!-- ROW 6: Океан — длинный фрейм -->
+    <figure class="pf-card s-12" data-src="../assets/wayofwater/process/ocean/ocean.gif">
+      <div class="pf-img">
+        <span class="pf-step" data-i18n="pr.s8">05.1 · зона Океан</span>
+        <img src="../assets/wayofwater/process/ocean/ocean.gif" alt="Анимация зоны Океан" loading="lazy">
+        <span class="pf-zoom">⤢</span>
+      </div>
+      <figcaption class="pf-cap" data-i18n="pr.c8"><b>Зона Океан</b><span>Анимация среды · движение воды</span></figcaption>
+    </figure>
+
+  </div>
+
+  <!-- Капли — единственный элемент из архива -->
+  <div class="process-flow reveal" style="margin-top:0;margin-bottom:0">
+    <figure class="pf-card s-12" data-src="../assets/wayofwater/process/circle.webp">
+      <div class="pf-img">
+        <span class="pf-step" data-i18n="pr.s9">06 · анимация</span>
+        <img src="../assets/wayofwater/process/circle.webp" alt="Анимация капель" loading="lazy">
+        <span class="pf-zoom">⤢</span>
+      </div>
+      <figcaption class="pf-cap" data-i18n="pr.c9"><b>Анимация капель</b><span>Motion-разработка · поведение элементов</span></figcaption>
+    </figure>
+  </div>
+
+  <!-- Персонажи и анимация: папка Пришел -->
+  <div class="proc-label reveal"><span data-i18n="pr.lbl2">Варианты водопада · Дух Водопада</span><span class="small">N° 06.2</span></div>
+  <div class="process-flow reveal">
+
+    <figure class="pf-card s-12 pf-tall" data-src="../assets/wayofwater/process/preshow/01-sketch-face-1.webp">
+      <div class="pf-img">
+        <span class="pf-step" data-i18n="pr.s10">· скетч</span>
+        <img src="../assets/wayofwater/process/preshow/01-sketch-face-1.webp" alt="Скетч Духа Водопада" loading="lazy">
+        <span class="pf-zoom">⤢</span>
+      </div>
+      <figcaption class="pf-cap" data-i18n="pr.c10"><b>Дух Водопада · скетч</b><span>Поиск образа персонажа</span></figcaption>
+    </figure>
+
+  </div>
+
+  <!-- Варианты персонажей -->
+  <div class="proc-label reveal"><span data-i18n="pr.lbl3">Варианты персонажей · разработка</span><span class="small">N° 06.3</span></div>
+  <div class="process-flow reveal">
+    <figure class="pf-card s-12" data-src="../assets/wayofwater/process/characters_process1.webp">
+      <div class="pf-img">
+        <span class="pf-step" data-i18n="pr.s11">· поиск образов</span>
+        <img src="../assets/wayofwater/process/characters_process1.webp" alt="Варианты персонажей — поиск образов" loading="lazy">
+        <span class="pf-zoom">⤢</span>
+      </div>
+      <figcaption class="pf-cap" data-i18n="pr.c11"><b>Поиск образов персонажей</b><span>Состояния воды · хранители зон</span></figcaption>
+    </figure>
+    <figure class="pf-card s-6" data-src="../assets/wayofwater/process/characters_process2.webp">
+      <div class="pf-img">
+        <span class="pf-step" data-i18n="pr.s12">· разработка</span>
+        <img src="../assets/wayofwater/process/characters_process2.webp" alt="Варианты персонажей — разработка" loading="lazy">
+        <span class="pf-zoom">⤢</span>
+      </div>
+      <figcaption class="pf-cap" data-i18n="pr.c12"><b>Проработка персонажей</b><span>Силуэты, мимика, характеры</span></figcaption>
+    </figure>
+    <figure class="pf-card s-6" data-src="../assets/wayofwater/process/characters_process3.webp">
+      <div class="pf-img">
+        <span class="pf-step" data-i18n="pr.s13">· цвет и форма</span>
+        <img src="../assets/wayofwater/process/characters_process3.webp" alt="Варианты персонажей — цвет и форма" loading="lazy">
+        <span class="pf-zoom">⤢</span>
+      </div>
+      <figcaption class="pf-cap" data-i18n="pr.c13"><b>Цвет и форма</b><span>Поиск финальной палитры персонажей</span></figcaption>
+    </figure>
+    <figure class="pf-card s-12" data-src="../assets/wayofwater/process/characters_process4.webp">
+      <div class="pf-img">
+        <span class="pf-step" data-i18n="pr.s14">· финальная линейка</span>
+        <img src="../assets/wayofwater/process/characters_process4.webp" alt="Варианты персонажей — финальная линейка" loading="lazy">
+        <span class="pf-zoom">⤢</span>
+      </div>
+      <figcaption class="pf-cap" data-i18n="pr.c14"><b>Финальная линейка персонажей</b><span>Watty · Icey · Hotty · Salty</span></figcaption>
+    </figure>
+  </div>
+
+</section>
+
+<!-- ============== ROLE / DELIVERABLES ============== -->
+<section class="sec dark" id="zone-end">
+  <div class="chapter reveal" style="border-color:rgba(255,255,255,.12);opacity:1">
+    <span class="ch-left" data-i18n="rl.chl"><span class="ch-num">07</span> Роль и масштаб</span>
+    <h2 class="ch-title" data-i18n="rl.cht">Что сделано</h2>
+    <span class="ch-right" data-i18n="rl.chr">CD · Арт-дирекшен<br>Сценография<br><b>Full cycle</b></span>
+  </div>
+
+  <div class="reveal">
+    <div class="spec-compact">
+      <div class="spec-compact-h">
+        <span data-i18n="rl.spech">N° 07.1 — Масштаб проекта</span>
+        <b data-i18n="rl.specb">Путь воды · Москвариум</b>
+      </div>
+      <div class="spec-nums">
+        <div class="spec-num-cell" data-i18n="rl.c1">
+          <div class="spec-num-v">500<sup>м²</sup></div>
+          <div class="spec-num-l">Площадь</div>
+          <div class="spec-num-d">Постоянная экспозиция ВДНХ</div>
+        </div>
+        <div class="spec-num-cell" data-i18n="rl.c2">
+          <div class="spec-num-v">19</div>
+          <div class="spec-num-l">Инсталляций</div>
+          <div class="spec-num-d">Сенсорных, проекционных, физических</div>
+        </div>
+        <div class="spec-num-cell" data-i18n="rl.c3">
+          <div class="spec-num-v">4</div>
+          <div class="spec-num-l">Зоны</div>
+          <div class="spec-num-d">Природа · Город · Океан · Арктика</div>
+        </div>
+        <div class="spec-num-cell" data-i18n="rl.c4">
+          <div class="spec-num-v">40<sup>+</sup></div>
+          <div class="spec-num-l">Проекторов</div>
+          <div class="spec-num-d">+ 30 управляющих компьютеров</div>
+        </div>
+        <div class="spec-num-cell" data-i18n="rl.c5">
+          <div class="spec-num-v">10<sup>т/д</sup></div>
+          <div class="spec-num-l">Живой воды</div>
+          <div class="spec-num-d">Замкнутый цикл ежедневно</div>
+        </div>
+        <div class="spec-num-cell" data-i18n="rl.c6">
+          <div class="spec-num-v">14</div>
+          <div class="spec-num-l">Персонажей</div>
+          <div class="spec-num-d">Уникальных хранителей зон</div>
+        </div>
+        <div class="spec-num-cell" data-i18n="rl.c7">
+          <div class="spec-num-v">350<sup>м</sup></div>
+          <div class="spec-num-l">LED</div>
+          <div class="spec-num-d">50 контроллеров света</div>
+        </div>
+        <div class="spec-num-cell" data-i18n="rl.c8">
+          <div class="spec-num-v">5<sup>т</sup></div>
+          <div class="spec-num-l">Металл</div>
+          <div class="spec-num-d">Несущие конструкции инсталляций</div>
+        </div>
+        <div class="spec-num-cell" data-i18n="rl.c9">
+          <div class="spec-num-v">10+<sup>км</sup></div>
+          <div class="spec-num-l">Кабель</div>
+          <div class="spec-num-d">Структурированные кабельные трассы</div>
+        </div>
+        <div class="spec-num-cell" data-i18n="rl.c10">
+          <div class="spec-num-v">360<sup>°</sup></div>
+          <div class="spec-num-l">Проекция</div>
+          <div class="spec-num-d">Панорамный иммерсивный зал</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="solutions">
+      <h3 class="solutions-h" data-i18n="sol.h">Уникальные решения проекта</h3>
+      <div class="solutions-grid">
+        <div class="sol">
+          <span class="sol-mark">01</span>
+          <div class="sol-body">
+            <div class="sol-name" data-i18n="sol.n1">360° панорамная проекция</div>
+            <div class="sol-sub" data-i18n="sol.s1">Иммерсивное путешествие на корабле</div>
+          </div>
+        </div>
+        <div class="sol">
+          <span class="sol-mark">02</span>
+          <div class="sol-body">
+            <div class="sol-name" data-i18n="sol.n2">Подвижная платформа</div>
+            <div class="sol-sub" data-i18n="sol.s2">Имитация качки и морского хода</div>
+          </div>
+        </div>
+        <div class="sol">
+          <span class="sol-mark">03</span>
+          <div class="sol-body">
+            <div class="sol-name" data-i18n="sol.n3">Кран-фонтан с настоящей водой</div>
+            <div class="sol-sub" data-i18n="sol.s3">Замкнутый цикл, 10+ т воды/день</div>
+          </div>
+        </div>
+        <div class="sol">
+          <span class="sol-mark">04</span>
+          <div class="sol-body">
+            <div class="sol-name" data-i18n="sol.n4">Машинное зрение и нейросети</div>
+            <div class="sol-sub" data-i18n="sol.s4">Отслеживание движения посетителей</div>
+          </div>
+        </div>
+        <div class="sol">
+          <span class="sol-mark">05</span>
+          <div class="sol-body">
+            <div class="sol-name" data-i18n="sol.n5">RFID-квест и Дух Водопада</div>
+            <div class="sol-sub" data-i18n="sol.s5">Персональный маршрут в браслете</div>
+          </div>
+        </div>
+        <div class="sol">
+          <span class="sol-mark">06</span>
+          <div class="sol-body">
+            <div class="sol-name" data-i18n="sol.n6">Сенсорный экран 4+ метра</div>
+            <div class="sol-sub" data-i18n="sol.s6">Управление руслом и рельефом</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="role-stack reveal">
+    <div class="role-stack-head">
+      <div>
+        <h3 class="role-stack-h" data-i18n="rs.h">Роль в проекте</h3>
+        <div class="role-row-sub" style="margin-top:8px">Creative Director · Full cycle · 2022—2024</div>
+      </div>
+      <div class="role-stack-sub" data-i18n="rs.sub">
+        Четыре направления<br>
+        <b>Tanya Samarakovskaya</b>
+      </div>
+    </div>
+    <div class="role-row">
+      <span class="role-row-n">01</span>
+      <div class="role-row-body">
+        <span class="role-row-name" data-i18n="rs.n1">Концепция и нарратив</span>
+        <span class="role-row-sub" data-i18n="rs.s1">Смысл, маршрут, сценарий</span>
+      </div>
+      <div class="role-row-tags" data-i18n="rs.t1">
+        <span class="role-tag">Структура зон</span>
+        <span class="role-tag">Маршрут</span>
+        <span class="role-tag">Легенда</span>
+        <span class="role-tag">Сценарий</span>
+      </div>
+    </div>
+    <div class="role-row">
+      <span class="role-row-n">02</span>
+      <div class="role-row-body">
+        <span class="role-row-name" data-i18n="rs.n2">Арт-дирекшен</span>
+        <span class="role-row-sub" data-i18n="rs.s2">Визуальная система выставки</span>
+      </div>
+      <div class="role-row-tags" data-i18n="rs.t2">
+        <span class="role-tag">Визуальная система</span>
+        <span class="role-tag">Колористика зон</span>
+        <span class="role-tag">14 персонажей</span>
+        <span class="role-tag">Навигация</span>
+      </div>
+    </div>
+    <div class="role-row">
+      <span class="role-row-n">03</span>
+      <div class="role-row-body">
+        <span class="role-row-name" data-i18n="rs.n3">Сценография</span>
+        <span class="role-row-sub" data-i18n="rs.s3">Пространственная режиссура</span>
+      </div>
+      <div class="role-row-tags" data-i18n="rs.t3">
+        <span class="role-tag">Планировка</span>
+        <span class="role-tag">ТЗ на 19 инсталл.</span>
+        <span class="role-tag">Подрядчики</span>
+        <span class="role-tag">Авторский надзор</span>
+      </div>
+    </div>
+    <div class="role-row">
+      <span class="role-row-n">04</span>
+      <div class="role-row-body">
+        <span class="role-row-name" data-i18n="rs.n4">Интерактив и контент</span>
+        <span class="role-row-sub" data-i18n="rs.s4">Логика касаний, тексты, UX</span>
+      </div>
+      <div class="role-row-tags" data-i18n="rs.t4">
+        <span class="role-tag">RFID-механика</span>
+        <span class="role-tag">Дух Водопада</span>
+        <span class="role-tag">UX всех точек</span>
+        <span class="role-tag">Тексты и контент</span>
+      </div>
+    </div>
+    <div class="role-row">
+      <span class="role-row-n">05</span>
+      <div class="role-row-body">
+        <span class="role-row-name" data-i18n="rs.n5">Руководство проектом</span>
+        <span class="role-row-sub" data-i18n="rs.s5">Бюджет · сроки · кризис-менеджмент</span>
+      </div>
+      <div class="role-row-tags" data-i18n="rs.t5">
+        <span class="role-tag">Бюджет проекта</span>
+        <span class="role-tag">Управление сроками</span>
+        <span class="role-tag">Поиск подрядчиков</span>
+        <span class="role-tag">Контроль исполнителей</span>
+        <span class="role-tag">Кризис-менеджмент</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="credits reveal">
+    <div><div class="credit-role" data-i18n="cr.r1">Креативный директор Москвариума</div><div class="credit-name">Tanya Samarakovskaya</div></div>
+    <div><div class="credit-role" data-i18n="cr.r2">Проект</div><div class="credit-name" data-i18n="cr.v2">Москвариум (ВДНХ)</div></div>
+    <div><div class="credit-role" data-i18n="cr.r3">Формат</div><div class="credit-name" data-i18n="cr.v3">Постоянная экспозиция</div></div>
+    <div><div class="credit-role" data-i18n="cr.r4">Площадь</div><div class="credit-name" data-i18n="cr.v4">500 м²</div></div>
+    <div><div class="credit-role" data-i18n="cr.r5">Инсталляций</div><div class="credit-name" data-i18n="cr.v5">19 объектов · 4 зоны</div></div>
+    <div><div class="credit-role" data-i18n="cr.r6">Период</div><div class="credit-name">2022—2024</div></div>
+  </div>
+</section>
+
+<!-- ============== PROJ NAV ============== -->
+<nav class="proj-nav" aria-label="Другие проекты">
+  <div class="proj-nav-inner">
+    <a class="proj-nav-card" href="baal.html">
+      <img loading="lazy" decoding="async" class="proj-nav-bg" src="../assets/preview_projects/baal.webp" alt="" aria-hidden="true">
+      <div class="proj-nav-content">
+        <div class="proj-nav-dir" data-i18n="pn.prev">← Предыдущий</div>
+        <div class="proj-nav-name">Баал</div>
+        <div class="proj-nav-sub">Theater · Media artist · 2019</div>
+      </div>
+    </a>
+    <a class="proj-nav-contact" href="https://t.me/samarakovskaya_tanya" target="_blank" rel="noopener">
+      <div class="proj-nav-contact-label" data-i18n="pn.clabel">Есть проект?</div>
+      <div class="proj-nav-contact-btn" data-i18n="pn.cbtn">Написать ↗</div>
+    </a>
+    <a class="proj-nav-card" href="prosvetitel.html">
+      <img loading="lazy" decoding="async" class="proj-nav-bg" src="../assets/preview_projects/prosvetitel.webp" alt="" aria-hidden="true">
+      <div class="proj-nav-content">
+        <div class="proj-nav-dir" data-i18n="pn.next">Следующий →</div>
+        <div class="proj-nav-name">Просветитель</div>
+        <div class="proj-nav-sub">Festivals · Awards · 2018</div>
+      </div>
+    </a>
+  </div>
+</nav>
+
+<footer class="foot">
+  <span class="foot-copy" data-i18n="f.copy">© 2026 · Tanya Samarakovskaya · Путь воды</span>
+  <a class="foot-back" href="../index.html" data-i18n="f.back"><span class="ar">←</span> Вернуться к портфолио</a>
+  <a class="foot-lang" href="../en/projects/wayofwater.html" hreflang="en">EN</a>
+</footer>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Просмотр изображения">
+  <div class="lightbox-stage">
+    <div class="lightbox-imgwrap" id="lightboxImgWrap">
+      <img class="lightbox-img" id="lightboxImg" src="" alt="">
+    </div>
+  </div>
+  <button class="lightbox-zoom-btn" id="lightboxZoom" type="button" aria-label="Увеличить">
+    <span id="lightboxZoomLabel">⤢ 2×</span>
+  </button>
+  <button class="lightbox-close" id="lightboxClose" aria-label="Закрыть">×</button>
+  <button class="lightbox-nav prev" id="lightboxPrev" aria-label="Предыдущее фото" hidden>‹</button>
+  <button class="lightbox-nav next" id="lightboxNext" aria-label="Следующее фото" hidden>›</button>
+  <span class="lightbox-counter" id="lightboxCounter" hidden>01 / 01</span>
+  <div class="lightbox-hint" data-i18n="lb.hint">esc — закрыть · ← → — листать · клик по фото — zoom</div>
+</div>
+
+<script>
+/* ════════════ i18n ENGINE (RU default · EN overlay) ════════════ */
+(function(){
+  const EN = {
+    'rail.start':'Start','rail.about':'About','rail.nature':'Nature','rail.city':'City','rail.ocean':'Ocean','rail.arctic':'Arctic','rail.quest':'Quest','rail.finale':'Finale',
+    'n.back':'All projects','n.about':'About','n.zones':'Zones','n.quest':'Quest','n.process':'Process','n.role':'Role','n.cta':'Video',
+    'h.coord':'<b>55°49′N 37°37′E</b> · Moskvarium, VDNH',
+    'h.tag':'Case study · 500 m² · 19 installations<br>\n        <b>2022 — 2024</b>',
+    'h.h':'<span class="a">Way of</span> <span class="b">Water</span>',
+    'h.sub':'A multimedia exhibition by <span class="word-oval">Moskvarium</span> at VDNH.',
+    'h.stat1':'<div class="hs-val">500<sup>m²</sup></div><div class="hs-lbl">Area</div>',
+    'h.stat2':'<div class="hs-val">19</div><div class="hs-lbl">Installations</div>',
+    'h.stat3':'<div class="hs-val">4</div><div class="hs-lbl">Zones · route</div>',
+    'h.stat4':'<div class="hs-val">2<sup>yrs</sup></div><div class="hs-lbl">2022 — 2024</div>',
+    'h.scroll1':'<span class="dn">↓</span> Scroll down — start of the route','h.scroll2':'Case N° 01 · Tanya Samarakovskaya',
+    'ms.1k':'N° 01 — Format','ms.1v':'Multimedia exhibition','ms.1s':'Edutainment · Family',
+    'ms.2k':'N° 02 — Location','ms.2v':'Moskvarium, VDNH',
+    'ms.3k':'N° 03 — Scale','ms.3v':'500 m² · 19 installations','ms.3s':'4 zones · 14 characters',
+    'ms.4k':'N° 04 — Period','ms.4s':'Permanent exhibition',
+    'tk.seg':'Nature <span class="drop"></span> City <span class="drop"></span> Ocean <span class="drop"></span> Arctic <span class="sn">·</span> the way of water <span class="drop"></span>',
+    'sr.label':'N° 00 — Project showreel','sr.title':'2 min · Moskvarium · 500 m²','sr.ptitle':'Way of Water — showreel','sr.psub':'Moskvarium · 2022—2024 · 500 m²',
+    'mg.nature':'Nature zone','mg.city':'City zone','mg.ocean':'Ocean zone','mg.arctic':'Arctic zone',
+    'i.chl':'<span class="ch-num">01</span> About','i.cht':'How to make people<br>fall in love with water','i.chr':'Edutainment<br>Family audience<br><b>Moskvarium · VDNH</b>',
+    'i.asidecap':'Entrance · starting point',
+    'i.asidedl':'<dt>Project</dt><dd>Moskvarium</dd><dt>Location</dt><dd>VDNH, Moscow</dd><dt>Area</dt><dd>500 m²</dd><dt>Format</dt><dd>Permanent exh.</dd><dt>Role</dt><dd>CD, Moskvarium</dd><dt>Period</dt><dd>2022—2024</dd><dt>Installations</dt><dd>19</dd><dt>Zones</dt><dd>4</dd>',
+    'i.h3':'Water is not a background element. It is the <b>main character</b>: it has a journey, a personality, and a story.',
+    'i.p1':'“Way of Water” is an educational multimedia exhibition by Moskvarium at VDNH. <b>500 m²</b>, 19 interactive installations and four thematic zones. The exhibition guides visitors through a real journey of water: forest → river → city → treatment → ocean → Arctic.',
+    'i.p2':'The task was not to frighten visitors with an ecological agenda, but to <b>make water fascinating</b>. Each zone is a chapter. Each installation is a moment of discovery. A child touches water with their hands. An adult thinks, perhaps for the first time, about where it comes from. A teenager explores the mechanics of water treatment — and it never feels boring.',
+    'i.p3':'Visitors don’t observe water from the outside — they move with it. The route is designed as a physical journey: the path through the space follows the path of an H₂O molecule from its source to the Arctic.',
+    'i.hooklbl':'↳ Why water is a difficult subject',
+    'i.hooktext':'We drink water, wash with it, do laundry with it — and barely notice it. Yet it is the only substance on the planet without which no form of life can exist. Our task was to make that visible and tangible.',
+    'ch.chl':'<span class="ch-num">02</span> Characters','ch.cht':'Three states','ch.chr':'Liquid<br>Solid · Gas<br><b>Watty · Icey · Hotty</b>',
+    'ch.s1':'Liquid · H₂O (l)','ch.d1':'Fluid and unpredictable. Watty takes the shape of any vessel — yet always remains himself. The main guide through the exhibition.',
+    'ch.s2':'Solid · H₂O (s)','ch.d2':'Cool, precise, and full of memory. Ice is the planet’s archive. Every tiny bubble inside it holds the air of past eras.',
+    'ch.s3':'Gas · H₂O (g)','ch.d3':'Invisible and everywhere. Steam is water in motion: pure energy without a fixed form. It is what brings water back to its source.',
+    'co.chl':'<span class="ch-num">03</span> Concept','co.cht':'How it works','co.chr':'A connected route<br>Collecting drops<br><b>Edutainment</b>',
+    'co.tag1':'Route','co.h1':'One continuous narrative from entrance to exit','co.d1':'The four zones form a connected chain. Visitors follow water from its natural source through the city and the ocean to the Arctic. The zones are chapters; the installations are paragraphs.',
+    'co.tag2':'Gamification','co.h2':'RFID quest: collect the drops','co.d2':'Each visitor receives a wristband. Each installation has a reader. A tap equals a drop added to a personal “Atlas of Water”. At the end, the route produces a personal result.',
+    'co.tag3':'Edutainment','co.h3':'Facts learned through the body','co.d3':'Each installation carries one key idea — physically, visually, without walls of explanatory text. Visitors shape a riverbed, generate energy at a hydroelectric station, and build a water-supply system.',
+    'co.tag4':'Audience','co.h4':'A family format with three levels of perception','co.d4':'A seven-year-old starts a waterfall with their hands. A teenager understands the mechanics of a hydroelectric station. An adult reads ecological data. Three generations share one route.',
+    'co.tag5':'Emotion','co.h5':'An emotional arc · wonder → understanding','co.d5':'The zones build in intensity: Nature is lightness and beauty; City is mechanics and resource; Ocean is scale; Arctic is fragility. By the end, visitors reach their own conclusion.',
+    'co.tag6':'Characters','co.h6':'Watty, Icey and Hotty as exhibition guides','co.d6':'Three characters represent the three states of water. They appear across the zones, explain processes, and become the key emotional anchor for children.',
+    'ax.l1':'interactive installations','ax.v2':'4 zones','ax.l2':'Nature · City · Ocean · Arctic','ax.l3':'panoramic projection','ax.l4':'projectors and screens','ax.l5':'quest · Spirit of the Waterfall','ax.l6':'unique characters','ax.v7':'10 t','ax.l7':'of real water daily','ax.l8':'machine vision',
+    'ax.cap1':'Exhibition plan · axonometry','ax.cap2':'<b>500 m²</b> · Moskvarium, VDNH',
+    'ga.1':'Nature zone','ga.2':'Entrance · Waterfall','ga.3':'City zone','ga.4':'Ocean zone','ga.5':'Arctic',
+    'zA.km':'Zone 01/04 · km 00.00','zA.name':'Nature','zA.sub':'Water is born in the forest. Rain, dew, a spring — the first steps of an H₂O molecule. The journey begins here.','zA.side':'6 installations<br><b>source · forest · river</b>','zA.it':'Nature zone installations',
+    'w01.tag':'Pre-show · Entrance','w01.t':'Waterfall','w01.d':'The first impression is physical: a wall of water, sound and humidity. Visitors are not yet inside the exhibition, but water is already present.','w01.f':'Shifts perception before the first exhibit',
+    'w02.tag':'Pass-through · Immersive','w02.t':'Water Tunnel','w02.d':'A projection tunnel: visitors pass through a water environment. Light, sound and animated movement create the feeling of entering the flow.','w02.f':'A physical transition between worlds',
+    'w03.tag':'Interactive table','w03.t':'River Table','w03.d':'Control the flow, change the terrain, create the riverbed. Water behaves according to real-world rules — in real time.','w03.f':'The speed of the river depends on the slope of the riverbed',
+    'w04.tag':'Education · Visualization','w04.t':'The Water Cycle','w04.d':'A large multimedia installation showing evaporation, clouds, rain, soil and a spring. A closed cycle that never ends.','w04.f':'One water molecule completes the cycle in 9 days',
+    'w05.tag':'Interactive · Sensory','w05.t':'Underwater World','w05.d':'An immersion into the living ecosystem of a freshwater body. Fish, plants and light through water all respond to visitor movement.','w05.f':'Every touch changes the scene',
+    'w06.tag':'Facts · Data','w06.t':'Resource','w06.d':'How much freshwater exists on the planet — and why so little of it is available. Global water reserves are visualized against the amount people can actually use.','w06.f':'Freshwater makes up 2.5% of Earth’s water. Accessible: 0.007%',
+    'zB.km':'Zone 02/04 · km 00.14','zB.name':'City','zB.sub':'Water enters the city as a resource. It passes through hydroelectric stations, pipes and taps — and leaves transformed.','zB.side':'8 installations<br><b>hydroelectric · pipes · tap</b>','zB.it':'City zone installations',
+    'w07.tag':'Energy','w07.t':'Hydroelectric Station','w07.d':'How water flow becomes electricity. A model of a hydroelectric power station, from turbine to socket: the energy of flow that can be seen and heard.','w07.f':'Hydropower provides 17% of the world’s electricity',
+    'w08.tag':'Infrastructure','w08.t':'Pipes','w08.d':'The city water-supply network: from water intake to the tap. How water reaches your home — and why it is more complex than it seems.','w08.f':'Moscow’s water-supply pipes stretch for 12,000 km',
+    'w09.tag':'Technology · Process','w09.t':'Treatment Chain','w09.d':'The full route of water through treatment facilities. Mechanical, chemical and biological treatment: every stage can be explored hands-on.','w09.f':'Before it reaches you, water passes through 10+ stages',
+    'w10.tag':'Personal · Everyday life','w10.t':'Home','w10.d':'How much water does your day use? An interactive counter measures consumption for daily actions: showering, cooking, laundry, coffee.','w10.f':'An average Russian resident uses 250 liters of water per day',
+    'w11.tag':'Production','w11.t':'Hidden Water','w11.d':'How much water does it take to produce a T-shirt, a phone or a cup of coffee? The water footprint of things we rarely think about.','w11.f':'1 kg of beef = 15,000 liters of water',
+    'w12.tag':'Water chemistry','w12.t':'Hardness','w12.d':'What water hardness is, why scale is more than an inconvenience, and how different types of water affect the taste of food and drinks.','w12.f':'The taste of tea depends on water pH by 40%',
+    'w13.tag':'Pollution','w13.t':'Runoff','w13.d':'What city streets wash into the drainage system after rain. How stormwater became a distinct environmental issue for the modern city.','w13.f':'80% of ocean pollution comes from land',
+    'w14.tag':'Future · Technology','w14.t':'Smart City','w14.d':'How modern technologies help cities save water: sensors, smart taps, and reuse of wastewater.','w14.f':'Smart water systems can reduce losses by 30%',
+    'zC.km':'Zone 03/04 · km 00.28','zC.name':'Ocean','zC.sub':'Visitors take the helm. The platform moves like a real deck. Steering a boat in a storm: 360° projection, live motion and the physical sensation of water.','zC.side':'2 installations<br><b>helm · storm · depth</b>','zC.it':'Ocean zone installations',
+    'w15.tag':'Control · Storm','w15.t':'The Helm','w15.d':'Visitors stand at the helm on a moving platform. It rocks like a deck in a storm. Around them is a 360° projection of the ocean. The boat responds to their hand movements.','w15.f':'Moving platform: a physical sense of rocking and sea motion',
+    'w16.tag':'Ocean biology','w16.t':'Marine Life','w16.d':'A descent into the depths: from surface waters to the abyssal zone. Each layer is a different environment, with its own life forms, light and pressure.','w16.f':'80% of Earth’s species live in the ocean; less than 5% of the deep sea has been explored',
+    'zD.km':'Zone 04/04 · km 00.41','zD.name':'Arctic','zD.sub':'The final chapter. Ice is the memory of water. The Arctic preserves the climate history of hundreds of thousands of years — and is melting faster than we thought.','zD.side':'3 installations<br><b>ice · archive · finale</b>','zD.it':'Arctic zone installations',
+    'w17.tag':'Climatology · Time','w17.t':'Ice Archive','w17.d':'Ice cores as keepers of time. Air bubbles in Arctic ice contain the air of ancient eras — in a sense, the air once breathed by dinosaurs.','w17.f':'The oldest ice preserves air up to 800,000 years old',
+    'w18.tag':'Climate · Future','w18.t':'Melting','w18.d':'An interactive model showing what changes when sea levels rise. No panic — only honest data and space for visitors to form their own conclusion.','w18.f':'If all ice melted, sea levels would rise by 65 m',
+    'w19.tag':'Finale · Personal document','w19.t':'Spirit of the Waterfall','w19.d':'The final point of the route. Visitors tap their wristband and return to the Spirit of the Waterfall the power collected across all zones. A personal artefact: the path is recorded, the task is complete.','w19.f':'The goal is to restore the Spirit of the Waterfall by completing the full route',
+    'is.hint':'Scroll <span class="hint-arrow">→</span>',
+    'q.chl':'<span class="ch-num">05</span> Quest','q.cht':'Collect the drops','q.chr':'RFID wristband<br>19 collection points<br><b>Spirit of the Waterfall</b>',
+    'q.h1':'Wristband at the entrance','q.d1':'Each visitor receives a personal RFID wristband. It becomes the key to every installation in the exhibition.','q.tag1':'↳ Start',
+    'q.h2':'Tap = drop','q.d2':'Each of the 19 installations has a reader. Tap the wristband and receive a drop. Completing the whole route is the main goal.','q.tag2':'↳ Route',
+    'q.h3':'Four zones','q.d3':'Nature, City, Ocean and Arctic — each zone unlocks its own drops. The route leads forward like a river current.','q.tag3':'↳ Progress',
+    'q.h4':'Restore the Spirit’s power','q.d4':'At the final station, the wristband is read and the Spirit of the Waterfall receives the power collected along the route. The task is complete.','q.tag4':'↳ Finale',
+    'pq.text':'Water was here before us and will remain after us.<br>The task: make people feel it <span class="pq-hl">in their bodies</span>.','pq.attr':'Tanya Samarakovskaya · Creative Director · Way of Water',
+    'pr.chl':'<span class="ch-num">06</span> Process','pr.cht':'How it was made','pr.chr':'From brief<br>to launch<br><b>Full cycle</b>',
+    'pr.lbl1':'Working materials · process screenshots','pr.lbl2':'Waterfall variants · Spirit of the Waterfall','pr.lbl3':'Character variants · development',
+    'pr.s1':'01 · start','pr.c1':'<b>Beginning of development</b><span>First working schemes and boards</span>',
+    'pr.s2':'02 · wireframe','pr.c2':'<b>Wireframe of the CHP hall</b><span>Installation placement scheme</span>',
+    'pr.s3':'03 · panorama','pr.c3':'<b>Full layout of the River zone</b><span>Panoramic spread · interaction scenario</span>',
+    'pr.s4':'03.1 · game logic','pr.c4':'<b>River game logic</b><span>Game rules and riverbed behavior</span>',
+    'pr.s5':'04 · interface','pr.c5':'<b>Scenario scheme</b><span>Transition logic · route structure</span>',
+    'pr.s6':'04.1 · object','pr.c6':'<b>Tap fountain</b><span>Exhibition object</span>',
+    'pr.s7':'05 · Nature zone','pr.c7':'<b>Nature zone</b><span>Development of the river interactive</span>',
+    'pr.s8':'05.1 · Ocean zone','pr.c8':'<b>Ocean zone</b><span>Environment animation · water movement</span>',
+    'pr.s9':'06 · animation','pr.c9':'<b>Drop animation</b><span>Motion development · element behavior</span>',
+    'pr.s10':'· sketch','pr.c10':'<b>Spirit of the Waterfall · sketch</b><span>Searching for the character image</span>',
+    'pr.s11':'· image search','pr.c11':'<b>Character image search</b><span>States of water · guardians of the zones</span>',
+    'pr.s12':'· development','pr.c12':'<b>Character development</b><span>Silhouettes, facial expressions, personalities</span>',
+    'pr.s13':'· color and form','pr.c13':'<b>Color and form</b><span>Finding the final character palette</span>',
+    'pr.s14':'· final lineup','pr.c14':'<b>Final character lineup</b><span>Watty · Icey · Hotty · Salty</span>',
+    'rl.chl':'<span class="ch-num">07</span> Role and scale','rl.cht':'What was done','rl.chr':'Creative direction · Art direction<br>Scenography<br><b>Full cycle</b>',
+    'rl.spech':'N° 07.1 — Project scale','rl.specb':'Way of Water · Moskvarium',
+    'rl.c1':'<div class="spec-num-v">500<sup>m²</sup></div><div class="spec-num-l">Area</div><div class="spec-num-d">Permanent exhibition at VDNH</div>',
+    'rl.c2':'<div class="spec-num-v">19</div><div class="spec-num-l">Installations</div><div class="spec-num-d">Sensor-based, projection-based and physical</div>',
+    'rl.c3':'<div class="spec-num-v">4</div><div class="spec-num-l">Zones</div><div class="spec-num-d">Nature · City · Ocean · Arctic</div>',
+    'rl.c4':'<div class="spec-num-v">40<sup>+</sup></div><div class="spec-num-l">Projectors</div><div class="spec-num-d">+ 30 control computers</div>',
+    'rl.c5':'<div class="spec-num-v">10<sup>t/day</sup></div><div class="spec-num-l">Real water</div><div class="spec-num-d">Closed daily circulation loop</div>',
+    'rl.c6':'<div class="spec-num-v">14</div><div class="spec-num-l">Characters</div><div class="spec-num-d">Unique guardians of the zones</div>',
+    'rl.c7':'<div class="spec-num-v">350<sup>m</sup></div><div class="spec-num-l">LED</div><div class="spec-num-d">50 light controllers</div>',
+    'rl.c8':'<div class="spec-num-v">5<sup>t</sup></div><div class="spec-num-l">Metal</div><div class="spec-num-d">Load-bearing structures for installations</div>',
+    'rl.c9':'<div class="spec-num-v">10+<sup>km</sup></div><div class="spec-num-l">Cable</div><div class="spec-num-d">Structured cable routes</div>',
+    'rl.c10':'<div class="spec-num-v">360<sup>°</sup></div><div class="spec-num-l">Projection</div><div class="spec-num-d">Panoramic immersive hall</div>',
+    'sol.h':'Unique project solutions',
+    'sol.n1':'360° panoramic projection','sol.s1':'An immersive journey on a ship',
+    'sol.n2':'Moving platform','sol.s2':'Simulation of rolling and sea motion',
+    'sol.n3':'Tap fountain with real water','sol.s3':'Closed loop, 10+ tons of water per day',
+    'sol.n4':'Machine vision and neural networks','sol.s4':'Tracking visitor movement',
+    'sol.n5':'RFID quest and the Spirit of the Waterfall','sol.s5':'A personal route stored in the wristband',
+    'sol.n6':'4+ meter touchscreen','sol.s6':'Controlling the riverbed and terrain',
+    'rs.h':'Role in the project','rs.sub':'Four areas<br>\n        <b>Tanya Samarakovskaya</b>',
+    'rs.n1':'Concept and narrative','rs.s1':'Meaning, route, scenario','rs.t1':'<span class="role-tag">Zone structure</span><span class="role-tag">Route</span><span class="role-tag">Legend</span><span class="role-tag">Scenario</span>',
+    'rs.n2':'Art direction','rs.s2':'Visual system of the exhibition','rs.t2':'<span class="role-tag">Visual system</span><span class="role-tag">Zone color logic</span><span class="role-tag">14 characters</span><span class="role-tag">Navigation</span>',
+    'rs.n3':'Scenography','rs.s3':'Spatial direction','rs.t3':'<span class="role-tag">Layout</span><span class="role-tag">Briefs for 19 installations</span><span class="role-tag">Contractors</span><span class="role-tag">Author supervision</span>',
+    'rs.n4':'Interactive experience and content','rs.s4':'Touch logic, texts, UX','rs.t4':'<span class="role-tag">RFID mechanic</span><span class="role-tag">Spirit of the Waterfall</span><span class="role-tag">UX of every touchpoint</span><span class="role-tag">Texts and content</span>',
+    'rs.n5':'Project leadership','rs.s5':'Budget · timeline · crisis management','rs.t5':'<span class="role-tag">Project budget</span><span class="role-tag">Timeline management</span><span class="role-tag">Contractor search</span><span class="role-tag">Vendor supervision</span><span class="role-tag">Crisis management</span>',
+    'cr.r1':'Creative Director, Moskvarium','cr.r2':'Project','cr.v2':'Moskvarium (VDNH)','cr.r3':'Format','cr.v3':'Permanent exhibition','cr.r4':'Area','cr.v4':'500 m²','cr.r5':'Installations','cr.v5':'19 objects · 4 zones','cr.r6':'Period',
+    'pn.prev':'← Previous','pn.clabel':'Got a project?','pn.cbtn':'Get in touch ↗','pn.next':'Next →',
+    'f.copy':'© 2026 · Tanya Samarakovskaya · Way of Water','f.back':'<span class="ar">←</span> Back to portfolio',
+    'lb.hint':'esc — close · ← → — browse · click photo — zoom'
+  };
+  const META_EN = {
+    title:'Way of Water · Case — Tanya Samarakovskaya',
+    desc:'Way of Water — a 500 m² multimedia exhibition at Moskvarium, VDNH: 19 installations, 4 zones, an RFID quest. Case by Tanya Samarakovskaya.'
+  };
+  const RU = new Map();
+  const ruTitle = document.title;
+  const descMeta = document.querySelector('meta[name="description"]');
+  const ruDesc = descMeta ? descMeta.content : '';
+  function apply(lang){
+    const en = (lang === 'en');
+    document.documentElement.lang = lang;
+    document.documentElement.dataset.lang = lang;
+    document.querySelectorAll('[data-i18n]').forEach(function(el){
+      if(!RU.has(el)) RU.set(el, el.innerHTML);
+      const key = el.getAttribute('data-i18n');
+      el.innerHTML = (en && EN[key] != null) ? EN[key] : RU.get(el);
+    });
+    document.title = en ? META_EN.title : ruTitle;
+    if(descMeta) descMeta.content = en ? META_EN.desc : ruDesc;
+    document.querySelectorAll('#langToggle .lang-seg').forEach(function(b){
+      b.classList.toggle('on', b.dataset.lang === lang);
+    });
+    try{ localStorage.setItem('site_lang', lang); }catch(e){}
+    window.dispatchEvent(new CustomEvent('langchange', {detail: lang}));
+  }
+  const lt = document.getElementById('langToggle');
+  if(lt) lt.addEventListener('click', function(e){
+    const b = e.target.closest('button'); if(!b) return;
+    apply(b.dataset.lang);
+  });
+  let saved = 'ru';
+  try{ saved = localStorage.getItem('site_lang') || 'ru'; }catch(e){}
+  apply('ru'); try{localStorage.removeItem('site_lang');}catch(e){}
+})();
+</script>
+
+<script>
+/* ===== Image fallback ===== */
+document.querySelectorAll('img').forEach(img=>{
+  const handle=()=>{
+    if(img.classList.contains('broken'))return;
+    img.classList.add('broken');
+    const parent=img.parentElement;
+    if(!parent)return;
+    const cs=getComputedStyle(parent);
+    if(cs.position==='static')parent.style.position='relative';
+    const fb=document.createElement('div');
+    fb.className='img-fallback';
+    fb.textContent=img.getAttribute('alt')||'image';
+    parent.appendChild(fb);
+  };
+  if(img.complete && img.naturalWidth===0)handle();
+  img.addEventListener('error',handle);
+});
+const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('shown')})},{threshold:.07});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+/* ===== HORIZONTAL SCROLL ===== */
+function scrollTrack(id,dir){
+  const el=document.getElementById(id);
+  if(!el)return;
+  const cardW=el.querySelector('.icard')?.offsetWidth||460;
+  el.scrollBy({left:dir*(cardW+16),behavior:'smooth'});
+}
+
+/* DRAG TO SCROLL */
+document.querySelectorAll('.itrack').forEach(track=>{
+  let isDown=false,startX,scrollLeft;
+  track.addEventListener('mousedown',e=>{isDown=true;startX=e.pageX-track.offsetLeft;scrollLeft=track.scrollLeft});
+  track.addEventListener('mouseleave',()=>{isDown=false});
+  track.addEventListener('mouseup',()=>{isDown=false});
+  track.addEventListener('mousemove',e=>{if(!isDown)return;e.preventDefault();const x=e.pageX-track.offsetLeft;track.scrollLeft=scrollLeft-(x-startX)*1.2});
+});
+
+/* ===== SHOWREEL ===== */
+const playBtn=document.getElementById('playBtn');
+if(playBtn){
+  playBtn.addEventListener('click',()=>{
+    const iframe=document.getElementById('showreelIframe');
+    const cover=document.getElementById('playCover');
+    iframe.src='https://www.youtube.com/embed/jnXBmeKDf_w?si=XLFNbctYoFg0hgf-&autoplay=1&rel=0';
+    iframe.style.display='block';
+    cover.classList.add('hidden');
+  });
+}
+
+/* ===== RAIL: scroll progress + station positions + dark inversion ===== */
+const railStations=Array.from(document.querySelectorAll('.rail-st'));
+const railFill=document.getElementById('railFill');
+const railDrop=document.getElementById('railDrop');
+const railSvg=document.querySelector('.rail-svg');
+
+function positionStations(){
+  const docH=Math.max(document.body.scrollHeight,document.documentElement.scrollHeight);
+  railStations.forEach(st=>{
+    const target=document.getElementById(st.dataset.anchor);
+    if(!target)return;
+    const pct=(target.offsetTop+target.offsetHeight*0.15)/docH*100;
+    st.style.top=Math.min(98,Math.max(2,pct))+'%';
+  });
+}
+
+const darkSelectors=['.hero','.showreel-sec','.istrip.priroda','.istrip.gorod','.istrip.okean','.zone-card.priroda','.zone-card.gorod','.zone-card.okean','.sec.dark','.sec.deep','.quote-sec','.ticker','.spec-wrap'];
+const darkEls=Array.from(document.querySelectorAll(darkSelectors.join(',')));
+
+function update(){
+  const scroll=window.scrollY;
+  const docH=document.documentElement.scrollHeight-window.innerHeight;
+  const pct=Math.min(1,Math.max(0,scroll/docH));
+  // fill
+  railFill.setAttribute('stroke-dashoffset',(100-pct*100).toFixed(2));
+  // drop position
+  const rect=railSvg.getBoundingClientRect();
+  const totalH=document.documentElement.scrollHeight;
+  const dropY=(scroll+window.innerHeight*0.4);
+  const dropPct=Math.min(1,Math.max(0,dropY/totalH));
+  railDrop.style.top=(dropPct*100)+'%';
+  // active station
+  const mid=window.innerHeight*0.42;
+  let activeIdx=0;
+  railStations.forEach((st,i)=>{
+    const t=document.getElementById(st.dataset.anchor);
+    if(!t)return;
+    if(t.getBoundingClientRect().top<=mid)activeIdx=i;
+  });
+  railStations.forEach((s,i)=>{s.classList.remove('active','passed');if(i===activeIdx)s.classList.add('active');else if(i<activeIdx)s.classList.add('passed')});
+  // dark mode for rail
+  const cx=20,cy=window.innerHeight/2;
+  let onDark=false;
+  for(const el of darkEls){
+    const r=el.getBoundingClientRect();
+    if(r.top<=cy && r.bottom>=cy){onDark=true;break;}
+  }
+  document.body.classList.toggle('dark-rail',onDark);
+}
+
+window.addEventListener('scroll',update,{passive:true});
+window.addEventListener('resize',()=>{positionStations();update()});
+window.addEventListener('load',()=>{positionStations();update()});
+positionStations();update();
+
+/* ===== PROCESS VIDEO ===== */
+(function(){
+  const playBtn = document.getElementById('processVideoPlay');
+  if(!playBtn) return;
+  playBtn.addEventListener('click', () => {
+    const iframe = document.getElementById('processVideoIframe');
+    const poster = document.getElementById('processVideoPoster');
+    iframe.src = 'https://www.youtube.com/embed/jnXBmeKDf_w?autoplay=1&rel=0&color=white';
+    iframe.classList.add('active');
+    poster.classList.add('hidden');
+    playBtn.classList.add('hidden');
+  });
+})();
+
+/* ===== LIGHTBOX ===== */
+(function(){
+  const lb = document.getElementById('lightbox');
+  const lbWrap = document.getElementById('lightboxImgWrap');
+  const lbImg = document.getElementById('lightboxImg');
+  const lbClose = document.getElementById('lightboxClose');
+  const lbZoom = document.getElementById('lightboxZoom');
+  const lbZoomLabel = document.getElementById('lightboxZoomLabel');
+  const lbPrev = document.getElementById('lightboxPrev');
+  const lbNext = document.getElementById('lightboxNext');
+  const lbCounter = document.getElementById('lightboxCounter');
+  if(!lb || !lbImg) return;
+
+  let group = [];
+  let cursor = 0;
+  let zoomed = false;
+
+  function applyItem(){
+    const item = group[cursor];
+    if(!item) return;
+    lbImg.src = item.src;
+    lbImg.alt = item.alt || '';
+    const showNav = group.length > 1;
+    lbPrev.hidden = !showNav;
+    lbNext.hidden = !showNav;
+    lbCounter.hidden = !showNav;
+    if(showNav) lbCounter.textContent = String(cursor+1).padStart(2,'0') + ' / ' + String(group.length).padStart(2,'0');
+    setZoom(false);
+  }
+
+  function setZoom(state){
+    zoomed = state;
+    lbWrap.classList.toggle('zoomed', zoomed);
+    lbZoomLabel.textContent = zoomed ? '⤡ 1×' : '⤢ 2×';
+  }
+
+  function open(items, index){
+    group = items; cursor = index || 0;
+    applyItem();
+    lb.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function close(){
+    lb.classList.remove('open');
+    document.body.style.overflow = '';
+    setZoom(false);
+    setTimeout(() => { if(!lb.classList.contains('open')) lbImg.src = ''; }, 250);
+  }
+  function navigate(dir){
+    if(group.length < 2) return;
+    cursor = (cursor + dir + group.length) % group.length;
+    applyItem();
+  }
+
+  // Собрать все pf-card[data-src] в порядке DOM как одну группу
+  const allCards = Array.from(document.querySelectorAll('.pf-card[data-src]'));
+  allCards.forEach((el, i) => {
+    el.addEventListener('click', () => {
+      const items = allCards.map(c => ({src: c.dataset.src, alt: c.querySelector('img') ? c.querySelector('img').alt : ''}));
+      open(items, i);
+    });
+  });
+
+  lbClose.addEventListener('click', close);
+  lbPrev.addEventListener('click', () => navigate(-1));
+  lbNext.addEventListener('click', () => navigate(1));
+  lbZoom.addEventListener('click', e => { e.stopPropagation(); setZoom(!zoomed); });
+  lbWrap.addEventListener('click', e => { if(e.target === lbImg || e.target === lbWrap) setZoom(!zoomed); });
+  lb.addEventListener('click', e => { if(e.target === lb || e.target.classList.contains('lightbox-stage')) close(); });
+  window.addEventListener('keydown', e => {
+    if(!lb.classList.contains('open')) return;
+    if(e.key === 'Escape') close();
+    if(e.key === 'ArrowLeft') navigate(-1);
+    if(e.key === 'ArrowRight') navigate(1);
+  });
+})();
+</script>
+</body>
+</html>

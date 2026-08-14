@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>Cymatic · Case — Tanya Samarakovskaya</title>
+<meta content="Cymatic mapping festival — projection mapping and video content, 2018—2022. Case by Tanya Samarakovskaya." name="description"/>
+<link href="../../assets/icon.webp" rel="icon" type="image/webp"/>
+<meta content="article" property="og:type"/>
+<meta content="en_US" property="og:locale"/>
+<meta content="Tanya Samarakovskaya" property="og:site_name"/>
+<meta content="https://samarakovskaya.art/en/projects/cymatic.html" property="og:url"/>
+<meta content="Cymatic · Case — Tanya Samarakovskaya" property="og:title"/>
+<meta content="Cymatic mapping festival — projection mapping and video content, 2018—2022. Case by Tanya Samarakovskaya." property="og:description"/>
+<meta content="https://samarakovskaya.art/assets/cymatic/preview.webp" property="og:image"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Cymatic · Case — Tanya Samarakovskaya" name="twitter:title"/>
+<meta content="Cymatic mapping festival — projection mapping and video content, 2018—2022. Case by Tanya Samarakovskaya." name="twitter:description"/>
+<meta content="https://samarakovskaya.art/assets/cymatic/preview.webp" name="twitter:image"/>
+<link href="https://samarakovskaya.art/en/projects/cymatic.html" rel="canonical"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;700&amp;family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&amp;display=swap" rel="stylesheet"/>
+<style>
+  :root{
+    --graphite:#16161A;--graphite-2:#1E1E22;--graphite-3:#26262C;
+    --cream:#F1ECDD;--cream-2:#E8E2CF;--cream-3:#DBD3B9;
+    --ink:#16161A;--ink-2:#3A3A40;--ink-3:#7A766B;
+    --bone:#F1ECDD;--bone-2:#A8A39A;--bone-3:#6E6960;
+    --lime:#C8FF2E;--lime-deep:#A8DD15;
+    --line-d:rgba(241,236,221,.10);--line-d2:rgba(241,236,221,.18);
+    --line-l:rgba(22,22,26,.12);--line-l2:rgba(22,22,26,.22);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  html,body{background:var(--graphite);color:var(--bone);font-family:"Space Grotesk","Helvetica Neue",sans-serif;-webkit-font-smoothing:antialiased}
+  body{overflow-x:hidden;min-height:100svh}
+  ::selection{background:var(--lime);color:var(--ink)}
+  a{color:inherit;text-decoration:none}
+  button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+  img{display:block;max-width:100%}
+  body::before{content:"";position:fixed;inset:-50%;pointer-events:none;z-index:1000;opacity:.04;mix-blend-mode:screen;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
+  .ph{position:relative;background:var(--graphite-2);overflow:hidden}
+  .ph::before{content:attr(data-ph);position:absolute;inset:0;display:grid;place-items:center;font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:var(--bone-3);padding:18px;text-align:center;z-index:0;background-image:repeating-linear-gradient(135deg,rgba(255,255,255,.04) 0 8px,transparent 8px 16px)}
+  .ph img{position:relative;z-index:1;width:100%;height:100%;object-fit:cover;display:block}
+
+  /* TOP NAV */
+  .top{position:fixed;top:14px;left:50%;transform:translateX(-50%);z-index:60;width:calc(100% - 24px);max-width:1320px}
+  .nav-bar{display:flex;align-items:center;justify-content:space-between;gap:14px;background:rgba(22,22,26,.7);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid var(--line-d);border-radius:999px;padding:7px 8px 7px 18px}
+  .back{display:inline-flex;align-items:center;gap:10px;font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--bone)}
+  .back::before{content:"←";color:var(--lime);font-size:14px}
+  .mag-nav{display:flex;align-items:center;justify-content:center;gap:2px;overflow:hidden}
+  .mag-pill{display:inline-flex;align-items:center;padding:7px 13px;border-radius:999px;font-family:"JetBrains Mono",monospace;font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--bone-3);transition:background .2s,color .2s;cursor:pointer;white-space:nowrap;will-change:transform;text-decoration:none}
+  .mag-pill:hover{background:rgba(241,236,221,.08);color:var(--bone)}
+  .mag-pill.active{color:var(--lime)}
+  @media(max-width:900px){.mag-nav{display:none}}
+  .nav-cta{display:inline-flex;align-items:center;gap:7px;background:var(--lime);color:var(--ink);padding:9px 16px;border-radius:999px;font-family:"JetBrains Mono",monospace;font-size:10px;text-transform:uppercase;letter-spacing:.1em;font-weight:600}
+  .nav-cta::after{content:"↗"}
+  .nav-end{display:inline-flex;align-items:center;gap:8px;flex-shrink:0}
+  .lang-toggle{display:inline-flex;gap:2px;padding:3px;background:rgba(241,236,221,.06);border:1px solid var(--line-d);border-radius:999px;flex-shrink:0}
+  .lang-seg{padding:6px 8px;border-radius:999px;font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--bone-2);transition:background .2s,color .2s;line-height:1;cursor:pointer}
+  .lang-seg.on{background:var(--lime);color:var(--ink);font-weight:600}
+  .lang-seg:hover:not(.on){color:var(--bone)}
+
+  .wrap{max-width:1320px;margin:0 auto;padding:0 24px;width:100%}
+
+  /* PILLS */
+  .pill{display:inline-flex;align-items:center;gap:8px;padding:8px 14px 8px 12px;background:var(--graphite-2);border:1px solid var(--line-d);border-radius:999px;font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:lowercase;letter-spacing:.04em;color:var(--bone)}
+  .pill::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--lime);box-shadow:0 0 12px var(--lime)}
+  .pill.solid{background:var(--lime);color:var(--ink);border-color:transparent;font-weight:600}
+  .pill.solid::before{background:var(--ink);box-shadow:none}
+  .pill.outline{background:transparent}
+
+  /* HERO */
+  .hero{position:relative;min-height:100svh;overflow:hidden;padding:120px 0 40px;display:flex;flex-direction:column;justify-content:space-between;gap:36px}
+  .hero-bg{position:absolute;inset:0;z-index:0;opacity:.45}
+  .hero-bg .ph{position:absolute;inset:0}
+  .hero-bg img{filter:contrast(1.1) saturate(.7)}
+  .hero-bg::after{content:"";position:absolute;inset:0;background:radial-gradient(110% 70% at 50% 30%,transparent 0%,var(--graphite) 78%),linear-gradient(180deg,var(--graphite) 0%,transparent 25%,transparent 60%,var(--graphite) 100%)}
+
+  .hero-meta-row{position:relative;z-index:2;display:flex;justify-content:center;flex-wrap:wrap;gap:24px}
+  .hero-meta-row .pills{display:flex;flex-wrap:wrap;gap:8px}
+  .hero-meta-row .pill:nth-child(1){transform:rotate(-1deg)}
+  .hero-meta-row .pill:nth-child(2){transform:rotate(.8deg);margin-top:4px}
+
+  .hero-title{position:relative;z-index:2;display:flex;flex-direction:column;gap:14px;align-items:center;text-align:center}
+  .hero-h1{font-weight:700;font-size:clamp(80px,18vw,280px);line-height:.82;letter-spacing:-.06em;text-transform:uppercase;color:var(--bone)}
+  .hero-h1 .syl{display:inline-block;transition:font-family .08s,font-weight .08s,color .08s,letter-spacing .08s,background .15s,padding .15s}
+  .hero-h1 .syl.s1:hover{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;color:var(--lime);letter-spacing:-.08em}
+  .hero-h1 .syl.s2:hover{font-family:"JetBrains Mono",monospace;font-weight:700;background:var(--lime);color:var(--ink);padding:0 .04em}
+  .hero-sub{font-weight:500;font-size:clamp(18px,2vw,28px);line-height:1.1;letter-spacing:-.02em;color:var(--bone-2);max-width:38ch;text-wrap:balance;margin:8px auto 0}
+  .hero-sub b{color:var(--bone);font-weight:700}
+
+  .hero-foot{position:relative;z-index:2;display:grid;grid-template-columns:repeat(4,1fr);gap:18px;padding-top:20px;border-top:1px solid var(--line-d)}
+  @media(max-width:780px){.hero-foot{grid-template-columns:1fr 1fr;gap:16px}}
+  .hero-fact{display:flex;flex-direction:column;gap:6px}
+  .hero-fact b{font-family:"JetBrains Mono",monospace;font-size:10px;color:var(--lime);text-transform:uppercase;letter-spacing:.12em;font-weight:600}
+  .hero-fact span{font-weight:600;font-size:clamp(15px,1.5vw,18px);color:var(--bone);letter-spacing:-.005em;line-height:1.2}
+
+  /* MARQUEE */
+  .marq{background:var(--lime);color:var(--ink);overflow:hidden;padding:16px 0}
+  .marq-track{display:flex;gap:32px;width:max-content;animation:scroll 44s linear infinite;font-weight:700;font-size:clamp(20px,3vw,44px);letter-spacing:-.03em;line-height:1;white-space:nowrap;text-transform:uppercase}
+  .marq-track .dot{display:inline-block;width:.32em;height:.32em;border-radius:50%;background:var(--ink);vertical-align:middle;margin:0 .3em}
+  @keyframes scroll{to{transform:translateX(-50%)}}
+
+  /* SEC HEAD */
+  .sec{padding:90px 0 100px}
+  .sec.on-cream{background:var(--cream);color:var(--ink)}
+  .sec.on-graphite{background:var(--graphite);color:var(--bone)}
+  .sec-head{display:grid;grid-template-columns:auto 1fr auto;gap:32px;align-items:end;padding-bottom:28px;border-bottom:1px solid var(--line-d);margin-bottom:56px}
+  .sec.on-cream .sec-head{border-color:var(--line-l)}
+  @media(max-width:780px){.sec-head{grid-template-columns:1fr;gap:14px}}
+  .sec-num{font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:var(--bone-3);display:inline-flex;align-items:center;gap:10px}
+  .sec.on-cream .sec-num{color:var(--ink-3)}
+  .sec-num::before{content:"✦";color:var(--lime);font-size:14px}
+  .sec-h{font-weight:700;font-size:clamp(48px,8.5vw,128px);line-height:.9;letter-spacing:-.045em;text-wrap:balance}
+  .sec-side{font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--bone-2);text-align:right;line-height:1.7}
+  .sec.on-cream .sec-side{color:var(--ink-2)}
+  .sec-side b{font-weight:700;color:var(--bone)}
+  .sec.on-cream .sec-side b{color:var(--ink)}
+
+  /* CONCEPT */
+  .concept{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--ink);background:var(--cream)}
+  @media(max-width:900px){.concept{grid-template-columns:1fr}}
+  .concept-img{position:relative;min-height:60vh;border-right:1px solid var(--ink)}
+  @media(max-width:900px){.concept-img{border-right:0;border-bottom:1px solid var(--ink)}}
+  .concept-img .ph{position:absolute;inset:0}
+  .concept-img-over{position:absolute;left:18px;bottom:18px;z-index:3;font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:clamp(48px,7vw,108px);letter-spacing:-.045em;line-height:.85;color:var(--cream);mix-blend-mode:difference;text-transform:uppercase}
+  .concept-img-tag{position:absolute;top:18px;left:18px;background:var(--lime);color:var(--ink);padding:7px 12px;font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.12em;font-weight:600;z-index:3}
+  .concept-body{padding:48px;display:flex;flex-direction:column;gap:24px}
+  @media(max-width:780px){.concept-body{padding:32px 24px}}
+  .concept-lead{font-weight:500;font-size:clamp(24px,3vw,42px);line-height:1.1;letter-spacing:-.025em;text-wrap:balance}
+  .concept-text{font-size:15px;line-height:1.65;color:var(--ink-2);display:flex;flex-direction:column;gap:14px}
+  .concept-text b{color:var(--ink);font-weight:700}
+  .concept-meta{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;border-top:1px solid var(--ink);padding-top:20px;margin-top:auto;font-family:"JetBrains Mono",monospace;font-size:10px;text-transform:uppercase;letter-spacing:.08em}
+  .concept-meta dt{color:var(--ink-3);margin-bottom:4px}
+  .concept-meta dd{color:var(--ink);font-weight:600;font-size:13px}
+
+  /* PULL QUOTE */
+  .pullq{position:relative;min-height:80vh;display:flex;align-items:center;background:var(--graphite);overflow:hidden}
+  .pullq-bg{position:absolute;inset:0;z-index:0;opacity:.28}
+  .pullq-bg .ph{position:absolute;inset:0}
+  .pullq-bg::after{content:"";position:absolute;inset:0;background:radial-gradient(60% 60% at 50% 50%,transparent 0%,var(--graphite) 90%)}
+  .pullq-inner{position:relative;z-index:2;max-width:1320px;margin:0 auto;padding:80px 28px;text-align:center;width:100%}
+  .pullq-tag{font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.14em;color:var(--bone-3);margin-bottom:32px;display:inline-flex;align-items:center;gap:10px}
+  .pullq-tag::before,.pullq-tag::after{content:"";width:36px;height:1px;background:var(--lime)}
+  .pullq-text{font-weight:600;font-size:clamp(28px,5.5vw,84px);line-height:.96;letter-spacing:-.04em;text-wrap:balance}
+  .pullq-cite{margin-top:36px;font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.14em;color:var(--bone-3)}
+  .pullq-cite b{color:var(--lime);font-weight:600}
+
+  /* WORD TREATMENTS */
+  .word-pill{position:relative;display:inline-block;color:var(--graphite);padding:0 .14em;z-index:1}
+  .word-pill::before{content:"";position:absolute;inset:.08em -.04em .14em -.04em;background:var(--lime);border-radius:999px;z-index:-1}
+  .word-oval{position:relative;display:inline-block;padding:0 .14em;z-index:1;white-space:nowrap}
+  .word-oval::before{content:"";position:absolute;inset:-.06em -.04em -.04em -.04em;border-radius:999px;border:3px solid var(--lime);transform:rotate(-2.5deg) skewX(-2deg);z-index:-1}
+  .word-block{background:var(--lime);color:var(--ink);padding:0 .14em}
+
+  /* CHAPTERS */
+  .chap{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--line-d);background:var(--graphite-2);margin-bottom:10px;min-height:60vh}
+  .chap.flip .chap-img{order:2}
+  .chap.full{grid-template-columns:1fr;min-height:80vh;position:relative}
+  @media(max-width:900px){.chap,.chap.flip{grid-template-columns:1fr}.chap.flip .chap-img{order:0}}
+  .chap-img{position:relative;min-height:50vh;overflow:hidden;border-right:1px solid var(--line-d)}
+  .chap.flip .chap-img{border-right:0;border-left:1px solid var(--line-d)}
+  @media(max-width:900px){.chap-img,.chap.flip .chap-img{border:0;border-bottom:1px solid var(--line-d)}}
+  .chap-img .ph{position:absolute;inset:0}
+  .chap-img img{transition:transform .8s ease}
+  .chap-img:hover img{transform:scale(1.04)}
+  .chap-img-tag{position:absolute;top:18px;left:18px;padding:6px 12px;background:var(--lime);color:var(--ink);font-family:"JetBrains Mono",monospace;font-size:10px;text-transform:uppercase;letter-spacing:.14em;font-weight:600;z-index:2;display:inline-flex;align-items:center;gap:8px}
+  .chap-img-tag::before{content:"";width:7px;height:7px;background:var(--ink)}
+  .chap-img-label{position:absolute;left:18px;bottom:14px;z-index:2;font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:clamp(36px,5.5vw,80px);letter-spacing:-.04em;line-height:.85;color:var(--bone);text-transform:uppercase;mix-blend-mode:difference}
+  .chap-body{padding:48px;display:flex;flex-direction:column;gap:20px;justify-content:center}
+  @media(max-width:780px){.chap-body{padding:32px 24px}}
+  .chap.full .chap-img{position:absolute;inset:0;min-height:0;border:0}
+  .chap.full .chap-img::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 35%,rgba(0,0,0,.88) 100%);z-index:1}
+  .chap.full .chap-body{position:relative;z-index:2;justify-content:flex-end;color:var(--bone);min-height:80vh}
+  .chap-key{font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.14em;color:var(--bone-3);display:inline-flex;gap:10px;align-items:center}
+  .chap-key::before{content:"";width:10px;height:10px;background:var(--lime);display:inline-block}
+  .chap-title{font-weight:700;font-size:clamp(26px,4.2vw,58px);line-height:.98;letter-spacing:-.035em;text-wrap:balance}
+  .chap-title .mark{color:var(--lime)}
+  .chap-body p{font-size:15px;line-height:1.65;color:var(--bone-2);max-width:54ch}
+  .chap-body p b{color:var(--bone);font-weight:700}
+  .chap.full .chap-body p{color:var(--bone);max-width:64ch}
+  .chap.full .chap-body p b{color:var(--lime)}
+
+  /* ROLE STEPS */
+  .role-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+  @media(max-width:900px){.role-grid{grid-template-columns:1fr 1fr}}
+  @media(max-width:780px){.role-grid{grid-template-columns:1fr}}
+  .role-card{background:var(--cream-2);border:1px solid var(--ink);padding:28px;position:relative;overflow:hidden;display:flex;flex-direction:column;gap:18px;min-height:320px;transition:background .25s,color .25s}
+  .role-card:hover{background:var(--ink);color:var(--bone)}
+  .role-card .num{position:absolute;top:18px;right:24px;font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:104px;letter-spacing:-.05em;color:var(--lime);line-height:.85;opacity:.85}
+  .role-card .step{font-family:"JetBrains Mono",monospace;font-size:10px;text-transform:uppercase;letter-spacing:.18em;color:var(--ink-3);display:inline-flex;align-items:center;gap:12px;transition:color .25s}
+  .role-card:hover .step{color:var(--lime)}
+  .role-card .step::before{content:"";width:32px;height:1px;background:currentColor}
+  .role-card h3{font-weight:700;font-size:clamp(20px,2.4vw,30px);line-height:1.02;letter-spacing:-.025em;text-wrap:balance;position:relative;z-index:1}
+  .role-card h3 .mark{color:var(--lime-deep);transition:color .25s}
+  .role-card:hover h3 .mark{color:var(--lime)}
+  .role-card p{font-size:14px;line-height:1.65;color:var(--ink-2);margin-top:auto;transition:color .25s}
+  .role-card:hover p{color:var(--bone-2)}
+  .role-card p b{color:var(--ink);font-weight:700;transition:color .25s}
+  .role-card:hover p b{color:var(--bone)}
+
+  /* GALLERY — clean 2-column grid */
+  .gal{display:grid;grid-template-columns:repeat(2,1fr);gap:0}
+  @media(max-width:780px){.gal{grid-template-columns:1fr}}
+  .gi{position:relative;overflow:hidden;background:var(--graphite-2);cursor:zoom-in;aspect-ratio:16/10}
+  .gi .ph{position:absolute;inset:0}
+  .gi img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s ease,filter .4s}
+  .gi:hover img{transform:scale(1.05)}
+  .gi::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.3) 0%,transparent 30%);opacity:.5;pointer-events:none;transition:opacity .3s}
+  .gi:hover::after{opacity:.1}
+  .gcap{background:var(--lime);color:var(--ink);padding:28px 24px;display:flex;flex-direction:column;justify-content:flex-end;gap:8px;aspect-ratio:16/10}
+  .gcap .big{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:clamp(28px,3.6vw,56px);line-height:.88;letter-spacing:-.04em;color:var(--ink)}
+  .gcap .sub{font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--ink-2)}
+  .gcap.dark{background:var(--graphite-3)}
+  .gcap.dark .big{color:var(--lime)}
+  .gcap.dark .sub{color:var(--bone-2)}
+  @media(max-width:780px){.gcap{display:none}}
+
+  /* LIGHTBOX */
+  .lb{display:none;position:fixed;inset:0;z-index:200;background:rgba(0,0,0,.96);cursor:zoom-out;align-items:center;justify-content:center}
+  .lb.open{display:flex}
+  .lb img{max-width:92vw;max-height:90vh;object-fit:contain}
+  .lb-close{position:absolute;top:20px;right:24px;font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--bone-2);padding:8px}
+  .lb-close:hover{color:var(--lime)}
+
+  /* CREDITS */
+  .credits{padding:90px 0;background:var(--cream);color:var(--ink)}
+  .credits-top{border-bottom:1px solid var(--ink);padding-bottom:48px;margin-bottom:48px}
+  .credits-title{font-weight:700;font-size:clamp(44px,7.5vw,110px);line-height:.9;letter-spacing:-.04em;white-space:nowrap}
+  @media(max-width:600px){.credits-title{white-space:normal;font-size:clamp(40px,11vw,64px)}}
+  .credits-facts{display:flex;gap:32px;flex-wrap:wrap;justify-content:flex-end}
+  @media(max-width:900px){.credits-facts{justify-content:flex-start}}
+  .cred-fact{font-family:"JetBrains Mono",monospace;font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--ink-3);text-align:center}
+  .cred-fact strong{display:block;font-family:"Space Grotesk",sans-serif;font-size:clamp(26px,3.5vw,48px);font-weight:700;letter-spacing:-.04em;line-height:.9;color:var(--ink);margin-bottom:6px}
+  .cred-fact strong .mark{color:var(--lime-deep)}
+  .credits-body{display:grid;grid-template-columns:1fr 1fr;gap:0}
+  @media(max-width:900px){.credits-body{grid-template-columns:1fr}}
+  .cred-row{display:grid;grid-template-columns:140px 1fr;gap:16px;padding:18px 0;border-bottom:1px solid var(--ink);align-items:baseline}
+  .cred-row:first-child{border-top:1px solid var(--ink)}
+  .cred-row dt{font-family:"JetBrains Mono",monospace;font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--ink-3)}
+  .cred-row dd{font-weight:600;font-size:clamp(15px,1.4vw,19px);letter-spacing:-.015em;line-height:1.25;color:var(--ink)}
+  .cred-row dd .mark{color:var(--ink);font-weight:700}
+  .cred-row dd .sub{display:block;font-family:"JetBrains Mono",monospace;font-size:10px;color:var(--ink-3);font-weight:400;margin-top:4px;text-transform:uppercase;letter-spacing:.08em}
+  .credits-col-right{border-left:1px solid var(--ink);padding-left:36px}
+  @media(max-width:900px){.credits-col-right{border-left:none;padding-left:0}}
+
+  /* PROJ NAV */
+  .proj-nav{border-top:1px solid var(--line-d);background:var(--graphite)}
+  .proj-nav-inner{display:grid;grid-template-columns:1fr auto 1fr;max-width:1320px;margin:0 auto}
+  @media(max-width:760px){.proj-nav-inner{grid-template-columns:1fr}}
+  .pn-card{position:relative;overflow:hidden;padding:48px 36px;display:flex;flex-direction:column;justify-content:flex-end;gap:8px;transition:background .3s;border-right:1px solid var(--line-d)}
+  .pn-card:last-child{border-right:0;border-left:1px solid var(--line-d)}
+  .pn-card:hover{background:var(--graphite-2)}
+  .pn-card .bg{position:absolute;inset:0;object-fit:cover;width:100%;height:100%;opacity:.14;transition:opacity .4s;filter:saturate(.4)}
+  .pn-card:hover .bg{opacity:.28}
+  .pn-dir{position:relative;z-index:1;font-family:"JetBrains Mono",monospace;font-size:10px;text-transform:uppercase;letter-spacing:.14em;color:var(--bone-3);margin-bottom:8px}
+  .pn-name{position:relative;z-index:1;font-weight:700;font-size:clamp(26px,3.5vw,52px);line-height:1;letter-spacing:-.03em;color:var(--bone)}
+  .pn-sub{position:relative;z-index:1;font-family:"JetBrains Mono",monospace;font-size:10px;color:var(--bone-3);margin-top:6px;text-transform:uppercase;letter-spacing:.08em}
+  .pn-contact{display:flex;align-items:center;justify-content:center;padding:48px 36px;flex-direction:column;gap:14px}
+  .pn-contact-label{font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:var(--bone-3)}
+  .pn-btn{display:inline-flex;align-items:center;gap:10px;background:var(--lime);color:var(--ink);padding:14px 24px;border-radius:999px;font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.1em;font-weight:600;transition:transform .25s}
+  .pn-contact:hover .pn-btn{transform:translateY(-3px)}
+
+  footer{padding:28px 24px;border-top:1px solid var(--line-d);font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--bone-3);background:var(--graphite)}
+  .foot-row{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;align-items:center;max-width:1320px;margin:0 auto}
+  .foot-row b{color:var(--bone);font-weight:500}
+  .foot-row a:hover{color:var(--lime)}
+
+  .reveal{opacity:0;transform:translateY(20px);transition:opacity .8s ease,transform .8s ease}
+  .reveal.in{opacity:1;transform:none}
+</style>
+<style id="en-switch-css">
+.nav-end{display:inline-flex;align-items:center;gap:10px}
+.lang-toggle{display:inline-flex;gap:2px;padding:3px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.16);border-radius:999px;flex-shrink:0}
+.lang-toggle .lang-seg{padding:6px 9px;border-radius:999px;font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:rgba(241,236,221,.6);line-height:1;text-decoration:none;transition:color .2s,background .2s}
+.lang-toggle .lang-seg.on{background:#f1ecdd;color:#16161a;font-weight:600}
+.lang-toggle a.lang-seg:hover{color:#fff}
+
+/* NAV FIX 31.07.2026 — «Написать» всегда у правого края шапки, RU/EN только на десктопе */
+.nav-bar>.nav-end{margin-left:auto}
+.nav-bar>.lang-toggle{margin-left:auto}
+@media(max-width:780px){
+  .nav-bar .lang-toggle{display:none}
+  .nav-bar>.nav-cta{margin-left:auto}
+}
+
+/* FOOT LANG 31.07.2026 — переключатель языка в футере, только на мобильном (в шапке он скрыт) */
+.foot-lang{display:none}
+@media(max-width:780px){
+  .foot-lang{display:inline-flex;align-items:center;padding:6px 12px;border:1px solid currentColor;border-radius:999px;font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;color:inherit;opacity:.75}
+}
+</style>
+<link rel="alternate" hreflang="ru" href="https://samarakovskaya.art/projects/cymatic.html">
+<link rel="alternate" hreflang="en" href="https://samarakovskaya.art/en/projects/cymatic.html">
+<link rel="alternate" hreflang="x-default" href="https://samarakovskaya.art/projects/cymatic.html">
+</head>
+<body>
+<div class="lb" id="lb">
+<button class="lb-close" data-i18n="lb.close" id="lbClose">[ESC] close</button>
+<img alt="" decoding="async" id="lbImg" loading="lazy" src=""/>
+</div>
+<!-- TOP NAV -->
+<header class="top">
+<div class="nav-bar">
+<a class="back" data-i18n="n.back" href="../index.html#works">All projects</a>
+<nav class="mag-nav" id="magNav">
+<a class="mag-pill" data-i18n="n.concept" data-section="zone-concept" href="#zone-concept">Concept</a>
+<a class="mag-pill" data-i18n="n.show" data-section="zone-impl" href="#zone-impl">Execution</a>
+<a class="mag-pill" data-i18n="n.video" data-section="zone-video" href="#zone-video">Video</a>
+<a class="mag-pill" data-i18n="n.gallery" data-section="zone-gallery" href="#zone-gallery">Gallery</a>
+<a class="mag-pill" data-i18n="n.credits" data-section="zone-credits" href="#zone-credits">Team</a>
+</nav>
+<div class="nav-end">
+<div aria-label="Language" class="lang-toggle" id="langToggle" role="group">
+<a class="lang-seg" data-lang="ru" href="../../projects/cymatic.html">RU</a>
+<span class="lang-seg on" data-lang="en">EN</span>
+</div>
+<a class="nav-cta" data-i18n="n.cta" href="https://t.me/samarakovskaya_tanya" rel="noopener" target="_blank">Get in touch</a>
+</div>
+</div>
+</header>
+<!-- HERO -->
+<section class="hero" id="top">
+<div aria-hidden="true" class="hero-bg">
+<div class="ph" data-ph="cymatic · bolshoi theatre">
+<img alt="" decoding="async" loading="eager" src="../../assets/cymatic/photo/webp/cymatic-04.webp"/>
+</div>
+</div>
+<div class="wrap" style="position:relative;z-index:2;display:flex;flex-direction:column;flex:1;gap:36px;justify-content:space-between">
+<div class="hero-meta-row">
+<div class="pills">
+<span class="pill solid">● Cymatic</span>
+<span class="pill" data-i18n="h.pill1">projection mapping</span>
+<span class="pill" data-i18n="h.pill2">Bolshoi Theatre</span>
+<span class="pill" data-i18n="h.pill3">Circle of Light</span>
+</div>
+<div class="pills">
+<span class="pill outline" data-i18n="h.pill4">generative visuals</span>
+<span class="pill outline" data-i18n="h.pill5">Moscow</span>
+</div>
+</div>
+<div class="hero-title">
+<h1 class="hero-h1">
+<span class="syl s1">Cy</span><span class="syl s2">ma</span><span class="syl s1">tic</span>
+</h1>
+<p class="hero-sub" data-i18n="h.sub">Projection <b>mapping</b> on the facade of the Bolshoi Theatre as part of the “Circle of Light” festival — the geometry of sound in architecture.</p>
+</div>
+<div class="hero-foot">
+<div class="hero-fact" data-i18n="h.f1"><b>Format</b><span>“Circle of Light” festival</span></div>
+<div class="hero-fact" data-i18n="h.f2"><b>Object</b><span>Bolshoi Theatre</span></div>
+<div class="hero-fact" data-i18n="h.f3"><b>Location</b><span>Moscow</span></div>
+<div class="hero-fact" data-i18n="h.f4"><b>Role</b><span>Video artist · content</span></div>
+</div>
+</div>
+</section>
+<!-- MARQUEE -->
+<div aria-hidden="true" class="marq">
+<div class="marq-track">
+<span data-i18n="marq.line">CYMATIC <span class="dot"></span> PROJECTION MAPPING <span class="dot"></span> BOLSHOI THEATRE <span class="dot"></span> CIRCLE OF LIGHT <span class="dot"></span> GEOMETRY OF SOUND <span class="dot"></span> GENERATIVE VISUALS <span class="dot"></span> LIGHT <span class="dot"></span> ARCHITECTURE <span class="dot"></span> MOSCOW <span class="dot"></span></span>
+<span data-i18n="marq.line">CYMATIC <span class="dot"></span> PROJECTION MAPPING <span class="dot"></span> BOLSHOI THEATRE <span class="dot"></span> CIRCLE OF LIGHT <span class="dot"></span> GEOMETRY OF SOUND <span class="dot"></span> GENERATIVE VISUALS <span class="dot"></span> LIGHT <span class="dot"></span> ARCHITECTURE <span class="dot"></span> MOSCOW <span class="dot"></span></span>
+</div>
+</div>
+<!-- CONCEPT (cream) -->
+<section class="sec on-cream" id="zone-concept">
+<div class="wrap">
+<div class="sec-head reveal">
+<span class="sec-num" data-i18n="s1.num">01 / Concept</span>
+<h2 class="sec-h" data-i18n="s1.h">Project <span class="word-pill">idea</span>.</h2>
+<span class="sec-side" data-i18n="s1.side">Bolshoi Theatre<br/><b>Projection Mapping</b></span>
+</div>
+<div class="concept reveal">
+<div class="concept-img">
+<div class="ph" data-ph="cymatic · facade">
+<img alt="" decoding="async" loading="lazy" src="../../assets/cymatic/photo/webp/cymatic-01.webp"/>
+</div>
+<span class="concept-img-tag">● Cymatics</span>
+<span class="concept-img-over" data-i18n="s1.over">Sound<br/>→<br/>Light</span>
+</div>
+<div class="concept-body">
+<p class="concept-lead" data-i18n="s1.lead">The geometry of <span class="word-block">sound waves</span> — visualized on the facade of classical architecture.</p>
+<div class="concept-text">
+<p data-i18n="s1.p1">Cymatic is projection mapping on the facade of the <b>Bolshoi Theatre</b>. The concept is rooted in cymatics: the visualization of sound waves as geometric patterns.</p>
+<p data-i18n="s1.p2">Classical architecture becomes a surface for generative visual content. <b>Crystalline structures and wave patterns</b> grow through the columns and reliefs, turning the facade into a living screen.</p>
+<p data-i18n="s1.p3">The projection works as a <b>dialogue between architecture and sound</b>: the geometry of the building reinforces the rhythmic logic of the visuals, while the cymatics patterns respond to the spatial scale of the theatre.</p>
+</div>
+<dl class="concept-meta" data-i18n="s1.meta"><div><dt>Object</dt><dd>Bolshoi Theatre</dd></div><div><dt>Method</dt><dd>Video Mapping</dd></div><div><dt>Concept</dt><dd>Cymatics</dd></div></dl>
+</div>
+</div>
+</div>
+</section>
+<!-- PULL QUOTE -->
+<section class="pullq">
+<div aria-hidden="true" class="pullq-bg">
+<div class="ph" data-ph="cymatic · projection">
+<img alt="" decoding="async" loading="lazy" src="../../assets/cymatic/photo/webp/cymatic-03.webp"/>
+</div>
+</div>
+<div class="pullq-inner reveal">
+<div class="pullq-tag" data-i18n="pq.tag">concept · cymatic</div>
+<p class="pullq-text" data-i18n="pq.text">Classical <span class="word-oval">architecture</span> as a screen — <span class="word-block">cymatics</span> patterns grow through the columns.</p>
+<div class="pullq-cite" data-i18n="pq.cite">● <b>Cymatic</b> · Projection Mapping · Bolshoi Theatre</div>
+</div>
+</section>
+<!-- CHAPTERS (graphite) -->
+<section class="sec on-graphite" id="zone-impl">
+<div class="wrap">
+<div class="sec-head reveal">
+<span class="sec-num" data-i18n="s2.num">02 / Execution</span>
+<h2 class="sec-h" data-i18n="s2.h">Sound as <span class="word-pill">visuals</span>.</h2>
+<span class="sec-side" data-i18n="s2.side"><b>Generative · Mapping</b><br/>Bolshoi Theatre</span>
+</div>
+<article class="chap reveal">
+<div class="chap-img">
+<div class="ph" data-ph="theatre facade · mapping">
+<img alt="" decoding="async" loading="lazy" src="../../assets/cymatic/photo/webp/cymatic-02.webp"/>
+</div>
+<span class="chap-img-tag">01</span>
+</div>
+<div class="chap-body">
+<span class="chap-key" data-i18n="s2.k1">Object · 01</span>
+<h3 class="chap-title" data-i18n="s2.t1">The facade as a <span class="mark">surface</span></h3>
+<p data-i18n="s2.p1">The columns, reliefs and portico of the Bolshoi Theatre become elements of the visual composition. <b>The mapping works with the architectural relief</b>: the projection is not laid over the building but built into its geometry, reinforcing every volume and shadow.</p>
+</div>
+</article>
+<article class="chap full reveal">
+<div class="chap-img">
+<div class="ph" data-ph="cymatics patterns">
+<img alt="" decoding="async" loading="lazy" src="../../assets/cymatic/photo/webp/cymatic-03.webp"/>
+</div>
+<span class="chap-img-tag">02</span>
+</div>
+<div class="chap-body">
+<span class="chap-key" data-i18n="s2.k2">Content · 02</span>
+<h3 class="chap-title" data-i18n="s2.t2">Generative <span class="mark">patterns</span></h3>
+<p data-i18n="s2.p2">The show’s content is built on the principles of cymatics — <b>the visualization of acoustic frequencies</b> as geometric structures. Crystalline patterns shift in real time, following the musical score. Each note has its own geometry.</p>
+</div>
+</article>
+<article class="chap flip reveal">
+<div class="chap-img">
+<div class="ph" data-ph="audience · square">
+<img alt="" decoding="async" loading="lazy" src="../../assets/cymatic/photo/webp/cymatic-04.webp"/>
+</div>
+<span class="chap-img-tag">03</span>
+</div>
+<div class="chap-body">
+<span class="chap-key" data-i18n="s2.k3">Audience · 03</span>
+<h3 class="chap-title" data-i18n="s2.t3">The square as an <span class="mark">auditorium</span></h3>
+<p data-i18n="s2.p3">The theatre square in front of the building becomes an open-air auditorium. <b>The projection works over a long distance</b> and reads as a large-scale street show — without the usual frame of a screen or stage.</p>
+</div>
+</article>
+</div>
+</section>
+<!-- MY ROLE (cream) -->
+<section class="sec on-cream">
+<div class="wrap">
+<div class="sec-head reveal">
+<span class="sec-num" data-i18n="s3.num">03 / Role</span>
+<h2 class="sec-h" data-i18n="s3.h"><span class="word-pill">Role</span>.</h2>
+<span class="sec-side" data-i18n="s3.side"><b>Video artist · content</b><br/>in the project team</span>
+</div>
+<div class="role-grid reveal">
+<div class="role-card">
+<span class="num">01</span>
+<span class="step" data-i18n="s3.step1">Step · 01 / 03</span>
+<h3 data-i18n="s3.t1">Part of the <span class="mark">content</span> team</h3>
+<p data-i18n="s3.p1">Working within the Supervisuals and Global Illumination team. <b>The area of responsibility was creating part of the visual content</b> for the show: not the whole project, but specific scenes and elements.</p>
+</div>
+<div class="role-card">
+<span class="num">02</span>
+<span class="step" data-i18n="s3.step2">Step · 02 / 03</span>
+<h3 data-i18n="s3.t2">The geometry of <span class="mark">sound</span></h3>
+<p data-i18n="s3.p2">Translating the principles of cymatics into visual material: <b>wave and crystalline patterns</b> that map onto the facade. Every frame keeps the link between acoustic frequency and geometry.</p>
+</div>
+<div class="role-card">
+<span class="num">03</span>
+<span class="step" data-i18n="s3.step3">Step · 03 / 03</span>
+<h3 data-i18n="s3.t3">Content for the <span class="mark">facade</span></h3>
+<p data-i18n="s3.p3">The visuals were made with the architectural relief of the Bolshoi Theatre in mind: <b>columns, portico and volumes are part of the composition</b>. The content was fitted to the mapping and the scale of the square.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- VIDEO -->
+<section class="sec on-graphite" id="zone-video" style="padding-top:72px;padding-bottom:72px">
+<div class="wrap">
+<div class="sec-head reveal" style="margin-bottom:32px">
+<span class="sec-num" data-i18n="s3b.num">03b / Video</span>
+<h2 class="sec-h" data-i18n="s3b.h"><span class="word-pill">Sound</span> as visuals.</h2>
+<span class="sec-side">YouTube · Documentation</span>
+</div>
+<div class="reveal" onclick="(function(el){var i=document.createElement('iframe');i.src='https://www.youtube.com/embed/NpEbQJ9Gd08?autoplay=1&amp;rel=0';i.style.cssText='position:absolute;inset:0;width:100%;height:100%;border:0';i.allow='accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture';i.allowFullscreen=true;el.innerHTML='';el.appendChild(i);el.style.cursor='default';el.onclick=null})(this)" style="position:relative;width:100%;aspect-ratio:16/9;background:#000;cursor:pointer;overflow:hidden;border-radius:12px">
+<img alt="Cymatic video" decoding="async" loading="lazy" onerror="this.src='https://img.youtube.com/vi/NpEbQJ9Gd08/hqdefault.jpg'" src="https://img.youtube.com/vi/NpEbQJ9Gd08/maxresdefault.jpg" style="width:100%;height:100%;object-fit:cover;display:block"/>
+<div style="position:absolute;inset:0;display:grid;place-items:center;background:rgba(0,0,0,.28)">
+<div style="width:80px;height:80px;border-radius:50%;background:#C8FF2E;display:grid;place-items:center;color:#16161A"><svg fill="currentColor" height="28" viewbox="0 0 24 24" width="28"><path d="M5 3.5v17l15-8.5z"></path></svg></div>
+</div>
+</div>
+</div>
+</section>
+<!-- GALLERY (graphite) -->
+<section class="sec on-graphite" id="zone-gallery">
+<div class="wrap">
+<div class="sec-head reveal">
+<span class="sec-num" data-i18n="s4.num">04 / Gallery</span>
+<h2 class="sec-h" data-i18n="s4.h"><span class="word-pill">Gallery</span>.</h2>
+<span class="sec-side" data-i18n="s4.side"><b>Bolshoi Theatre</b><br/>Circle of Light</span>
+</div>
+<div class="gal reveal">
+<div class="gcap dark">
+<div class="big" data-i18n="s4.cap1big">Sound<br/>→ Light</div>
+<div class="sub" data-i18n="s4.cap1sub">wave geometry · cymatics</div>
+</div>
+<figure class="gi">
+<div class="ph" data-ph="cymatic · full facade"><img alt="" decoding="async" loading="lazy" src="../../assets/cymatic/photo/webp/cymatic-01.webp"/></div>
+</figure>
+<figure class="gi">
+<div class="ph" data-ph="cymatic · patterns"><img alt="" decoding="async" loading="lazy" src="../../assets/cymatic/photo/webp/cymatic-02.webp"/></div>
+</figure>
+<figure class="gi">
+<div class="ph" data-ph="cymatic · crystals"><img alt="" decoding="async" loading="lazy" src="../../assets/cymatic/photo/webp/cymatic-03.webp"/></div>
+</figure>
+<figure class="gi">
+<div class="ph" data-ph="cymatic · square"><img alt="" decoding="async" loading="lazy" src="../../assets/cymatic/photo/webp/cymatic-04.webp"/></div>
+</figure>
+<div class="gcap">
+<div class="big" data-i18n="s4.cap2big">Bolshoi<br/>Theatre</div>
+<div class="sub" data-i18n="s4.cap2sub">“Circle of Light” festival · Moscow</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CREDITS (cream) -->
+<section class="credits" id="zone-credits">
+<div class="wrap">
+<div class="credits-top reveal">
+<div>
+<div data-i18n="cr.toplbl" style="font-family:'JetBrains Mono',monospace;font-size:10px;text-transform:uppercase;letter-spacing:.14em;color:var(--ink-3);margin-bottom:16px">● Team</div>
+<h2 class="credits-title" data-i18n="cr.title">Project team</h2>
+</div>
+</div>
+<div class="credits-body reveal">
+<dl>
+<div class="cred-row">
+<dt data-i18n="cr.dt1">Team</dt>
+<dd data-i18n="cr.dd1">Supervisuals + Global <span class="mark">Illumination</span></dd>
+</div>
+<div class="cred-row">
+<dt data-i18n="cr.dt2">Content</dt>
+<dd data-i18n="cr.dd2">Rustam Yusupov, Dima Olgin,<br/>Tatiana <span class="mark">Samarakovskaya</span></dd>
+</div>
+<div class="cred-row">
+<dt data-i18n="cr.dt3">Object</dt>
+<dd data-i18n="cr.dd3">Bolshoi <span class="mark">Theatre</span><span class="sub">Teatralnaya Square · Moscow</span></dd>
+</div>
+<div class="cred-row">
+<dt data-i18n="cr.dt4">Format</dt>
+<dd data-i18n="cr.dd4">“Circle of Light” festival</dd>
+</div>
+</dl>
+<dl class="credits-col-right">
+<div class="cred-row">
+<dt data-i18n="cr.dt5">Concept</dt>
+<dd data-i18n="cr.dd5">Cymatics<span class="sub">visualization of acoustic frequencies</span></dd>
+</div>
+<div class="cred-row">
+<dt data-i18n="cr.dt6">Technology</dt>
+<dd data-i18n="cr.dd6">Projection mapping<span class="sub">generative visuals · facade</span></dd>
+</div>
+<div class="cred-row">
+<dt data-i18n="cr.dt7">Venue</dt>
+<dd data-i18n="cr.dd7">“Circle of <span class="mark">Light</span>” festival<span class="sub">Teatralnaya Square · Moscow</span></dd>
+</div>
+<div class="cred-row">
+<dt data-i18n="cr.dt8">Type</dt>
+<dd data-i18n="cr.dd8">Architectural <span class="mark">mapping</span></dd>
+</div>
+</dl>
+</div>
+</div>
+</section>
+<!-- PROJ NAV -->
+<nav aria-label="Other projects" class="proj-nav">
+<div class="proj-nav-inner">
+<a class="pn-card" href="nebula.html">
+<img alt="" aria-hidden="true" class="bg" decoding="async" loading="lazy" src="../../assets/preview_projects/nebula.webp"/>
+<span class="pn-dir" data-i18n="pn.prev"><span style="display:inline-block;margin-bottom:14px;font-size:20px">←</span><br/>Previous</span>
+<span class="pn-name" data-i18n="pn.prevname">Nebula</span>
+<span class="pn-sub">Exhibitions · Experience design · 2023</span>
+</a>
+<a class="pn-contact" href="https://t.me/samarakovskaya_tanya" rel="noopener" target="_blank">
+<span class="pn-contact-label" data-i18n="pn.clabel">Got a project?</span>
+<span class="pn-btn" data-i18n="pn.cbtn">Get in touch ↗</span>
+</a>
+<a class="pn-card" href="capybarabooom.html" style="text-align:right">
+<img alt="" aria-hidden="true" class="bg" decoding="async" loading="lazy" src="../../assets/preview_projects/capybaraboom.webp"/>
+<span class="pn-dir" data-i18n="pn.next"><span style="display:inline-block;margin-bottom:14px;font-size:20px">→</span><br/>Next</span>
+<span class="pn-name" data-i18n="pn.nextname">CapybaraBooom</span>
+<span class="pn-sub">Exhibitions · IP system · 2024—26</span>
+</a>
+</div>
+</nav>
+<footer>
+<div class="foot-row">
+<span data-i18n="f.copy">© 2026 · <b>Tanya Samarakovskaya</b></span>
+<span><a data-i18n="f.top" href="#top">↑ Top</a></span>
+    <a class="foot-lang" href="../../projects/cymatic.html" hreflang="ru">RU</a>
+</div>
+</footer>
+<script>
+/* ════════════ i18n ENGINE (RU default · EN overlay) ════════════ */
+(function(){
+  const EN = {
+    'n.back':'All projects','n.cta':'Get in touch',
+    'n.concept':'Concept','n.show':'Execution','n.video':'Video','n.gallery':'Gallery','n.credits':'Team',
+    'h.pill1':'projection mapping','h.pill2':'Bolshoi Theatre','h.pill3':'Circle of Light','h.pill4':'generative visuals','h.pill5':'Moscow',
+    'h.sub':'Projection <b>mapping</b> on the facade of the Bolshoi Theatre as part of the “Circle of Light” festival — the geometry of sound in architecture.',
+    'h.f1':'<b>Format</b><span>“Circle of Light” festival</span>','h.f2':'<b>Object</b><span>Bolshoi Theatre</span>','h.f3':'<b>Location</b><span>Moscow</span>','h.f4':'<b>Role</b><span>Video artist · content</span>',
+    'marq.line':'CYMATIC <span class="dot"></span> PROJECTION MAPPING <span class="dot"></span> BOLSHOI THEATRE <span class="dot"></span> CIRCLE OF LIGHT <span class="dot"></span> GEOMETRY OF SOUND <span class="dot"></span> GENERATIVE VISUALS <span class="dot"></span> LIGHT <span class="dot"></span> ARCHITECTURE <span class="dot"></span> MOSCOW <span class="dot"></span>',
+    's1.num':'01 / Concept','s1.h':'Project <span class="word-pill">idea</span>.','s1.side':'Bolshoi Theatre<br><b>Projection Mapping</b>','s1.over':'Sound<br>→<br>Light',
+    's1.lead':'The geometry of <span class="word-block">sound waves</span> — visualized on the facade of classical architecture.',
+    's1.p1':'Cymatic is projection mapping on the facade of the <b>Bolshoi Theatre</b>. The concept is rooted in cymatics: the visualization of sound waves as geometric patterns.',
+    's1.p2':'Classical architecture becomes a surface for generative visual content. <b>Crystalline structures and wave patterns</b> grow through the columns and reliefs, turning the facade into a living screen.',
+    's1.p3':'The projection works as a <b>dialogue between architecture and sound</b>: the geometry of the building reinforces the rhythmic logic of the visuals, while the cymatics patterns respond to the spatial scale of the theatre.',
+    's1.meta':'<div><dt>Object</dt><dd>Bolshoi Theatre</dd></div><div><dt>Method</dt><dd>Video Mapping</dd></div><div><dt>Concept</dt><dd>Cymatics</dd></div>',
+    'pq.tag':'concept · cymatic','pq.text':'Classical <span class="word-oval">architecture</span> as a screen — <span class="word-block">cymatics</span> patterns grow through the columns.','pq.cite':'● <b>Cymatic</b> · Projection Mapping · Bolshoi Theatre',
+    's2.num':'02 / Execution','s2.h':'Sound as <span class="word-pill">visuals</span>.','s2.side':'<b>Generative · Mapping</b><br>Bolshoi Theatre',
+    's2.k1':'Object · 01','s2.t1':'The facade as a <span class="mark">surface</span>','s2.p1':'The columns, reliefs and portico of the Bolshoi Theatre become elements of the visual composition. <b>The mapping works with the architectural relief</b>: the projection is not laid over the building but built into its geometry, reinforcing every volume and shadow.',
+    's2.k2':'Content · 02','s2.t2':'Generative <span class="mark">patterns</span>','s2.p2':'The show’s content is built on the principles of cymatics — <b>the visualization of acoustic frequencies</b> as geometric structures. Crystalline patterns shift in real time, following the musical score. Each note has its own geometry.',
+    's2.k3':'Audience · 03','s2.t3':'The square as an <span class="mark">auditorium</span>','s2.p3':'The theatre square in front of the building becomes an open-air auditorium. <b>The projection works over a long distance</b> and reads as a large-scale street show — without the usual frame of a screen or stage.',
+    's3.num':'03 / Role','s3.h':'<span class="word-pill">Role</span>.','s3.side':'<b>Video artist · content</b><br>in the project team',
+    's3.step1':'Step · 01 / 03','s3.t1':'Part of the <span class="mark">content</span> team','s3.p1':'Working within the Supervisuals and Global Illumination team. <b>The area of responsibility was creating part of the visual content</b> for the show: not the whole project, but specific scenes and elements.',
+    's3.step2':'Step · 02 / 03','s3.t2':'The geometry of <span class="mark">sound</span>','s3.p2':'Translating the principles of cymatics into visual material: <b>wave and crystalline patterns</b> that map onto the facade. Every frame keeps the link between acoustic frequency and geometry.',
+    's3.step3':'Step · 03 / 03','s3.t3':'Content for the <span class="mark">facade</span>','s3.p3':'The visuals were made with the architectural relief of the Bolshoi Theatre in mind: <b>columns, portico and volumes are part of the composition</b>. The content was fitted to the mapping and the scale of the square.',
+    's3b.num':'03b / Video','s3b.h':'<span class="word-pill">Sound</span> as visuals.',
+    's4.num':'04 / Gallery','s4.h':'<span class="word-pill">Gallery</span>.','s4.side':'<b>Bolshoi Theatre</b><br>Circle of Light',
+    's4.cap1big':'Sound<br>→ Light','s4.cap1sub':'wave geometry · cymatics','s4.cap2big':'Bolshoi<br>Theatre','s4.cap2sub':'“Circle of Light” festival · Moscow',
+    'cr.toplbl':'● Team','cr.title':'Project team',
+    'cr.dt1':'Team','cr.dd1':'Supervisuals + Global <span class="mark">Illumination</span>',
+    'cr.dt2':'Content','cr.dd2':'Rustam Yusupov, Dima Olgin,<br>Tatiana <span class="mark">Samarakovskaya</span>',
+    'cr.dt3':'Object','cr.dd3':'Bolshoi <span class="mark">Theatre</span><span class="sub">Teatralnaya Square · Moscow</span>',
+    'cr.dt4':'Format','cr.dd4':'“Circle of Light” festival',
+    'cr.dt5':'Concept','cr.dd5':'Cymatics<span class="sub">visualization of acoustic frequencies</span>',
+    'cr.dt6':'Technology','cr.dd6':'Projection mapping<span class="sub">generative visuals · facade</span>',
+    'cr.dt7':'Venue','cr.dd7':'“Circle of <span class="mark">Light</span>” festival<span class="sub">Teatralnaya Square · Moscow</span>',
+    'cr.dt8':'Type','cr.dd8':'Architectural <span class="mark">mapping</span>',
+    'pn.prev':'<span style="display:inline-block;margin-bottom:14px;font-size:20px">←</span><br>Previous','pn.prevname':'Nebula',
+    'pn.clabel':'Got a project?','pn.cbtn':'Get in touch ↗',
+    'pn.next':'<span style="display:inline-block;margin-bottom:14px;font-size:20px">→</span><br>Next','pn.nextname':'CapybaraBooom',
+    'f.copy':'© 2026 · <b>Tanya Samarakovskaya</b>','f.top':'↑ Top','lb.close':'[ESC] close'
+  };
+  const META_EN = {
+    title:'Cymatic · Case — Tanya Samarakovskaya',
+    desc:'Cymatic mapping festival — projection mapping and video content, 2018—2022. Case by Tanya Samarakovskaya.'
+  };
+  const RU = new Map();
+  const ruTitle = document.title;
+  const descMeta = document.querySelector('meta[name="description"]');
+  const ruDesc = descMeta ? descMeta.content : '';
+  function apply(lang){
+    const en = (lang === 'en');
+    document.documentElement.lang = lang;
+    document.documentElement.dataset.lang = lang;
+    document.querySelectorAll('[data-i18n]').forEach(function(el){
+      if(!RU.has(el)) RU.set(el, el.innerHTML);
+      const key = el.getAttribute('data-i18n');
+      el.innerHTML = (en && EN[key] != null) ? EN[key] : RU.get(el);
+    });
+    document.title = en ? META_EN.title : ruTitle;
+    if(descMeta) descMeta.content = en ? META_EN.desc : ruDesc;
+    document.querySelectorAll('#langToggle .lang-seg').forEach(function(b){
+      b.classList.toggle('on', b.dataset.lang === lang);
+    });
+    try{ localStorage.setItem('site_lang', lang); }catch(e){}
+    window.dispatchEvent(new CustomEvent('langchange', {detail: lang}));
+  }
+  const lt = document.getElementById('langToggle');
+  if(lt) lt.addEventListener('click', function(e){
+    const b = e.target.closest('button'); if(!b) return;
+    apply(b.dataset.lang);
+  });
+  let saved = 'en';
+  try{ saved = localStorage.getItem('site_lang') || 'en'; }catch(e){}
+  apply('en'); try{localStorage.removeItem('site_lang');}catch(e){}
+})();
+</script>
+<script>
+  /* MAGNETIC PILLS */
+  document.querySelectorAll('.mag-pill').forEach(pill => {
+    pill.addEventListener('mousemove', e => {
+      const r = pill.getBoundingClientRect();
+      const dx = e.clientX - (r.left + r.width / 2);
+      const dy = e.clientY - (r.top + r.height / 2);
+      pill.style.transform = `translate(${dx * 0.38}px, ${dy * 0.42}px) scale(1.06)`;
+    });
+    pill.addEventListener('mouseleave', () => { pill.style.transform = ''; });
+    pill.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.getElementById(pill.dataset.section);
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+  /* ACTIVE PILL on scroll */
+  const sectionIds = ['zone-concept','zone-impl','zone-video','zone-gallery','zone-credits'];
+  const pillMap = {};
+  document.querySelectorAll('.mag-pill').forEach(p => { pillMap[p.dataset.section] = p; });
+  const secObs = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        Object.values(pillMap).forEach(p => p.classList.remove('active'));
+        const active = pillMap[entry.target.id];
+        if (active) active.classList.add('active');
+      }
+    });
+  }, { threshold: 0.25 });
+  sectionIds.forEach(id => { const el = document.getElementById(id); if (el) secObs.observe(el); });
+</script>
+<script>
+  const io = new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }}), {threshold:.08});
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  const lb = document.getElementById('lb'), lbImg = document.getElementById('lbImg');
+  document.querySelectorAll('.gi img').forEach(img => {
+    img.addEventListener('click', () => {
+      if(!img.src) return;
+      lbImg.src = img.src; lbImg.alt = img.alt;
+      lb.classList.add('open'); document.body.style.overflow = 'hidden';
+    });
+  });
+  function closeLb(){ lb.classList.remove('open'); document.body.style.overflow = ''; lbImg.src = ''; }
+  lb.addEventListener('click', e => { if(e.target === lb) closeLb(); });
+  document.getElementById('lbClose').addEventListener('click', closeLb);
+  document.addEventListener('keydown', e => { if(e.key === 'Escape') closeLb(); });
+</script>
+</body>
+</html>

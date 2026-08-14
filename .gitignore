@@ -1,0 +1,78 @@
+# ─── CD_GENERAL ───────────────────────────────────────────────────────────
+node_modules/
+
+# Отобранное на удаление (лежит вне репозитория по смыслу)
+_to_delete/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Служебные файлы Claude
+CLAUDE.md
+HOW_TO_ASK_CLAUDE.md
+INSTRUCTION.md
+Instructions/
+
+# Черновики и бэкапы
+projects/backup/
+index4.html
+
+# Внутренние материалы
+brandbook/
+start.command
+
+# Рабочие версии резюме
+resume/
+
+# ─── Медиа: исходники, не нужные для сайта ────────────────────────────────
+
+# Оригинальные фото (сайт использует только webp)
+assets/*/photo/jpg/
+assets/*/photo/JPG/
+
+# Внутренние документы в assets
+assets/**/*.docx
+assets/**/*.pptx
+
+# Концепт-материалы (внутренние)
+assets/*/concept/*
+# Исключение: этот concept-файл используется на странице clean-ocean
+!assets/msq_clean-ocean/concept/clean-ocean-route-map-nobg.webp
+
+# Карты фотослотов (внутренние)
+assets/**/*.md
+
+# Nebula — тяжёлые process-файлы, не используемые на сайте
+assets/nebula/process/Nebula_process.mp4
+assets/nebula/process/2.gif
+assets/nebula/process/3.gif
+assets/nebula/process/4.gif
+assets/nebula/process/nebula.gif
+assets/nebula/process/effect-03.gif
+assets/nebula/process/effect-04.gif
+assets/nebula/process/effect-05.gif
+assets/nebula/process/slides/
+
+# Moskvaruim — неиспользуемое видео
+assets/msq_10let/video/MSQ_10.mp4
+
+# Moskvaruim — тяжёлые PNG-превью разворотов (на сайте используются webp, ~55 МБ мёртвого веса)
+assets/msq_10let/photo/Preview book/
+
+# Capybara — PNG-оригиналы персонажей (сайт использует webp-версии)
+assets/capybarabooom/characters/*.png
+assets/capybarabooom/characters/cross_characters/
+assets/capybarabooom/kv/*.png
+
+# WayOfWater — PNG-дубли (webp-версии используются на сайте)
+assets/wayofwater/process/*.png
+assets/wayofwater/concept/
+assets/wayofwater/characters/Salty_new.png
+
+# Baal — неиспользуемые исходники
+assets/baal/photo/jpg/
+
+# Перенесённые оригиналы видео (не для сайта)
+assets/msq_10let/video/_originals/

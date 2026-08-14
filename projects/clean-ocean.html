@@ -1,0 +1,898 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>С океаном начистоту · Таня Самараковская</title>
+<meta name="description" content="«С океаном начистоту». WebAR-квест в экспозиции Москвариума о загрязнении воды. Десять локаций, десять персонажей, реальный мусор поверх живой воды. Креативное руководство: Таня Самараковская. Партнёры: BBDO, продакшн likeVR.">
+<meta name="robots" content="noindex, follow">
+<link rel="icon" type="image/webp" href="../assets/icon.webp">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:site_name" content="Tanya Samarakovskaya">
+<meta property="og:url" content="https://t.samarakovskaya.art/projects/clean-ocean.html">
+<meta property="og:title" content="С океаном начистоту · Таня Самараковская">
+<meta property="og:description" content="WebAR-квест в Москвариуме: десять локаций, десять персонажей, реальный мусор поверх живой воды.">
+<meta property="og:image" content="https://t.samarakovskaya.art/assets/preview_projects/clean-ocean.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="С океаном начистоту · Таня Самараковская">
+<meta name="twitter:description" content="WebAR-квест в Москвариуме: десять локаций, десять персонажей, реальный мусор поверх живой воды.">
+<meta name="twitter:image" content="https://t.samarakovskaya.art/assets/preview_projects/clean-ocean.webp">
+<link rel="canonical" href="https://t.samarakovskaya.art/projects/clean-ocean.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --graphite:#0E1418;--graphite-2:#16212A;--graphite-3:#1F2D38;
+    --cream:#F1ECDD;--cream-2:#E8E2CF;--cream-3:#DBD3B9;
+    --ink:#0E1418;--ink-2:#33424B;--ink-3:#6E7B82;
+    --bone:#EEF3F3;--bone-2:#A6B1B3;--bone-3:#6C787C;
+    --lime:#2F95E6;--lime-deep:#1366B0;--coral:#FF6B5C;
+    --grad:linear-gradient(120deg,#37A0EE 0%,#0E4C8F 100%);
+    --blue-deep:radial-gradient(120% 120% at 50% 0%,#123a5e 0%,#0b2238 48%,#08182a 100%);
+    --line-d:rgba(238,243,243,.10);--line-d2:rgba(238,243,243,.18);
+    --line-l:rgba(14,20,24,.12);--line-l2:rgba(14,20,24,.22);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  html,body{background:var(--graphite);color:var(--bone);font-family:"Space Grotesk","Helvetica Neue",sans-serif;-webkit-font-smoothing:antialiased}
+  body{overflow-x:hidden;min-height:100svh}
+  ::selection{background:var(--lime);color:#fff}
+  a{color:inherit;text-decoration:none}
+  button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+  img{display:block;max-width:100%}
+  body::before{content:"";position:fixed;inset:-50%;pointer-events:none;z-index:1000;opacity:.04;mix-blend-mode:screen;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
+
+  .ph{position:relative;background:var(--graphite-2);overflow:hidden}
+  .ph::before{content:attr(data-ph);position:absolute;inset:0;display:grid;place-items:center;font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:var(--bone-3);padding:18px;text-align:center;z-index:0;background-image:repeating-linear-gradient(135deg,rgba(255,255,255,.04) 0 8px,transparent 8px 16px)}
+  .ph img{position:relative;z-index:1;width:100%;height:100%;object-fit:cover;display:block}
+
+  /* TOP NAV */
+  .top{position:fixed;top:14px;left:50%;transform:translateX(-50%);z-index:60;width:calc(100% - 24px);max-width:1320px}
+  .nav-bar{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:8px;background:rgba(14,20,24,.72);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid var(--line-d);border-radius:999px;padding:7px 8px 7px 18px}
+  .back{display:inline-flex;align-items:center;gap:10px;font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--bone);white-space:nowrap}
+  .back::before{content:"←";color:var(--lime);font-size:14px}
+  .mag-nav{display:flex;align-items:center;justify-content:center;gap:2px;overflow:hidden}
+  .mag-pill{display:inline-flex;align-items:center;padding:7px 13px;border-radius:999px;font-family:"JetBrains Mono",monospace;font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--bone-3);transition:background .2s,color .2s;cursor:pointer;white-space:nowrap;will-change:transform;text-decoration:none}
+  .mag-pill:hover{background:rgba(238,243,243,.08);color:var(--bone)}
+  .mag-pill.active{color:var(--lime)}
+  @media(max-width:1000px){.mag-nav{display:none}}
+  .nav-cta{display:inline-flex;align-items:center;gap:7px;background:var(--lime);color:#fff;padding:9px 16px;border-radius:999px;font-family:"JetBrains Mono",monospace;font-size:10px;text-transform:uppercase;letter-spacing:.1em;font-weight:600;white-space:nowrap;flex-shrink:0}
+  .nav-cta::after{content:"↗\FE0E"}
+  .lang-toggle{display:inline-flex;gap:2px;padding:3px;background:rgba(238,243,243,.06);border:1px solid var(--line-d2);border-radius:99px;flex-shrink:0}
+  .lang-seg{padding:7px 9px;border-radius:99px;font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--bone-3);line-height:1;transition:background .2s,color .2s}
+  .lang-seg.on{background:var(--lime);color:#fff;font-weight:600}
+  .lang-seg:hover:not(.on){color:var(--bone)}
+
+  .wrap{max-width:1320px;margin:0 auto;padding:0 24px;width:100%}
+
+  /* PILLS */
+  .pill{display:inline-flex;align-items:center;gap:8px;padding:8px 14px 8px 12px;background:var(--graphite-2);border:1px solid var(--line-d);border-radius:999px;font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:lowercase;letter-spacing:.04em;color:var(--bone)}
+  .pill::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--lime);box-shadow:0 0 12px var(--lime)}
+  .pill.solid{background:var(--grad);color:#fff;border-color:transparent;font-weight:600;box-shadow:0 8px 22px rgba(14,76,143,.4)}
+  .pill.solid::before{background:#fff;box-shadow:none}
+
+  /* TEXT TREATMENTS */
+  .word-oval{position:relative;display:inline-block;padding:0 .18em;z-index:1;white-space:nowrap}
+  .word-oval::before{content:"";position:absolute;inset:-.06em -.06em -.04em -.06em;border-radius:999px;border:3px solid var(--lime);transform:rotate(-2deg) skewX(-2deg);z-index:-1}
+  .word-block{background:var(--lime);color:#fff;padding:0 .14em}
+
+  /* HERO — KV-картинка во весь экран, без текста */
+  .hero{position:relative;overflow:hidden;background:#07131c;line-height:0}
+  .hero-bg{position:relative;z-index:0;width:100%}
+  .hero-bg img{width:100%;height:auto;display:block}
+  /* низ героя: пилюли строкой выше, логотипы партнёров строкой ниже */
+  .hero-meta-row{position:absolute;top:clamp(84px,7vw,104px);left:0;right:0;z-index:3;display:flex;justify-content:center;flex-wrap:wrap;gap:10px;padding:0 clamp(24px,4vw,56px);line-height:1}
+  .hero-foot{position:absolute;left:0;right:0;bottom:clamp(20px,2.4vw,34px);z-index:3;padding:0 clamp(24px,4vw,56px);line-height:1}
+  .hero-meta-row .pill{background:rgba(7,19,28,.5);border-color:rgba(255,255,255,.22);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);color:#fff}
+  .hero-meta-row .pill.pill-case{text-transform:none;letter-spacing:.02em}
+  .hero-logos{display:flex;align-items:center;justify-content:space-between;gap:24px}
+  .hero-logos img{width:auto;opacity:.92;filter:drop-shadow(0 2px 10px rgba(0,0,0,.45))}
+  .hero-logos .lg-msq{height:clamp(30px,3.4vw,48px)}
+  .hero-logos .lg-bbdo{height:clamp(14px,1.5vw,22px)}
+
+  /* стикер: приклеен к правому краю, лёгкий параллакс при скролле */
+  .hero-sticker{position:absolute;right:0;bottom:clamp(120px,13vw,168px);z-index:4;width:clamp(150px,17vw,230px);filter:drop-shadow(0 14px 30px rgba(4,16,26,.45));pointer-events:none}
+  .hero-sticker img{width:100%;height:auto;display:block}
+
+  /* ниже 900 картинка становится низкой — низ героя уходит под неё, на картинке остаётся только стикер */
+  @media(max-width:900px){
+    .hero{line-height:normal}
+    .hero-meta-row{position:static;padding:20px clamp(20px,4vw,24px) 0;background:var(--graphite);justify-content:flex-start}
+    .hero-foot{position:static;padding:16px clamp(20px,4vw,24px) 4px;background:var(--graphite)}
+    .hero-meta-row .pill{font-size:10px;padding:7px 12px 7px 10px;backdrop-filter:none;-webkit-backdrop-filter:none;background:var(--graphite-2);border-color:var(--line-d)}
+    .hero-logos img{filter:none}
+    .hero-sticker{width:clamp(96px,15vw,140px);right:0;bottom:clamp(12px,2vw,18px)}
+  }
+  
+  /* MARQUEE */
+  .marq{background:var(--grad);color:#fff;overflow:hidden;padding:17px 0;border-block:1px solid rgba(255,255,255,.18)}
+  .marq-track{display:flex;gap:30px;width:max-content;animation:scroll 36s linear infinite;font-weight:700;font-size:clamp(20px,3vw,44px);letter-spacing:-.03em;line-height:1;white-space:nowrap;text-transform:uppercase}
+  .marq-track .dot{display:inline-block;width:.32em;height:.32em;border-radius:50%;background:#fff;vertical-align:middle;margin:0 .3em;opacity:.85}
+  @keyframes scroll{to{transform:translateX(-50%)}}
+
+  /* ABOUT (problem + initiative) */
+  .about{position:relative;overflow:hidden;background:#08171f;padding:100px 0}
+  @media(max-width:720px){.about{padding:64px 0}}
+  .about-bg{position:absolute;inset:0;z-index:0}
+  .about-bg img{width:100%;height:100%;object-fit:cover;opacity:.5}
+  .about-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#08171f 0%,rgba(8,23,31,.5) 32%,rgba(8,23,31,.72) 100%)}
+  .about-in{position:relative;z-index:2;display:grid;grid-template-columns:1.1fr 1fr;gap:56px;align-items:center}
+  @media(max-width:980px){.about-in{grid-template-columns:1fr;gap:40px}}
+  .about-eyebrow{display:inline-flex;align-items:center;gap:12px;font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.14em;color:var(--coral);margin-bottom:24px}
+  .about-eyebrow::before{content:"";width:34px;height:2px;background:var(--coral)}
+  .about-h{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:clamp(40px,5.4vw,86px);line-height:.96;letter-spacing:-.045em;color:#fff;text-wrap:balance}
+  .about-text{display:flex;flex-direction:column;gap:16px;margin-top:26px;max-width:54ch}
+  .about-text p{font-size:clamp(15px,1.3vw,18px);line-height:1.7;color:var(--bone-2)}
+  .about-text p b{color:#fff;font-weight:600}
+  .about-tags{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+  .atag{display:inline-flex;align-items:center;gap:10px;padding:11px 18px;border:1px solid var(--line-d2);border-radius:999px;background:rgba(8,23,31,.5);font-weight:600;font-size:14px;color:var(--bone)}
+  .atag svg{width:17px;height:17px;color:var(--lime)}
+  .stat-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+  @media(max-width:520px){.stat-cards{grid-template-columns:1fr}}
+  .stat-card{position:relative;border-radius:22px;padding:30px;background:rgba(10,26,37,.5);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid color-mix(in srgb,var(--c) 42%,transparent);min-height:210px;display:flex;flex-direction:column;justify-content:space-between}
+  .stat-card .v{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:clamp(40px,4.6vw,66px);line-height:.9;letter-spacing:-.045em;color:var(--c)}
+  .stat-card .v small{font-size:.46em;font-weight:700;letter-spacing:-.02em}
+  .stat-card .l{font-size:14px;line-height:1.45;color:var(--bone-2);margin-top:auto}
+
+  /* FEATURE (phone) — phone bottom-anchored, no gap to next block */
+  .feature{background:var(--blue-deep);position:relative;overflow:hidden}
+  .feature-in{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:40px;align-items:stretch;padding:90px 0 0}
+  @media(max-width:900px){.feature-in{grid-template-columns:1fr;gap:18px;padding:64px 0 0}}
+  .feature-phone{position:relative;display:flex;justify-content:center;align-items:flex-end;min-height:58vh}
+  @media(max-width:900px){.feature-phone{min-height:46vh}}
+  .feature-phone img{width:auto;max-width:100%;max-height:80vh;filter:drop-shadow(0 40px 80px rgba(0,0,0,.5))}
+  @media(max-width:900px){.feature-phone img{max-width:100%;max-height:62vh}}
+  .feature-body{align-self:center;padding-bottom:40px}
+  @media(max-width:900px){.feature-body{order:-1;padding-bottom:0}}
+  .feature-eyebrow{display:inline-flex;align-items:center;gap:12px;font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.14em;color:var(--coral);margin-bottom:22px}
+  .feature-eyebrow::before{content:"";width:34px;height:2px;background:var(--coral)}
+  .feature-h{font-weight:700;font-size:clamp(40px,5.6vw,84px);line-height:.96;letter-spacing:-.045em;color:#fff;font-family:"Bricolage Grotesque",sans-serif}
+  .feature-h .coral{color:var(--coral)}
+  .feature-p{font-size:clamp(15px,1.4vw,19px);line-height:1.7;color:var(--bone-2);margin-top:26px;max-width:46ch}
+  .feature-p b{color:var(--bone);font-weight:600}
+
+  /* PULL QUOTE */
+  .pullq{position:relative;min-height:74vh;display:flex;align-items:center;background:var(--graphite);overflow:hidden}
+  .pullq-bg{position:absolute;inset:0;z-index:0;opacity:.24}
+  .pullq-bg .ph{position:absolute;inset:0}
+  .pullq-bg::after{content:"";position:absolute;inset:0;background:radial-gradient(60% 60% at 50% 50%,transparent 0%,var(--graphite) 90%)}
+  .pullq-inner{position:relative;z-index:2;max-width:1320px;margin:0 auto;padding:80px 28px;text-align:center;width:100%}
+  .pullq-text{font-weight:700;font-size:clamp(34px,6vw,96px);line-height:1.02;letter-spacing:-.04em;text-wrap:balance}
+
+  /* SECTIONS */
+  .sec{padding:90px 0 100px}
+  .sec.on-graphite{background:var(--graphite);color:var(--bone)}
+  .sec.on-blue{background:var(--blue-deep);color:var(--bone)}
+  .sec-head{display:grid;grid-template-columns:auto 1fr auto;gap:32px;align-items:end;padding-bottom:28px;border-bottom:1px solid var(--line-d);margin-bottom:56px}
+  @media(max-width:780px){.sec-head{grid-template-columns:1fr;gap:14px}.sec-head>div:empty{display:none}}
+  .sec-label{font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:var(--bone-3);display:inline-flex;align-items:center;gap:10px;white-space:nowrap}
+  .sec-label::before{content:"✦";color:var(--lime);font-size:12px}
+  .sec-side{font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--bone-2);text-align:right;line-height:1.7}
+  .sec-side b{font-weight:700;color:var(--bone)}
+  .sec-h{font-weight:700;font-size:clamp(44px,8vw,120px);line-height:.9;letter-spacing:-.045em;text-wrap:balance}
+  .sec-h .em{color:var(--lime)}
+
+  /* ROUTE MAP — transparent plan (no background), with text */
+  .map-blue{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:48px;align-items:center}
+  @media(max-width:900px){.map-blue{grid-template-columns:1fr;gap:28px}}
+  .map-blue-img{position:relative}
+  .map-blue-img img{width:100%;height:auto;display:block;filter:drop-shadow(0 30px 60px rgba(0,0,0,.5))}
+
+  /* VIDEO */
+  .video-frame{position:relative;border-radius:22px;overflow:hidden;aspect-ratio:16/9;background:var(--blue-deep);border:1px solid var(--line-d2);display:flex;align-items:center;justify-content:center;width:100%;max-width:calc(78vh * 16 / 9);max-width:calc(78svh * 16 / 9);margin-inline:auto}
+  .video-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+  .video-cap{text-align:center;font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--bone-3);margin-top:18px}
+  .map-blue-body h3{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:clamp(28px,3.4vw,52px);line-height:.98;letter-spacing:-.035em;color:#fff;margin-bottom:18px}
+  .map-blue-body p{font-size:15px;line-height:1.7;color:rgba(255,255,255,.86)}
+  .map-blue-body p b{color:#fff;font-weight:700}
+
+  /* HOW IT WORKS — numbered step cards */
+  .steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+  @media(max-width:900px){.steps{grid-template-columns:repeat(2,minmax(0,1fr))}}
+  @media(max-width:600px){.steps{grid-template-columns:1fr}}
+  .step-card{background:linear-gradient(160deg,rgba(58,120,180,.20) 0%,rgba(12,34,56,.30) 100%);border:1px solid rgba(120,170,220,.16);border-radius:22px;padding:30px 30px 34px}
+  .step-top{display:flex;align-items:center;gap:12px;margin-bottom:24px}
+  .step-num{width:46px;height:46px;border-radius:13px;display:grid;place-items:center;font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:22px;color:var(--c);background:color-mix(in srgb,var(--c) 18%,transparent);border:1px solid color-mix(in srgb,var(--c) 45%,transparent)}
+  .step-ic{width:40px;height:40px;border-radius:11px;display:grid;place-items:center;color:var(--c);background:color-mix(in srgb,var(--c) 14%,transparent)}
+  .step-ic svg{width:20px;height:20px}
+  .step-card h3{font-weight:700;font-size:clamp(18px,1.7vw,23px);letter-spacing:-.02em;color:#fff;line-height:1.05;margin-bottom:12px}
+  .step-card p{font-size:14px;line-height:1.6;color:var(--bone-2)}
+
+  /* MASCOTS — frameless, sharp edges */
+  .masks{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:34px 22px}
+  @media(max-width:1080px){.masks{grid-template-columns:repeat(3,minmax(0,1fr))}}
+  @media(max-width:640px){.masks{grid-template-columns:repeat(2,minmax(0,1fr));gap:26px 16px}}
+  .mask{display:flex;flex-direction:column;cursor:zoom-in;min-width:0}
+  .mask-img{position:relative;aspect-ratio:1/1;overflow:hidden}
+  .mask-img img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.2,.8,.2,1)}
+  .mask:hover .mask-img img{transform:scale(1.06)}
+  .mask-num{font-family:"JetBrains Mono",monospace;font-size:11px;font-weight:700;color:var(--lime);letter-spacing:.06em;margin:14px 0 4px}
+  .mask-name{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:clamp(17px,1.5vw,22px);letter-spacing:-.02em;color:var(--bone);line-height:1}
+  .mask-zone{font-family:"JetBrains Mono",monospace;font-size:10px;text-transform:uppercase;letter-spacing:.07em;color:var(--bone-3);margin-top:6px;line-height:1.4}
+  .mask-poll{font-family:"JetBrains Mono",monospace;font-size:10px;text-transform:uppercase;letter-spacing:.05em;color:var(--bone-2);margin-top:3px;line-height:1.4}
+
+  /* SCREENS — sequential UI flow, horizontal scroll-snap lane */
+  .screens-lane{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x proximity;padding:4px 24px 26px;margin:0 -24px;-webkit-overflow-scrolling:touch;scrollbar-width:thin;scrollbar-color:var(--line-d2) transparent}
+  .screens-lane::-webkit-scrollbar{height:6px}
+  .screens-lane::-webkit-scrollbar-track{background:transparent}
+  .screens-lane::-webkit-scrollbar-thumb{background:var(--line-d2);border-radius:99px}
+  .screen{flex:0 0 auto;width:clamp(196px,40vw,260px);scroll-snap-align:start}
+  .screen-frame{position:relative;border-radius:26px;overflow:hidden;background:#0a1722;border:1px solid var(--line-d2);box-shadow:0 24px 52px rgba(0,0,0,.5);aspect-ratio:1080/1830;cursor:zoom-in}
+  .screen-frame img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s cubic-bezier(.2,.8,.2,1)}
+  .screen:hover .screen-frame img{transform:scale(1.04)}
+  .screen-cap{display:flex;align-items:baseline;gap:9px;margin-top:14px}
+  .screen-num{font-family:"JetBrains Mono",monospace;font-size:11px;font-weight:700;color:var(--lime);letter-spacing:.06em;flex-shrink:0}
+  .screen-label{font-family:"JetBrains Mono",monospace;font-size:10px;text-transform:uppercase;letter-spacing:.07em;color:var(--bone-3);line-height:1.4}
+  .screens-hint{display:flex;align-items:center;gap:10px;font-family:"JetBrains Mono",monospace;font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--bone-3);margin-top:18px}
+  .screens-hint::before{content:"";width:26px;height:1px;background:var(--line-d2)}
+
+  /* GALLERY */
+  .gal{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0}
+  @media(max-width:780px){.gal{grid-template-columns:repeat(2,minmax(0,1fr))}}
+  .gi{position:relative;overflow:hidden;background:var(--graphite-2);cursor:zoom-in;aspect-ratio:4/3}
+  .gi .ph{position:absolute;inset:0}
+  .gi img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s ease}
+  .gi:hover img{transform:scale(1.05)}
+  .gi::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.3) 0%,transparent 30%);opacity:.5;pointer-events:none;transition:opacity .3s}
+  .gi:hover::after{opacity:.1}
+  .gcap{background:var(--grad);color:#fff;padding:28px 24px;display:flex;flex-direction:column;justify-content:flex-end;gap:8px;aspect-ratio:4/3}
+  .gcap .big{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:clamp(26px,3.4vw,52px);line-height:.9;letter-spacing:-.04em;color:#fff}
+  .gcap .sub{font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.82)}
+  @media(max-width:780px){.gcap{display:none}}
+
+  /* lightbox */
+  .lb{display:none;position:fixed;inset:0;z-index:200;background:rgba(0,0,0,.96);align-items:center;justify-content:center}
+  .lb.open{display:flex}
+  .lb img{max-width:80vw;max-height:86vh;object-fit:contain;user-select:none;transition:opacity .18s ease}
+  .lb img.fade{opacity:0}
+  .lb-close{position:absolute;top:20px;right:24px;font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--bone-2);padding:8px;cursor:pointer;z-index:2}
+  .lb-close:hover{color:var(--lime)}
+  .lb-nav{position:absolute;top:50%;transform:translateY(-50%);font-family:"JetBrains Mono",monospace;font-size:24px;color:var(--bone-2);padding:16px 22px;cursor:pointer;z-index:2;transition:color .2s;line-height:1}
+  .lb-nav:hover{color:var(--lime)}
+  .lb-prev{left:20px}.lb-next{right:20px}
+  .lb-counter{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:var(--bone-3)}
+
+  /* CREDITS (cream) */
+  .credits{padding:90px 0;background:var(--cream);color:var(--ink)}
+  .credits-top{display:grid;grid-template-columns:1fr 1fr;gap:32px;border-bottom:1px solid var(--line-l);padding-bottom:48px;margin-bottom:48px;align-items:end}
+  @media(max-width:900px){.credits-top{grid-template-columns:1fr}}
+  .credits-title{font-weight:700;font-size:clamp(48px,8vw,118px);line-height:.9;letter-spacing:-.04em}
+  .credits-facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:26px 30px;align-self:end}
+  .cred-fact{font-family:"JetBrains Mono",monospace;font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--ink-3)}
+  .cred-fact strong{display:block;font-family:"Space Grotesk",sans-serif;font-size:clamp(28px,3.2vw,46px);font-weight:700;letter-spacing:-.04em;line-height:.9;color:var(--ink);margin-bottom:6px}
+  .credits-body{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0}
+  @media(max-width:900px){.credits-body{grid-template-columns:1fr}}
+  .cred-row{display:grid;grid-template-columns:150px minmax(0,1fr);gap:16px;padding:18px 0;border-bottom:1px solid var(--line-l);align-items:baseline}
+  .cred-row:first-child{border-top:1px solid var(--line-l)}
+  .cred-row dt{font-family:"JetBrains Mono",monospace;font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--ink-3)}
+  .cred-row dd{font-weight:600;font-size:clamp(16px,1.5vw,20px);letter-spacing:-.015em;line-height:1.25;color:var(--ink)}
+  .credits-col-right{padding-left:36px}
+  @media(max-width:900px){.credits-col-right{padding-left:0;margin-top:6px}}
+  .cred-row dd .cred-sub{display:block;margin-top:6px;font-family:"JetBrains Mono",monospace;font-size:10px;font-weight:400;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-3)}
+  .credits-src{margin-top:36px;font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3)}
+  .credits-src a{color:var(--ink);text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px}
+  .credits-src a:hover{color:var(--ink-3)}
+  .role-statement{font-weight:600;font-size:clamp(18px,1.9vw,24px);line-height:1.4;letter-spacing:-.015em;color:var(--ink);max-width:46ch}
+
+  /* PROJ NAV */
+  .proj-nav{border-top:1px solid var(--line-d);background:var(--graphite)}
+  .proj-nav-inner{display:grid;grid-template-columns:1fr auto 1fr;max-width:1320px;margin:0 auto}
+  @media(max-width:760px){.proj-nav-inner{grid-template-columns:1fr}}
+  .pn-card{position:relative;overflow:hidden;padding:48px 36px;display:flex;flex-direction:column;justify-content:flex-end;gap:8px;transition:background .3s;border-right:1px solid var(--line-d)}
+  .pn-card:last-child{border-right:0;border-left:1px solid var(--line-d);text-align:right}
+  .pn-card:hover{background:var(--graphite-2)}
+  .pn-card .bg{position:absolute;inset:0;object-fit:cover;width:100%;height:100%;opacity:.14;transition:opacity .4s;filter:saturate(.5)}
+  .pn-card:hover .bg{opacity:.3}
+  .pn-dir{position:relative;z-index:1;font-family:"JetBrains Mono",monospace;font-size:10px;text-transform:uppercase;letter-spacing:.14em;color:var(--bone-3);margin-bottom:8px}
+  .pn-name{position:relative;z-index:1;font-weight:700;font-size:clamp(26px,3.6vw,52px);line-height:1;letter-spacing:-.03em;color:var(--bone)}
+  .pn-sub{position:relative;z-index:1;font-family:"JetBrains Mono",monospace;font-size:10px;color:var(--bone-3);margin-top:6px;text-transform:uppercase;letter-spacing:.08em}
+  .pn-contact{display:flex;align-items:center;justify-content:center;padding:48px 36px;flex-direction:column;gap:14px}
+  .pn-contact-label{font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:var(--bone-3)}
+  .pn-btn{display:inline-flex;align-items:center;gap:10px;background:var(--grad);color:#fff;padding:14px 24px;border-radius:999px;font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.1em;font-weight:600;transition:transform .25s}
+  .pn-contact:hover .pn-btn{transform:translateY(-3px)}
+
+  footer{padding:28px 24px;border-top:1px solid var(--line-d);font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--bone-3);background:var(--graphite)}
+  .foot-row{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;align-items:center;max-width:1320px;margin:0 auto}
+  .foot-row b{color:var(--bone);font-weight:500}
+  .foot-row a:hover{color:var(--lime)}
+
+  .reveal{opacity:0;transform:translateY(20px);transition:opacity .8s ease,transform .8s ease}
+  .reveal.in{opacity:1;transform:none}
+  .stagger>*{opacity:0;transform:translateY(16px);transition:opacity .55s cubic-bezier(.2,.7,.2,1),transform .55s cubic-bezier(.2,.7,.2,1)}
+  .stagger.in>*{opacity:1;transform:none}
+  @media (prefers-reduced-motion:no-preference){
+    .hero-kv{opacity:0;animation:fade 1s ease .1s forwards}
+    .hero-cap{opacity:0;transform:translateY(20px);animation:rise .9s cubic-bezier(.2,.7,.2,1) .35s forwards}
+  }
+  @keyframes rise{to{opacity:1;transform:none}}
+  @keyframes fade{to{opacity:1}}
+  @media (prefers-reduced-motion:reduce){.reveal,.stagger>*{opacity:1!important;transform:none!important}.hero-kv,.hero-cap{opacity:1!important;transform:none!important;animation:none!important}}
+</style>
+<style id="ru-switch-css">
+.nav-end{display:inline-flex;align-items:center;gap:8px;flex-shrink:0}
+@media(max-width:560px){.nav-bar{padding:6px 7px 6px 14px;gap:6px}.nav-end{gap:6px}.nav-cta{padding:8px 12px}.back{font-size:10px}}
+.lang-toggle{display:inline-flex;gap:2px;padding:3px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.16);border-radius:999px;flex-shrink:0}
+.lang-toggle .lang-seg{padding:6px 9px;border-radius:999px;font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:rgba(241,236,221,.6);line-height:1;text-decoration:none;transition:color .2s,background .2s}
+.lang-toggle .lang-seg.on{background:#f1ecdd;color:#16161a;font-weight:600}
+.lang-toggle a.lang-seg:hover{color:#fff}
+
+/* NAV FIX 31.07.2026 — «Написать» всегда у правого края шапки, RU/EN только на десктопе */
+.nav-bar>.nav-end{margin-left:auto}
+.nav-bar>.lang-toggle{margin-left:auto}
+@media(max-width:780px){
+  .nav-bar .lang-toggle{display:none}
+  .nav-bar>.nav-cta{margin-left:auto}
+}
+
+/* FOOT LANG 31.07.2026 — переключатель языка в футере, только на мобильном (в шапке он скрыт) */
+.foot-lang{display:none}
+@media(max-width:780px){
+  .foot-lang{display:inline-flex;align-items:center;padding:6px 12px;border:1px solid currentColor;border-radius:999px;font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;color:inherit;opacity:.75}
+}
+</style>
+<link rel="alternate" hreflang="ru" href="https://t.samarakovskaya.art/projects/clean-ocean.html">
+<link rel="alternate" hreflang="en" href="https://t.samarakovskaya.art/en/projects/clean-ocean.html">
+<link rel="alternate" hreflang="x-default" href="https://t.samarakovskaya.art/projects/clean-ocean.html">
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=110759704', 'ym');
+    ym(110759704, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/110759704" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+</head>
+<body>
+
+<div class="lb" id="lb">
+  <button class="lb-close" id="lbClose" data-i18n="lb.close">[ESC] закрыть</button>
+  <button class="lb-nav lb-prev" id="lbPrev">←</button>
+  <img id="lbImg" src="" alt="">
+  <button class="lb-nav lb-next" id="lbNext">→</button>
+  <div class="lb-counter" id="lbCounter"></div>
+</div>
+
+<!-- TOP NAV -->
+<header class="top">
+  <div class="nav-bar">
+    <a class="back" href="../index.html#works" data-i18n="n.back">Все проекты</a>
+    <nav class="mag-nav" id="magNav">
+      <a class="mag-pill" href="#s-about" data-section="s-about" data-i18n="n.m1">Проект</a>
+      <a class="mag-pill" href="#s-route" data-section="s-route" data-i18n="n.m2">Маршрут</a>
+      <a class="mag-pill" href="#s-how" data-section="s-how" data-i18n="n.m3">Как играть</a>
+      <a class="mag-pill" href="#s-screens" data-section="s-screens" data-i18n="n.m4">Экраны</a>
+      <a class="mag-pill" href="#s-mascots" data-section="s-mascots" data-i18n="n.m5">Персонажи</a>
+      <a class="mag-pill" href="#s-credits" data-section="s-credits" data-i18n="n.m6">Команда</a>
+    </nav>
+    <div class="nav-end">
+      <div class="lang-toggle" id="langToggle" role="group" aria-label="Language / Язык">
+        <span class="lang-seg on" data-lang="ru">RU</span>
+        <a class="lang-seg" data-lang="en" href="../en/projects/clean-ocean.html">EN</a>
+      </div>
+      <a class="nav-cta" href="https://t.me/samarakovskaya_tanya" target="_blank" rel="noopener" data-i18n="n.cta">Написать</a>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <h1 style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0" data-i18n="h.h1">С океаном начистоту — WebAR-квест в Москвариуме</h1>
+  <div class="hero-bg" id="heroBg" aria-hidden="true">
+    <img src="../assets/msq_clean-ocean/kv/clean-ocean-kv-buoy.webp" alt="С океаном начистоту — Москвариум × BBDO" loading="eager" decoding="async">
+  </div>
+  <div class="hero-sticker" id="heroSticker" aria-hidden="true">
+    <img src="../assets/msq_clean-ocean/logo/sticker-eco-quest.webp" alt="" loading="eager" decoding="async">
+  </div>
+  <div class="hero-meta-row">
+    <span class="pill" data-i18n="h.pill1">москвариум</span>
+    <span class="pill" data-i18n="h.pill2">bbdo</span>
+    <span class="pill pill-case">WebAR</span>
+    <span class="pill" data-i18n="h.pill3">квест</span>
+    <span class="pill" data-i18n="h.pill4">creative direction</span>
+  </div>
+  <div class="hero-foot">
+    <div class="hero-logos">
+      <img class="lg-msq" src="../assets/msq_clean-ocean/logo/moskvarium-white.webp" alt="Москвариум" loading="eager" decoding="async">
+      <img class="lg-bbdo" src="../assets/msq_clean-ocean/logo/bbdo-white.webp" alt="BBDO" loading="eager" decoding="async">
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marq" aria-hidden="true">
+  <div class="marq-track">
+    <span data-i18n="marq.row">Десять локаций <span class="dot"></span> десять персонажей <span class="dot"></span> кодовое слово экоспасателя <span class="dot"></span> пластик · нефть · микропластик · сети <span class="dot"></span> WebAR без приложения <span class="dot"></span> </span>
+    <span data-i18n="marq.row">Десять локаций <span class="dot"></span> десять персонажей <span class="dot"></span> кодовое слово экоспасателя <span class="dot"></span> пластик · нефть · микропластик · сети <span class="dot"></span> WebAR без приложения <span class="dot"></span> </span>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="about" id="s-about">
+  <div class="about-bg" aria-hidden="true"><img loading="lazy" decoding="async" src="../assets/msq_clean-ocean/process/clean-ocean-underwater-bg.webp" alt=""></div>
+  <div class="wrap">
+    <div class="about-in">
+      <div class="about-left reveal">
+        <span class="about-eyebrow" data-i18n="about.eyebrow">О проекте</span>
+        <h2 class="about-h" data-i18n="about.h">Экологическая инициатива о судьбе воды</h2>
+        <div class="about-text">
+          <p data-i18n="about.p1">«С океаном начистоту» — совместный проект Москвариума и креативного агентства BBDO. Образовательный интерактивный проект, который в понятном формате рассказывает о загрязнении мирового океана, показывает последствия для водных обитателей и предлагает простые действия, доступные каждому.</p>
+          <p data-i18n="about.p2">Проект стартовал во Всемирный день Океана, <b>8 июня 2026 года</b>, в экспозиции Москвариума на ВДНХ.</p>
+        </div>
+        <div class="about-tags">
+          <span class="atag" data-i18n="about.tag1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c4 5 6 8 6 11a6 6 0 0 1-12 0c0-3 2-6 6-11z"/></svg>Загрязнение воды</span>
+          <span class="atag" data-i18n="about.tag2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.6 5.6 6.1.7-4.5 4.1 1.2 6L12 16.9 6.6 19.5l1.2-6L3.3 9.3l6.1-.7z"/></svg>Интерактивный формат</span>
+          <span class="atag" data-i18n="about.tag3"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.4"/><path d="M3 19c0-3 2.6-5 6-5s6 2 6 5M16.5 14.2c2.3.2 4.5 1.8 4.5 4.8"/></svg>Для всей семьи</span>
+          <span class="atag" data-i18n="about.tag4"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l3 8 4-16 3 8h4"/></svg>Практические советы</span>
+        </div>
+      </div>
+      <div class="stat-cards reveal stagger">
+        <div class="stat-card" style="--c:#FF6B5C"><span class="v">10</span><span class="l" data-i18n="about.stat1">локаций в экспозиции Москвариума</span></div>
+        <div class="stat-card" style="--c:#45C4E0"><span class="v">WebAR</span><span class="l" data-i18n="about.stat2">без скачивания приложения</span></div>
+        <div class="stat-card" style="--c:#9B8CFF"><span class="v">10</span><span class="l" data-i18n="about.stat3">персонажей-проводников</span></div>
+        <div class="stat-card" style="--c:#F2B33D"><span class="v">8 <small data-i18n="about.stat4-mo">июня</small></span><span class="l" data-i18n="about.stat4">старт во Всемирный день Океана</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VIDEO -->
+<section class="sec on-graphite" id="s-video">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-label" data-i18n="video.label">Видео</span>
+      <div></div>
+      <div class="sec-side" data-i18n="video.side">прохождение<br><b>квеста</b></div>
+    </div>
+    <div class="video-frame reveal">
+      <iframe src="https://www.youtube-nocookie.com/embed/nUlaF-BUMMI?rel=0&amp;modestbranding=1&amp;playsinline=1" title="Прохождение WebAR-квеста «С океаном начистоту»" loading="lazy" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
+    <p class="video-cap" data-i18n="video.cap">Нажмите, чтобы посмотреть прохождение квеста</p>
+  </div>
+</section>
+
+<!-- FEATURE -->
+<section class="feature" id="s-feature">
+  <div class="wrap">
+    <div class="feature-in">
+      <div class="feature-phone reveal">
+        <img src="../assets/msq_clean-ocean/kv/clean-ocean-mission-phone.webp" alt="Экран WebAR-миссии «С океаном начистоту»">
+      </div>
+      <div class="feature-body reveal">
+        <span class="feature-eyebrow" data-i18n="feature.eyebrow">Экоквест в экспозиции</span>
+        <h2 class="feature-h" data-i18n="feature.h">Экоквест.<br>10 локаций.<br><span class="coral">10 персонажей.</span></h2>
+        <p class="feature-p" data-i18n="feature.p">Десять аквариумов с QR-кодами по всей экспозиции Москвариума: от перелётных скатов до большого морского танка с акулами. <b>Сканируешь, открываешь WebAR без установки приложения и помогаешь очищать воду.</b></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PULL QUOTE -->
+<section class="pullq" style="min-height:70vh">
+  <div class="pullq-bg" aria-hidden="true">
+    <div class="ph" data-ph="скан аквариума"><img loading="lazy" decoding="async" src="../assets/msq_clean-ocean/photo/webp/clean-ocean-ar-01.webp" alt=""></div>
+  </div>
+  <div class="pullq-inner reveal">
+    <p class="pullq-text" data-i18n="pullq1.text">Чистая вода — это не данность.<br>Поможем океану <span class="word-block">вместе</span>.</p>
+  </div>
+</section>
+
+<!-- ROUTE -->
+<section class="sec on-graphite" id="s-route">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-label" data-i18n="route.label">01 / Маршрут</span>
+      <div></div>
+      <div class="sec-side" data-i18n="route.side">по всей<br><b>экспозиции</b></div>
+    </div>
+    <h2 class="sec-h reveal" style="margin-bottom:48px" data-i18n="route.h">Эдьютеймент-квест.<br><span class="em">10 локаций</span>.</h2>
+    <div class="map-blue reveal">
+      <div class="map-blue-img"><img loading="lazy" decoding="async" src="../assets/msq_clean-ocean/concept/clean-ocean-route-map-nobg.webp" alt="Схема экспозиции Москвариума с игровыми локациями маршрута"></div>
+      <div class="map-blue-body">
+        <h3 data-i18n="route.h3">Сканируй QR. Играй. Очищай.</h3>
+        <p data-i18n="route.p">Точки расставлены по реальному пути Москвариума, чтобы цифровой слой усиливал прогулку. Девять локаций с AR-игрой и точка с эко-чек-листом. Посетитель проходит короткую миссию там, где и так интересно, и идёт дальше. <b>Кит в большом морском аквариуме закрывает маршрут</b> и собирает кодовое слово экоспасателя.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="sec on-blue" id="s-how">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-label" data-i18n="how.label">02 / Как играть</span>
+      <div></div>
+      <div class="sec-side" data-i18n="how.side">маршрут из<br><b>девяти шагов</b></div>
+    </div>
+    <h2 class="sec-h reveal" style="margin-bottom:52px" data-i18n="how.h">Как устроена <span class="em">игра</span>.</h2>
+    <div class="steps stagger reveal">
+      <div class="step-card" style="--c:#FF6B5C">
+        <div class="step-top"><span class="step-num">1</span><span class="step-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><path d="M10 17l5-5-5-5"/><path d="M15 12H3"/></svg></span></div>
+        <h3 data-i18n="how.s1h">Приходишь в экспозицию</h3>
+        <p data-i18n="how.s1p">Стандартный билет в Москвариум на Проспекте Мира, 119с23.</p>
+      </div>
+      <div class="step-card" style="--c:#F2B33D">
+        <div class="step-top"><span class="step-num">2</span><span class="step-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h3v3M21 21v.01M17 21h.01M21 17h.01"/></svg></span></div>
+        <h3 data-i18n="how.s2h">Находишь QR-код</h3>
+        <p data-i18n="how.s2p">Наклейка «смятый стаканчик» на стекле аквариума.</p>
+      </div>
+      <div class="step-card" style="--c:#45C4E0">
+        <div class="step-top"><span class="step-num">3</span><span class="step-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.5 2.7 2.5 15.3 0 18M12 3c-2.5 2.7-2.5 15.3 0 18"/></svg></span></div>
+        <h3 data-i18n="how.s3h">Открываешь WebAR</h3>
+        <p data-i18n="how.s3p">Прямо в Safari или Chrome, без установки.</p>
+      </div>
+      <div class="step-card" style="--c:#9B8CFF">
+        <div class="step-top"><span class="step-num">4</span><span class="step-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8a2 2 0 0 1 2-2h2l1.5-2h7L17 6h2a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><circle cx="12" cy="13" r="3.5"/></svg></span></div>
+        <h3 data-i18n="how.s4h">Наводишь камеру</h3>
+        <p data-i18n="how.s4p">На реальный аквариум, поверх которого дорисованы загрязнения.</p>
+      </div>
+      <div class="step-card" style="--c:#57C77A">
+        <div class="step-top"><span class="step-num">5</span><span class="step-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg></span></div>
+        <h3 data-i18n="how.s5h">Видишь AR-загрязнение</h3>
+        <p data-i18n="how.s5p">Бутылки, плёнка, нефть, микропластик. Всё, что незаметно глазу.</p>
+      </div>
+      <div class="step-card" style="--c:#FF8A4C">
+        <div class="step-top"><span class="step-num">6</span><span class="step-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c4 5 6 8 6 11a6 6 0 0 1-12 0c0-3 2-6 6-11z"/></svg></span></div>
+        <h3 data-i18n="how.s6h">Очищаешь воду</h3>
+        <p data-i18n="how.s6p">Сачок, скиммер, бластер, пылесос или гарпун. На каждой локации своё.</p>
+      </div>
+      <div class="step-card" style="--c:#FF6B5C">
+        <div class="step-top"><span class="step-num">7</span><span class="step-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-4 10c.7.8 1 1.5 1 2h6c0-.5.3-1.2 1-2a6 6 0 0 0-4-10z"/></svg></span></div>
+        <h3 data-i18n="how.s7h">Получаешь факт и совет</h3>
+        <p data-i18n="how.s7p">Персонаж рассказывает о загрязнении и даёт практический совет.</p>
+      </div>
+      <div class="step-card" style="--c:#F2B33D">
+        <div class="step-top"><span class="step-num">8</span><span class="step-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7V5h16v2M9 19h6M12 5v14"/></svg></span></div>
+        <h3 data-i18n="how.s8h">Собираешь букву</h3>
+        <p data-i18n="how.s8p">За каждую локацию буква от секретного кодового слова.</p>
+      </div>
+      <div class="step-card" style="--c:#45C4E0">
+        <div class="step-top"><span class="step-num">9</span><span class="step-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="5"/><path d="M8.5 12.5 7 22l5-3 5 3-1.5-9.5"/></svg></span></div>
+        <h3 data-i18n="how.s9h">Открываешь награды</h3>
+        <p data-i18n="how.s9p">Собрал слово целиком, получил доступ к скрытой странице с цифровыми подарками.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SCREENS -->
+<section class="sec on-graphite" id="s-screens" style="padding-bottom:46px">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-label" data-i18n="screens.label">03 / Экраны</span>
+      <div></div>
+      <div class="sec-side" data-i18n="screens.side">интерфейс<br><b>квеста</b></div>
+    </div>
+    <h2 class="sec-h reveal" style="margin-bottom:48px;font-size:clamp(34px,5.2vw,76px)" data-i18n="screens.h">Путь игрока <span class="em">от старта до награды</span>.</h2>
+    <div class="screens-lane reveal">
+      <div class="screen"><div class="screen-frame"><img loading="lazy" decoding="async" src="../assets/msq_clean-ocean/screens/clean-ocean-screen-01-zagruzka.webp" alt="Экран загрузки квеста «С океаном начистоту»"></div><div class="screen-cap"><span class="screen-num">01</span><span class="screen-label" data-i18n="screens.s1">Заставка</span></div></div>
+      <div class="screen"><div class="screen-frame"><img loading="lazy" decoding="async" src="../assets/msq_clean-ocean/screens/clean-ocean-screen-02-privetstvie.webp" alt="Экран приветствия персонажа"></div><div class="screen-cap"><span class="screen-num">02</span><span class="screen-label" data-i18n="screens.s2">Приветствие героя</span></div></div>
+      <div class="screen"><div class="screen-frame"><img loading="lazy" decoding="async" src="../assets/msq_clean-ocean/screens/clean-ocean-screen-03-onbording.webp" alt="Экран знакомства с проблемой"></div><div class="screen-cap"><span class="screen-num">03</span><span class="screen-label" data-i18n="screens.s3">Онбординг</span></div></div>
+      <div class="screen"><div class="screen-frame"><img loading="lazy" decoding="async" src="../assets/msq_clean-ocean/screens/clean-ocean-screen-04-igra.webp" alt="Экран геймплея: очистка воды"></div><div class="screen-cap"><span class="screen-num">04</span><span class="screen-label" data-i18n="screens.s4">Геймплей · очистка</span></div></div>
+      <div class="screen"><div class="screen-frame"><img loading="lazy" decoding="async" src="../assets/msq_clean-ocean/screens/clean-ocean-screen-05-skat-sovet.webp" alt="Экран совета от персонажа"></div><div class="screen-cap"><span class="screen-num">05</span><span class="screen-label" data-i18n="screens.s5">Совет ската</span></div></div>
+      <div class="screen"><div class="screen-frame"><img loading="lazy" decoding="async" src="../assets/msq_clean-ocean/screens/clean-ocean-screen-06-sovet.webp" alt="Экран практического совета"></div><div class="screen-cap"><span class="screen-num">06</span><span class="screen-label" data-i18n="screens.s6">Практический совет</span></div></div>
+      <div class="screen"><div class="screen-frame"><img loading="lazy" decoding="async" src="../assets/msq_clean-ocean/screens/clean-ocean-screen-07-neony-fakt.webp" alt="Экран факта и собранной буквы кодового слова"></div><div class="screen-cap"><span class="screen-num">07</span><span class="screen-label" data-i18n="screens.s7">Факт и буква</span></div></div>
+      <div class="screen"><div class="screen-frame"><img loading="lazy" decoding="async" src="../assets/msq_clean-ocean/screens/clean-ocean-screen-08-kit-final.webp" alt="Экран продолжения очистки"></div><div class="screen-cap"><span class="screen-num">08</span><span class="screen-label" data-i18n="screens.s8">Очистка дальше</span></div></div>
+      <div class="screen"><div class="screen-frame"><img loading="lazy" decoding="async" src="../assets/msq_clean-ocean/screens/clean-ocean-screen-09-dostizhenie.webp" alt="Экран награды «Друг океанов»"></div><div class="screen-cap"><span class="screen-num">09</span><span class="screen-label" data-i18n="screens.s9">Награда</span></div></div>
+      <div class="screen"><div class="screen-frame"><img loading="lazy" decoding="async" src="../assets/msq_clean-ocean/screens/clean-ocean-screen-10-hirurg-final.webp" alt="Финальный экран благодарности"></div><div class="screen-cap"><span class="screen-num">10</span><span class="screen-label" data-i18n="screens.s10">Финал</span></div></div>
+    </div>
+    <div class="screens-hint" data-i18n="screens.hint">листай вправо · 10 экранов</div>
+  </div>
+</section>
+
+<!-- MASCOTS -->
+<section class="sec on-graphite" id="s-mascots" style="padding-top:46px">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-label" data-i18n="mascots.label">04 / Персонажи</span>
+      <div></div>
+      <div class="sec-side" data-i18n="mascots.side">у каждой локации<br><b>свой герой</b></div>
+    </div>
+    <h2 class="sec-h reveal" style="margin-bottom:52px;font-size:clamp(34px,5.2vw,76px)" data-i18n="mascots.h">Проблемы обитателей <span class="em">через персонажей</span>.</h2>
+    <div class="masks stagger reveal">
+      <div class="mask"><div class="mask-img"><img loading="lazy" decoding="async" src="../assets/msq_clean-ocean/characters/clean-ocean-char-whale.webp" alt="Скат"></div><div class="mask-num">01</div><div class="mask-name" data-i18n="mascots.m1n">Скат</div><div class="mask-zone" data-i18n="mascots.m1z">Перелётные скаты</div><div class="mask-poll" data-i18n="mascots.m1p">банки · бутылки · упаковка</div></div>
+      <div class="mask"><div class="mask-img"><img loading="lazy" decoding="async" src="../assets/msq_clean-ocean/characters/clean-ocean-char-dolphin.webp" alt="Белуга"></div><div class="mask-num">02</div><div class="mask-name" data-i18n="mascots.m2n">Белуга</div><div class="mask-zone" data-i18n="mascots.m2z">Пресноводные хищники</div><div class="mask-poll" data-i18n="mascots.m2p">нефть · канистра</div></div>
+      <div class="mask"><div class="mask-img"><img loading="lazy" decoding="async" src="../assets/msq_clean-ocean/characters/clean-ocean-char-crab.webp" alt="Парчовый сом"></div><div class="mask-num">03</div><div class="mask-name" data-i18n="mascots.m3n">Парчовый сом</div><div class="mask-zone" data-i18n="mascots.m3z">Древние рыбы Африки</div><div class="mask-poll" data-i18n="mascots.m3p">сточные воды</div></div>
+      <div class="mask"><div class="mask-img"><img loading="lazy" decoding="async" src="../assets/msq_clean-ocean/characters/clean-ocean-char-pufferfish.webp" alt="Неоны"></div><div class="mask-num">04</div><div class="mask-name" data-i18n="mascots.m4n">Неоны</div><div class="mask-zone" data-i18n="mascots.m4z">Неоны</div><div class="mask-poll" data-i18n="mascots.m4p">микропластик</div></div>
+      <div class="mask"><div class="mask-img"><img loading="lazy" decoding="async" src="../assets/msq_clean-ocean/characters/clean-ocean-char-ray.webp" alt="Черепаха"></div><div class="mask-num">05</div><div class="mask-name" data-i18n="mascots.m5n">Черепаха</div><div class="mask-zone" data-i18n="mascots.m5z">Кайман и черепахи</div><div class="mask-poll" data-i18n="mascots.m5p">тетра-пак · трубочки · пакет</div></div>
+      <div class="mask"><div class="mask-img"><img loading="lazy" decoding="async" src="../assets/msq_clean-ocean/characters/clean-ocean-char-catfish.webp" alt="Иния"></div><div class="mask-num">06</div><div class="mask-name" data-i18n="mascots.m6n">Иния</div><div class="mask-zone" data-i18n="mascots.m6z">Главный пресноводный</div><div class="mask-poll" data-i18n="mascots.m6p">шампунь · порошок · ПАВ</div></div>
+      <div class="mask"><div class="mask-img"><img loading="lazy" decoding="async" src="../assets/msq_clean-ocean/characters/clean-ocean-char-neon-fish.webp" alt="Голубой хирург"></div><div class="mask-num">07</div><div class="mask-name" data-i18n="mascots.m7n">Голубой хирург</div><div class="mask-zone" data-i18n="mascots.m7z">Рифовые кораллы</div><div class="mask-poll" data-i18n="mascots.m7p">стаканчик · тюбик</div></div>
+      <div class="mask"><div class="mask-img"><img loading="lazy" decoding="async" src="../assets/msq_clean-ocean/characters/clean-ocean-char-sturgeon.webp" alt="Аротрон"></div><div class="mask-num">08</div><div class="mask-name" data-i18n="mascots.m8n">Аротрон</div><div class="mask-zone" data-i18n="mascots.m8z">Диодоны и аротроны</div><div class="mask-poll" data-i18n="mascots.m8p">плёнка · крышки · волокна</div></div>
+      <div class="mask"><div class="mask-img"><img loading="lazy" decoding="async" src="../assets/msq_clean-ocean/characters/clean-ocean-char-blue-tang.webp" alt="Потамон"></div><div class="mask-num">09</div><div class="mask-name" data-i18n="mascots.m9n">Потамон</div><div class="mask-zone" data-i18n="mascots.m9z">Малые реки России</div><div class="mask-poll" data-i18n="mascots.m9p">эко-чек-лист</div></div>
+      <div class="mask"><div class="mask-img"><img loading="lazy" decoding="async" src="../assets/msq_clean-ocean/characters/clean-ocean-char-mascot-turtle.webp" alt="Кит"></div><div class="mask-num">10</div><div class="mask-name" data-i18n="mascots.m10n">Кит</div><div class="mask-zone" data-i18n="mascots.m10z">Большой морской · финал</div><div class="mask-poll" data-i18n="mascots.m10p">шина · сети · леска</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="sec on-graphite" id="s-gallery" style="padding-top:30px">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-label" data-i18n="gallery.label">05 / В экспозиции</span>
+      <div></div>
+      <div class="sec-side" data-i18n="gallery.side">реальное<br><b>прохождение</b></div>
+    </div>
+  </div>
+  <div class="gal">
+    <div class="gi"><div class="ph" data-ph="портрет"><img loading="lazy" decoding="async" src="../assets/msq_clean-ocean/photo/webp/clean-ocean-ar-16.webp" alt="Мальчик с телефоном у тоннельного аквариума"></div></div>
+    <div class="gi"><div class="ph" data-ph="экран приложения"><img loading="lazy" decoding="async" src="../assets/msq_clean-ocean/photo/webp/clean-ocean-ar-06.webp" alt="Экран WebAR-квеста на телефоне у аквариума"></div></div>
+    <div class="gcap"><div class="big" data-i18n="gallery.capbig">Десять локаций, одно кодовое слово</div><div class="sub" data-i18n="gallery.capsub">webar · без установки приложения</div></div>
+    <div class="gi"><div class="ph" data-ph="скаты"><img loading="lazy" decoding="async" src="../assets/msq_clean-ocean/photo/webp/clean-ocean-ar-01.webp" alt="Мальчик сканирует синий аквариум со скатами, AR-мусор на экране"></div></div>
+    <div class="gi"><div class="ph" data-ph="вместе"><img loading="lazy" decoding="async" src="../assets/msq_clean-ocean/photo/webp/clean-ocean-ar-10.webp" alt="Двое детей проходят AR-миссию у аквариума"></div></div>
+    <div class="gi"><div class="ph" data-ph="AR-мусор"><img loading="lazy" decoding="async" src="../assets/msq_clean-ocean/photo/webp/clean-ocean-ar-12.webp" alt="AR-загрязнение поверх аквариума: бутылка и QR-код"></div></div>
+  </div>
+</section>
+
+<!-- CREDITS -->
+<section class="credits" id="s-credits">
+  <div class="wrap">
+    <div class="credits-top reveal">
+      <h2 class="credits-title" data-i18n="credits.h">Команда.</h2>
+      <div class="credits-facts">
+        <div class="cred-fact"><strong>10</strong><span data-i18n="credits.f1">маскотов</span></div>
+        <div class="cred-fact"><strong>10</strong><span data-i18n="credits.f2">аквариумов</span></div>
+        <div class="cred-fact"><strong>10</strong><span data-i18n="credits.f3">советов для жизни</span></div>
+        <div class="cred-fact"><strong>1</strong><span data-i18n="credits.f4">кодовое слово</span></div>
+      </div>
+    </div>
+    <div class="credits-body">
+      <dl class="credits-col-left">
+        <div class="cred-row"><dt data-i18n="credits.dt1">Проект</dt><dd data-i18n="credits.dd1">Москвариум</dd></div>
+        <div class="cred-row"><dt data-i18n="credits.dt2">Креативное руководство</dt><dd data-i18n="credits.dd2">Татьяна Самараковская · креативный директор Москвариума</dd></div>
+        <div class="cred-row"><dt data-i18n="credits.dt3">Команда Москвариума</dt><dd data-i18n="credits.dd3">12 человек</dd></div>
+        <div class="cred-row"><dt data-i18n="credits.dt4">Партнёр (агентство)</dt><dd data-i18n="credits.dd4">BBDO</dd></div>
+        <div class="cred-row"><dt data-i18n="credits.dt5">Подрядчик (продакшн)</dt><dd data-i18n="credits.dd5">likeVR</dd></div>
+        <div class="cred-row"><dt data-i18n="credits.dt6">Формат · старт</dt><dd data-i18n="credits.dd6">WebAR-квест · 8 июня 2026</dd></div>
+        <div class="cred-row"><dt data-i18n="credits.dt7">Аудитория площадки</dt><dd data-i18n="credits.dd7">около 500 000 гостей за летние месяцы<span class="cred-sub">оценка BBDO в публикации Sostav.ru</span></dd></div>
+      </dl>
+      <div class="credits-col-right">
+        <p class="role-statement" data-i18n="credits.role">Креативное руководство со стороны Москвариума: концепция опыта, архитектура маршрута, привязка обитателей к типам загрязнений, читаемость сцен и темп прохождения. Координация агентства BBDO и продакшна likeVR от идеи до запуска.</p>
+      </div>
+    </div>
+
+    <p class="credits-src reveal">
+      <span data-i18n="credits.srclabel">Публикации о проекте:</span>
+      <a href="https://www.sostav.ru/publication/s-okeanom-nachistotu-moskvarium-zapuskaet-ekokvest-dlya-moskvichej-i-gostej-stolitsy-84573.html" target="_blank" rel="noopener noreferrer" data-i18n="credits.srclink1">Sostav.ru, 16.06.2026</a> ·
+      <a href="https://www.sostav.ru/publication/4545345-85117.html" target="_blank" rel="noopener noreferrer" data-i18n="credits.srclink2">«Активации месяца», Sostav.ru, 08.07.2026</a>
+    </p>
+  </div>
+</section>
+
+<!-- FINAL QUOTE -->
+<section class="pullq" style="min-height:64vh">
+  <div class="pullq-bg" aria-hidden="true">
+    <div class="ph" data-ph="экран миссии"><img loading="lazy" decoding="async" src="../assets/msq_clean-ocean/photo/webp/clean-ocean-ar-06.webp" alt=""></div>
+  </div>
+  <div class="pullq-inner reveal">
+    <p class="pullq-text" data-i18n="pullq2.text">Спасение океана<br><span class="word-oval">начинается с тебя</span>.</p>
+  </div>
+</section>
+
+<!-- PROJ NAV -->
+<nav class="proj-nav" aria-label="Другие проекты">
+  <div class="proj-nav-inner">
+    <a class="pn-card" href="troyka-lovemeet.html">
+      <img loading="lazy" decoding="async" class="bg" src="../assets/preview_projects/troyka-lovemeet.webp" alt="" aria-hidden="true">
+      <span class="pn-dir" data-i18n="pn.prevdir">← Предыдущий</span>
+      <span class="pn-name" data-i18n="pn.prevname">Случайное знакомство</span>
+      <span class="pn-sub" data-i18n="pn.prevsub">Москвариум · AR · 2023</span>
+    </a>
+    <a class="pn-contact" href="https://t.me/samarakovskaya_tanya" target="_blank" rel="noopener">
+      <span class="pn-contact-label" data-i18n="pn.clabel">Есть проект?</span>
+      <span class="pn-btn" data-i18n="pn.cbtn">Написать ↗</span>
+    </a>
+    <a class="pn-card" href="souzmultpark.html">
+      <img loading="lazy" decoding="async" class="bg" src="../assets/preview_projects/souzmultpark.webp" alt="" aria-hidden="true">
+      <span class="pn-dir" data-i18n="pn.nextdir">Следующий →</span>
+      <span class="pn-name" data-i18n="pn.nextname">Союзмультпарк</span>
+      <span class="pn-sub" data-i18n="pn.nextsub">Interactive parks · 2020—23</span>
+    </a>
+  </div>
+</nav>
+
+<footer>
+  <div class="foot-row">
+    <span data-i18n="foot.copy">© 2026 · <b>Таня Самараковская</b></span>
+    <span><a href="#top" data-i18n="foot.top">↑ Наверх</a></span>
+    <a class="foot-lang" href="../en/projects/clean-ocean.html" hreflang="en">EN</a>
+  </div>
+</footer>
+
+<script>
+  /* лёгкий параллакс стикера: смещается медленнее страницы, пока герой в кадре */
+  (function(){
+    const st=document.getElementById('heroSticker');
+    if(!st||matchMedia('(prefers-reduced-motion:reduce)').matches)return;
+    let t=false;
+    const upd=()=>{const y=scrollY;if(y<innerHeight*1.2){st.style.transform='translateY('+(y*-0.14)+'px)';}t=false;};
+    addEventListener('scroll',()=>{if(!t){t=true;requestAnimationFrame(upd);}},{passive:true});
+  })();
+
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');if(e.target.classList.contains('stagger')){Array.from(e.target.children).forEach((c,i)=>c.style.transitionDelay=(i*45)+'ms');}io.unobserve(e.target);}}),{threshold:.1});
+  document.querySelectorAll('.reveal,.stagger').forEach(el=>io.observe(el));
+
+  document.querySelectorAll('.mag-pill').forEach(p=>{
+    p.addEventListener('mousemove',e=>{const r=p.getBoundingClientRect();p.style.transform=`translate(${(e.clientX-(r.left+r.width/2))*.38}px,${(e.clientY-(r.top+r.height/2))*.42}px) scale(1.06)`;});
+    p.addEventListener('mouseleave',()=>p.style.transform='');
+    p.addEventListener('click',e=>{e.preventDefault();const t=document.getElementById(p.dataset.section);if(t)t.scrollIntoView({behavior:'smooth',block:'start'});});
+  });
+  const ids=['s-about','s-route','s-how','s-screens','s-mascots','s-credits'],pm={};
+  document.querySelectorAll('.mag-pill').forEach(p=>pm[p.dataset.section]=p);
+  const so=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){Object.values(pm).forEach(p=>p.classList.remove('active'));const a=pm[e.target.id];if(a)a.classList.add('active');}}),{threshold:.25});
+  ids.forEach(id=>{const el=document.getElementById(id);if(el)so.observe(el);});
+
+  const lb=document.getElementById('lb'),lbImg=document.getElementById('lbImg'),lbC=document.getElementById('lbCounter');
+  const imgs=Array.from(document.querySelectorAll('.screen-frame img, .mask img, .gi img'));let idx=0;
+  function show(i,d=0){const im=imgs[i];if(!im)return;if(d){lbImg.classList.add('fade');setTimeout(()=>{lbImg.src=im.src;lbImg.alt=im.alt;lbImg.classList.remove('fade');},150);}else{lbImg.src=im.src;lbImg.alt=im.alt;}idx=i;lbC.textContent=(i+1)+' / '+imgs.length;}
+  function open(i){show(i,0);lb.classList.add('open');document.body.style.overflow='hidden';}
+  function close(){lb.classList.remove('open');document.body.style.overflow='';lbImg.src='';}
+  imgs.forEach((im,i)=>im.addEventListener('click',()=>open(i)));
+  lb.addEventListener('click',e=>{if(e.target===lb)close();});
+  document.getElementById('lbClose').addEventListener('click',close);
+  document.getElementById('lbPrev').addEventListener('click',e=>{e.stopPropagation();show((idx-1+imgs.length)%imgs.length,-1);});
+  document.getElementById('lbNext').addEventListener('click',e=>{e.stopPropagation();show((idx+1)%imgs.length,1);});
+  document.addEventListener('keydown',e=>{if(!lb.classList.contains('open'))return;if(e.key==='Escape')close();if(e.key==='ArrowLeft')show((idx-1+imgs.length)%imgs.length,-1);if(e.key==='ArrowRight')show((idx+1)%imgs.length,1);});
+  let tx=0;lb.addEventListener('touchstart',e=>tx=e.touches[0].clientX,{passive:true});
+  lb.addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-tx;if(Math.abs(dx)>50)dx<0?show((idx+1)%imgs.length,1):show((idx-1+imgs.length)%imgs.length);});
+
+</script>
+<script>
+/* ════════════ i18n ENGINE (RU default · EN overlay) ════════════ */
+(function(){
+  const EN = {
+    "lb.close":"[ESC] close",
+    "n.back":"All projects",
+    "n.m1":"Project",
+    "n.m2":"Route",
+    "n.m3":"How to play",
+    "n.m4":"Screens",
+    "n.m5":"Characters",
+    "n.m6":"Team",
+    "n.cta":"Contact",
+    "h.h1":"Clean Ocean — a WebAR quest at Moskvarium",
+    "h.pill1":"moskvarium","h.pill2":"bbdo","h.pill3":"quest","h.pill4":"creative direction",
+    "marq.row":"Ten locations <span class=\"dot\"></span> ten characters <span class=\"dot\"></span> eco-rescuer code word <span class=\"dot\"></span> plastic · oil · microplastics · nets <span class=\"dot\"></span> WebAR without an app <span class=\"dot\"></span> ",
+    "about.eyebrow":"About the project",
+    "about.h":"An environmental initiative about the future of water",
+    "about.p1":"Clean Ocean is a joint project by Moskvarium and the creative agency BBDO. An educational interactive project that explains ocean pollution in a clear, accessible format, shows its impact on aquatic life, and offers simple actions anyone can take.",
+    "about.p2":"The project launched on World Ocean Day, <b>June 8, 2026</b>, inside the Moskvarium exhibition at VDNH.",
+    "about.tag1":"<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 3c4 5 6 8 6 11a6 6 0 0 1-12 0c0-3 2-6 6-11z\"/></svg>Water pollution",
+    "about.tag2":"<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 3l2.6 5.6 6.1.7-4.5 4.1 1.2 6L12 16.9 6.6 19.5l1.2-6L3.3 9.3l6.1-.7z\"/></svg>Interactive format",
+    "about.tag3":"<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"9\" cy=\"8\" r=\"3\"/><circle cx=\"17\" cy=\"9\" r=\"2.4\"/><path d=\"M3 19c0-3 2.6-5 6-5s6 2 6 5M16.5 14.2c2.3.2 4.5 1.8 4.5 4.8\"/></svg>For the whole family",
+    "about.tag4":"<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M3 12h4l3 8 4-16 3 8h4\"/></svg>Practical tips",
+    "about.stat1":"locations inside the Moskvarium exhibition",
+    "about.stat2":"no app download required",
+    "about.stat3":"character guides",
+    "about.stat4-mo":"June",
+    "about.stat4":"launched on World Ocean Day",
+    "video.label":"Video",
+    "video.side":"the quest<br><b>walkthrough</b>",
+    "video.cap":"Click to watch the quest walkthrough",
+    "feature.eyebrow":"An eco-quest inside the exhibition",
+    "feature.h":"Eco-quest.<br>10 locations.<br><span class=\"coral\">10 characters.</span>",
+    "feature.p":"Ten aquariums with QR codes across the Moskvarium exhibition: from migratory rays to the large marine tank with sharks. <b>Scan, open WebAR without installing an app, and help clean the water.</b>",
+    "pullq1.text":"Clean water is not a given.<br>Let's help the ocean <span class=\"word-block\">together</span>.",
+    "route.label":"01 / Route",
+    "route.side":"across the<br><b>exhibition</b>",
+    "route.h":"An edutainment quest.<br><span class=\"em\">10 locations</span>.",
+    "route.h3":"Scan the QR. Play. Clean.",
+    "route.p":"The points are placed along the real visitor route through Moskvarium, so the digital layer amplifies the walk rather than interrupting it. Nine locations contain AR gameplay, plus one eco-checklist point. Visitors complete a short mission exactly where the live habitat is already engaging, then move on. <b>The whale in the large marine aquarium closes the route</b> and completes the eco-rescuer code word.",
+    "how.label":"02 / How to play",
+    "how.side":"a route in<br><b>nine steps</b>",
+    "how.h":"How the <span class=\"em\">game works</span>.",
+    "how.s1h":"Enter the exhibition",
+    "how.s1p":"A standard ticket to Moskvarium, 119s23 Prospekt Mira.",
+    "how.s2h":"Find a QR code",
+    "how.s2p":"Look for the “crumpled cup” sticker on the aquarium glass.",
+    "how.s3h":"Open WebAR",
+    "how.s3p":"Directly in Safari or Chrome, with nothing to install.",
+    "how.s4h":"Point the camera",
+    "how.s4p":"At a real aquarium, with pollution drawn over the live habitat.",
+    "how.s5h":"See AR pollution",
+    "how.s5p":"Bottles, film, oil, microplastics — the things the eye often misses.",
+    "how.s6h":"Clean the water",
+    "how.s6p":"Use a net, skimmer, blaster, vacuum, or harpoon. Each location has its own tool.",
+    "how.s7h":"Get a fact and a tip",
+    "how.s7p":"A character explains the pollution type and gives a practical everyday tip.",
+    "how.s8h":"Collect a letter",
+    "how.s8p":"Each location gives one letter of the secret code word.",
+    "how.s9h":"Unlock rewards",
+    "how.s9p":"Complete the word and unlock a hidden page with digital gifts.",
+    "screens.label":"03 / Screens",
+    "screens.side":"quest<br><b>walkthrough</b>",
+    "screens.h":"The player journey <span class=\"em\">from start to reward</span>.",
+    "screens.s1":"Loading screen",
+    "screens.s2":"Hero greeting",
+    "screens.s3":"Onboarding",
+    "screens.s4":"Gameplay · cleaning",
+    "screens.s5":"Ray's tip",
+    "screens.s6":"Practical tip",
+    "screens.s7":"Fact and letter",
+    "screens.s8":"Continue cleaning",
+    "screens.s9":"Reward",
+    "screens.s10":"Finale",
+    "screens.hint":"scroll right · 10 screens",
+    "mascots.label":"04 / Characters",
+    "mascots.side":"each location has<br><b>its own hero</b>",
+    "mascots.h":"Aquatic problems <span class=\"em\">told through characters</span>.",
+    "mascots.m1n":"Ray","mascots.m1z":"Migratory rays","mascots.m1p":"cans · bottles · packaging",
+    "mascots.m2n":"Beluga whale","mascots.m2z":"Freshwater predators","mascots.m2p":"oil · canister",
+    "mascots.m3n":"Sailfin catfish","mascots.m3z":"Ancient fish of Africa","mascots.m3p":"wastewater",
+    "mascots.m4n":"Neon tetras","mascots.m4z":"Neon tetras","mascots.m4p":"microplastics",
+    "mascots.m5n":"Turtle","mascots.m5z":"Caiman and turtles","mascots.m5p":"carton · straws · plastic bag",
+    "mascots.m6n":"Inia","mascots.m6z":"Main freshwater tank","mascots.m6p":"shampoo · detergent · surfactants",
+    "mascots.m7n":"Blue tang","mascots.m7z":"Reef corals","mascots.m7p":"cup · tube",
+    "mascots.m8n":"Arothron","mascots.m8z":"Porcupinefish and arothrons","mascots.m8p":"film · caps · fibers",
+    "mascots.m9n":"Potamon","mascots.m9z":"Small rivers of Russia","mascots.m9p":"eco-checklist",
+    "mascots.m10n":"Whale","mascots.m10z":"Large marine tank · finale","mascots.m10p":"tire · nets · fishing line",
+    "gallery.label":"05 / In the exhibition",
+    "gallery.side":"real-life<br><b>walkthrough</b>",
+    "gallery.capbig":"Ten locations, one code word",
+    "gallery.capsub":"webar · no app installation",
+    "credits.h":"Team.",
+    "credits.f1":"mascots",
+    "credits.f2":"aquariums",
+    "credits.f3":"everyday tips",
+    "credits.f4":"code word",
+    "credits.dt1":"Project","credits.dd1":"Moskvarium",
+    "credits.dt2":"Creative direction","credits.dd2":"Tanya Samarakovskaya · Creative Director at Moskvarium",
+    "credits.dt3":"Moskvarium team","credits.dd3":"12 people",
+    "credits.dt4":"Partner agency","credits.dd4":"BBDO",
+    "credits.dt5":"Production partner","credits.dd5":"likeVR",
+    "credits.dt6":"Format · launch","credits.dd6":"WebAR quest · June 8, 2026",
+    "credits.dt7":"Venue audience","credits.dd7":"about 500,000 visitors over the summer months<span class=\"cred-sub\">BBDO estimate, quoted by Sostav.ru</span>",
+    "credits.srclabel":"Project in the press:","credits.srclink1":"Sostav.ru, 16 June 2026","credits.srclink2":"“Activations of the month”, Sostav.ru, 8 July 2026",
+    "credits.role":"Creative direction on behalf of Moskvarium: experience concept, route architecture, pairing aquatic species with pollution types, scene clarity, and pacing. Coordination of BBDO and likeVR from idea to launch.",
+    "pullq2.text":"Saving the ocean<br><span class=\"word-oval\">starts with you</span>.",
+    "pn.prevdir":"← Previous",
+    "pn.prevname":"Chance Encounter",
+    "pn.prevsub":"Moskvarium · AR · 2023",
+    "pn.clabel":"Have a project?",
+    "pn.cbtn":"Contact ↗",
+    "pn.nextdir":"Next →",
+    "pn.nextname":"Soyuzmultpark",
+    "pn.nextsub":"Interactive parks · 2020—23",
+    "foot.copy":"© 2026 · <b>Tanya Samarakovskaya</b>",
+    "foot.top":"↑ Back to top"
+  };
+  const META_EN = {
+    title:"Clean Ocean · Tanya Samarakovskaya",
+    desc:"Clean Ocean. A WebAR quest inside the Moskvarium exhibition about water pollution. Ten locations, ten characters, and real waste layered over live aquatic habitats. Creative direction: Tanya Samarakovskaya. Partners: BBDO, production by likeVR."
+  };
+  const RU = new Map();
+  const ruTitle = document.title;
+  const descMeta = document.querySelector('meta[name="description"]');
+  const ruDesc = descMeta ? descMeta.content : '';
+  function apply(lang){
+    const en = (lang === 'en');
+    document.documentElement.lang = lang;
+    document.documentElement.dataset.lang = lang;
+    document.querySelectorAll('[data-i18n]').forEach(function(el){
+      if(!RU.has(el)) RU.set(el, el.innerHTML);
+      const key = el.getAttribute('data-i18n');
+      el.innerHTML = (en && EN[key] != null) ? EN[key] : RU.get(el);
+    });
+    document.title = en ? META_EN.title : ruTitle;
+    if(descMeta) descMeta.content = en ? META_EN.desc : ruDesc;
+    document.querySelectorAll('#langToggle .lang-seg').forEach(function(b){
+      b.classList.toggle('on', b.dataset.lang === lang);
+    });
+    try{ localStorage.setItem('site_lang', lang); }catch(e){}
+    window.dispatchEvent(new CustomEvent('langchange', {detail: lang}));
+  }
+  const lt = document.getElementById('langToggle');
+  if(lt) lt.addEventListener('click', function(e){
+    const b = e.target.closest('button'); if(!b) return;
+    apply(b.dataset.lang);
+  });
+  let saved = 'ru';
+  try{ saved = localStorage.getItem('site_lang') || 'ru'; }catch(e){}
+  apply('ru'); try{localStorage.removeItem('site_lang');}catch(e){}
+})();
+</script>
+</body></html>

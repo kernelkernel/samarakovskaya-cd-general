@@ -1,0 +1,995 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Chance Encounter · Tanya Samarakovskaya</title>
+<meta name="description" content="Chance Encounter is a Moskvarium × Moscow Department of Transport project: AR Troika cards and a commercial film, 2023. A case study by Tanya Samarakovskaya.">
+<link rel="icon" type="image/webp" href="../../assets/icon.webp">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:site_name" content="Tanya Samarakovskaya">
+<meta property="og:url" content="https://samarakovskaya.art/en/projects/troyka-lovemeet.html">
+<meta property="og:title" content="Chance Encounter · Tanya Samarakovskaya">
+<meta property="og:description" content="Chance Encounter is a Moskvarium × Moscow Department of Transport project: AR Troika cards and a commercial film, 2023. A case study by Tanya Samarakovskaya.">
+<meta property="og:image" content="https://samarakovskaya.art/assets/preview_projects/troyka-lovemeet.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Chance Encounter · Tanya Samarakovskaya">
+<meta name="twitter:description" content="Chance Encounter is a Moskvarium × Moscow Department of Transport project: AR Troika cards and a commercial film, 2023. A case study by Tanya Samarakovskaya.">
+<meta name="twitter:image" content="https://samarakovskaya.art/assets/preview_projects/troyka-lovemeet.webp">
+<link rel="canonical" href="https://samarakovskaya.art/en/projects/troyka-lovemeet.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --graphite:#16161A;--graphite-2:#1E1E22;--graphite-3:#26262C;
+    --cream:#F7F3E6;--cream-2:#EFE9D6;--cream-3:#DBD3B9;
+    --ink:#16161A;--ink-2:#3A3A40;--ink-3:#7A766B;
+    --bone:#F1ECDD;--bone-2:#A8A39A;--bone-3:#6E6960;
+    /* bespoke-акцент кейса: тёплый оранжевый «Тройки» — ночная съёмка, городской свет */
+    --lime:#F07A2E;--lime-deep:#C85A1E;
+    /* акценты из палитры карт «Тройка» */
+    --card-orange:#E8702A;--card-teal:#1F9E8F;--card-blue:#2E6FB0;
+    --line-d:rgba(241,236,221,.10);--line-d2:rgba(241,236,221,.18);
+    --line-l:rgba(22,22,26,.12);--line-l2:rgba(22,22,26,.22);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  html,body{background:var(--graphite);color:var(--bone);font-family:"Space Grotesk","Helvetica Neue",sans-serif;-webkit-font-smoothing:antialiased}
+  body{overflow-x:hidden;min-height:100svh}
+  ::selection{background:var(--lime);color:var(--ink)}
+  a{color:inherit;text-decoration:none}
+  button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+  img{display:block;max-width:100%}
+  body::before{content:"";position:fixed;inset:-50%;pointer-events:none;z-index:1000;opacity:.04;mix-blend-mode:screen;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
+
+  .ph{position:relative;background:var(--graphite-2);overflow:hidden}
+  .ph::before{content:attr(data-ph);position:absolute;inset:0;display:grid;place-items:center;font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:var(--bone-3);padding:18px;text-align:center;z-index:0;background-image:repeating-linear-gradient(135deg,rgba(255,255,255,.04) 0 8px,transparent 8px 16px)}
+  .ph img{position:relative;z-index:1;width:100%;height:100%;object-fit:cover;display:block}
+
+  /* TOP NAV */
+  .top{position:fixed;top:14px;left:50%;transform:translateX(-50%);z-index:60;width:calc(100% - 24px);max-width:1320px}
+  .nav-bar{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:8px;background:rgba(22,22,26,.7);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid var(--line-d);border-radius:999px;padding:7px 8px 7px 18px}
+  .back{display:inline-flex;align-items:center;gap:10px;font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--bone);white-space:nowrap}
+  .back::before{content:"←";color:var(--lime);font-size:14px}
+  .nav-cta{display:inline-flex;align-items:center;gap:7px;background:var(--lime);color:var(--ink);padding:9px 16px;border-radius:999px;font-family:"JetBrains Mono",monospace;font-size:10px;text-transform:uppercase;letter-spacing:.1em;font-weight:600;white-space:nowrap;flex-shrink:0}
+  .nav-cta::after{content:"↗"}
+
+  /* MAGNETIC NAV */
+  .mag-nav{display:flex;align-items:center;justify-content:center;gap:2px;overflow:hidden}
+  .mag-pill{display:inline-flex;align-items:center;padding:7px 13px;border-radius:999px;font-family:"JetBrains Mono",monospace;font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--bone-3);transition:background .2s,color .2s;cursor:pointer;white-space:nowrap;will-change:transform;text-decoration:none}
+  .mag-pill:hover{background:rgba(241,236,221,.08);color:var(--bone)}
+  .mag-pill.active{color:var(--lime)}
+  @media(max-width:900px){.mag-nav{display:none}}
+
+  .wrap{max-width:1320px;margin:0 auto;padding:0 24px;width:100%}
+
+  .pill{display:inline-flex;align-items:center;gap:8px;padding:8px 14px 8px 12px;background:var(--graphite-2);border:1px solid var(--line-d);border-radius:999px;font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:lowercase;letter-spacing:.04em;color:var(--bone)}
+  .pill::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--lime);box-shadow:0 0 12px var(--lime)}
+  .pill.solid{background:var(--lime);color:var(--ink);border-color:transparent;font-weight:600}
+  .pill.solid::before{background:var(--ink);box-shadow:none}
+  .pill.outline{background:transparent}
+
+  .circle-btn{display:inline-grid;place-items:center;width:88px;height:88px;border-radius:50%;border:1.5px solid currentColor;font-size:34px;line-height:1;transition:background .25s,color .25s,transform .25s;cursor:pointer;flex-shrink:0}
+  .circle-btn.bone{color:var(--bone);border-color:var(--bone-2)}
+  .circle-btn.bone:hover{background:var(--bone);color:var(--ink)}
+  .circle-btn.sm{width:56px;height:56px;font-size:22px}
+
+  .word-pill{position:relative;display:inline-block;color:var(--graphite);padding:0 .14em;z-index:1}
+  .word-pill::before{content:"";position:absolute;inset:.08em -.04em .14em -.04em;background:var(--lime);border-radius:999px;z-index:-1}
+  .word-oval{position:relative;display:inline-block;padding:0 .14em;z-index:1;white-space:nowrap}
+  .word-oval::before{content:"";position:absolute;inset:-.06em -.04em -.04em -.04em;border-radius:999px;border:3px solid var(--lime);transform:rotate(-2.5deg) skewX(-2deg);z-index:-1}
+  .word-block{background:var(--lime);color:var(--ink);padding:0 .14em}
+
+  /* HERO */
+  .hero{position:relative;min-height:100svh;overflow:hidden;padding:120px 0 40px;display:flex;flex-direction:column;justify-content:space-between;gap:36px}
+  .hero-bg{position:absolute;inset:0;z-index:0;opacity:.35}
+  .hero-bg .ph{position:absolute;inset:0}
+  .hero-bg img{filter:contrast(1.05) saturate(.85)}
+  .hero-bg::after{content:"";position:absolute;inset:0;background:radial-gradient(110% 70% at 50% 30%,transparent 0%,var(--graphite) 78%),linear-gradient(180deg,var(--graphite) 0%,transparent 25%,transparent 60%,var(--graphite) 100%)}
+
+  .hero-meta-row{position:relative;z-index:2;display:flex;justify-content:center;flex-wrap:wrap;gap:24px}
+  .hero-meta-row .pills{display:flex;flex-wrap:wrap;gap:8px}
+
+  .hero-title{position:relative;z-index:2;display:flex;flex-direction:column;gap:14px;align-items:center;text-align:center}
+  .hero-h1{font-weight:700;font-size:clamp(52px,12vw,190px);line-height:.82;letter-spacing:-.06em;text-transform:uppercase;color:var(--bone)}
+  .hero-h1 .syl{display:inline-block;transition:font-family .08s,font-weight .08s,color .08s,letter-spacing .08s,background .15s,padding .15s}
+  .hero-h1 .syl.s1:hover{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;color:var(--lime);letter-spacing:-.08em}
+  .hero-h1 .syl.s2:hover{font-family:"JetBrains Mono",monospace;font-weight:700;background:var(--lime);color:var(--ink);padding:0 .04em}
+  .hero-sub{font-weight:500;font-size:clamp(17px,1.8vw,26px);line-height:1.18;letter-spacing:-.02em;color:var(--bone-2);max-width:40ch;text-wrap:balance;margin:8px auto 0}
+  .hero-sub b{color:var(--bone);font-weight:700}
+
+  .hero-foot{position:relative;z-index:2;display:grid;grid-template-columns:repeat(4,1fr);gap:18px;padding-top:20px;border-top:1px solid var(--line-d)}
+  @media(max-width:780px){.hero-foot{grid-template-columns:1fr 1fr;gap:16px}}
+  .hero-fact{display:flex;flex-direction:column;gap:6px;align-items:center;text-align:center}
+  .hero-fact b{font-family:"JetBrains Mono",monospace;font-size:10px;color:var(--lime);text-transform:uppercase;letter-spacing:.12em;font-weight:600}
+  .hero-fact span{font-weight:600;font-size:clamp(13px,1.3vw,16px);color:var(--bone);letter-spacing:-.005em;line-height:1.25}
+
+  /* MARQUEE */
+  .marq{background:var(--lime);color:var(--ink);overflow:hidden;padding:16px 0}
+  .marq-track{display:flex;gap:32px;width:max-content;animation:scroll 42s linear infinite;font-weight:700;font-size:clamp(18px,2.8vw,40px);letter-spacing:-.03em;line-height:1;white-space:nowrap;text-transform:uppercase}
+  .marq-track .dot{display:inline-block;width:.32em;height:.32em;border-radius:50%;background:var(--ink);vertical-align:middle;margin:0 .3em}
+  @keyframes scroll{to{transform:translateX(-50%)}}
+
+  /* SEC */
+  .sec{padding:90px 0 100px}
+  .sec.on-cream{background:var(--cream);color:var(--ink)}
+  .sec.on-graphite{background:var(--graphite);color:var(--bone)}
+  .sec-head{display:grid;grid-template-columns:auto 1fr auto;gap:32px;align-items:end;padding-bottom:28px;border-bottom:1px solid var(--line-d);margin-bottom:56px}
+  .sec.on-cream .sec-head{border-color:var(--line-l)}
+  @media(max-width:780px){.sec-head{grid-template-columns:1fr;gap:14px}}
+  .sec-label{font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:var(--bone-3);display:inline-flex;align-items:center;gap:10px}
+  .sec-label::before{content:"✦";color:var(--lime);font-size:12px}
+  .sec.on-cream .sec-label{color:var(--ink-3)}
+  .sec-side{font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--bone-2);text-align:right;line-height:1.7}
+  .sec.on-cream .sec-side{color:var(--ink-2)}
+  .sec-side b{font-weight:700;color:var(--bone)}
+  .sec.on-cream .sec-side b{color:var(--ink)}
+  .sec-h{font-weight:700;font-size:clamp(48px,8.5vw,128px);line-height:.9;letter-spacing:-.045em;text-wrap:balance}
+
+  /* CONCEPT (cream) */
+  .concept{display:grid;grid-template-columns:1fr 1fr;gap:0;background:var(--cream)}
+  @media(max-width:900px){.concept{grid-template-columns:1fr}}
+  .concept-img{position:relative;min-height:44vh}
+  @media(max-width:900px){.concept-img{min-height:300px}}
+  .concept-img .ph{position:absolute;inset:0}
+  .concept-body{padding:48px;display:flex;flex-direction:column;gap:24px}
+  @media(max-width:780px){.concept-body{padding:32px 24px}}
+  .concept-lead{font-weight:500;font-size:clamp(22px,2.6vw,38px);line-height:1.1;letter-spacing:-.025em;text-wrap:balance}
+  .concept-text{font-size:15px;line-height:1.65;color:var(--ink-2);display:flex;flex-direction:column;gap:14px}
+  .concept-text b{color:var(--ink);font-weight:700}
+  .concept-meta{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;padding-top:20px;margin-top:auto;font-family:"JetBrains Mono",monospace;font-size:10px;text-transform:uppercase;letter-spacing:.08em}
+  .concept-meta dt{color:var(--ink-3);margin-bottom:4px}
+  .concept-meta dd{color:var(--ink);font-weight:600;font-size:13px}
+
+  /* CONCEPT WIDE — горизонтальное фото */
+  .concept-wide{background:var(--cream);display:flex;flex-direction:column;gap:0}
+  .concept-img-wide{position:relative;width:100%;aspect-ratio:16/9;overflow:hidden;max-height:72vh}
+  .concept-img-wide .ph{position:absolute;inset:0}
+  .concept-img-wide img{width:100%;height:100%;object-fit:cover;transition:transform .8s ease}
+  .concept-img-wide:hover img{transform:scale(1.03)}
+  .concept-hook{font-weight:700;font-size:clamp(28px,3.8vw,58px);line-height:1.0;letter-spacing:-.035em;color:var(--ink);text-wrap:balance}
+  .concept-hook em{font-style:normal;color:var(--ink-3);font-weight:500}
+  .concept-wide .concept-body{padding:52px 48px 48px;gap:28px}
+  @media(max-width:780px){.concept-wide .concept-body{padding:36px 24px 32px}}
+
+  /* CARD TRIPTYCH — три карты «Тройка» */
+  .cards-trip{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--graphite)}
+  @media(max-width:780px){.cards-trip{grid-template-columns:1fr}}
+  .card-cell{position:relative;aspect-ratio:16/10;overflow:hidden;cursor:zoom-in;background:var(--graphite-2)}
+  .card-cell img{width:100%;height:100%;object-fit:cover;transition:transform .9s cubic-bezier(.2,.8,.2,1)}
+  .card-cell:hover img{transform:scale(1.06)}
+  .card-cell::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.55) 0%,transparent 42%);opacity:.85;transition:opacity .35s;pointer-events:none}
+  .card-cell:hover::after{opacity:.45}
+  .card-tag{position:absolute;left:18px;bottom:16px;z-index:2;display:flex;flex-direction:column;gap:3px;pointer-events:none}
+  .card-tag b{font-weight:700;font-size:clamp(18px,2vw,26px);letter-spacing:-.02em;color:var(--bone);line-height:1}
+  .card-tag span{font-family:"JetBrains Mono",monospace;font-size:10px;text-transform:uppercase;letter-spacing:.12em}
+  .card-cell.c-orange .card-tag span{color:#F6B98E}
+  .card-cell.c-teal .card-tag span{color:#7DD8CC}
+  .card-cell.c-blue .card-tag span{color:#9CC4E8}
+  .card-cell .ar-chip{position:absolute;top:14px;right:14px;z-index:2;font-family:"JetBrains Mono",monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);background:var(--lime);padding:5px 9px;border-radius:999px;font-weight:600;opacity:0;transform:translateY(-6px);transition:opacity .3s,transform .3s}
+  .card-cell:hover .ar-chip{opacity:1;transform:none}
+
+  /* editorial-полировка cream */
+  .sec.on-cream .word-pill{color:var(--cream)}
+  .sec.on-cream .sec-h{letter-spacing:-.05em}
+  .concept-wide.bright{background:#FBF7EC;box-shadow:0 1px 0 var(--line-l) inset}
+  .concept-wide.bright .concept-body{border-top:3px solid var(--card-orange)}
+
+  /* PULL QUOTE */
+  .pullq{position:relative;min-height:80vh;display:flex;align-items:center;background:var(--graphite);overflow:hidden}
+  .pullq-bg{position:absolute;inset:0;z-index:0;opacity:.2}
+  .pullq-bg .ph{position:absolute;inset:0}
+  .pullq-bg::after{content:"";position:absolute;inset:0;background:radial-gradient(60% 60% at 50% 50%,transparent 0%,var(--graphite) 90%)}
+  .pullq-inner{position:relative;z-index:2;max-width:1320px;margin:0 auto;padding:80px 28px;text-align:center;width:100%}
+  .pullq-text{font-weight:600;font-size:clamp(32px,6.5vw,100px);line-height:.96;letter-spacing:-.04em;text-wrap:balance}
+
+  /* CHAPTERS */
+  .chap{display:grid;grid-template-columns:1fr 1fr;gap:0;background:var(--graphite-2);min-height:60vh}
+  .chap.flip .chap-img{order:2}
+  .chap.full{grid-template-columns:1fr;min-height:80vh;position:relative}
+  @media(max-width:900px){.chap,.chap.flip{grid-template-columns:1fr}.chap.flip .chap-img{order:0}}
+  .chap-img{position:relative;min-height:50vh;overflow:hidden}
+  @media(max-width:900px){.chap-img{min-height:280px}}
+  .chap-img .ph{position:absolute;inset:0}
+  .chap-img img{transition:transform .8s ease}
+  .chap-img:hover img{transform:scale(1.04)}
+  .chap-body{padding:48px;display:flex;flex-direction:column;gap:20px;justify-content:center}
+  @media(max-width:780px){.chap-body{padding:32px 24px}}
+  .chap.full .chap-img{position:absolute;inset:0;min-height:0}
+  .chap.full .chap-img::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 35%,rgba(0,0,0,.92) 100%);z-index:1}
+  .chap.full .chap-body{position:relative;z-index:2;justify-content:flex-end;color:var(--bone);min-height:80vh}
+  .chap-title{font-weight:700;font-size:clamp(26px,4.2vw,58px);line-height:.98;letter-spacing:-.035em;text-wrap:balance}
+  .chap-title .mark{color:var(--lime)}
+  .chap-body p{font-size:15px;line-height:1.65;color:var(--bone-2);max-width:52ch}
+  .chap-body p b{color:var(--bone);font-weight:700}
+  .chap.full .chap-body p{color:rgba(241,236,221,.8);max-width:62ch}
+  .chap.full .chap-body p b{color:var(--lime)}
+
+  /* STORY STEPS — сценарный блок */
+  .story-steps{display:flex;flex-direction:column;gap:0;background:var(--graphite-2);border-top:1px solid var(--line-d)}
+  .step{display:grid;grid-template-columns:72px 1fr;gap:0;min-height:80px;border-bottom:1px solid var(--line-d)}
+  .step:last-child{border-bottom:0}
+  .step-num{padding:24px 20px;font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--lime);letter-spacing:.12em;text-transform:uppercase;border-right:1px solid var(--line-d);display:flex;align-items:flex-start;flex-shrink:0}
+  .step-body{padding:24px 28px;display:flex;flex-direction:column;gap:6px}
+  .step-title{font-weight:700;font-size:clamp(16px,1.8vw,22px);letter-spacing:-.02em;color:var(--bone);line-height:1.1}
+  .step-desc{font-size:14px;line-height:1.6;color:var(--bone-2)}
+  .step-desc b{color:var(--bone);font-weight:600}
+
+  /* ROLE CARDS */
+  .role-grid{display:grid;grid-template-columns:1fr 1fr;gap:0}
+  @media(max-width:780px){.role-grid{grid-template-columns:1fr}}
+  .role-card{background:var(--cream-2);display:flex;flex-direction:column;overflow:hidden;transition:background .25s}
+  .role-card:hover{background:var(--graphite-3)}
+  .role-photo{aspect-ratio:16/9;overflow:hidden;position:relative;flex-shrink:0}
+  .role-photo .ph{position:absolute;inset:0}
+  .role-photo img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .7s ease}
+  .role-card:hover .role-photo img{transform:scale(1.04)}
+  .role-text{padding:28px;display:flex;flex-direction:column;gap:14px;flex:1}
+  .role-card:hover .role-text{color:var(--bone)}
+  .role-card h3{font-weight:700;font-size:clamp(20px,2.3vw,28px);line-height:1.02;letter-spacing:-.025em;text-wrap:balance}
+  .role-card h3 .mark{color:var(--lime-deep);transition:color .25s}
+  .role-card:hover h3 .mark{color:var(--lime)}
+  .role-card p{font-size:14px;line-height:1.65;color:var(--ink-2);transition:color .25s}
+  .role-card:hover p{color:var(--bone-2)}
+  .role-card p b{color:var(--ink);font-weight:700;transition:color .25s}
+  .role-card:hover p b{color:var(--bone)}
+
+  /* GALLERY */
+  .gal{display:grid;grid-template-columns:repeat(3,1fr);gap:0}
+  @media(max-width:780px){.gal{grid-template-columns:1fr 1fr}}
+  .gi{position:relative;overflow:hidden;background:var(--graphite-2);cursor:zoom-in;aspect-ratio:4/3}
+  .gi.wide{grid-column:span 2}
+  .gi.tall{grid-row:span 2;aspect-ratio:auto}
+  @media(max-width:780px){.gi.wide{grid-column:span 1}.gi.tall{grid-row:span 1;aspect-ratio:4/3}}
+  .gi .ph{position:absolute;inset:0}
+  .gi img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s ease}
+  .gi:hover img{transform:scale(1.05)}
+  .gi::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.3) 0%,transparent 30%);opacity:.5;pointer-events:none;transition:opacity .3s}
+  .gi:hover::after{opacity:.1}
+  .gcap{background:var(--lime);color:var(--ink);padding:28px 24px;display:flex;flex-direction:column;justify-content:flex-end;gap:8px;aspect-ratio:4/3}
+  .gcap .big{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:clamp(26px,3.2vw,50px);line-height:.88;letter-spacing:-.04em;color:var(--ink)}
+  .gcap .sub{font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--ink-2)}
+  @media(max-width:780px){.gcap{display:none}}
+
+  /* lightbox */
+  .lb{display:none;position:fixed;inset:0;z-index:200;background:rgba(0,0,0,.96);align-items:center;justify-content:center}
+  .lb.open{display:flex}
+  .lb img{max-width:80vw;max-height:86vh;object-fit:contain;user-select:none;transition:opacity .18s ease}
+  .lb img.fade{opacity:0}
+  .lb-close{position:absolute;top:20px;right:24px;font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--bone-2);padding:8px;cursor:pointer;z-index:2}
+  .lb-close:hover{color:var(--lime)}
+  .lb-nav{position:absolute;top:50%;transform:translateY(-50%);font-family:"JetBrains Mono",monospace;font-size:24px;color:var(--bone-2);padding:16px 22px;cursor:pointer;z-index:2;transition:color .2s;line-height:1}
+  .lb-nav:hover{color:var(--lime)}
+  .lb-prev{left:20px}
+  .lb-next{right:20px}
+  .lb-counter{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:var(--bone-3)}
+
+  /* RESULTS (cream) */
+  .results{padding:90px 0;background:var(--cream);color:var(--ink)}
+  .results-top{display:grid;grid-template-columns:1fr 1fr;gap:32px;border-bottom:1px solid var(--line-l);padding-bottom:48px;margin-bottom:48px;align-items:end}
+  @media(max-width:900px){.results-top{grid-template-columns:1fr}}
+  .results-title{font-weight:700;font-size:clamp(48px,8vw,118px);line-height:.9;letter-spacing:-.04em}
+  .results-numbers{display:flex;gap:32px;flex-wrap:wrap;justify-content:flex-end}
+  @media(max-width:900px){.results-numbers{justify-content:flex-start}}
+  .stat-item{font-family:"JetBrains Mono",monospace;font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--ink-3);text-align:center}
+  .stat-item strong{display:block;font-family:"Space Grotesk",sans-serif;font-size:clamp(28px,3.5vw,52px);font-weight:700;letter-spacing:-.04em;line-height:.9;color:var(--ink);margin-bottom:6px}
+  .stat-item strong .mark{color:var(--lime-deep)}
+  .results-body{display:grid;grid-template-columns:1fr 1fr;gap:0}
+  .results-src{margin-top:36px;font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3)}
+  .results-src a{color:var(--ink);text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px}
+  .results-src a:hover{color:var(--ink-3)}
+  @media(max-width:900px){.results-body{grid-template-columns:1fr}}
+  .cred-row{display:grid;grid-template-columns:160px 1fr;gap:16px;padding:18px 0;border-bottom:1px solid var(--line-l);align-items:baseline}
+  .cred-row:first-child{border-top:1px solid var(--line-l)}
+  .cred-row dt{font-family:"JetBrains Mono",monospace;font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--ink-3)}
+  .cred-row dd{font-weight:600;font-size:clamp(16px,1.5vw,20px);letter-spacing:-.015em;line-height:1.25;color:var(--ink)}
+  .cred-row dd .mark{color:var(--lime-deep);font-weight:700}
+  .cred-row dd .sub{display:block;font-family:"JetBrains Mono",monospace;font-size:10px;color:var(--ink-3);font-weight:400;margin-top:4px;text-transform:uppercase;letter-spacing:.08em}
+  .results-col-right{padding-left:36px}
+  @media(max-width:900px){.results-col-right{padding-left:0}}
+
+  /* PROJ NAV */
+  .proj-nav{border-top:1px solid var(--line-d);background:var(--graphite)}
+  .proj-nav-inner{display:grid;grid-template-columns:1fr auto 1fr;max-width:1320px;margin:0 auto}
+  @media(max-width:760px){.proj-nav-inner{grid-template-columns:1fr}}
+  .pn-card{position:relative;overflow:hidden;padding:48px 36px;display:flex;flex-direction:column;justify-content:flex-end;gap:8px;transition:background .3s;border-right:1px solid var(--line-d)}
+  .pn-card:last-child{border-right:0;border-left:1px solid var(--line-d)}
+  .pn-card:hover{background:var(--graphite-2)}
+  .pn-card .bg{position:absolute;inset:0;object-fit:cover;width:100%;height:100%;opacity:.14;transition:opacity .4s;filter:saturate(.4)}
+  .pn-card:hover .bg{opacity:.28}
+  .pn-dir{position:relative;z-index:1;font-family:"JetBrains Mono",monospace;font-size:10px;text-transform:uppercase;letter-spacing:.14em;color:var(--bone-3);margin-bottom:8px}
+  .pn-name{position:relative;z-index:1;font-weight:700;font-size:clamp(28px,3.8vw,56px);line-height:1;letter-spacing:-.03em;color:var(--bone)}
+  .pn-sub{position:relative;z-index:1;font-family:"JetBrains Mono",monospace;font-size:10px;color:var(--bone-3);margin-top:6px;text-transform:uppercase;letter-spacing:.08em}
+  .pn-contact{display:flex;align-items:center;justify-content:center;padding:48px 36px;flex-direction:column;gap:14px}
+  .pn-contact-label{font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:var(--bone-3)}
+  .pn-btn{display:inline-flex;align-items:center;gap:10px;background:var(--lime);color:var(--ink);padding:14px 24px;border-radius:999px;font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.1em;font-weight:600;transition:transform .25s}
+  .pn-contact:hover .pn-btn{transform:translateY(-3px)}
+
+  footer{padding:28px 24px;border-top:1px solid var(--line-d);font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--bone-3);background:var(--graphite)}
+  .foot-row{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;align-items:center;max-width:1320px;margin:0 auto}
+  .foot-row b{color:var(--bone);font-weight:500}
+  .foot-row a:hover{color:var(--lime)}
+
+  .reveal{opacity:0;transform:translateY(20px);transition:opacity .8s ease,transform .8s ease}
+  .reveal.in{opacity:1;transform:none}
+  /* staggered cascade — children reveal one by one */
+  .stagger>*{opacity:0;transform:translateY(16px);transition:opacity .55s cubic-bezier(.2,.7,.2,1),transform .55s cubic-bezier(.2,.7,.2,1)}
+  .stagger.in>*{opacity:1;transform:none}
+  .reveal.stagger{transform:none}
+  /* hero entrance — one orchestrated load */
+  @media (prefers-reduced-motion:no-preference){
+    .hero-meta-row,.hero-title,.hero-foot{opacity:0;transform:translateY(26px);animation:lmRise .9s cubic-bezier(.2,.7,.2,1) forwards}
+    .hero-title{animation-delay:.14s}
+    .hero-foot{animation-delay:.32s}
+  }
+  @keyframes lmRise{to{opacity:1;transform:none}}
+  @media (prefers-reduced-motion:reduce){
+    .reveal,.stagger>*{opacity:1!important;transform:none!important;transition:none}
+    .hero-meta-row,.hero-title,.hero-foot{opacity:1!important;transform:none!important;animation:none!important}
+  }
+</style>
+<style id="en-switch-css">
+.nav-end{display:inline-flex;align-items:center;gap:10px}
+.lang-toggle{display:inline-flex;gap:2px;padding:3px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.16);border-radius:999px;flex-shrink:0}
+.lang-toggle .lang-seg{padding:6px 9px;border-radius:999px;font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:rgba(241,236,221,.6);line-height:1;text-decoration:none;transition:color .2s,background .2s}
+.lang-toggle .lang-seg.on{background:#f1ecdd;color:#16161a;font-weight:600}
+.lang-toggle a.lang-seg:hover{color:#fff}
+
+/* NAV FIX 31.07.2026 — «Написать» всегда у правого края шапки, RU/EN только на десктопе */
+.nav-bar>.nav-end{margin-left:auto}
+.nav-bar>.lang-toggle{margin-left:auto}
+@media(max-width:780px){
+  .nav-bar .lang-toggle{display:none}
+  .nav-bar>.nav-cta{margin-left:auto}
+}
+
+/* FOOT LANG 31.07.2026 — переключатель языка в футере, только на мобильном (в шапке он скрыт) */
+.foot-lang{display:none}
+@media(max-width:780px){
+  .foot-lang{display:inline-flex;align-items:center;padding:6px 12px;border:1px solid currentColor;border-radius:999px;font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;color:inherit;opacity:.75}
+}
+</style>
+<link rel="alternate" hreflang="ru" href="https://samarakovskaya.art/projects/troyka-lovemeet.html">
+<link rel="alternate" hreflang="en" href="https://samarakovskaya.art/en/projects/troyka-lovemeet.html">
+<link rel="alternate" hreflang="x-default" href="https://samarakovskaya.art/projects/troyka-lovemeet.html">
+</head>
+<body>
+
+<div class="lb" id="lb">
+  <button class="lb-close" id="lbClose">[ESC] close</button>
+  <button class="lb-nav lb-prev" id="lbPrev">←</button>
+  <img loading="lazy" decoding="async" id="lbImg" src="" alt="">
+  <button class="lb-nav lb-next" id="lbNext">→</button>
+  <div class="lb-counter" id="lbCounter"></div>
+</div>
+
+<!-- TOP NAV -->
+<header class="top">
+  <div class="nav-bar">
+    <a class="back" href="../index.html#works">All projects</a>
+    <nav class="mag-nav" id="magNav">
+      <a class="mag-pill" href="#s-concept" data-section="s-concept">Project</a>
+      <a class="mag-pill" href="#s-treatment" data-section="s-treatment">Story</a>
+      <a class="mag-pill" href="#s-production" data-section="s-production">Production</a>
+      <a class="mag-pill" href="#s-video" data-section="s-video">Film</a>
+      <a class="mag-pill" href="#s-results" data-section="s-results">Result</a>
+    </nav>
+    <div class="nav-end"><div class="lang-toggle" role="group" aria-label="Language"><a class="lang-seg" href="../../projects/troyka-lovemeet.html">RU</a><span class="lang-seg on">EN</span></div><a class="nav-cta" href="https://t.me/samarakovskaya_tanya" target="_blank" rel="noopener">Contact</a></div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-bg" aria-hidden="true">
+    <div class="ph" data-ph="Chance Encounter · Troika × Moskvarium">
+      <img src="../../assets/msq_troyka_lovemeet/photo/webp/troyka-preview-hero.webp" alt="" loading="eager" decoding="async">
+    </div>
+  </div>
+
+  <div class="wrap" style="position:relative;z-index:2;display:flex;flex-direction:column;flex:1;gap:36px;justify-content:space-between">
+    <div class="hero-meta-row">
+      <div class="pills">
+        <span class="pill">moskvarium</span>
+        <span class="pill">moscow transport department</span>
+      </div>
+      <div class="pills">
+        <span class="pill outline">creative direction</span>
+        <span class="pill outline">Troika card design</span>
+        <span class="pill outline">project delivery</span>
+        <span class="pill outline">film shoot</span>
+        <span class="pill outline">art direction</span>
+      </div>
+    </div>
+
+    <div class="hero-title">
+      <h1 class="hero-h1">
+        <span class="syl s1">Chance</span><span class="syl s2"></span><br>
+        <span class="syl s1">Encoun</span><span class="syl s2">ter</span>
+      </h1>
+      <p class="hero-sub">
+        <b>Commercial&nbsp;film</b> and <b>limited-edition</b> <span class="word-oval">Troika</span> cards with&nbsp;AR — from&nbsp;concept and&nbsp;casting to&nbsp;a night shoot in&nbsp;a closed Moscow Metro carriage.
+      </p>
+    </div>
+
+    <div class="hero-foot">
+      <div class="hero-fact"><b>Format</b><span>Troika cards + AR</span></div>
+      <div class="hero-fact"><b>Film</b><span>Commercial film supporting&nbsp;the project</span></div>
+      <div class="hero-fact"><b>Project</b><span>Moskvarium × Moscow Department of Transport</span></div>
+      <div class="hero-fact"><b>Role</b><span>Creative Director at Moskvarium</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marq" aria-hidden="true">
+  <div class="marq-track">
+    <span>10,000 cards in 2 days <span class="dot"></span> 5 hours in a closed metro carriage <span class="dot"></span> Night shoot at VDNH <span class="dot"></span> Casting · PPM deck · treatment <span class="dot"></span> Wes Anderson meets the Moscow Metro <span class="dot"></span> 1.1M reach <span class="dot"></span></span>
+    <span>10,000 cards in 2 days <span class="dot"></span> 5 hours in a closed metro carriage <span class="dot"></span> Night shoot at VDNH <span class="dot"></span> Casting · PPM deck · treatment <span class="dot"></span> Wes Anderson meets the Moscow Metro <span class="dot"></span> 1.1M reach <span class="dot"></span></span>
+  </div>
+</div>
+
+<!-- CONCEPT — КАРТЫ (cream) -->
+<section class="sec on-cream" id="s-concept">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-label">Project</span>
+      <h2 class="sec-h">7 million people. <span class="word-pill">One</span> encounter.</h2>
+      <span class="sec-side"><b>Moskvarium × Moscow Transport</b><br>First edition</span>
+    </div>
+
+    <div class="concept-wide bright reveal">
+      <div class="concept-body" style="padding-bottom:40px">
+        <p class="concept-hook">
+          The Moscow Metro carries <span class="word-block">7 million</span> passengers every day.<br>
+          What if a transit card could help you meet the one?
+        </p>
+        <p class="concept-lead">
+          Moskvarium and Moscow Transport launch the first limited-edition Troika cards — <span class="word-block">with characters that come to life.</span> The occasion: Moskvarium’s eighth birthday.
+        </p>
+      </div>
+
+      <!-- ТРИПТИХ: три карты, три героя -->
+      <div class="cards-trip reveal stagger">
+        <figure class="card-cell c-orange">
+          <img loading="lazy" decoding="async" src="../../assets/msq_troyka_lovemeet/photo/webp/troyka-19-char-capy.webp" alt="Troika card with a capybara — augmented reality">
+          <span class="ar-chip">AR ↗</span>
+          <figcaption class="card-tag"><b>Capybara</b><span>jumps</span></figcaption>
+        </figure>
+        <figure class="card-cell c-teal">
+          <img loading="lazy" decoding="async" src="../../assets/msq_troyka_lovemeet/photo/webp/troyka-21-char-otter.webp" alt="Troika card with an otter — augmented reality">
+          <span class="ar-chip">AR ↗</span>
+          <figcaption class="card-tag"><b>Otter</b><span>dives</span></figcaption>
+        </figure>
+        <figure class="card-cell c-blue">
+          <img loading="lazy" decoding="async" src="../../assets/msq_troyka_lovemeet/photo/webp/troyka-20-char-lion.webp" alt="Troika card with a sea lion — augmented reality">
+          <span class="ar-chip">AR ↗</span>
+          <figcaption class="card-tag"><b>Sea lion</b><span>swims through the air</span></figcaption>
+        </figure>
+      </div>
+
+      <div class="concept-body" style="padding-top:40px">
+        <div class="concept-text">
+          <p>Three cards, three heroes: <b>capybaras, otters, and sea lions</b> — some of Moskvarium’s most popular residents. Custom illustrations in a Wes Anderson-inspired aesthetic: bright colors, frontal precision, and eccentric accessories. Close in spirit to Fantastic Mr. Fox.</p>
+          <p>Each card has a QR code. Point the camera at it, and a virtual resident appears beside you with <b>a personality of its own</b>. Sea lions swim through the air, otters dive, capybaras jump. Each character has its own original music theme.</p>
+          <p>A commercial film was produced to support the launch. The cards and the film work as one object: one story, one visual language, one mood.</p>
+        </div>
+        <dl class="concept-meta">
+          <div><dt>Project</dt><dd>Moskvarium</dd></div>
+          <div><dt>Co-author</dt><dd>Moscow Transport Department</dd></div>
+          <div><dt>Edition</dt><dd>~10,000 pcs.</dd></div>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AR SECTION (graphite) -->
+<section class="sec on-graphite" style="padding-top:0;padding-bottom:0">
+  <article class="chap reveal">
+    <div class="chap-img">
+      <div class="ph" data-ph="AR capybara appears inside a metro carriage">
+        <img loading="lazy" decoding="async" src="../../assets/msq_troyka_lovemeet/photo/webp/troyka-27-capy-metro.webp" alt="An augmented-reality capybara sitting on a metro carriage seat — film still">
+      </div>
+    </div>
+    <div class="chap-body">
+      <h3 class="chap-title">AR: the card <span class="mark">comes to life</span> in the metro</h3>
+      <p>Three QR codes — three different creatures. Scan the card with a <b>capybara</b> — and it runs along the platform. Scan the <b>otter</b> — and it dives into water around you. Scan the <b>sea lion</b> — and it swims through the air. Augmented reality turns a transit card into a window into another world, right inside the Moscow Metro.</p>
+    </div>
+  </article>
+</section>
+
+<!-- PULL QUOTE 1 -->
+<section class="pullq">
+  <div class="pullq-bg" aria-hidden="true">
+    <div class="ph" data-ph="treatment cover · fox in a Wes Anderson spirit">
+      <img loading="lazy" decoding="async" src="../../assets/msq_troyka_lovemeet/photo/webp/troyka-06-treatment-cover.webp" alt="">
+    </div>
+  </div>
+  <div class="pullq-inner reveal">
+    <p class="pullq-text">
+      Wes Anderson <span class="word-block">meets</span><br>the Moscow Metro.
+    </p>
+  </div>
+</section>
+
+<!-- TREATMENT / STORY (cream) -->
+<section class="sec on-cream" id="s-treatment">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-label">Story</span>
+      <h2 class="sec-h">Film <span class="word-pill">story</span>.</h2>
+      <span class="sec-side"><b>30 seconds</b><br>Chance Encounter</span>
+    </div>
+
+    <div class="concept reveal" style="margin-bottom:0">
+      <div class="concept-img">
+        <div class="ph" data-ph="the hero alone in a metro carriage">
+          <img loading="lazy" decoding="async" src="../../assets/msq_troyka_lovemeet/photo/webp/troyka-24-shot-03.webp" alt="The main hero alone in a metro carriage — film still">
+        </div>
+      </div>
+      <div class="concept-body">
+        <p class="concept-lead">
+          The hero is alone in a metro carriage, surrounded by couples. He takes out the card, scans the QR code, and reality changes.
+        </p>
+        <div class="concept-text">
+          <p>The film tells a touching story through several episodes. The main line follows a lonely guy in a carriage where everyone around him is holding hands. Even the “grumpy woman in a beret” is not alone — she is holding <b>a mini pig, gently kissing it on the cheek</b>.</p>
+          <p>The hero scans the card and gets a companion: <b>an AR capybara</b>. They leave the carriage together and arrive at VDNH Park. There, the hero bumps into a girl: both drop their cards, both are absorbed in their AR animals. The hero suggests exchanging cards.</p>
+          <p>The finale takes place at <b>Moskvarium</b>. The characters stand opposite the capybara enclosure. He pulls out another card — with a sea lion.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Раскадровка шагами -->
+    <div class="story-steps reveal" style="margin-top:48px;border-radius:0;border:1px solid var(--line-l)">
+      <div class="step">
+        <div class="step-num">01</div>
+        <div class="step-body">
+          <div class="step-title">The hero taps his card at the VDNH turnstile</div>
+          <div class="step-desc">He rides down the escalator and sits in the carriage — <b>alone among couples in love</b>. The “lady with a pig” hugs her pet. Everyone is absorbed in someone else — except him.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <div class="step-body">
+          <div class="step-title">He takes out the Troika card and scans the QR code</div>
+          <div class="step-desc">Reality changes. A <b>capybara appears in augmented reality</b> — he is no longer alone.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <div class="step-body">
+          <div class="step-title">The hero and the capybara leave for VDNH Park</div>
+          <div class="step-desc">Guiding it with his finger on the screen, he leads the capybara through the park. Absorbed in the game, he <b>bumps into a girl</b>. Their cards fall onto the pavement.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">04</div>
+        <div class="step-body">
+          <div class="step-title">Card exchange</div>
+          <div class="step-desc">They realize they were both playing with AR animals. <b>The hero slides his card over to her</b> — she agrees. The chance encounter has happened.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">05</div>
+        <div class="step-body">
+          <div class="step-title">Finale at Moskvarium</div>
+          <div class="step-desc">The characters stand by the enclosure with a real capybara. The cards lie side by side on the railing. <b>He takes out one more — with a sea lion</b>. They look at each other.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTION (graphite) -->
+<section class="sec on-graphite" id="s-production">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-label">Production</span>
+      <h2 class="sec-h">Approach <span class="word-pill">and</span> shoot.</h2>
+      <span class="sec-side"><b>Pre-production</b><br>PPM · Casting · Shoot</span>
+    </div>
+
+    <article class="chap reveal">
+      <div class="chap-img">
+        <div class="ph" data-ph="symmetrical composition · film still">
+          <img loading="lazy" decoding="async" src="../../assets/msq_troyka_lovemeet/photo/webp/troyka-04-film.webp" alt="Symmetrical film still — a woman in red with a mini pig in a metro carriage">
+        </div>
+      </div>
+      <div class="chap-body">
+        <h3 class="chap-title">Visual style: <span class="mark">Wes Anderson</span></h3>
+        <p>Symmetrical composition and a bright color palette, in the spirit of Wes Anderson. <b>The camera is always static</b>: no shaky shots, slider moves, or sharp pans. The action happens inside the frame, not through camera movement. Bright color is developed through locations, costumes, and props.</p>
+      </div>
+    </article>
+
+    <article class="chap flip reveal">
+      <div class="chap-img">
+        <div class="ph" data-ph="color references · editorial fashion">
+          <img loading="lazy" decoding="async" src="../../assets/msq_troyka_lovemeet/photo/webp/troyka-14-color-refs.webp" alt="">
+        </div>
+      </div>
+      <div class="chap-body">
+        <h3 class="chap-title">Costumes and <span class="mark">props</span></h3>
+        <p>Bright color is the main tool: it appears in costume details, textures, and accessories. Each episode had <b>its own reference set</b>: “Couple 1,” “Couple 2,” “Twins,” and “Lady with a Pig.” Men’s costumes follow a fashion-editorial logic: checked jackets, wide trousers, bright loafers. A nod to Gucci collections.</p>
+      </div>
+    </article>
+
+    <article class="chap full reveal">
+      <div class="chap-img">
+        <div class="ph" data-ph="night shoot · closed metro carriage">
+          <img loading="lazy" decoding="async" src="../../assets/msq_troyka_lovemeet/photo/webp/troyka-26-shot-05.webp" alt="Film crew inside a closed Moscow Metro carriage at night">
+        </div>
+      </div>
+      <div class="chap-body">
+        <h3 class="chap-title">Five hours in a <span class="mark">closed carriage</span></h3>
+        <p><b>August 25, 2023, 20:00–01:00.</b> Five hours in a carriage closed to passengers. The orange line, an older carriage design, solid-color seats, no advertising. Filming in a depot or on a night train after the metro closed. Then the VDNH turnstile and platform exit. <b>Securing permission and organizing a shoot inside a closed Moscow Metro carriage was a production challenge of its own.</b></p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- PPM / CASTING (cream) -->
+<section class="sec on-cream" id="s-casting">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-label">PPM · Casting</span>
+      <h2 class="sec-h">Pre-production <span class="word-pill">deck</span>.</h2>
+      <span class="sec-side"><b>PPM deck · 22.08.2023</b><br>5 episodes · casting</span>
+    </div>
+  </div>
+
+  <div class="role-grid reveal stagger">
+    <div class="role-card">
+      <div class="role-photo">
+        <div class="ph" data-ph="PPM deck · male lead casting">
+          <img loading="lazy" decoding="async" src="../../assets/msq_troyka_lovemeet/photo/webp/troyka-17-casting.webp" alt="">
+        </div>
+      </div>
+      <div class="role-text">
+        <h3>Casting: <span class="mark">5 episodes</span></h3>
+        <p>The PPM deck included casting for several roles: the male lead and female lead (5+ candidates), the <b>“Lady with a Pig”</b>, the <b>“Twins”</b>, <b>“Couple 1”</b> and <b>“Couple 2”</b>. Each role had different actors with different types. Together, the episodes populate one metro carriage and make it feel like a complete world.</p>
+      </div>
+    </div>
+
+    <div class="role-card">
+      <div class="role-photo">
+        <div class="ph" data-ph="PPM deck · female lead casting">
+          <img loading="lazy" decoding="async" src="../../assets/msq_troyka_lovemeet/photo/webp/troyka-18-casting2.webp" alt="">
+        </div>
+      </div>
+      <div class="role-text">
+        <h3>Concept <span class="mark">costumes</span></h3>
+        <p>Each episode has its own color story. Men’s costume references: checked jackets, wide trousers, bright accessories — <b>in the spirit of Gucci and European fashion editorial</b>. Costumes for the episodic couples use saturated colors and unexpected combinations. Brightness is the main visual tool that ties the cards and the film together.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PULL QUOTE 2 -->
+<section class="pullq">
+  <div class="pullq-bg" aria-hidden="true">
+    <div class="ph" data-ph="film still · lady with a mini pig">
+      <img loading="lazy" decoding="async" src="../../assets/msq_troyka_lovemeet/photo/webp/troyka-02-cards.webp" alt="">
+    </div>
+  </div>
+  <div class="pullq-inner reveal">
+    <p class="pullq-text">
+      A <span class="word-block">Troika</span> card as a reason to meet.
+    </p>
+  </div>
+</section>
+
+<!-- VIDEO -->
+<section class="sec on-graphite" id="s-video" style="padding-top:72px;padding-bottom:72px">
+  <div class="wrap">
+    <div class="sec-head reveal" style="margin-bottom:32px">
+      <span class="sec-label">Film</span>
+      <span></span>
+      <span class="sec-side">YouTube · BABOOSHKA.PRO</span>
+    </div>
+    <div class="reveal" style="position:relative;width:100%;aspect-ratio:16/9;background:#000;cursor:pointer;overflow:hidden;border-radius:12px"
+      onclick="(function(el){var i=document.createElement('iframe');i.src='https://www.youtube.com/embed/WIz-aPIjm1Q?autoplay=1&rel=0';i.style.cssText='position:absolute;inset:0;width:100%;height:100%;border:0';i.allow='accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture';i.allowFullscreen=true;el.innerHTML='';el.appendChild(i);el.style.cursor='default';el.onclick=null})(this)">
+      <img loading="lazy" decoding="async" src="https://img.youtube.com/vi/WIz-aPIjm1Q/maxresdefault.jpg" onerror="this.src='https://img.youtube.com/vi/WIz-aPIjm1Q/hqdefault.jpg'" style="width:100%;height:100%;object-fit:cover;display:block" alt="Chance Encounter · commercial film">
+      <div style="position:absolute;inset:0;display:grid;place-items:center;background:rgba(0,0,0,.28)">
+        <div style="width:80px;height:80px;border-radius:50%;background:var(--lime);display:grid;place-items:center;font-size:28px;color:#16161A">▶</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY (graphite) -->
+<section class="sec on-graphite" id="s-gallery" style="padding-top:90px">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-label">Photo materials</span>
+      <h2 class="sec-h">Project <span class="word-pill">gallery</span>.</h2>
+      <span class="sec-side"><b>cards · frames · backstage</b><br>renders · shoot</span>
+    </div>
+
+    <div class="gal reveal stagger">
+
+      <!-- КАРТЫ -->
+      <div class="gcap">
+        <div class="big">Cards</div>
+        <div class="sub">limited edition · 3 heroes</div>
+      </div>
+
+      <figure class="gi">
+        <div class="ph" data-ph="card · capybara (AR render)"><img loading="lazy" decoding="async" src="../../assets/msq_troyka_lovemeet/photo/webp/troyka-19-char-capy.webp" alt="Troika card — Capybara, AR render"></div>
+      </figure>
+
+      <figure class="gi">
+        <div class="ph" data-ph="card · sea lion (AR render)"><img loading="lazy" decoding="async" src="../../assets/msq_troyka_lovemeet/photo/webp/troyka-20-char-lion.webp" alt="Troika card — Sea Lion, AR render"></div>
+      </figure>
+
+      <figure class="gi">
+        <div class="ph" data-ph="card · otter (AR render)"><img loading="lazy" decoding="async" src="../../assets/msq_troyka_lovemeet/photo/webp/troyka-21-char-otter.webp" alt="Troika card — Otter, AR render"></div>
+      </figure>
+
+      <figure class="gi wide">
+        <div class="ph" data-ph="treatment · cover (Fantastic Mr. Fox)"><img loading="lazy" decoding="async" src="../../assets/msq_troyka_lovemeet/photo/webp/troyka-06-treatment-cover.webp" alt="Treatment — “Moskvarium + Troika” cover"></div>
+      </figure>
+
+      <figure class="gi">
+        <div class="ph" data-ph="PPM layout · three cards"><img loading="lazy" decoding="async" src="../../assets/msq_troyka_lovemeet/photo/webp/troyka-11-ppm-title.webp" alt="PPM deck — title slide with three cards"></div>
+      </figure>
+
+      <!-- ДОКУМЕНТЫ -->
+      <div class="gcap">
+        <div class="big">Docu-<br>ments</div>
+        <div class="sub">treatment · PPM · brief</div>
+      </div>
+
+      <figure class="gi">
+        <div class="ph" data-ph="slide · series intro"><img loading="lazy" decoding="async" src="../../assets/msq_troyka_lovemeet/photo/webp/troyka-07-cards-intro.webp" alt="Slide — limited-edition card series intro"></div>
+      </figure>
+
+      <figure class="gi">
+        <div class="ph" data-ph="slide · augmented reality, QR"><img loading="lazy" decoding="async" src="../../assets/msq_troyka_lovemeet/photo/webp/troyka-08-ar-metro.webp" alt="Slide — augmented-reality mechanics and QR"></div>
+      </figure>
+
+      <figure class="gi">
+        <div class="ph" data-ph="slide · carriage shoot brief"><img loading="lazy" decoding="async" src="../../assets/msq_troyka_lovemeet/photo/webp/troyka-09-metro-tz.webp" alt="Slide — metro carriage shoot brief"></div>
+      </figure>
+
+      <figure class="gi">
+        <div class="ph" data-ph="slide · approach and visual style"><img loading="lazy" decoding="async" src="../../assets/msq_troyka_lovemeet/photo/webp/troyka-13-approach.webp" alt="Slide — shoot approach and visual style"></div>
+      </figure>
+
+      <figure class="gi">
+        <div class="ph" data-ph="color references · fashion editorial"><img loading="lazy" decoding="async" src="../../assets/msq_troyka_lovemeet/photo/webp/troyka-14-color-refs.webp" alt="Color references — fashion editorial"></div>
+      </figure>
+
+      <figure class="gi">
+        <div class="ph" data-ph="slide · men’s costume references"><img loading="lazy" decoding="async" src="../../assets/msq_troyka_lovemeet/photo/webp/troyka-12-costumes.webp" alt="Slide — men’s costume references"></div>
+      </figure>
+
+      <!-- СЮЖЕТ -->
+      <figure class="gi">
+        <div class="ph" data-ph="slide · story: the hero alone"><img loading="lazy" decoding="async" src="../../assets/msq_troyka_lovemeet/photo/webp/troyka-10-story.webp" alt="Slide — story 1: the hero alone in a carriage"></div>
+      </figure>
+
+      <figure class="gi">
+        <div class="ph" data-ph="slide · story: encounter at VDNH"><img loading="lazy" decoding="async" src="../../assets/msq_troyka_lovemeet/photo/webp/troyka-15-story2.webp" alt="Slide — story: encounter in VDNH Park"></div>
+      </figure>
+
+      <figure class="gi">
+        <div class="ph" data-ph="slide · story: finale at Moskvarium"><img loading="lazy" decoding="async" src="../../assets/msq_troyka_lovemeet/photo/webp/troyka-16-story3.webp" alt="Slide — story: finale at Moskvarium"></div>
+      </figure>
+
+      <!-- КАСТИНГ -->
+      <figure class="gi">
+        <div class="ph" data-ph="slide · male lead casting"><img loading="lazy" decoding="async" src="../../assets/msq_troyka_lovemeet/photo/webp/troyka-17-casting.webp" alt="Slide — male lead casting"></div>
+      </figure>
+
+      <figure class="gi">
+        <div class="ph" data-ph="slide · “Couple 2” episode casting"><img loading="lazy" decoding="async" src="../../assets/msq_troyka_lovemeet/photo/webp/troyka-18-casting2.webp" alt="Slide — casting, “Couple 2” episode"></div>
+      </figure>
+
+      <!-- КАДРЫ И БЭКСТЕЙДЖ -->
+      <div class="gcap">
+        <div class="big">Frames<br>and set</div>
+        <div class="sub">film · backstage</div>
+      </div>
+
+      <figure class="gi">
+        <div class="ph" data-ph="frame · hero in a metro carriage"><img loading="lazy" decoding="async" src="../../assets/msq_troyka_lovemeet/photo/webp/troyka-24-shot-03.webp" alt="Film still — hero in a metro carriage" style="object-position:center 15%"></div>
+      </figure>
+
+      <figure class="gi">
+        <div class="ph" data-ph="frame · AR card in hand"><img loading="lazy" decoding="async" src="../../assets/msq_troyka_lovemeet/photo/webp/troyka-25-shot-04.webp" alt="Film still — AR card in hand" style="object-position:center 15%"></div>
+      </figure>
+
+      <figure class="gi wide">
+        <div class="ph" data-ph="backstage · closed metro carriage"><img loading="lazy" decoding="async" src="../../assets/msq_troyka_lovemeet/photo/webp/troyka-26-shot-05.webp" alt="Backstage — shoot inside a closed metro carriage"></div>
+      </figure>
+
+      <figure class="gi">
+        <div class="ph" data-ph="backstage · greenery set"><img loading="lazy" decoding="async" src="../../assets/msq_troyka_lovemeet/photo/webp/troyka-22-shot-01.webp" alt="Backstage — film set with greenery"></div>
+      </figure>
+
+      <figure class="gi">
+        <div class="ph" data-ph="backstage · camera operator on set"><img loading="lazy" decoding="async" src="../../assets/msq_troyka_lovemeet/photo/webp/troyka-23-shot-02.webp" alt="Backstage — camera operator on set"></div>
+      </figure>
+
+    </div>
+  </div>
+</section>
+
+<!-- RESULTS (cream) -->
+<section class="results" id="s-results">
+  <div class="wrap">
+    <div class="results-top reveal">
+      <div>
+        <h2 class="results-title">Re<span class="word-pill">sults</span></h2>
+      </div>
+      <div class="results-numbers">
+        <div class="stat-item"><strong>10<span class="mark">K</span></strong>cards · in 2 days</div>
+        <div class="stat-item"><strong>530<span class="mark">+</span></strong>publications</div>
+        <div class="stat-item"><strong>1.1<span class="mark">M</span></strong>reach</div>
+      </div>
+    </div>
+
+    <div class="results-body reveal">
+      <dl>
+        <div class="cred-row">
+          <dt>Edition</dt>
+          <dd>10,000 cards — <span class="mark">in 2 days</span><span class="sub">MOSMETROSHOP · Live Communication desks · Moskvarium</span></dd>
+        </div>
+        <div class="cred-row">
+          <dt>Media</dt>
+          <dd>530+ publications<span class="sub">press · TV · social media</span></dd>
+        </div>
+        <div class="cred-row">
+          <dt>Video</dt>
+          <dd>~100,000 views<span class="sub">commercial film · YouTube + social media</span></dd>
+        </div>
+      </dl>
+      <dl class="results-col-right">
+        <div class="cred-row">
+          <dt>Reach</dt>
+          <dd>1.1 million people<span class="sub">total campaign reach</span></dd>
+        </div>
+        <div class="cred-row">
+          <dt>Project</dt>
+          <dd>Moskvarium<span class="sub">co-author — Moscow Department of Transport</span></dd>
+        </div>
+        <div class="cred-row">
+          <dt>Production</dt>
+          <dd>BABOOSHKA.PRO<span class="sub">video production</span></dd>
+        </div>
+      </dl>
+    </div>
+
+    <p class="results-src reveal">
+      <span>Public case data:</span>
+      <a href="https://www.sostav.ru/publication/moskvarium-64594.html" target="_blank" rel="noopener noreferrer">Sostav.ru, 25 Nov 2023</a>
+    </p>
+  </div>
+</section>
+
+<!-- PULL QUOTE 3 -->
+<section class="pullq" style="min-height:60vh">
+  <div class="pullq-bg" aria-hidden="true">
+    <div class="ph" data-ph="card render · sea lion in AR">
+      <img loading="lazy" decoding="async" src="../../assets/msq_troyka_lovemeet/photo/webp/troyka-20-char-lion.webp" alt="">
+    </div>
+  </div>
+  <div class="pullq-inner reveal">
+    <p class="pullq-text">
+      A transit card you <span class="word-block">want to</span> keep.
+    </p>
+  </div>
+</section>
+
+<!-- PROJ NAV -->
+<nav class="proj-nav" aria-label="Other projects">
+  <div class="proj-nav-inner">
+    <a class="pn-card" href="moskvaruim.html">
+      <img loading="lazy" decoding="async" class="bg" src="../../assets/preview_projects/moskvaruim.webp" alt="" aria-hidden="true">
+      <span class="pn-dir"><span class="circle-btn sm bone" aria-hidden="true" style="margin-bottom:14px">←</span><br>Previous</span>
+      <span class="pn-name">Showing Fish</span>
+      <span class="pn-sub">Advertising · 360° · 2024</span>
+    </a>
+    <a class="pn-contact" href="https://t.me/samarakovskaya_tanya" target="_blank" rel="noopener">
+      <span class="pn-contact-label">Have a project?</span>
+      <span class="pn-btn">Contact ↗</span>
+    </a>
+    <a class="pn-card" href="clean-ocean.html" style="text-align:right">
+      <img loading="lazy" decoding="async" class="bg" src="../../assets/preview_projects/clean-ocean.webp" alt="" aria-hidden="true">
+      <span class="pn-dir"><span class="circle-btn sm bone" aria-hidden="true" style="margin-bottom:14px">→</span><br>Next</span>
+      <span class="pn-name">Clean Ocean</span>
+      <span class="pn-sub">WebAR · Quest · 2026</span>
+    </a>
+  </div>
+</nav>
+
+<footer>
+  <div class="foot-row">
+    <span>© 2026 · <b>Tanya Samarakovskaya</b></span>
+    <span><a href="#top">↑ Back to top</a></span>
+    <a class="foot-lang" href="../../projects/troyka-lovemeet.html" hreflang="ru">RU</a>
+  </div>
+</footer>
+
+<script>
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    if(e.isIntersecting){
+      const t = e.target;
+      t.classList.add('in');
+      if(t.classList.contains('stagger')){
+        Array.from(t.children).forEach((c,i) => { c.style.transitionDelay = (i*55)+'ms'; });
+      }
+      io.unobserve(t);
+    }
+  }), {threshold:.08});
+  document.querySelectorAll('.reveal,.stagger').forEach(el => io.observe(el));
+
+  document.querySelectorAll('.mag-pill').forEach(pill => {
+    pill.addEventListener('mousemove', e => {
+      const r = pill.getBoundingClientRect();
+      const dx = e.clientX - (r.left + r.width / 2);
+      const dy = e.clientY - (r.top + r.height / 2);
+      pill.style.transform = `translate(${dx * 0.38}px, ${dy * 0.42}px) scale(1.06)`;
+    });
+    pill.addEventListener('mouseleave', () => { pill.style.transform = ''; });
+    pill.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.getElementById(pill.dataset.section);
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+
+  const sectionIds = ['s-concept','s-treatment','s-production','s-video','s-results'];
+  const pillMap = {};
+  document.querySelectorAll('.mag-pill').forEach(p => { pillMap[p.dataset.section] = p; });
+  const secObs = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        Object.values(pillMap).forEach(p => p.classList.remove('active'));
+        const a = pillMap[entry.target.id];
+        if (a) a.classList.add('active');
+      }
+    });
+  }, { threshold: 0.25 });
+  sectionIds.forEach(id => { const el = document.getElementById(id); if (el) secObs.observe(el); });
+
+  const lb = document.getElementById('lb');
+  const lbImg = document.getElementById('lbImg');
+  const lbCounter = document.getElementById('lbCounter');
+  const galImgs = Array.from(document.querySelectorAll('.card-cell img, .gi img'));
+  let currentIdx = 0;
+
+  function showImg(idx, dir = 0) {
+    const img = galImgs[idx];
+    if (!img || !img.src) return;
+    if (dir !== 0) {
+      lbImg.classList.add('fade');
+      setTimeout(() => { lbImg.src = img.src; lbImg.alt = img.alt; lbImg.classList.remove('fade'); }, 160);
+    } else { lbImg.src = img.src; lbImg.alt = img.alt; }
+    currentIdx = idx;
+    lbCounter.textContent = (idx + 1) + ' / ' + galImgs.length;
+  }
+
+  function openLb(idx) { showImg(idx, 0); lb.classList.add('open'); document.body.style.overflow = 'hidden'; }
+  function closeLb() { lb.classList.remove('open'); document.body.style.overflow = ''; lbImg.src = ''; }
+  function prev() { showImg((currentIdx - 1 + galImgs.length) % galImgs.length, -1); }
+  function next() { showImg((currentIdx + 1) % galImgs.length, 1); }
+
+  galImgs.forEach((img, i) => { img.style.cursor = 'zoom-in'; img.addEventListener('click', () => openLb(i)); });
+  lb.addEventListener('click', e => { if (e.target === lb) closeLb(); });
+  document.getElementById('lbClose').addEventListener('click', closeLb);
+  document.getElementById('lbPrev').addEventListener('click', e => { e.stopPropagation(); prev(); });
+  document.getElementById('lbNext').addEventListener('click', e => { e.stopPropagation(); next(); });
+  document.addEventListener('keydown', e => {
+    if (!lb.classList.contains('open')) return;
+    if (e.key === 'Escape') closeLb();
+    if (e.key === 'ArrowLeft') prev();
+    if (e.key === 'ArrowRight') next();
+  });
+  let touchStartX = 0;
+  lb.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, {passive:true});
+  lb.addEventListener('touchend', e => { const dx = e.changedTouches[0].clientX - touchStartX; if (Math.abs(dx) > 50) dx < 0 ? next() : prev(); });
+</script>
+</body></html>
