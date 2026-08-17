@@ -26,7 +26,7 @@
 <meta name="twitter:description" content="Таня Самараковская — креативный директор и продюсер полного цикла. Рекламные кампании 360°, спецпроекты, брендинг, арт-дирекшн, AI в продакшне. Опыт на стороне заказчика и агентства. 10+ лет, 30+ проектов.">
 <meta name="twitter:image" content="https://t.samarakovskaya.art/assets/preview-hero.webp">
 
-<link rel="preload" href="assets/hero-frame1.webp" as="image" type="image/webp" fetchpriority="high">
+<link rel="preload" href="assets/hero-poster-photo.webp" as="image" type="image/webp" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://player.vimeo.com" crossorigin>
@@ -253,7 +253,7 @@
   .hero-wrap{display:flex;flex-direction:column;flex:1;justify-content:space-between;gap:clamp(16px,2.6vh,32px)}
 
   /* hero: local portrait video, independent of Vimeo */
-  .hero-bg{position:absolute;inset:0;z-index:0;overflow:hidden;background:var(--graphite) url("assets/hero-frame1.webp") center/cover no-repeat}
+  .hero-bg{position:absolute;inset:0;z-index:0;overflow:hidden;background:var(--graphite) url("assets/hero-poster-photo.webp") center/cover no-repeat}
   .hero-bg video{
     position:absolute;inset:0;width:100%;height:100%;
     object-fit:cover;object-position:center;
@@ -974,7 +974,7 @@
 
   <!-- fullscreen local portrait video -->
   <div class="hero-bg" aria-hidden="true">
-    <video id="heroVideo" autoplay muted loop playsinline disablepictureinpicture preload="auto" poster="assets/hero-frame1.webp">
+    <video id="heroVideo" autoplay muted loop playsinline disablepictureinpicture preload="auto" poster="assets/hero-poster-photo.webp">
       <source src="assets/tanya-samarakovskaya-creative-director.webm" type="video/webm">
     </video>
     <div class="hero-vid-overlay"></div>
@@ -1894,40 +1894,58 @@
 </script>
 
 <script>
-/* ── Герой: замедленное непрерывное видео ─────────────────────────────── */
+/* ── Герой: замедленное видео в непрерывной петле ─────────────────────────
+   Крутилки:
+     RATE  — скорость. 1 = обычная, 0.65 = чуть медленнее, 0.5 = вдвое.
+     RESPECT_REDUCED_MOTION — если true, при системной настройке
+     «уменьшить движение» видео останавливается на постере.
+     Сейчас false: фон декоративный и лежит под тёмной заливкой.
+   ─────────────────────────────────────────────────────────────────────── */
 (function(){
   var v = document.getElementById('heroVideo');
   if(!v) return;
 
-  var RATE = 0.65;                     // 0.5 медленнее, 1 обычная скорость
-  var slow = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var RATE = 0.65;
+  var RESPECT_REDUCED_MOTION = false;
 
-  function applyRate(){ try { v.playbackRate = slow ? 0 : RATE; } catch(e){} }
+  var stopIt = RESPECT_REDUCED_MOTION &&
+               window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  // playbackRate сбрасывается после загрузки, воспроизведения и перемотки в петле
-  ['loadedmetadata','loadeddata','play','playing','seeked','ratechange'].forEach(function(ev){
+  if(stopIt){ try{ v.pause(); }catch(e){} return; }
+
+  // Скорость. Никогда не 0: нулевое значение останавливает воспроизведение.
+  function applyRate(){
+    try { if (v.playbackRate !== RATE) v.playbackRate = RATE; } catch(e){}
+  }
+
+  // Браузеры сбрасывают playbackRate после загрузки, старта и перемотки.
+  // Событие ratechange здесь намеренно НЕ слушаем: получается петля.
+  ['loadedmetadata','loadeddata','canplay','play','playing','seeked'].forEach(function(ev){
     v.addEventListener(ev, applyRate);
   });
-  applyRate();
 
-  // Страховка петли: атрибут loop иногда не срабатывает после троттлинга вкладки
-  v.addEventListener('ended', function(){
-    if(slow) return;
-    v.currentTime = 0;
-    var p = v.play(); if(p && p.catch) p.catch(function(){});
-  });
-
-  // Автоплей мог быть заблокирован до взаимодействия — добираем при возврате на вкладку
-  function kick(){
-    if(slow || !v.paused) return;
-    var p = v.play(); if(p && p.catch) p.catch(function(){});
+  function tryPlay(){
+    applyRate();
+    if(!v.paused) return;
+    var p = v.play();
+    if(p && p.catch) p.catch(function(){});
   }
-  document.addEventListener('visibilitychange', function(){
-    if(document.visibilityState === 'visible') { kick(); applyRate(); }
-  });
-  window.addEventListener('pageshow', kick);
 
-  if(slow) v.pause();
+  // Петля: основной механизм — атрибут loop, это страховка
+  v.addEventListener('ended', function(){ v.currentTime = 0; tryPlay(); });
+
+  // Автоплей могли заблокировать: добираем при возврате на вкладку
+  // и при первом касании страницы
+  document.addEventListener('visibilitychange', function(){
+    if(document.visibilityState === 'visible') tryPlay();
+  });
+  window.addEventListener('pageshow', tryPlay);
+  ['pointerdown','keydown','touchstart'].forEach(function(ev){
+    window.addEventListener(ev, tryPlay, {once:true, passive:true});
+  });
+
+  if(v.readyState >= 2) tryPlay();
+  else v.addEventListener('loadeddata', tryPlay, {once:true});
 })();
 </script>
 </body>
