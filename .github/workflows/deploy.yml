@@ -3,13 +3,12 @@ name: Deploy to Yandex Object Storage
 # CD_GENERAL: публикация второй версии сайта в бакет t.samarakovskaya.art.
 # Заменяет авто-деплой Netlify. Логика веток сохранена:
 #   cd_general_upd — рабочая ветка (проверка), деплой НЕ запускается
-#   main          — продакшен, мерж сюда публикует сайт
+#   main           — продакшен, мерж сюда публикует сайт
 # Запустить вручную можно через вкладку Actions → Run workflow.
 
 on:
-  # Автозапуск ВЫКЛЮЧЕН на время сборки CD_GENERAL.
-  # Вернуть блок push только после шага 13 чек-листа,
-  # когда бакет t.samarakovskaya.art проверен и домен подключён.
+  push:
+    branches: [main]
   workflow_dispatch:
 
 env:
