@@ -26,7 +26,7 @@
 <meta name="twitter:description" content="Таня Самараковская — креативный директор и продюсер полного цикла. Рекламные кампании 360°, спецпроекты, брендинг, арт-дирекшн, AI в продакшне. Опыт на стороне заказчика и агентства. 10+ лет, 30+ проектов.">
 <meta name="twitter:image" content="https://t.samarakovskaya.art/assets/preview-hero.webp">
 
-<link rel="preload" href="assets/hero-poster.webp" as="image">
+<link rel="preload" href="assets/hero-poster.webp" as="image" type="image/webp" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://player.vimeo.com" crossorigin>
@@ -49,8 +49,16 @@
     --bone:#F1ECDD;
     --bone-2:#A8A39A;
     --bone-3:#6E6960;
-    --lime:#C8FF2E;
-    --lime-deep:#A8DD15;
+    --lime:#174BFF;
+    --lime-deep:#6F90D0;
+    --blue-accent:#174BFF;
+    --blue-accent-soft:#6F90D0;
+    --bg-black:#050507;
+    --bg-navy:#080E1C;
+    --bg-blue:#071D46;
+    --bg-cobalt:#06428F;
+    --bg-red:#9E281D;
+    --bg-orange:#DB4A25;
     --line-d:rgba(241,236,221,.10);
     --line-d2:rgba(241,236,221,.18);
     --line-l:rgba(22,22,26,.12);
@@ -111,41 +119,49 @@
 
   /* ───── TOP NAV ───── */
   .top{
-    position:fixed;top:14px;left:50%;transform:translateX(-50%);z-index:60;
-    width:calc(100% - 2*var(--side-pad));max-width:1320px;
+    position:fixed;top:16px;left:50%;transform:translateX(-50%);z-index:60;
+    width:calc(100% - 2*var(--side-pad));max-width:1176px;
   }
   .nav-bar{
-    display:flex;align-items:center;gap:12px;
-    background:rgba(22,22,26,.7);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
-    border:1px solid var(--line-d);border-radius:999px;padding:7px 8px 7px 18px;
+    display:flex;align-items:center;gap:10px;min-width:0;
+    background:rgba(9,11,18,.86);backdrop-filter:blur(24px) saturate(135%);-webkit-backdrop-filter:blur(24px) saturate(135%);
+    border:1px solid rgba(111,144,208,.28);border-radius:999px;padding:7px 8px 7px 15px;
+    box-shadow:0 12px 36px rgba(0,0,0,.26),inset 0 1px 0 rgba(255,255,255,.04);
   }
   /* на мобиле плотнее фон — иначе тёмный текст светлых секций просвечивает «кашей» */
   @media(max-width:880px){.nav-bar{background:rgba(20,20,24,.92);backdrop-filter:blur(24px) saturate(120%);-webkit-backdrop-filter:blur(24px) saturate(120%)}}
-  .brand{display:inline-flex;align-items:center;gap:10px;font-size:13px;font-weight:600;white-space:nowrap;color:var(--bone)}
-  .brand-mark{width:22px;height:22px;border-radius:50%;flex-shrink:0;object-fit:cover}
+  .brand{display:inline-flex;align-items:center;gap:9px;font-size:13px;font-weight:600;white-space:nowrap;color:var(--bone);min-width:0}
+  .brand-mark{width:22px;height:22px;border-radius:50%;flex-shrink:0;object-fit:cover;box-shadow:0 0 0 1px rgba(23,75,255,.55),0 0 18px rgba(23,75,255,.3)}
   .brand small{color:var(--bone-2);font-weight:400;margin-left:2px;font-size:11px;text-transform:uppercase;letter-spacing:.06em}
-  .top-nav{flex:1;display:flex;justify-content:center;gap:2px}
+  .top-nav{flex:1;display:flex;justify-content:center;gap:1px;min-width:0}
   .top-nav a{
-    padding:8px 14px;font-family:"JetBrains Mono",monospace;font-size:11px;
+    padding:8px 11px;font-family:"JetBrains Mono",monospace;font-size:10px;
     text-transform:uppercase;letter-spacing:.08em;color:var(--bone-2);
     border-radius:999px;transition:color .2s,background .2s;white-space:nowrap;
   }
-  .top-nav a:hover,.top-nav a.on{color:var(--bone);background:rgba(241,236,221,.08)}
+  .top-nav a:hover{color:var(--bone);background:rgba(23,75,255,.12)}
+  .top-nav a.on{color:#fff;background:rgba(23,75,255,.28);box-shadow:inset 0 0 0 1px rgba(111,144,208,.2)}
   .nav-cta{
     display:inline-flex;align-items:center;gap:7px;
-    background:var(--lime);color:var(--ink);
-    padding:9px 16px;border-radius:999px;
+    background:var(--blue-accent);color:#fff;
+    padding:9px 15px;border-radius:999px;
     font-family:"JetBrains Mono",monospace;font-size:10px;
     text-transform:uppercase;letter-spacing:.1em;font-weight:600;
   }
   .nav-cta::after{content:"↗\FE0E"}
+  .nav-cta:hover{background:#3563ff;box-shadow:0 0 22px rgba(23,75,255,.42)}
   /* language toggle */
   .lang-toggle{display:inline-flex;gap:2px;padding:3px;background:rgba(241,236,221,.06);border:1px solid var(--line-d);border-radius:999px;flex-shrink:0}
   .lang-seg{padding:6px 9px;border-radius:999px;font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--bone-2);transition:background .2s,color .2s;line-height:1;cursor:none}
-  .lang-seg.on{background:var(--lime);color:var(--ink);font-weight:600}
+  .lang-seg.on{background:var(--blue-accent);color:#fff;font-weight:600}
   .lang-seg:hover:not(.on){color:var(--bone)}
   @media(hover:none){.lang-seg{cursor:pointer}}
-  @media(max-width:880px){.top-nav{display:none}}
+  @media(max-width:1120px){
+    .brand small{display:none}
+    .top-nav a{padding:8px 9px;font-size:9.5px;letter-spacing:.06em}
+    .nav-cta{padding:9px 13px;letter-spacing:.07em}
+  }
+  @media(max-width:920px){.top-nav{display:none}}
   @media(max-width:560px){.brand small{display:none}}
   /* мобайл: шапка не помещалась — кнопка «Написать» вылезала за экран. Ужимаем отступы и кегль */
   @media(max-width:480px){
@@ -236,20 +252,13 @@
   }
   .hero-wrap{display:flex;flex-direction:column;flex:1;justify-content:space-between;gap:clamp(16px,2.6vh,32px)}
 
-  /* fullscreen video bg */
-  /* постер = первый кадр шоурила, виден сразу; Vimeo проявляется поверх при старте */
+  /* hero: local portrait video, independent of Vimeo */
   .hero-bg{position:absolute;inset:0;z-index:0;overflow:hidden;background:var(--graphite) url("assets/hero-poster.webp") center/cover no-repeat}
-  .hero-bg iframe{
-    position:absolute;top:50%;left:50%;
-    width:177.78vh;height:56.25vw;
-    min-width:100%;min-height:100%;
-    transform:translate(-50%,-50%);
-    pointer-events:none;border:0;
-    opacity:0;transition:opacity .45s ease;
+  .hero-bg video{
+    position:absolute;inset:0;width:100%;height:100%;
+    object-fit:cover;object-position:center;
+    pointer-events:none;display:block;
   }
-  /* iframe скрыт пока Vimeo не начнёт реально проигрывать —
-     прячем спиннер Vimeo; если видео не догрузится, остаётся чистый тёмный hero */
-  .hero-bg.is-ready iframe{opacity:1}
   .hero-vid-overlay{
     position:absolute;inset:0;z-index:1;
     background:rgba(10,0,30,.35);
@@ -260,26 +269,6 @@
     content:"";position:absolute;inset:0;z-index:2;
     background:linear-gradient(to bottom,rgba(22,22,26,.88) 0%,rgba(22,22,26,.45) 7%,rgba(22,22,26,.06) 22%,rgba(22,22,26,.2) 55%,rgba(22,22,26,.97) 100%);
   }
-  .hero-yt-cover{
-    position:absolute;inset:0;z-index:3;
-    background:rgba(0,0,0,.002);cursor:default;
-  }
-  .hero-sound-btn{
-    position:absolute;top:74px;right:var(--side-pad);z-index:7;
-    width:40px;height:40px;border-radius:50%;
-    background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.22);
-    color:var(--bone);cursor:pointer;
-    display:flex;align-items:center;justify-content:center;
-    font-size:16px;transition:background .25s,border-color .25s,transform .2s;
-    backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
-  }
-  .hero-sound-btn:hover{background:rgba(255,255,255,.2);border-color:rgba(255,255,255,.4);transform:scale(1.08)}
-  .hero-sound-btn.is-muted{animation:soundPulse 2.4s ease-in-out infinite}
-  @keyframes soundPulse{
-    0%,100%{box-shadow:0 0 0 0 rgba(255,255,255,.25)}
-    50%{box-shadow:0 0 0 7px rgba(255,255,255,.0)}
-  }
-  @media(max-width:600px){.hero-sound-btn{top:66px;right:16px}}
 
   /* hero name */
   .hero-name{
@@ -412,6 +401,152 @@
   .sec{padding:90px 0 100px;position:relative}
   .sec.on-cream{background:var(--cream);color:var(--ink)}
   .sec.on-graphite{background:var(--graphite);color:var(--bone)}
+
+  /* ───── BACKGROUND AFTER ABOUT ─────
+     Starts at Services and continues through the footer. The light sections
+     remain readable; the color field is stronger in dark sections. */
+  .post-about-bg{
+    position:relative;isolation:isolate;overflow:hidden;
+    background-color:#E5E8E8;
+  }
+  /* One continuous, non-tiled field. Each ellipse has its own scale, angle
+     and position, so the blue edge bends and changes shape while scrolling. */
+  .gradient-field{position:absolute;inset:0;z-index:0;overflow:hidden;pointer-events:none}
+  .gradient-field::after{
+    content:"";position:absolute;inset:0;z-index:2;
+    background:linear-gradient(90deg,rgba(7,9,18,.54) 0%,rgba(7,9,18,.28) 58%,rgba(7,9,18,.06) 100%);
+  }
+  .gradient-shape{
+    position:absolute;left:var(--x);top:var(--y);z-index:1;
+    width:var(--w);height:var(--h);
+    background:radial-gradient(
+      ellipse at center,
+      #121524 0%,
+      #121524 28%,
+      #17235C 39%,
+      #1740D2 47%,
+      #174BFF 52%,
+      #3250A0 58%,
+      #6F90D0 65%,
+      #95AFDC 71%,
+      #B1C4DE 77%,
+      rgba(229,232,232,.82) 82%,
+      rgba(229,232,232,0) 89%,
+      rgba(229,232,232,0) 100%
+    );
+    transform:translate(-50%,-50%) rotate(var(--r)) scale(1);
+    transform-origin:center;
+    filter:blur(clamp(52px,5.4vw,104px));
+    -webkit-filter:blur(clamp(52px,5.4vw,104px));
+    opacity:.98;
+    backface-visibility:hidden;
+    will-change:transform,filter;
+    animation:gradientMorph var(--dur,38s) ease-in-out var(--delay,0s) infinite alternate;
+  }
+  .gradient-shape.s1{--x:16%;--y:5%;--w:124vw;--h:42vw;--r:-8deg;--r2:-2deg;--dur:42s}
+  .gradient-shape.s2{--x:88%;--y:20%;--w:94vw;--h:32vw;--r:14deg;--r2:7deg;--dur:36s;--delay:-12s}
+  .gradient-shape.s3{--x:8%;--y:35%;--w:112vw;--h:38vw;--r:18deg;--r2:10deg;--dur:48s;--delay:-24s}
+  .gradient-shape.s4{--x:92%;--y:50%;--w:104vw;--h:44vw;--r:-19deg;--r2:-10deg;--dur:40s;--delay:-8s}
+  .gradient-shape.s5{--x:18%;--y:65%;--w:132vw;--h:34vw;--r:-12deg;--r2:-20deg;--dur:52s;--delay:-30s}
+  .gradient-shape.s6{--x:84%;--y:81%;--w:98vw;--h:40vw;--r:17deg;--r2:9deg;--dur:44s;--delay:-18s}
+  .gradient-shape.s7{--x:22%;--y:96%;--w:116vw;--h:42vw;--r:9deg;--r2:17deg;--dur:46s;--delay:-6s}
+  @keyframes gradientMorph{
+    0%{transform:translate(-50%,-50%) rotate(var(--r)) scale(1)}
+    100%{transform:translate(-48%,-52%) rotate(var(--r2)) scale(1.08)}
+  }
+  .post-about-bg::after{
+    content:"";position:absolute;inset:0;z-index:20;pointer-events:none;
+    opacity:.28;mix-blend-mode:multiply;
+    background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 140 140' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.92' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-repeat:repeat;background-size:140px 140px;
+    filter:contrast(185%) brightness(105%);
+  }
+  .post-about-bg > *{position:relative;z-index:1}
+  .post-about-bg > .gradient-field{position:absolute;z-index:0}
+  .post-about-bg .svc-section,
+  .post-about-bg .sec.on-cream,
+  .post-about-bg .sec.on-graphite{
+    background:transparent;
+    color:var(--bone);
+  }
+  .post-about-bg footer{background:rgba(7,9,18,.18);color:var(--bone)}
+
+  /* All post-About sections use one dark visual system. */
+  .post-about-bg .sec-head{border-color:var(--line-d2)}
+  .post-about-bg .sec-num{color:var(--bone-3)}
+  .post-about-bg .sec-side{color:var(--bone-2)}
+  .post-about-bg .sec-side b{color:var(--bone)}
+
+  /* Services: graphite glass cards instead of cream tiles. */
+  .post-about-bg .svc{
+    background:rgba(241,236,221,.16);
+    border-color:rgba(241,236,221,.16);
+  }
+  .post-about-bg .svc-section{border-color:var(--line-d2)}
+  .post-about-bg .svc-cell{
+    background:rgba(12,13,18,.78);color:var(--bone);
+    border-color:var(--line-d);
+    backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  }
+  .post-about-bg .svc-cell:hover{background:rgba(38,38,44,.94);color:var(--bone)}
+  .post-about-bg .svc-cell .svc-num,
+  .post-about-bg .svc-cell .svc-tag{color:var(--bone-3)}
+  .post-about-bg .svc-cell .svc-desc{color:var(--bone-2)}
+  .post-about-bg .svc-cell:hover .svc-num{color:var(--bone-2)}
+  .post-about-bg .svc-cell:hover .svc-tag{color:var(--lime)}
+  .post-about-bg .svc-cell:hover .svc-desc{color:var(--bone-2)}
+  .post-about-bg .svc-cell.feat{background:var(--lime);color:var(--ink)}
+  .post-about-bg .svc-cell.feat:hover{background:var(--ink);color:var(--lime)}
+  .post-about-bg .svc-cell.feat .svc-num,
+  .post-about-bg .svc-cell.feat .svc-tag,
+  .post-about-bg .svc-cell.feat .svc-headline{color:var(--ink)}
+  .post-about-bg .svc-cell.feat:hover .svc-num,
+  .post-about-bg .svc-cell.feat:hover .svc-tag,
+  .post-about-bg .svc-cell.feat:hover .svc-headline{color:var(--lime)}
+
+  /* Career: dark timeline and light typography. */
+  .post-about-bg .career-aside p{color:var(--bone-2)}
+  .post-about-bg .tools-stack{border-color:var(--line-d2)}
+  .post-about-bg .tools-label{color:var(--bone-3)}
+  .post-about-bg .tg-name{color:var(--lime)}
+  .post-about-bg .tg-items{color:var(--bone-2)}
+  .post-about-bg .timeline{border-color:var(--line-d2)}
+  .post-about-bg .titem{border-color:var(--line-d2);color:var(--bone);background:rgba(10,12,22,.42)}
+  .post-about-bg .titem:hover{background:rgba(30,30,36,.9);color:var(--bone)}
+  .post-about-bg .tyear{color:var(--bone-3)}
+  .post-about-bg .trole,
+  .post-about-bg .tdesc{color:var(--bone-2)}
+  .post-about-bg .tarrow{border-color:var(--line-d2);color:var(--bone-2)}
+  .post-about-bg .titem:hover .tyear,
+  .post-about-bg .titem:hover .trole,
+  .post-about-bg .titem:hover .tdesc{color:var(--bone-2)}
+  .post-about-bg .btn-dark{background:var(--lime);color:var(--ink)}
+  .post-about-bg .btn-dark:hover{background:var(--bone);color:var(--ink)}
+  .post-about-bg .btn-dark .arrow{background:var(--ink);color:var(--lime)}
+
+  .post-about-bg .wrow{background:rgba(18,21,36,.78)}
+  .post-about-bg .wrow:nth-child(even){background:rgba(8,10,18,.64)}
+  .post-about-bg .wrow:hover{background:rgba(38,42,60,.92)}
+  .post-about-bg .wcard{background:#121524}
+
+  .post-about-bg footer{border-color:var(--line-d2)}
+
+  @media(max-width:700px){
+    .gradient-shape{
+      width:var(--mw,170vw);height:var(--mh,72vw);
+      filter:blur(clamp(38px,10vw,64px));
+      -webkit-filter:blur(clamp(38px,10vw,64px));
+    }
+    .gradient-shape.s1{--x:4%;--mw:210vw;--mh:82vw}
+    .gradient-shape.s2{--x:102%;--mw:175vw;--mh:70vw}
+    .gradient-shape.s3{--x:-4%;--mw:190vw;--mh:76vw}
+    .gradient-shape.s4{--x:104%;--mw:180vw;--mh:82vw}
+    .gradient-shape.s5{--x:3%;--mw:205vw;--mh:72vw}
+    .gradient-shape.s6{--x:100%;--mw:180vw;--mh:78vw}
+    .gradient-shape.s7{--x:4%;--mw:195vw;--mh:80vw}
+    .post-about-bg::after{opacity:.23}
+  }
+  @media(prefers-reduced-motion:reduce){.gradient-shape{animation:none}}
   .sec-head{
     display:grid;grid-template-columns:auto 1fr auto;gap:32px;align-items:end;
     padding-bottom:28px;border-bottom:1px solid var(--line-d);margin-bottom:56px;
@@ -427,71 +562,63 @@
   .sec-side b{font-weight:700;color:var(--bone)}
   .sec.on-cream .sec-side b{color:var(--ink)}
 
-  /* ───── ABOUT ───── */
-  #about{padding:72px 0 80px}
+  /* ───── SHOWREEL: separate clean video block ───── */
+  .showreel-section{
+    position:relative;width:100%;height:min(78svh,56.25vw);min-height:460px;
+    overflow:hidden;background:#050507;border-top:1px solid var(--line-d);
+    border-bottom:1px solid var(--line-d);
+  }
+  .showreel-media{position:absolute;inset:0;overflow:hidden;background:#050507}
+  .showreel-media iframe{
+    position:absolute;top:50%;left:50%;width:177.78vh;height:56.25vw;
+    min-width:100%;min-height:100%;transform:translate(-50%,-50%);
+    pointer-events:none;border:0;opacity:0;transition:opacity .45s ease;
+  }
+  .showreel-media.is-ready iframe{opacity:1}
+  .showreel-cover{position:absolute;inset:0;z-index:2;background:rgba(0,0,0,.001);pointer-events:none}
+  .reel-sound-btn{
+    position:absolute;right:var(--side-pad);bottom:clamp(20px,3vw,42px);z-index:4;
+    width:46px;height:46px;border-radius:50%;background:var(--blue-accent);
+    border:1px solid rgba(255,255,255,.34);color:#fff;cursor:pointer;
+    display:flex;align-items:center;justify-content:center;font-size:16px;
+    transition:background .25s,border-color .25s,transform .2s,box-shadow .25s;
+    box-shadow:0 0 28px rgba(23,75,255,.48);
+    backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+  }
+  .reel-sound-btn:hover{background:#3563ff;border-color:#fff;transform:scale(1.08);box-shadow:0 0 34px rgba(23,75,255,.62)}
+  .reel-sound-btn.is-muted{animation:soundPulse 2.4s ease-in-out infinite}
+  @keyframes soundPulse{
+    0%,100%{box-shadow:0 0 0 0 rgba(23,75,255,.42),0 0 24px rgba(23,75,255,.3)}
+    50%{box-shadow:0 0 0 8px rgba(23,75,255,0),0 0 30px rgba(23,75,255,.48)}
+  }
+
+  /* ───── ABOUT: separate block below showreel ───── */
+  #about{padding:84px 0 92px;background:var(--graphite);color:var(--bone)}
   .about{display:block;position:relative}
-  .about-statement{
-    font-size:15px;line-height:1.65;font-weight:400;letter-spacing:0;
-    color:var(--bone-2);margin:0 0 14px;max-width:48ch;
-    position:relative;z-index:1;
+  .about-copy-grid{
+    display:grid;grid-template-columns:1fr 1fr;gap:clamp(36px,7vw,104px);
+    align-items:start;margin-top:clamp(34px,5vw,66px);
   }
-  .about-cols{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(30px,5vw,64px);align-items:start;position:relative;z-index:1}
-  @media(max-width:980px){.about-cols{grid-template-columns:1fr;gap:36px}}
-  .about-textcol{max-width:56ch}
-  .about-lede{font-family:"Bricolage Grotesque","Space Grotesk",sans-serif;font-weight:700;font-size:clamp(20px,2.3vw,34px);line-height:1.08;letter-spacing:-.03em;text-wrap:balance;margin-bottom:22px}
-  .about-photo{position:sticky;top:96px;align-self:start;margin-top:0;max-width:600px;width:100%;margin-left:auto}
-  @media(max-width:980px){.about-photo{position:static;top:auto;margin:4px auto 0;max-width:460px}}
-  .about-photo-img video{
-    width:100%;height:100%;object-fit:cover;object-position:50% 18%;
-    display:block;
-  }
-  .about-photo-glow{
-    position:absolute;inset:-1px;z-index:1;border-radius:inherit;
-    background:radial-gradient(ellipse at 50% 30%,rgba(180,160,255,.13) 0%,transparent 65%);
-    pointer-events:none;
-  }
-  .about-photo-arches{
-    position:absolute;left:-4%;right:-4%;top:-5%;height:32%;z-index:1;background:var(--lime);
-    -webkit-mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 200' preserveAspectRatio='none'><path d='M 0 0 H 600 V 200 C 540 200, 540 60, 480 60 S 360 200, 300 200 S 180 60, 120 60 S 60 200, 0 200 Z' fill='black'/></svg>") no-repeat center/100% 100%;
-            mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 200' preserveAspectRatio='none'><path d='M 0 0 H 600 V 200 C 540 200, 540 60, 480 60 S 360 200, 300 200 S 180 60, 120 60 S 60 200, 0 200 Z' fill='black'/></svg>") no-repeat center/100% 100%;
-  }
-  .about-photo-img{position:relative;aspect-ratio:4/5;max-height:70vh;overflow:hidden;background:var(--cream-3);z-index:2}
-  .about-photo-img img{width:100%;height:100%;object-fit:cover;object-position:50% 30%}
-  .about-body{display:flex;flex-direction:column;gap:14px;font-size:15px;line-height:1.65;color:var(--bone-2);max-width:48ch}
-  .about-body b{color:var(--bone);font-weight:700}
-  .about-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+  .about-copy-grid p{margin:0;font-size:clamp(15px,1.2vw,18px);line-height:1.68;color:var(--bone-2)}
+  .about-copy-grid p:first-child{font-size:clamp(20px,2.25vw,34px);line-height:1.18;letter-spacing:-.025em;color:var(--bone);font-weight:650}
+  .about-copy-grid p:first-child span{display:block}
+  .about-copy-grid p:first-child span + span{margin-top:20px;font-size:15px;line-height:1.65;letter-spacing:0;color:var(--bone-2);font-weight:400}
+  .about-copy-grid b{color:var(--bone);font-weight:700}
+  .about-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:38px}
   .about-tags .pill::before{
     width:15px;height:15px;border-radius:0;background:url("assets/icon.webp") center/contain no-repeat;box-shadow:none;
   }
-  /* about — фоновый портрет + текст поверх, 2 колонки */
-  .about-sec{position:relative;overflow:hidden}
-  .about-bg{position:absolute;inset:0;z-index:0}
-  .about-bg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:92% center}
-  .about-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--graphite) 0%,rgba(22,22,26,.86) 40%,rgba(22,22,26,.5) 64%,rgba(22,22,26,.08) 100%)}
-  .about-sec .wrap{position:relative;z-index:2}
-  .about-content{display:flex;flex-direction:column;gap:clamp(20px,2.4vw,32px);max-width:min(720px,56%)}
-  .about-statement-h{
-    margin:0;
-    font-family:"Bricolage Grotesque","Space Grotesk",sans-serif;font-weight:800;
-    font-size:clamp(24px,2.7vw,42px);line-height:1.08;letter-spacing:-.03em;
-    color:var(--bone);text-wrap:balance;
+  @media(max-width:760px){
+    .showreel-section{height:56.25vw;min-height:280px}
+    .about-copy-grid{grid-template-columns:1fr;gap:24px}
+    .about-copy-grid p:first-child span + span{margin-top:16px}
   }
-  .about-content .about-body{max-width:52ch}
-  .about-content .about-tags{margin-top:10px;max-width:52ch}
-  @media(max-width:980px){
-    .about-content{max-width:100%;gap:22px}
-    .about-statement-h{font-size:clamp(24px,6vw,34px)}
-    .about-content .about-body{max-width:60ch}
-    .about-bg{background-position:80% top}
-    .about-bg::after{background:linear-gradient(180deg,rgba(22,22,26,.5) 0%,rgba(22,22,26,.82) 52%,var(--graphite) 100%)}
-    .about-content .about-tags{max-width:100%}
-  }
-  /* телефон: мельче кегль и плотнее интерлиньяж — чтобы текст меньше перекрывал портрет */
   @media(max-width:560px){
-    #about{padding:56px 0 64px}
-    .about-content{gap:18px}
-    .about-statement-h{font-size:clamp(20px,5vw,26px);line-height:1.02;letter-spacing:-.02em}
-    .about-content .about-body{font-size:13.5px;line-height:1.5;gap:11px}
+    .showreel-section{min-height:240px}
+    .reel-sound-btn{right:16px;bottom:16px;width:40px;height:40px}
+    #about{padding:58px 0 68px}
+    .about-copy-grid{margin-top:28px}
+    .about-copy-grid p{font-size:14px;line-height:1.58}
   }
 
   /* ───── SERVICES ───── */
@@ -762,7 +889,7 @@
 .nav-end{display:inline-flex;align-items:center;gap:10px}
 .lang-toggle{display:inline-flex;gap:2px;padding:3px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.16);border-radius:999px;flex-shrink:0}
 .lang-toggle .lang-seg{padding:6px 9px;border-radius:999px;font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:rgba(241,236,221,.6);line-height:1;text-decoration:none;transition:color .2s,background .2s}
-.lang-toggle .lang-seg.on{background:#f1ecdd;color:#16161a;font-weight:600}
+.lang-toggle .lang-seg.on{background:#174BFF;color:#fff;font-weight:600}
 .lang-toggle a.lang-seg:hover{color:#fff}
 
 /* NAV FIX 31.07.2026 — «Написать» всегда у правого края шапки, RU/EN только на десктопе */
@@ -825,22 +952,13 @@
 <!-- ════════════ HERO ════════════ -->
 <section class="hero" id="hero" data-screen-label="00 Hero">
 
-  <!-- fullscreen showreel bg -->
+  <!-- fullscreen local portrait video -->
   <div class="hero-bg" aria-hidden="true">
-    <iframe
-      id="heroReel"
-      src="https://player.vimeo.com/video/1195428623?badge=0&autopause=0&player_id=heroReel&app_id=58479&autoplay=1&loop=1&muted=1&title=0&byline=0&portrait=0&controls=0&dnt=1"
-      frameborder="0"
-      allow="autoplay; fullscreen; picture-in-picture"
-      referrerpolicy="strict-origin-when-cross-origin"
-      title="Showreel_Samarakovskaya">
-    </iframe>
+    <video id="heroVideo" autoplay muted loop playsinline disablepictureinpicture preload="auto" poster="assets/hero-poster.webp">
+      <source src="assets/tanya-samarakovskaya-creative-director.webm" type="video/webm">
+    </video>
     <div class="hero-vid-overlay"></div>
-    <div class="hero-yt-cover"></div>
   </div>
-  <button class="hero-sound-btn is-muted" id="soundToggle" aria-label="Включить звук">
-    <svg class="snd-ico" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><line x1="16.5" y1="9" x2="21.5" y2="14"/><line x1="21.5" y1="9" x2="16.5" y2="14"/></svg>
-  </button>
 
   <div class="wrap hero-wrap" style="position:relative;z-index:2;">
 
@@ -873,7 +991,7 @@
         </div>
         <div class="hero-cta">
           <a class="btn btn-primary" href="https://t.me/samarakovskaya_tanya" target="_blank" rel="noopener" data-i18n="hero.ctaWrite">Написать <span class="arrow">↗︎</span></a>
-          <a class="btn btn-ghost" href="https://vimeo.com/1195428623?fl=ip&amp;fe=ec" target="_blank" rel="noopener" data-i18n="hero.ctaReel">Шоурил <span class="arrow">↗︎</span></a>
+          <a class="btn btn-ghost" href="#showreel" data-i18n="hero.ctaReel">Шоурил <span class="arrow">↓</span></a>
         </div>
       </div>
     </div>
@@ -890,17 +1008,26 @@
   </div>
 </section>
 
-<!-- MARQUEE -->
-<div class="marq" aria-hidden="true">
-  <div class="marq-track">
-    <span data-i18n="marq.line">Креативная стратегия <i class="star-ico"></i> Рекламные кампании <i class="star-ico"></i> Art direction <i class="star-ico"></i> Брендинг <i class="star-ico"></i> Спецпроекты <i class="star-ico"></i> Сторителлинг <i class="star-ico"></i> AI production <i class="star-ico"></i> Продюсирование <i class="star-ico"></i></span>
-    <span data-i18n="marq.line">Креативная стратегия <i class="star-ico"></i> Рекламные кампании <i class="star-ico"></i> Art direction <i class="star-ico"></i> Брендинг <i class="star-ico"></i> Спецпроекты <i class="star-ico"></i> Сторителлинг <i class="star-ico"></i> AI production <i class="star-ico"></i> Продюсирование <i class="star-ico"></i></span>
+<!-- ════════════ SHOWREEL — CLEAN VIDEO ONLY ════════════ -->
+<section class="showreel-section" id="showreel" aria-label="Showreel">
+  <div class="showreel-media" aria-hidden="true">
+    <iframe
+      id="showreelVideo"
+      src="https://player.vimeo.com/video/1195428623?badge=0&autopause=0&player_id=showreelVideo&app_id=58479&autoplay=1&loop=1&muted=1&title=0&byline=0&portrait=0&controls=0&dnt=1"
+      frameborder="0"
+      allow="autoplay; fullscreen; picture-in-picture"
+      referrerpolicy="strict-origin-when-cross-origin"
+      title="Showreel_Samarakovskaya">
+    </iframe>
+    <div class="showreel-cover"></div>
   </div>
-</div>
+  <button class="reel-sound-btn is-muted" id="soundToggle" aria-label="Включить звук шоурила">
+    <svg class="snd-ico" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><line x1="16.5" y1="9" x2="21.5" y2="14"/><line x1="21.5" y1="9" x2="16.5" y2="14"/></svg>
+  </button>
+</section>
 
 <!-- ════════════ ABOUT ════════════ -->
 <section class="sec on-graphite about-sec" id="about" data-screen-label="01 About">
-  <div class="about-bg"><img src="assets/tanya-samarakovskaya-creative-director.webp" alt="Таня Самараковская — креативный директор и продюсер мультимедийных проектов" loading="lazy" decoding="async"></div>
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="sec-num">01</span>
@@ -908,12 +1035,13 @@
     </div>
 
     <div class="about">
-      <div class="about-content reveal">
-        <h3 class="about-statement-h" data-i18n="about.statement">Работаю на стыке креатива, бренда, маркетинга,  <span style="white-space:nowrap"><span class="word-oval">контента и технологий.</span></span></h3>
-        <div class="about-body">
-          <p data-i18n="about.p1">Специализируюсь на разработке и запуске сложных креативных проектов и новых продуктов с нуля. </p>
-          <p data-i18n="about.p2">360°-кампании, OOH / DOOH, CGI, digital, спецпроекты, партнёрские интеграции, оффлайн-проекты, мультимедийные выставочные проекты. Руковожу кросс-функциональными командами <b>5–30+ человек</b>, выстраиваю работу in-house специалистов, аутсорс специалистов, агентств и продакшенов. Отвечаю за качество креативного продукта на всех этапах, ключевые решения, бюджеты, сроки и запуск.</p>
-        </div>
+      <div class="about-copy-grid reveal">
+        <p>
+          <span data-i18n="about.statement">Работаю на стыке креатива, бренда, маркетинга, контента и технологий.</span>
+          <span data-i18n="about.p1">Специализируюсь на разработке и запуске сложных креативных проектов и новых продуктов с нуля.</span>
+        </p>
+        <p data-i18n="about.p2">360°-кампании, OOH / DOOH, CGI, digital, спецпроекты, партнёрские интеграции, офлайн-проекты, мультимедийные выставочные проекты. Руковожу кросс-функциональными командами <b>5–30+ человек</b>, выстраиваю работу in-house специалистов, аутсорс-специалистов, агентств и продакшенов. Отвечаю за качество креативного продукта на всех этапах, ключевые решения, бюджеты, сроки и запуск.</p>
+      </div>
         <div class="about-tags">
         <span class="pill" data-i18n="about.tag.adcampaigns">рекламные кампании</span>
         <span class="pill" data-i18n="about.tag.special">спецпроекты</span>
@@ -924,16 +1052,35 @@
         </div>
       </div>
     </div>
-  </div>
 </section>
+
+<!-- MARQUEE -->
+<div class="marq" aria-hidden="true">
+  <div class="marq-track">
+    <span data-i18n="marq.line">Креативная стратегия <i class="star-ico"></i> Рекламные кампании <i class="star-ico"></i> Art direction <i class="star-ico"></i> Брендинг <i class="star-ico"></i> Спецпроекты <i class="star-ico"></i> Сторителлинг <i class="star-ico"></i> AI production <i class="star-ico"></i> Продюсирование <i class="star-ico"></i></span>
+    <span data-i18n="marq.line">Креативная стратегия <i class="star-ico"></i> Рекламные кампании <i class="star-ico"></i> Art direction <i class="star-ico"></i> Брендинг <i class="star-ico"></i> Спецпроекты <i class="star-ico"></i> Сторителлинг <i class="star-ico"></i> AI production <i class="star-ico"></i> Продюсирование <i class="star-ico"></i></span>
+  </div>
+</div>
+
+<div class="post-about-bg">
+
+  <div class="gradient-field" aria-hidden="true">
+    <span class="gradient-shape s1"></span>
+    <span class="gradient-shape s2"></span>
+    <span class="gradient-shape s3"></span>
+    <span class="gradient-shape s4"></span>
+    <span class="gradient-shape s5"></span>
+    <span class="gradient-shape s6"></span>
+    <span class="gradient-shape s7"></span>
+  </div>
 
 <!-- ════════════ SERVICES ════════════ -->
 <section class="svc-section" id="services" data-screen-label="02 Services">
   <div class="wrap">
-    <div class="sec-head reveal" style="border-color:var(--line-l)">
-      <span class="sec-num" style="color:var(--ink-3)">02</span>
-      <h2 class="sec-h" style="color:var(--ink)" data-i18n="svc.h">Компетенции</h2>
-      <span class="sec-side" style="color:var(--ink-2)" data-i18n="svc.side">Восемь направлений</span>
+    <div class="sec-head reveal">
+      <span class="sec-num">02</span>
+      <h2 class="sec-h" data-i18n="svc.h">Компетенции</h2>
+      <span class="sec-side" data-i18n="svc.side">Восемь направлений</span>
     </div>
     <div class="svc reveal stagger">
       <div class="svc-cell feat">
@@ -1191,12 +1338,12 @@
 </section>
 
 <!-- ════════════ CAREER ════════════ -->
-<section class="sec on-cream" id="career" data-screen-label="04 Career">
+<section class="sec on-graphite" id="career" data-screen-label="04 Career">
   <div class="wrap">
-    <div class="sec-head reveal" style="border-color:var(--line-l)">
-      <span class="sec-num" style="color:var(--ink-3)">04</span>
-      <h2 class="sec-h" style="color:var(--ink)" data-i18n="career.h">Опыт</h2>
-      <span class="sec-side" style="color:var(--ink-2)" data-i18n="career.side">12+ лет практики</span>
+    <div class="sec-head reveal">
+      <span class="sec-num">04</span>
+      <h2 class="sec-h" data-i18n="career.h">Опыт</h2>
+      <span class="sec-side" data-i18n="career.side">12+ лет практики</span>
     </div>
 
     <div class="career">
@@ -1310,8 +1457,8 @@
         <span class="ccard-val">@samarakovskaya<wbr>_tanya</span>
       </a>
       <a class="ccard" href="assets/resume.pdf" download="Creative director_Samarakovskaya.pdf">
-        <span class="ccard-lbl">Resume <span class="ccard-go">↓</span></span>
-        <span class="ccard-val">PDF · 2026</span>
+        <span class="ccard-lbl">CV <span class="ccard-go">↓</span></span>
+        <span class="ccard-val">PDF</span>
       </a>
     </div>
   </div>
@@ -1324,6 +1471,8 @@
     <a class="foot-lang" href="en/index.html" hreflang="en">EN</a>
   </div>
 </footer>
+
+</div>
 
 <script>
 /* ════════════ i18n ENGINE (RU default · EN overlay) ════════════ */
@@ -1661,9 +1810,9 @@
 <script>
   (function(){
     var btn = document.getElementById('soundToggle');
-    var iframe = document.getElementById('heroReel');
-    var hero = document.getElementById('hero');
-    var heroBg = document.querySelector('.hero-bg');
+    var iframe = document.getElementById('showreelVideo');
+    var showreel = document.getElementById('showreel');
+    var showreelMedia = document.querySelector('.showreel-media');
     if(!btn || !iframe) return;
     var muted = true;
     var player = null;
@@ -1674,7 +1823,7 @@
       player.setVolume(0.7).then(function(){ return player.setMuted(false); })
         .catch(function(e){ console.warn('Vimeo unmute:', e); });
       btn.innerHTML = '<svg class="snd-ico" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16 8.5a5 5 0 0 1 0 7"/><path d="M19 6a8 8 0 0 1 0 12"/></svg>';
-      btn.setAttribute('aria-label','Выключить звук');
+      btn.setAttribute('aria-label','Выключить звук шоурила');
       btn.classList.remove('is-muted');
     }
 
@@ -1683,12 +1832,12 @@
       muted = true;
       player.setMuted(true);
       btn.innerHTML = '<svg class="snd-ico" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><line x1="16.5" y1="9" x2="21.5" y2="14"/><line x1="21.5" y1="9" x2="16.5" y2="14"/></svg>';
-      btn.setAttribute('aria-label','Включить звук');
+      btn.setAttribute('aria-label','Включить звук шоурила');
       btn.classList.add('is-muted');
     }
 
     function revealVideo(){
-      if(heroBg && !heroBg.classList.contains('is-ready')) heroBg.classList.add('is-ready');
+      if(showreelMedia && !showreelMedia.classList.contains('is-ready')) showreelMedia.classList.add('is-ready');
     }
 
     function initVimeo(){
@@ -1712,21 +1861,54 @@
       muted ? unmute() : setMute();
     });
 
-    // первый клик в любом месте hero — включает звук
-    if(hero){
-      hero.addEventListener('click', function onHeroClick(){
-        unmute();
-        hero.removeEventListener('click', onHeroClick);
-      });
-      // при уходе с hero (прокрутка ниже) — звук выключается
+    // при уходе из блока шоурила звук автоматически выключается
+    if(showreel){
       if('IntersectionObserver' in window){
         var muteIO = new IntersectionObserver(function(entries){
           entries.forEach(function(en){ if(!en.isIntersecting) setMute(); });
         }, {threshold:0});
-        muteIO.observe(hero);
+        muteIO.observe(showreel);
       }
     }
   })();
+</script>
+
+<script>
+/* ── Герой: замедленное непрерывное видео ─────────────────────────────── */
+(function(){
+  var v = document.getElementById('heroVideo');
+  if(!v) return;
+
+  var RATE = 0.65;                     // 0.5 медленнее, 1 обычная скорость
+  var slow = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function applyRate(){ try { v.playbackRate = slow ? 0 : RATE; } catch(e){} }
+
+  // playbackRate сбрасывается после загрузки, воспроизведения и перемотки в петле
+  ['loadedmetadata','loadeddata','play','playing','seeked','ratechange'].forEach(function(ev){
+    v.addEventListener(ev, applyRate);
+  });
+  applyRate();
+
+  // Страховка петли: атрибут loop иногда не срабатывает после троттлинга вкладки
+  v.addEventListener('ended', function(){
+    if(slow) return;
+    v.currentTime = 0;
+    var p = v.play(); if(p && p.catch) p.catch(function(){});
+  });
+
+  // Автоплей мог быть заблокирован до взаимодействия — добираем при возврате на вкладку
+  function kick(){
+    if(slow || !v.paused) return;
+    var p = v.play(); if(p && p.catch) p.catch(function(){});
+  }
+  document.addEventListener('visibilitychange', function(){
+    if(document.visibilityState === 'visible') { kick(); applyRate(); }
+  });
+  window.addEventListener('pageshow', kick);
+
+  if(slow) v.pause();
+})();
 </script>
 </body>
 </html>
