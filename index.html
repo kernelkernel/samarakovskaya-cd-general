@@ -26,7 +26,7 @@
 <meta name="twitter:description" content="Таня Самараковская — креативный директор и продюсер полного цикла. Рекламные кампании 360°, спецпроекты, брендинг, арт-дирекшн, AI в продакшне. Опыт на стороне заказчика и агентства. 10+ лет, 30+ проектов.">
 <meta name="twitter:image" content="https://t.samarakovskaya.art/assets/preview-hero.webp">
 
-<link rel="preload" href="assets/hero-poster.webp" as="image" type="image/webp" fetchpriority="high">
+<link rel="preload" href="assets/hero-frame1.webp" as="image" type="image/webp" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://player.vimeo.com" crossorigin>
@@ -253,7 +253,7 @@
   .hero-wrap{display:flex;flex-direction:column;flex:1;justify-content:space-between;gap:clamp(16px,2.6vh,32px)}
 
   /* hero: local portrait video, independent of Vimeo */
-  .hero-bg{position:absolute;inset:0;z-index:0;overflow:hidden;background:var(--graphite) url("assets/hero-poster.webp") center/cover no-repeat}
+  .hero-bg{position:absolute;inset:0;z-index:0;overflow:hidden;background:var(--graphite) url("assets/hero-frame1.webp") center/cover no-repeat}
   .hero-bg video{
     position:absolute;inset:0;width:100%;height:100%;
     object-fit:cover;object-position:center;
@@ -269,6 +269,26 @@
     content:"";position:absolute;inset:0;z-index:2;
     background:linear-gradient(to bottom,rgba(22,22,26,.88) 0%,rgba(22,22,26,.45) 7%,rgba(22,22,26,.06) 22%,rgba(22,22,26,.2) 55%,rgba(22,22,26,.97) 100%);
   }
+
+
+  /* ── зерно поверх героя. Крутить одним числом: --hero-grain ── */
+  .hero{--hero-grain:.22}
+  .hero::after{
+    content:"";position:absolute;inset:0;z-index:4;
+    pointer-events:none;
+    opacity:var(--hero-grain);
+    mix-blend-mode:soft-light;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='hg'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23hg)'/></svg>");
+    background-size:200px 200px;
+  }
+  /* второй, более крупный слой: даёт плёночную неровность, а не равномерную сетку */
+  .hero-bg::before{
+    content:"";position:absolute;inset:0;z-index:3;
+    pointer-events:none;opacity:.14;mix-blend-mode:overlay;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='320' height='320'><filter id='hg2'><feTurbulence type='fractalNoise' baseFrequency='.42' numOctaves='3' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23hg2)'/></svg>");
+    background-size:320px 320px;
+  }
+  @media (max-width:640px){ .hero{--hero-grain:.16} }
 
   /* hero name */
   .hero-name{
@@ -954,7 +974,7 @@
 
   <!-- fullscreen local portrait video -->
   <div class="hero-bg" aria-hidden="true">
-    <video id="heroVideo" autoplay muted loop playsinline disablepictureinpicture preload="auto" poster="assets/hero-poster.webp">
+    <video id="heroVideo" autoplay muted loop playsinline disablepictureinpicture preload="auto" poster="assets/hero-frame1.webp">
       <source src="assets/tanya-samarakovskaya-creative-director.webm" type="video/webm">
     </video>
     <div class="hero-vid-overlay"></div>
