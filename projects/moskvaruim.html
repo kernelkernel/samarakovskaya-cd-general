@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Рыбов показываем · Таня Самараковская</title>
 <meta name="description" content="«Рыбов показываем» — рекламная кампания 360° для Москвариума: арт-дирекшен и продакшен, 2024.">
-<meta name="robots" content="noindex, follow">
+<meta name="robots" content="noindex, nofollow">
 <link rel="icon" type="image/webp" href="../assets/icon.webp">
 <meta property="og:type" content="article">
 <meta property="og:locale" content="ru_RU">
@@ -322,6 +322,9 @@
 @media(max-width:780px){
   .foot-lang{display:inline-flex;align-items:center;padding:6px 12px;border:1px solid currentColor;border-radius:999px;font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;color:inherit;opacity:.75}
 }
+
+/* якорь не должен вставать под плашку навигации */
+#zone-concept,#zone-campaign,#zone-video,#zone-gallery,#zone-credits{scroll-margin-top:84px}
 </style>
 <link rel="alternate" hreflang="ru" href="https://t.samarakovskaya.art/projects/moskvaruim.html">
 <link rel="alternate" hreflang="en" href="https://t.samarakovskaya.art/en/projects/moskvaruim.html">
@@ -942,7 +945,7 @@
         if (active) active.classList.add('active');
       }
     });
-  }, { threshold: 0.25 });
+  }, {root:null,rootMargin:'-28% 0px -66% 0px',threshold:0});
   navSectionIds.forEach(id => { const el = document.getElementById(id); if (el) navSecObs.observe(el); });
 </script>
 

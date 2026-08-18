@@ -9,7 +9,7 @@
 <meta name="description" content="Таня Самараковская — креативный директор и продюсер полного цикла. Рекламные кампании 360°, спецпроекты, брендинг, арт-дирекшн, AI в продакшне. Опыт на стороне заказчика и агентства. 10+ лет, 30+ проектов.">
 <meta name="keywords" content="креативный директор, phygital, мультимедийные выставки, иммерсивный опыт, experience design, арт-директор, Таня Самараковская, Samarakovskaya, Татьяна Самараковская">
 <meta name="author" content="Tatiana Samarakovskaya">
-<meta name="robots" content="index, follow">
+<meta name="robots" content="noindex, nofollow">
 <meta name="theme-color" content="#16161A">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://t.samarakovskaya.art/">
@@ -66,6 +66,9 @@
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
+  /* якорь не должен вставать вплотную к верху: сверху висит плашка навигации */
+  section[id]{scroll-margin-top:24px}
+  #showreel{scroll-margin-top:84px}
   html,body{
     background:var(--graphite);color:var(--bone);
     font-family:"Space Grotesk","Helvetica Neue",sans-serif;font-weight:400;
@@ -975,7 +978,8 @@
   <!-- fullscreen local portrait video -->
   <div class="hero-bg" aria-hidden="true">
     <video id="heroVideo" autoplay muted loop playsinline disablepictureinpicture preload="auto" poster="assets/hero-poster-photo.webp">
-      <source src="assets/tanya-samarakovskaya-creative-director.webm" type="video/webm">
+      <source src="assets/hero.webm" type="video/webm; codecs=&quot;vp9&quot;">
+      <source src="assets/hero.mp4"  type="video/mp4;  codecs=&quot;avc1.640029&quot;">
     </video>
     <div class="hero-vid-overlay"></div>
   </div>
@@ -1018,7 +1022,7 @@
 
     <!-- stats — positioning USPs -->
     <div class="hero-stats">
-      <div class="stat" data-i18n="hero.stat1"><b>10<sup>+</sup></b><span>лет в креативном руководстве</span></div>
+      <div class="stat" data-i18n="hero.stat1"><b>10<sup>+</sup></b><span>лет в креативе и продакшне</span></div>
       <div class="stat" data-i18n="hero.stat2"><b>30<sup>+</sup></b><span>реализованных проектов</span></div>
       <div class="stat" data-i18n="hero.stat3"><b class="stat-txt">Клиент&thinsp;&amp; агентство</b><span>опыт с обеих сторон</span></div>
       <div class="stat" data-i18n="hero.stat4"><b class="stat-txt">Полный&thinsp;цикл</b><span>от стратегии до запуска</span></div>
@@ -1515,7 +1519,7 @@
     'hero.role3':'director',
     'hero.ctaWrite':'Get in touch <span class="arrow">↗︎</span>',
     'hero.ctaReel':'Showreel <span class="arrow">↗︎</span>',
-    'hero.stat1':'<b>10<sup>+</sup></b><span>years leading creative</span>',
+    'hero.stat1':'<b>10<sup>+</sup></b><span>years in creative and production</span>',
     'hero.stat2':'<b>30<sup>+</sup></b><span>projects delivered</span>',
     'hero.stat3':'<b class="stat-txt">Client&thinsp;&amp; agency</b><span>experience on both sides</span>',
     'hero.stat4':'<b class="stat-txt">Full&thinsp;cycle</b><span>from strategy to launch</span>',
@@ -1813,17 +1817,32 @@
     }, 3000);
   })();
 
-  // Active nav on scroll
-  const navLinks = document.querySelectorAll('.top-nav a');
-  const secs = [...document.querySelectorAll('section[id]')];
-  function onScroll(){
-    const y = scrollY + 150;
-    let active = secs[0];
-    for(const s of secs){ if(s.offsetTop <= y) active = s; }
-    navLinks.forEach(a => a.classList.toggle('on', a.getAttribute('href') === '#' + active.id));
+  /* Active nav on scroll.
+     Раньше считалось по offsetTop, а секции services/works/career/contact лежат
+     внутри .post-about-bg с position:relative — offsetTop отсчитывался от неё,
+     а не от документа, и подсветка почти сразу улетала на «Контакты».
+     Считаем абсолютную позицию через getBoundingClientRect. */
+  const navLinks = [...document.querySelectorAll('.top-nav a')];
+  const navTargets = navLinks
+    .map(a => ({ link:a, el:document.getElementById(a.getAttribute('href').slice(1)) }))
+    .filter(t => t.el);
+  const NAV_OFFSET = 140;              // высота плашки навигации плюс запас
+  let navQueued = false;
+  function setActiveNav(){
+    navQueued = false;
+    const y = window.scrollY + NAV_OFFSET;
+    const bottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2;
+    let active = null;
+    for(const t of navTargets){
+      if(t.el.getBoundingClientRect().top + window.scrollY <= y) active = t;
+    }
+    if(bottom) active = navTargets[navTargets.length - 1];
+    navLinks.forEach(a => a.classList.toggle('on', !!active && a === active.link));
   }
-  window.addEventListener('scroll', onScroll, {passive:true});
-  onScroll();
+  function queueNav(){ if(!navQueued){ navQueued = true; requestAnimationFrame(setActiveNav); } }
+  window.addEventListener('scroll', queueNav, {passive:true});
+  window.addEventListener('resize', queueNav, {passive:true});
+  setActiveNav();
 </script>
 
 <script src="https://player.vimeo.com/api/player.js"></script>
@@ -1943,6 +1962,11 @@
   ['pointerdown','keydown','touchstart'].forEach(function(ev){
     window.addEventListener(ev, tryPlay, {once:true, passive:true});
   });
+
+  // Ни один <source> не подошёл: Safari без mp4, битый файл и т.п.
+  v.addEventListener('error', function(){
+    console.warn('[hero] видео не загрузилось, остался постер');
+  }, true);
 
   if(v.readyState >= 2) tryPlay();
   else v.addEventListener('loadeddata', tryPlay, {once:true});

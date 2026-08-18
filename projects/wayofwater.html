@@ -822,6 +822,9 @@ img.broken{visibility:hidden}
 @media(max-width:780px){
   .foot-lang{display:inline-flex;align-items:center;padding:6px 12px;border:1px solid currentColor;border-radius:999px;font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;color:inherit;opacity:.75}
 }
+
+/* якорь не должен вставать под плашку навигации */
+#zone-intro,#zone-priroda,#zone-quest,#zone-process,#zone-end{scroll-margin-top:84px}
 </style>
 <link rel="alternate" hreflang="ru" href="https://t.samarakovskaya.art/projects/wayofwater.html">
 <link rel="alternate" hreflang="en" href="https://t.samarakovskaya.art/en/projects/wayofwater.html">
@@ -2394,6 +2397,28 @@ positionStations();update();
     if(e.key === 'Escape') close();
     if(e.key === 'ArrowLeft') navigate(-1);
     if(e.key === 'ArrowRight') navigate(1);
+  });
+})();
+</script>
+<script>
+/* Подсветка активной секции в навигации: на этой странице её не было вовсе,
+   пилюли никогда не подсвечивались. Полоса на 28-34% высоты экрана. */
+(function(){
+  var pills = document.querySelectorAll('.mag-pill');
+  if(!pills.length || !('IntersectionObserver' in window)) return;
+  var map = {};
+  pills.forEach(function(p){ if(p.dataset.section) map[p.dataset.section] = p; });
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(!e.isIntersecting) return;
+      pills.forEach(function(p){ p.classList.remove('active'); });
+      var a = map[e.target.id];
+      if(a) a.classList.add('active');
+    });
+  }, {root:null,rootMargin:'-28% 0px -66% 0px',threshold:0});
+  Object.keys(map).forEach(function(id){
+    var el = document.getElementById(id);
+    if(el) obs.observe(el);
   });
 })();
 </script>
