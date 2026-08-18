@@ -332,42 +332,31 @@ section[id]{scroll-margin-top:84px}
 
 /* ═══════════════════════════════════════════════════════════════════
    ФОН СТРАНИЦЫ. Та же система, что на главной: светлая база, тёмно-синие
-   пятна, скрим и зерно. Поле закреплено во вьюпорте — на длинной странице
-   кейса пятна иначе расползлись бы и между ними светили пустые полосы.
-   Позиции пятен у каждого кейса свои: страницы не выглядят копиями.
+   пятна, скрим и зерно. Позиции пятен у каждого кейса свои,
+   страницы не выглядят копиями.
    ═══════════════════════════════════════════════════════════════════ */
 html{background:#E5E8E8}
 body{background:transparent;position:relative}
 /* Поле прокручивается вместе со страницей и растянуто на всю её высоту.
-   Высота пятен задана в процентах от поля, а не в vh: иначе на длинной
-   странице кейса семь пятен расползаются и между ними светит пустая база. */
-.site-field{position:absolute;inset:0;z-index:-1;overflow:hidden;pointer-events:none}
-.site-field::after{content:"";position:absolute;inset:0;z-index:2;background:linear-gradient(90deg,rgba(6,8,16,.62) 0%,rgba(6,8,16,.40) 52%,rgba(6,8,16,.58) 100%)}
-.site-blob{
-  position:absolute;left:var(--x);top:var(--y);z-index:1;
-  width:var(--w);height:var(--h);
-  background:radial-gradient(ellipse at center,
-      #121524 0%,#121524 28%,#17235C 39%,#1740D2 47%,#174BFF 52%,
-      #3250A0 58%,#6F90D0 65%,#95AFDC 71%,#B1C4DE 77%,
-      rgba(229,232,232,.82) 82%,rgba(229,232,232,0) 89%,rgba(229,232,232,0) 100%);
-  transform:translate(-50%,-50%) rotate(var(--r)) scale(1);
-  transform-origin:center;
-  filter:blur(clamp(48px,5vw,96px));-webkit-filter:blur(clamp(48px,5vw,96px));
-  backface-visibility:hidden;will-change:transform;
-  animation:siteBlobMorph var(--dur,42s) ease-in-out var(--delay,0s) infinite alternate;
+   Один слой, семь радиальных градиентов в одном background. Раньше это были
+   семь отдельных div c filter:blur и анимацией: браузер перерисовывал их на
+   каждом кадре и страница ощутимо тормозила при скролле. Гладкость теперь
+   даёт сам набор стопов, размытие не нужно.
+   Размеры пятен в процентах от высоты поля: ритм синего одинаковый и на
+   короткой странице, и на длинной. */
+.site-field{
+  position:absolute;inset:0;z-index:-1;overflow:hidden;pointer-events:none;
+  background:
+    radial-gradient(62% 13% at 74% 3%,#0F1220 0%,#121732 10%,#152045 20%,#17285F 28%,#1A38A0 36%,#1B47E0 43%,#2A55F0 50%,#3D62D8 57%,#5B7BCC 64%,#7C99D4 71%,#9CB4DC 78%,rgba(190,205,224,.5) 85%,rgba(229,232,232,0) 95%),
+    radial-gradient(52% 11% at 10% 17%,#0F1220 0%,#121732 10%,#152045 20%,#17285F 28%,#1A38A0 36%,#1B47E0 43%,#2A55F0 50%,#3D62D8 57%,#5B7BCC 64%,#7C99D4 71%,#9CB4DC 78%,rgba(190,205,224,.5) 85%,rgba(229,232,232,0) 95%),
+    radial-gradient(58% 12% at 92% 32%,#0F1220 0%,#121732 10%,#152045 20%,#17285F 28%,#1A38A0 36%,#1B47E0 43%,#2A55F0 50%,#3D62D8 57%,#5B7BCC 64%,#7C99D4 71%,#9CB4DC 78%,rgba(190,205,224,.5) 85%,rgba(229,232,232,0) 95%),
+    radial-gradient(60% 13% at 14% 47%,#0F1220 0%,#121732 10%,#152045 20%,#17285F 28%,#1A38A0 36%,#1B47E0 43%,#2A55F0 50%,#3D62D8 57%,#5B7BCC 64%,#7C99D4 71%,#9CB4DC 78%,rgba(190,205,224,.5) 85%,rgba(229,232,232,0) 95%),
+    radial-gradient(66% 11% at 88% 62%,#0F1220 0%,#121732 10%,#152045 20%,#17285F 28%,#1A38A0 36%,#1B47E0 43%,#2A55F0 50%,#3D62D8 57%,#5B7BCC 64%,#7C99D4 71%,#9CB4DC 78%,rgba(190,205,224,.5) 85%,rgba(229,232,232,0) 95%),
+    radial-gradient(54% 12% at 20% 78%,#0F1220 0%,#121732 10%,#152045 20%,#17285F 28%,#1A38A0 36%,#1B47E0 43%,#2A55F0 50%,#3D62D8 57%,#5B7BCC 64%,#7C99D4 71%,#9CB4DC 78%,rgba(190,205,224,.5) 85%,rgba(229,232,232,0) 95%),
+    radial-gradient(62% 13% at 80% 93%,#0F1220 0%,#121732 10%,#152045 20%,#17285F 28%,#1A38A0 36%,#1B47E0 43%,#2A55F0 50%,#3D62D8 57%,#5B7BCC 64%,#7C99D4 71%,#9CB4DC 78%,rgba(190,205,224,.5) 85%,rgba(229,232,232,0) 95%);
+  background-color:#E5E8E8;
 }
-.site-blob.b1{--x:74%;--y:3%;--w:118vw;--h:12%;--r:12deg;--r2:4deg;--dur:44s;--delay:0s}
-.site-blob.b2{--x:10%;--y:17%;--w:96vw;--h:10%;--r:-17deg;--r2:-7deg;--dur:38s;--delay:-14s}
-.site-blob.b3{--x:92%;--y:32%;--w:108vw;--h:11%;--r:-13deg;--r2:-3deg;--dur:50s;--delay:-26s}
-.site-blob.b4{--x:14%;--y:47%;--w:112vw;--h:12%;--r:22deg;--r2:13deg;--dur:42s;--delay:-9s}
-.site-blob.b5{--x:88%;--y:62%;--w:126vw;--h:10%;--r:16deg;--r2:24deg;--dur:54s;--delay:-32s}
-.site-blob.b6{--x:20%;--y:78%;--w:100vw;--h:11%;--r:-18deg;--r2:-8deg;--dur:46s;--delay:-20s}
-.site-blob.b7{--x:80%;--y:93%;--w:118vw;--h:12%;--r:-9deg;--r2:-17deg;--dur:48s;--delay:-5s}
-@keyframes siteBlobMorph{
-  0%{transform:translate(-50%,-50%) rotate(var(--r)) scale(1)}
-  100%{transform:translate(-46%,-54%) rotate(var(--r2)) scale(1.12)}
-}
-@media(prefers-reduced-motion:reduce){.site-blob{animation:none}}
+.site-field::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(6,8,16,.72) 0%,rgba(6,8,16,.56) 52%,rgba(6,8,16,.68) 100%)}
 
 /* ── читаемость поверх поля ──────────────────────────────────────────
    Секции с текстом лежат на тёмном стекле, секции с фото и видео
@@ -378,7 +367,6 @@ body{background:transparent;position:relative}
 .plate::before{
   content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
   background:rgba(9,13,30,.55);
-  backdrop-filter:blur(18px) saturate(115%);-webkit-backdrop-filter:blur(18px) saturate(115%);
   -webkit-mask-image:linear-gradient(180deg,transparent 0,#000 90px,#000 calc(100% - 90px),transparent 100%);
   mask-image:linear-gradient(180deg,transparent 0,#000 90px,#000 calc(100% - 90px),transparent 100%);
 }
@@ -388,28 +376,15 @@ body{background:transparent;position:relative}
 /* стекло на карточках */
 .setup-item,.deliv-cell{
   background:rgba(9,11,18,.58);border-color:rgba(241,236,221,.14);
-  backdrop-filter:blur(12px) saturate(120%);-webkit-backdrop-filter:blur(12px) saturate(120%);
 }
 .hook-block{
   background:rgba(9,11,18,.55);border-radius:0 14px 14px 0;
-  backdrop-filter:blur(12px) saturate(120%);-webkit-backdrop-filter:blur(12px) saturate(120%);
 }
 .aside-img{background:rgba(9,11,18,.5)}
 .quote-sec{background:rgba(8,10,20,.74)}
-.proj-nav{background:rgba(6,8,16,.78);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
+.proj-nav{background:rgba(6,8,16,.78)}
 .ticker{border-block-color:rgba(23,75,255,.35)}
-@media(prefers-reduced-transparency:reduce){
-  .plate::before,.setup-item,.deliv-cell,.hook-block{background:rgba(8,10,18,.96);backdrop-filter:none;-webkit-backdrop-filter:none}
-}
 
-/* Читаемость крупного набора там, где за ним светлая часть поля.
-   Не плашка и не градиентный прямоугольник: любой прямоугольник обрезается
-   границей блока и вылезает видимым краем. Мягкий ореол вокруг самих букв. */
-.sec:not(.plate) .sec-h,
-.sec:not(.plate) .sec-tag,
-.sec:not(.plate) .sec-side{
-  text-shadow:0 0 28px rgba(6,8,16,.92),0 0 64px rgba(6,8,16,.72),0 2px 6px rgba(6,8,16,.6);
-}
 </style>
 <link rel="alternate" hreflang="ru" href="https://t.samarakovskaya.art/projects/nebula.html">
 <link rel="alternate" hreflang="en" href="https://t.samarakovskaya.art/en/projects/nebula.html">
@@ -430,10 +405,6 @@ body{background:transparent;position:relative}
 <body>
 <!-- фон страницы: градиентное поле, как на главной -->
 <div class="site-field" aria-hidden="true">
-  <span class="site-blob b1"></span><span class="site-blob b2"></span>
-  <span class="site-blob b3"></span><span class="site-blob b4"></span>
-  <span class="site-blob b5"></span><span class="site-blob b6"></span>
-  <span class="site-blob b7"></span>
 </div>
 
 <div class="cur" id="cur"></div>
@@ -969,6 +940,42 @@ const navMap={};
 document.querySelectorAll('.mag-pill').forEach(p=>navMap[p.dataset.section]=p);
 const spy=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){Object.values(navMap).forEach(p=>p.classList.remove('active'));const a=navMap[e.target.id];if(a)a.classList.add('active');}}),{root:null,rootMargin:'-28% 0px -66% 0px',threshold:0});
 ['zone-intro','zone-video','zone-gallery','zone-sceno','zone-process','zone-credits'].forEach(id=>{const el=document.getElementById(id);if(el)spy.observe(el);});
+spy.disconnect(); /* подсветку ведёт скрипт ниже */
+</script>
+<script>
+/* Подсветка активного пункта навигации.
+   Раньше это делал IntersectionObserver с узкой полосой: он срабатывает только
+   в момент пересечения границы, а на странице с ленивыми картинками вёрстка
+   едет по мере их подгрузки — секции уезжают под полосу без события скролла,
+   и подсветка застревает на предыдущем пункте. Считаем состояние заново на
+   каждом кадре прокрутки, как на главной. */
+(function(){
+  var pills = [].slice.call(document.querySelectorAll('.mag-pill[data-section]'));
+  if(!pills.length) return;
+  var targets = pills
+    .map(function(p){ return { pill:p, el:document.getElementById(p.dataset.section) }; })
+    .filter(function(t){ return t.el; });
+  if(!targets.length) return;
+  var queued = false;
+  function apply(){
+    queued = false;
+    var line = window.scrollY + window.innerHeight * 0.32;
+    var atBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2;
+    var active = null;
+    for(var i=0;i<targets.length;i++){
+      if(targets[i].el.getBoundingClientRect().top + window.scrollY <= line) active = targets[i];
+    }
+    if(atBottom) active = targets[targets.length-1];
+    pills.forEach(function(p){ p.classList.toggle('active', !!active && p === active.pill); });
+  }
+  function queue(){ if(!queued){ queued = true; requestAnimationFrame(apply); } }
+  window.addEventListener('scroll', queue, {passive:true});
+  window.addEventListener('resize', queue, {passive:true});
+  window.addEventListener('load', queue);
+  document.addEventListener('readystatechange', queue);
+  if(window.ResizeObserver) new ResizeObserver(queue).observe(document.body);
+  apply();
+})();
 </script>
 </body>
 </html>

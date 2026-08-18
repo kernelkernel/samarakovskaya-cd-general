@@ -2401,25 +2401,38 @@ positionStations();update();
 })();
 </script>
 <script>
-/* Подсветка активной секции в навигации: на этой странице её не было вовсе,
-   пилюли никогда не подсвечивались. Полоса на 28-34% высоты экрана. */
+/* Подсветка активного пункта навигации.
+   Раньше это делал IntersectionObserver с узкой полосой: он срабатывает только
+   в момент пересечения границы, а на странице с ленивыми картинками вёрстка
+   едет по мере их подгрузки — секции уезжают под полосу без события скролла,
+   и подсветка застревает на предыдущем пункте. Считаем состояние заново на
+   каждом кадре прокрутки, как на главной. */
 (function(){
-  var pills = document.querySelectorAll('.mag-pill');
-  if(!pills.length || !('IntersectionObserver' in window)) return;
-  var map = {};
-  pills.forEach(function(p){ if(p.dataset.section) map[p.dataset.section] = p; });
-  var obs = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-      if(!e.isIntersecting) return;
-      pills.forEach(function(p){ p.classList.remove('active'); });
-      var a = map[e.target.id];
-      if(a) a.classList.add('active');
-    });
-  }, {root:null,rootMargin:'-28% 0px -66% 0px',threshold:0});
-  Object.keys(map).forEach(function(id){
-    var el = document.getElementById(id);
-    if(el) obs.observe(el);
-  });
+  var pills = [].slice.call(document.querySelectorAll('.mag-pill[data-section]'));
+  if(!pills.length) return;
+  var targets = pills
+    .map(function(p){ return { pill:p, el:document.getElementById(p.dataset.section) }; })
+    .filter(function(t){ return t.el; });
+  if(!targets.length) return;
+  var queued = false;
+  function apply(){
+    queued = false;
+    var line = window.scrollY + window.innerHeight * 0.32;
+    var atBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2;
+    var active = null;
+    for(var i=0;i<targets.length;i++){
+      if(targets[i].el.getBoundingClientRect().top + window.scrollY <= line) active = targets[i];
+    }
+    if(atBottom) active = targets[targets.length-1];
+    pills.forEach(function(p){ p.classList.toggle('active', !!active && p === active.pill); });
+  }
+  function queue(){ if(!queued){ queued = true; requestAnimationFrame(apply); } }
+  window.addEventListener('scroll', queue, {passive:true});
+  window.addEventListener('resize', queue, {passive:true});
+  window.addEventListener('load', queue);
+  document.addEventListener('readystatechange', queue);
+  if(window.ResizeObserver) new ResizeObserver(queue).observe(document.body);
+  apply();
 })();
 </script>
 </body>
