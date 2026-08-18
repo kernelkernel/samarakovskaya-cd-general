@@ -570,7 +570,7 @@ document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 // ── nav: плавный скролл + подсветка ──
 document.querySelectorAll('.mag-pill').forEach(p=>{p.addEventListener('click',e=>{e.preventDefault();const t=document.getElementById(p.dataset.section);if(t)t.scrollIntoView({behavior:'smooth',block:'start'});});});
 const navMap={};document.querySelectorAll('.mag-pill').forEach(p=>navMap[p.dataset.section]=p);
-const spy=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){Object.values(navMap).forEach(p=>p.classList.remove('active'));const a=navMap[e.target.id];if(a)a.classList.add('active');}}),{threshold:.15,rootMargin:'-10% 0px -60% 0px'});
+const spy=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){Object.values(navMap).forEach(p=>p.classList.remove('active'));const a=navMap[e.target.id];if(a)a.classList.add('active');}}),{root:null,rootMargin:'-28% 0px -66% 0px',threshold:0});
 ['zone-brands','zone-capy'].forEach(id=>{const el=document.getElementById(id);if(el)spy.observe(el);});
 
 // ── popup ──
@@ -601,7 +601,7 @@ const vObs=new IntersectionObserver(es=>es.forEach(e=>{
   const v=e.target;
   if(e.isIntersecting){if(!v.getAttribute('src'))v.setAttribute('src',v.dataset.lazysrc);v.play().catch(()=>{});}
   else v.pause();
-}),{threshold:.25});
+}),{root:null,rootMargin:'-28% 0px -66% 0px',threshold:0});
 document.querySelectorAll('.ad-tile video').forEach(v=>vObs.observe(v));
 
 // ── переключатель звука на плитке ──

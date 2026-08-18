@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>С океаном начистоту · Таня Самараковская</title>
 <meta name="description" content="«С океаном начистоту». WebAR-квест в экспозиции Москвариума о загрязнении воды. Десять локаций, десять персонажей, реальный мусор поверх живой воды. Креативное руководство: Таня Самараковская. Партнёры: BBDO, продакшн likeVR.">
-<meta name="robots" content="noindex, follow">
+<meta name="robots" content="noindex, nofollow">
 <link rel="icon" type="image/webp" href="../assets/icon.webp">
 <meta property="og:type" content="article">
 <meta property="og:locale" content="ru_RU">
@@ -331,6 +331,9 @@
 @media(max-width:780px){
   .foot-lang{display:inline-flex;align-items:center;padding:6px 12px;border:1px solid currentColor;border-radius:999px;font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;color:inherit;opacity:.75}
 }
+
+/* якорь не должен вставать под плашку навигации */
+#s-about,#s-route,#s-how,#s-screens,#s-mascots,#s-credits{scroll-margin-top:84px}
 </style>
 <link rel="alternate" hreflang="ru" href="https://t.samarakovskaya.art/projects/clean-ocean.html">
 <link rel="alternate" hreflang="en" href="https://t.samarakovskaya.art/en/projects/clean-ocean.html">
@@ -723,7 +726,7 @@
   });
   const ids=['s-about','s-route','s-how','s-screens','s-mascots','s-credits'],pm={};
   document.querySelectorAll('.mag-pill').forEach(p=>pm[p.dataset.section]=p);
-  const so=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){Object.values(pm).forEach(p=>p.classList.remove('active'));const a=pm[e.target.id];if(a)a.classList.add('active');}}),{threshold:.25});
+  const so=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){Object.values(pm).forEach(p=>p.classList.remove('active'));const a=pm[e.target.id];if(a)a.classList.add('active');}}),{root:null,rootMargin:'-28% 0px -66% 0px',threshold:0});
   ids.forEach(id=>{const el=document.getElementById(id);if(el)so.observe(el);});
 
   const lb=document.getElementById('lb'),lbImg=document.getElementById('lbImg'),lbC=document.getElementById('lbCounter');

@@ -357,6 +357,9 @@
 @media(max-width:780px){
   .foot-lang{display:inline-flex;align-items:center;padding:6px 12px;border:1px solid currentColor;border-radius:999px;font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;color:inherit;opacity:.75}
 }
+
+/* якорь не должен вставать под плашку навигации */
+#s-concept,#s-treatment,#s-production,#s-video,#s-results{scroll-margin-top:84px}
 </style>
 <link rel="alternate" hreflang="ru" href="https://t.samarakovskaya.art/projects/troyka-lovemeet.html">
 <link rel="alternate" hreflang="en" href="https://t.samarakovskaya.art/en/projects/troyka-lovemeet.html">
@@ -975,7 +978,7 @@
         if (a) a.classList.add('active');
       }
     });
-  }, { threshold: 0.25 });
+  }, {root:null,rootMargin:'-28% 0px -66% 0px',threshold:0});
   sectionIds.forEach(id => { const el = document.getElementById(id); if (el) secObs.observe(el); });
 
   const lb = document.getElementById('lb');
