@@ -450,7 +450,7 @@
   .zone-hero-new{position:relative;aspect-ratio:16/9;border-radius:18px;overflow:hidden;background:var(--bg-2)}
   .zone-hero-new img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .8s}
   .zone-hero-new:hover img{transform:scale(1.03)}
-  .zone-hero-new .lbl-new{position:absolute;bottom:16px;left:16px;font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.1em;background:rgba(13,13,13,.6);backdrop-filter:blur(10px);color:var(--bg);padding:7px 12px;border-radius:99px;z-index:2}
+  .zone-hero-new .lbl-new{position:absolute;bottom:16px;left:16px;font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.1em;background:rgba(13,13,13,.6);color:var(--bg);padding:7px 12px;border-radius:99px;z-index:2}
 
   /* === ПИНЫ-МАНДАРИНЫ НА HERO-ФОТО ЗОН === */
   .zone-pin{position:absolute;left:var(--px);top:var(--py);transform:translate(-50%,-50%);width:clamp(34px,2.6vw,46px);height:clamp(34px,2.6vw,46px);z-index:3;cursor:pointer;pointer-events:auto;background:none;border:0;padding:0}
@@ -469,7 +469,7 @@
   .zone-thumb:hover{transform:translateY(-4px);border-color:#174BFF;box-shadow:0 0 0 1px #174BFF inset}
   .zone-thumb img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .55s}
   .zone-thumb:hover img{transform:scale(1.07)}
-  .zone-thumb-cap{position:absolute;inset:auto 8px 10px 8px;padding:10px 14px;display:flex;flex-direction:column;gap:3px;background:rgba(13,13,13,.72);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);color:var(--bg);border-radius:10px;transition:inset .3s;pointer-events:none}
+  .zone-thumb-cap{position:absolute;inset:auto 8px 10px 8px;padding:10px 14px;display:flex;flex-direction:column;gap:3px;background:rgba(13,13,13,.72);color:var(--bg);border-radius:10px;transition:inset .3s;pointer-events:none}
   .zone-thumb:hover .zone-thumb-cap{inset:auto 8px 14px 8px}
   .zone-thumb-name{font-family:var(--sans);font-size:16px;font-weight:500;letter-spacing:-.015em;line-height:1.2}
   .zone-thumb-desc{font-family:var(--mono);font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;line-height:1.5;opacity:.78;margin-top:2px}
@@ -652,9 +652,7 @@
   @media (max-width:560px){.pipeline-grid{grid-template-columns:1fr}}
 
   /* === LIGHTBOX v2 === */
-  .lightbox{position:fixed;inset:0;background:rgba(6,6,6,.96);display:none;z-index:9999;align-items:stretch;justify-content:stretch;padding:0;cursor:default;-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}
-  .lightbox.open{display:flex}
-  .lightbox-stage{position:relative;flex:1;min-width:0;min-height:0;display:flex;align-items:center;justify-content:center;padding:60px 70px;overflow:hidden;box-sizing:border-box}
+  .lightbox{position:fixed;inset:0;background:rgba(6,6,6,.96);display:none;z-index:9999;align-items:stretch;justify-content:stretch;padding:0;cursor:default;flex:1;min-width:0;min-height:0;display:flex;align-items:center;justify-content:center;padding:60px 70px;overflow:hidden;box-sizing:border-box}
   .lightbox-imgwrap{position:relative;width:100%;height:100%;display:flex;align-items:center;justify-content:center;overflow:hidden;border-radius:10px;cursor:zoom-in}
   .lightbox-imgwrap.zoomed{cursor:grab;overflow:auto;align-items:flex-start;justify-content:flex-start}
   .lightbox-imgwrap.zoomed:active{cursor:grabbing}
@@ -723,49 +721,37 @@
 
 /* ═══════════════════════════════════════════════════════════════════
    ФОН СТРАНИЦЫ. Та же система, что на главной: светлая база, тёмно-синие
-   пятна, скрим и зерно. Поле закреплено во вьюпорте — на длинной странице
-   кейса пятна иначе расползлись бы и между ними светили пустые полосы.
-   Позиции пятен у каждого кейса свои: страницы не выглядят копиями.
+   пятна, скрим и зерно. Позиции пятен у каждого кейса свои,
+   страницы не выглядят копиями.
    ═══════════════════════════════════════════════════════════════════ */
 html{background:#E5E8E8}
 body{background:transparent;position:relative}
 /* Поле прокручивается вместе со страницей и растянуто на всю её высоту.
-   Высота пятен задана в процентах от поля, а не в vh: иначе на длинной
-   странице кейса семь пятен расползаются и между ними светит пустая база. */
-.site-field{position:absolute;inset:0;z-index:-1;overflow:hidden;pointer-events:none}
-.site-field::after{content:"";position:absolute;inset:0;z-index:2;background:linear-gradient(90deg,rgba(6,8,16,.66) 0%,rgba(6,8,16,.44) 52%,rgba(6,8,16,.62) 100%),linear-gradient(0deg,rgba(6,8,16,.24),rgba(6,8,16,.24))}
-.site-blob{
-  position:absolute;left:var(--x);top:var(--y);z-index:1;
-  width:var(--w);height:var(--h);
-  background:radial-gradient(ellipse at center,
-      #121524 0%,#121524 28%,#17235C 39%,#1740D2 47%,#174BFF 52%,
-      #3250A0 58%,#6F90D0 65%,#95AFDC 71%,#B1C4DE 77%,
-      rgba(229,232,232,.82) 82%,rgba(229,232,232,0) 89%,rgba(229,232,232,0) 100%);
-  transform:translate(-50%,-50%) rotate(var(--r)) scale(1);
-  transform-origin:center;
-  filter:blur(clamp(48px,5vw,96px));-webkit-filter:blur(clamp(48px,5vw,96px));
-  backface-visibility:hidden;will-change:transform;
-  animation:siteBlobMorph var(--dur,42s) ease-in-out var(--delay,0s) infinite alternate;
+   Один слой, семь радиальных градиентов в одном background. Раньше это были
+   семь отдельных div c filter:blur и анимацией: браузер перерисовывал их на
+   каждом кадре и страница ощутимо тормозила при скролле. Гладкость теперь
+   даёт сам набор стопов, размытие не нужно.
+   Размеры пятен в процентах от высоты поля: ритм синего одинаковый и на
+   короткой странице, и на длинной. */
+.site-field{
+  position:absolute;inset:0;z-index:-1;overflow:hidden;pointer-events:none;
+  background:
+    radial-gradient(64% 13% at 30% 5%,#0F1220 0%,#121732 10%,#152045 20%,#17285F 28%,#1A38A0 36%,#1B47E0 43%,#2A55F0 50%,#3D62D8 57%,#5B7BCC 64%,#7C99D4 71%,#9CB4DC 78%,rgba(190,205,224,.5) 85%,rgba(229,232,232,0) 95%),
+    radial-gradient(52% 11% at 94% 19%,#0F1220 0%,#121732 10%,#152045 20%,#17285F 28%,#1A38A0 36%,#1B47E0 43%,#2A55F0 50%,#3D62D8 57%,#5B7BCC 64%,#7C99D4 71%,#9CB4DC 78%,rgba(190,205,224,.5) 85%,rgba(229,232,232,0) 95%),
+    radial-gradient(60% 12% at 6% 34%,#0F1220 0%,#121732 10%,#152045 20%,#17285F 28%,#1A38A0 36%,#1B47E0 43%,#2A55F0 50%,#3D62D8 57%,#5B7BCC 64%,#7C99D4 71%,#9CB4DC 78%,rgba(190,205,224,.5) 85%,rgba(229,232,232,0) 95%),
+    radial-gradient(56% 13% at 72% 49%,#0F1220 0%,#121732 10%,#152045 20%,#17285F 28%,#1A38A0 36%,#1B47E0 43%,#2A55F0 50%,#3D62D8 57%,#5B7BCC 64%,#7C99D4 71%,#9CB4DC 78%,rgba(190,205,224,.5) 85%,rgba(229,232,232,0) 95%),
+    radial-gradient(68% 11% at 24% 64%,#0F1220 0%,#121732 10%,#152045 20%,#17285F 28%,#1A38A0 36%,#1B47E0 43%,#2A55F0 50%,#3D62D8 57%,#5B7BCC 64%,#7C99D4 71%,#9CB4DC 78%,rgba(190,205,224,.5) 85%,rgba(229,232,232,0) 95%),
+    radial-gradient(50% 12% at 90% 80%,#0F1220 0%,#121732 10%,#152045 20%,#17285F 28%,#1A38A0 36%,#1B47E0 43%,#2A55F0 50%,#3D62D8 57%,#5B7BCC 64%,#7C99D4 71%,#9CB4DC 78%,rgba(190,205,224,.5) 85%,rgba(229,232,232,0) 95%),
+    radial-gradient(62% 13% at 44% 95%,#0F1220 0%,#121732 10%,#152045 20%,#17285F 28%,#1A38A0 36%,#1B47E0 43%,#2A55F0 50%,#3D62D8 57%,#5B7BCC 64%,#7C99D4 71%,#9CB4DC 78%,rgba(190,205,224,.5) 85%,rgba(229,232,232,0) 95%);
+  background-color:#E5E8E8;
 }
-.site-blob.b1{--x:30%;--y:5%;--w:122vw;--h:12%;--r:-15deg;--r2:-6deg;--dur:46s;--delay:-3s}
-.site-blob.b2{--x:94%;--y:19%;--w:98vw;--h:10%;--r:19deg;--r2:10deg;--dur:40s;--delay:-17s}
-.site-blob.b3{--x:6%;--y:34%;--w:112vw;--h:11%;--r:-21deg;--r2:-12deg;--dur:52s;--delay:-28s}
-.site-blob.b4{--x:72%;--y:49%;--w:104vw;--h:12%;--r:14deg;--r2:6deg;--dur:38s;--delay:-11s}
-.site-blob.b5{--x:24%;--y:64%;--w:128vw;--h:10%;--r:-12deg;--r2:-20deg;--dur:56s;--delay:-34s}
-.site-blob.b6{--x:90%;--y:80%;--w:96vw;--h:11%;--r:9deg;--r2:17deg;--dur:62s;--delay:-22s}
-.site-blob.b7{--x:44%;--y:95%;--w:118vw;--h:12%;--r:-8deg;--r2:-16deg;--dur:50s;--delay:-7s}
-@keyframes siteBlobMorph{
-  0%{transform:translate(-50%,-50%) rotate(var(--r)) scale(1)}
-  100%{transform:translate(-46%,-54%) rotate(var(--r2)) scale(1.12)}
-}
-@media(prefers-reduced-motion:reduce){.site-blob{animation:none}}
+.site-field::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(6,8,16,.72) 0%,rgba(6,8,16,.56) 52%,rgba(6,8,16,.68) 100%)}
 
 /* ── поверхности вместо бежевых ────────────────────────────────────
    Всё, что было кремовой плашкой, стало тёмным стеклом: поле видно
    сквозь, текст читается. */
 .gal-tile .gt-num,.summary,.gal-btn,.gal-item .idx,.pnav,.pnav-center,.pgfoot,.proc-card{
   background:rgba(9,13,30,.58);color:var(--ink);
-  backdrop-filter:blur(16px) saturate(115%);-webkit-backdrop-filter:blur(16px) saturate(115%);
 }
 /* тёмные линейки на бежевом были контрастными, на тёмном их надо приглушить */
 .cur-ring,.nav-bar,.lang-toggle,.ticker,.sec,.intro-aside dl,.map-sec,.video-frame,.quest,.lboard,.lboard-slogan,.gal-marquee,.summary,.summary-row,.summary-row:last-child,.gal-btn,.gallery-wrap,.quote,.deliv-cell,.pnav,.pnav-center,.pnav-cta-btn,.pnav-foot,.pnav-cell:not(.next),.pgfoot,.pin-mark,.map-pin:hover .pin-mark,.map-pin:focus .pin-mark,.pin-popup::after,.zone-pin-mark,.zone-pin-popup::after,.zone-thumb-zoom,.proc-card,.process-meta,.pm-cell,.pm-cell:nth-child(odd),.quote-new,.pf-card,.pf-zoom,.pf-cap,.pipeline-toggle,.pipeline-toggle summary,.pipeline,.pl-step,.pl-num,.pl-zoom{border-color:rgba(241,236,221,.16)}
@@ -787,11 +773,6 @@ body{background:transparent;position:relative}
   .gal-tile .gt-num,.summary,.gal-btn,.gal-item .idx,.pnav,.pnav-center,.pgfoot,.proc-card{background:rgba(9,13,30,.96);backdrop-filter:none;-webkit-backdrop-filter:none}
 }
 
-/* Читаемость крупного набора поверх поля: мягкий ореол вокруг букв.
-   Прямоугольную вуаль убрал — её край было видно как тёмную полосу. */
-.sec-h,.sec-tag,.sec-side,.zone-h,.map-sec-head h2,.gallery-head h3,.quest-h,.why-h{
-  text-shadow:0 0 28px rgba(6,8,16,.92),0 0 64px rgba(6,8,16,.72),0 2px 6px rgba(6,8,16,.6);
-}
 
 /* ── шапка и мелочи, которые были рассчитаны на светлую страницу ── */
 .nav-bar{
@@ -839,10 +820,6 @@ body::before{mix-blend-mode:screen;opacity:.05}
 <body>
 <!-- фон страницы: градиентное поле, как на главной -->
 <div class="site-field" aria-hidden="true">
-  <span class="site-blob b1"></span><span class="site-blob b2"></span>
-  <span class="site-blob b3"></span><span class="site-blob b4"></span>
-  <span class="site-blob b5"></span><span class="site-blob b6"></span>
-  <span class="site-blob b7"></span>
 </div>
 
 
@@ -2054,6 +2031,7 @@ body::before{mix-blend-mode:screen;opacity:.05}
     entries.forEach(entry => { if (entry.isIntersecting) setActivePill(entry.target.id); });
   }, {root:null,rootMargin:'-28% 0px -66% 0px',threshold:0});
   sectionIds.forEach(id => { const el = document.getElementById(id); if (el) secObs.observe(el); });
+secObs.disconnect(); /* подсветку ведёт скрипт ниже */
 </script>
 
 <script>
@@ -2346,6 +2324,41 @@ body::before{mix-blend-mode:screen;opacity:.05}
     });
     setInterval(next, 2800);
   })();
+</script>
+<script>
+/* Подсветка активного пункта навигации.
+   Раньше это делал IntersectionObserver с узкой полосой: он срабатывает только
+   в момент пересечения границы, а на странице с ленивыми картинками вёрстка
+   едет по мере их подгрузки — секции уезжают под полосу без события скролла,
+   и подсветка застревает на предыдущем пункте. Считаем состояние заново на
+   каждом кадре прокрутки, как на главной. */
+(function(){
+  var pills = [].slice.call(document.querySelectorAll('.mag-pill[data-section]'));
+  if(!pills.length) return;
+  var targets = pills
+    .map(function(p){ return { pill:p, el:document.getElementById(p.dataset.section) }; })
+    .filter(function(t){ return t.el; });
+  if(!targets.length) return;
+  var queued = false;
+  function apply(){
+    queued = false;
+    var line = window.scrollY + window.innerHeight * 0.32;
+    var atBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2;
+    var active = null;
+    for(var i=0;i<targets.length;i++){
+      if(targets[i].el.getBoundingClientRect().top + window.scrollY <= line) active = targets[i];
+    }
+    if(atBottom) active = targets[targets.length-1];
+    pills.forEach(function(p){ p.classList.toggle('active', !!active && p === active.pill); });
+  }
+  function queue(){ if(!queued){ queued = true; requestAnimationFrame(apply); } }
+  window.addEventListener('scroll', queue, {passive:true});
+  window.addEventListener('resize', queue, {passive:true});
+  window.addEventListener('load', queue);
+  document.addEventListener('readystatechange', queue);
+  if(window.ResizeObserver) new ResizeObserver(queue).observe(document.body);
+  apply();
+})();
 </script>
 </body>
 </html>
