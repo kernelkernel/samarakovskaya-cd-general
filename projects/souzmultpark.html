@@ -6,7 +6,9 @@
 <meta name="robots" content="noindex, nofollow">
 <title>Союзмультпарк · Таня Самараковская</title>
 <meta name="description" content="Союзмультпарк: первый в мире phygital-парк по вселенной «Союзмультфильма» на ВДНХ. 10 интерактивных зон и 14 игр, где любимые мультфильмы становятся осязаемыми. Креатор в команде Hello Computer: Таня Самараковская.">
-<link rel="icon" type="image/webp" href="../assets/icon.webp">
+<link rel="icon" href="../assets/favicon.ico?v=2" sizes="48x48">
+<link rel="icon" type="image/webp" href="../assets/icon.webp?v=2" sizes="512x512">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png?v=2">
 <meta property="og:type" content="article">
 <meta property="og:locale" content="ru_RU">
 <meta property="og:site_name" content="Tanya Samarakovskaya">
@@ -299,6 +301,18 @@
 
   .reveal{opacity:0;transform:translateY(20px);transition:opacity .8s ease,transform .8s ease}
   .reveal.in{opacity:1;transform:none}
+
+/* ── Зерно: единая текстура сайта. Тайл 320px — клетка повтора не читается,
+   размер самого зерна прежний (baseFrequency не менялась). Режим overlay,
+   чтобы шум одинаково читался и на тёмных секциях, и на светлом поле. ── */
+html::after{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:990;
+  opacity:.17;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='320' height='320' viewBox='0 0 320 320'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.92' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat:repeat;background-size:320px 320px;
+  filter:contrast(170%);
+}
+@media(max-width:700px){html::after{background-size:240px 240px;opacity:.14}}
 </style>
 <style id="ru-switch-css">
 .nav-end{display:inline-flex;align-items:center;gap:10px}

@@ -4,7 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Tanya Samarakovskaya — Creative Director</title>
-<link rel="icon" type="image/webp" href="assets/icon.webp">
+<link rel="icon" href="assets/favicon.ico?v=2" sizes="48x48">
+<link rel="icon" type="image/webp" href="assets/icon.webp?v=2" sizes="512x512">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=2">
 <link rel="canonical" href="https://t.samarakovskaya.art/">
 <meta name="description" content="Таня Самараковская — креативный директор полного цикла. Рекламные кампании 360°, спецпроекты, брендинг, арт-дирекшн, AI в продакшне. Опыт на стороне заказчика и агентства. 10+ лет, 30+ проектов.">
 <meta name="keywords" content="креативный директор, phygital, мультимедийные выставки, иммерсивный опыт, experience design, арт-директор, Таня Самараковская, Samarakovskaya, Татьяна Самараковская">
@@ -134,7 +136,9 @@
   /* на мобиле плотнее фон — иначе тёмный текст светлых секций просвечивает «кашей» */
   @media(max-width:880px){.nav-bar{background:rgba(20,20,24,.92);backdrop-filter:blur(24px) saturate(120%);-webkit-backdrop-filter:blur(24px) saturate(120%)}}
   .brand{display:inline-flex;align-items:center;gap:9px;font-size:13px;font-weight:600;white-space:nowrap;color:var(--bone);min-width:0}
-  .brand-mark{width:22px;height:22px;border-radius:50%;flex-shrink:0;object-fit:cover;box-shadow:0 0 0 1px rgba(23,75,255,.55),0 0 18px rgba(23,75,255,.3)}
+  /* Знак нарисован как квадратная плашка с полями: круглый кроп срезал бы
+     буквы, поэтому квадрат со скруглением 6px. */
+  .brand-mark{width:22px;height:22px;border-radius:6px;flex-shrink:0;object-fit:cover;box-shadow:0 0 0 1px rgba(23,75,255,.55),0 0 18px rgba(23,75,255,.3)}
   .brand small{color:var(--bone-2);font-weight:400;margin-left:2px;font-size:11px;text-transform:uppercase;letter-spacing:.06em}
   .top-nav{flex:1;display:flex;justify-content:center;gap:1px;min-width:0}
   .top-nav a{
@@ -293,6 +297,28 @@
   }
   @media (max-width:640px){ .hero{--hero-grain:.16} }
 
+  /* ── Геро на мобильном ──
+     На узком экране кадр вертикальный, лицо приходится ровно на середину —
+     туда же ложатся лид, кнопки и цифры. Поэтому фото живёт только в верхней
+     части экрана и уходит в графит через маску: имя остаётся на кадре, весь
+     остальной текст — на чистом фоне. Дубль «креативный директор» под лидом
+     на мобильном убран, роль уже сказана в шапке и в лиде. */
+  @media(max-width:820px){
+    /* Кадр занимает только верхнюю полосу экрана и уходит в графит.
+       Имя начинается сразу под лицом и ложится на плечо, лид, кнопки и
+       цифры — уже на чистом фоне. */
+    .hero{padding-top:clamp(210px,32svh,320px)}
+    .hero-bg{
+      inset:0 0 auto 0;height:56svh;
+      -webkit-mask-image:linear-gradient(180deg,#000 0,#000 62%,rgba(0,0,0,.45) 84%,transparent 100%);
+      mask-image:linear-gradient(180deg,#000 0,#000 62%,rgba(0,0,0,.45) 84%,transparent 100%);
+    }
+    .hero-bg video{object-position:62% 6%}
+    .hero-bg::after{
+      background:linear-gradient(to bottom,rgba(22,22,26,.80) 0%,rgba(22,22,26,.22) 14%,rgba(22,22,26,.06) 40%,rgba(22,22,26,.34) 72%,rgba(22,22,26,.85) 100%);
+    }
+  }
+
   /* hero name */
   .hero-name{
     font-weight:700;letter-spacing:-.05em;line-height:.88;
@@ -378,6 +404,9 @@
     font-size:clamp(22px,2.5vw,42px);padding:0 .16em;letter-spacing:-.025em;
   }
   @media(min-width:821px){.hr-block{align-self:flex-end}}
+  /* На мобильном «креативный директор» под лидом дублирует шапку и сам лид —
+     убираем, экран становится короче и текст перестаёт налезать на кадр. */
+  @media(max-width:820px){.hero-role{display:none}}
   .hero-cta{display:flex;gap:10px;flex-wrap:wrap}
 
   .hero-stats{
@@ -425,73 +454,63 @@
   .sec.on-cream{background:var(--cream);color:var(--ink)}
   .sec.on-graphite{background:var(--graphite);color:var(--bone)}
 
-  /* ───── BACKGROUND AFTER ABOUT ─────
-     Starts at Services and continues through the footer. The light sections
-     remain readable; the color field is stronger in dark sections. */
+  /* ───── ФОН-ПОЛЕ ─────
+     Начинается на «Обо мне» и идёт до подвала. Светлые секции остаются
+     читаемыми, в тёмных поле работает в полную силу. */
   .post-about-bg{
     position:relative;isolation:isolate;overflow:hidden;
-    background-color:#E5E8E8;
+    background-color:#0C0E16;
   }
-  /* One continuous, non-tiled field. Each ellipse has its own scale, angle
-     and position, so the blue edge bends and changes shape while scrolling. */
-  .gradient-field{position:absolute;inset:0;z-index:0;overflow:hidden;pointer-events:none}
+  /* Одно поле, семь радиальных пятен в одном background-слое.
+     Раньше это были семь отдельных div с filter:blur и бесконечной анимацией:
+     браузер перерисовывал их на каждом кадре, поле догоняло контент с
+     задержкой и скролл проседал. Гладкость теперь даёт сам набор стопов,
+     размытие не нужно. Размеры пятен в процентах от высоты поля: ритм синего
+     одинаковый и на короткой странице, и на длинной. */
+  .gradient-field{
+    position:absolute;inset:0;z-index:0;overflow:hidden;pointer-events:none;
+    background:
+      radial-gradient(62% 13% at 16% 5%,#0E1120 0%,#111530 11%,#141E42 22%,#16265C 31%,#18349B 41%,#1A44DC 49%,#2551E8 56%,#3059C8 63%,#3E5FA8 71%,rgba(70,96,158,.55) 80%,rgba(40,56,96,.28) 88%,rgba(12,14,22,0) 95%),
+      radial-gradient(52% 11% at 88% 20%,#0E1120 0%,#111530 11%,#141E42 22%,#16265C 31%,#18349B 41%,#1A44DC 49%,#2551E8 56%,#3059C8 63%,#3E5FA8 71%,rgba(70,96,158,.55) 80%,rgba(40,56,96,.28) 88%,rgba(12,14,22,0) 95%),
+      radial-gradient(58% 12% at 8% 35%,#0E1120 0%,#111530 11%,#141E42 22%,#16265C 31%,#18349B 41%,#1A44DC 49%,#2551E8 56%,#3059C8 63%,#3E5FA8 71%,rgba(70,96,158,.55) 80%,rgba(40,56,96,.28) 88%,rgba(12,14,22,0) 95%),
+      radial-gradient(60% 13% at 92% 50%,#0E1120 0%,#111530 11%,#141E42 22%,#16265C 31%,#18349B 41%,#1A44DC 49%,#2551E8 56%,#3059C8 63%,#3E5FA8 71%,rgba(70,96,158,.55) 80%,rgba(40,56,96,.28) 88%,rgba(12,14,22,0) 95%),
+      radial-gradient(66% 11% at 18% 65%,#0E1120 0%,#111530 11%,#141E42 22%,#16265C 31%,#18349B 41%,#1A44DC 49%,#2551E8 56%,#3059C8 63%,#3E5FA8 71%,rgba(70,96,158,.55) 80%,rgba(40,56,96,.28) 88%,rgba(12,14,22,0) 95%),
+      radial-gradient(54% 12% at 84% 81%,#0E1120 0%,#111530 11%,#141E42 22%,#16265C 31%,#18349B 41%,#1A44DC 49%,#2551E8 56%,#3059C8 63%,#3E5FA8 71%,rgba(70,96,158,.55) 80%,rgba(40,56,96,.28) 88%,rgba(12,14,22,0) 95%),
+      radial-gradient(62% 13% at 22% 96%,#0E1120 0%,#111530 11%,#141E42 22%,#16265C 31%,#18349B 41%,#1A44DC 49%,#2551E8 56%,#3059C8 63%,#3E5FA8 71%,rgba(70,96,158,.55) 80%,rgba(40,56,96,.28) 88%,rgba(12,14,22,0) 95%);
+    background-color:#0C0E16;
+  }
   .gradient-field::after{
     content:"";position:absolute;inset:0;z-index:2;
-    background:linear-gradient(90deg,rgba(7,9,18,.54) 0%,rgba(7,9,18,.28) 58%,rgba(7,9,18,.06) 100%);
+    background:linear-gradient(90deg,rgba(7,9,18,.62) 0%,rgba(7,9,18,.40) 55%,rgba(7,9,18,.20) 100%);
   }
-  .gradient-shape{
-    position:absolute;left:var(--x);top:var(--y);z-index:1;
-    width:var(--w);height:var(--h);
-    background:radial-gradient(
-      ellipse at center,
-      #121524 0%,
-      #121524 28%,
-      #17235C 39%,
-      #1740D2 47%,
-      #174BFF 52%,
-      #3250A0 58%,
-      #6F90D0 65%,
-      #95AFDC 71%,
-      #B1C4DE 77%,
-      rgba(229,232,232,.82) 82%,
-      rgba(229,232,232,0) 89%,
-      rgba(229,232,232,0) 100%
-    );
-    transform:translate(-50%,-50%) rotate(var(--r)) scale(1);
-    transform-origin:center;
-    filter:blur(clamp(52px,5.4vw,104px));
-    -webkit-filter:blur(clamp(52px,5.4vw,104px));
-    opacity:.98;
-    backface-visibility:hidden;
-    will-change:transform,filter;
-    animation:gradientMorph var(--dur,38s) ease-in-out var(--delay,0s) infinite alternate;
-  }
-  .gradient-shape.s1{--x:16%;--y:5%;--w:124vw;--h:42vw;--r:-8deg;--r2:-2deg;--dur:42s}
-  .gradient-shape.s2{--x:88%;--y:20%;--w:94vw;--h:32vw;--r:14deg;--r2:7deg;--dur:36s;--delay:-12s}
-  .gradient-shape.s3{--x:8%;--y:35%;--w:112vw;--h:38vw;--r:18deg;--r2:10deg;--dur:48s;--delay:-24s}
-  .gradient-shape.s4{--x:92%;--y:50%;--w:104vw;--h:44vw;--r:-19deg;--r2:-10deg;--dur:40s;--delay:-8s}
-  .gradient-shape.s5{--x:18%;--y:65%;--w:132vw;--h:34vw;--r:-12deg;--r2:-20deg;--dur:52s;--delay:-30s}
-  .gradient-shape.s6{--x:84%;--y:81%;--w:98vw;--h:40vw;--r:17deg;--r2:9deg;--dur:44s;--delay:-18s}
-  .gradient-shape.s7{--x:22%;--y:96%;--w:116vw;--h:42vw;--r:9deg;--r2:17deg;--dur:46s;--delay:-6s}
-  @keyframes gradientMorph{
-    0%{transform:translate(-50%,-50%) rotate(var(--r)) scale(1)}
-    100%{transform:translate(-48%,-52%) rotate(var(--r2)) scale(1.08)}
-  }
+  /* Зерно поверх поля. Тайл 320px вместо 140px: клетка повтора перестаёт
+     читаться, размер самого зерна прежний — baseFrequency не менялась. */
   .post-about-bg::after{
     content:"";position:absolute;inset:0;z-index:20;pointer-events:none;
-    opacity:.28;mix-blend-mode:multiply;
-    background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 140 140' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.92' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-    background-repeat:repeat;background-size:140px 140px;
-    filter:contrast(185%) brightness(105%);
+    opacity:.17;mix-blend-mode:overlay;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='320' height='320' viewBox='0 0 320 320'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.92' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-repeat:repeat;background-size:320px 320px;
+    filter:contrast(170%);
   }
   .post-about-bg > *{position:relative;z-index:1}
   .post-about-bg > .gradient-field{position:absolute;z-index:0}
   .post-about-bg .svc-section,
   .post-about-bg .sec.on-cream,
-  .post-about-bg .sec.on-graphite{
+  .post-about-bg .sec.on-graphite,
+  .post-about-bg #about{
     background:transparent;
     color:var(--bone);
   }
+  /* «Обо мне» лежит на поле: текст держим на тёмном стекле, иначе абзац
+     попадает на светлый край синего пятна и теряет контраст. */
+  .post-about-bg #about{position:relative;isolation:isolate}
+  .post-about-bg #about::before{
+    content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+    background:rgba(9,12,22,.58);
+    -webkit-mask-image:linear-gradient(180deg,transparent 0,#000 96px,#000 calc(100% - 96px),transparent 100%);
+    mask-image:linear-gradient(180deg,transparent 0,#000 96px,#000 calc(100% - 96px),transparent 100%);
+  }
+  .post-about-bg #about .about-copy-grid p:first-child{color:var(--bone)}
   .post-about-bg footer{background:rgba(7,9,18,.18);color:var(--bone)}
 
   /* All post-About sections use one dark visual system. */
@@ -500,32 +519,35 @@
   .post-about-bg .sec-side{color:var(--bone-2)}
   .post-about-bg .sec-side b{color:var(--bone)}
 
-  /* Services: graphite glass cards instead of cream tiles. */
-  .post-about-bg .svc{
-    background:rgba(241,236,221,.16);
-    border-color:rgba(241,236,221,.16);
-  }
+  /* Компетенции: тёмные стеклянные плашки без обводки.
+     По наведению плашка светлеет, главный заголовок уходит в синий —
+     на тёмном стекле #174BFF читался бы как почти чёрный. */
+  .post-about-bg .svc{background:transparent;border:0}
   .post-about-bg .svc-section{border-color:var(--line-d2)}
   .post-about-bg .svc-cell{
     background:rgba(12,13,18,.78);color:var(--bone);
-    border-color:var(--line-d);
+    border:0;
     backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
   }
-  .post-about-bg .svc-cell:hover{background:rgba(38,38,44,.94);color:var(--bone)}
+  .post-about-bg .svc-cell:hover{background:rgba(241,236,221,.95);color:var(--ink)}
   .post-about-bg .svc-cell .svc-num,
   .post-about-bg .svc-cell .svc-tag{color:var(--bone-3)}
   .post-about-bg .svc-cell .svc-desc{color:var(--bone-2)}
-  .post-about-bg .svc-cell:hover .svc-num{color:var(--bone-2)}
-  .post-about-bg .svc-cell:hover .svc-tag{color:var(--lime)}
-  .post-about-bg .svc-cell:hover .svc-desc{color:var(--bone-2)}
+  .post-about-bg .svc-cell:hover .svc-num,
+  .post-about-bg .svc-cell:hover .svc-tag{color:var(--ink-3)}
+  .post-about-bg .svc-cell:hover .svc-desc{color:var(--ink-2)}
+  .post-about-bg .svc-cell:hover .svc-h,
+  .post-about-bg .svc-cell:hover .svc-num .star{color:var(--blue-accent)}
   .post-about-bg .svc-cell.feat{background:var(--lime);color:var(--ink)}
-  .post-about-bg .svc-cell.feat:hover{background:var(--ink);color:var(--lime)}
+  .post-about-bg .svc-cell.feat:hover{background:rgba(241,236,221,.95);color:var(--ink)}
   .post-about-bg .svc-cell.feat .svc-num,
   .post-about-bg .svc-cell.feat .svc-tag,
   .post-about-bg .svc-cell.feat .svc-headline{color:var(--ink)}
   .post-about-bg .svc-cell.feat:hover .svc-num,
-  .post-about-bg .svc-cell.feat:hover .svc-tag,
-  .post-about-bg .svc-cell.feat:hover .svc-headline{color:var(--lime)}
+  .post-about-bg .svc-cell.feat:hover .svc-tag{color:var(--ink-3)}
+  .post-about-bg .svc-cell.feat:hover .svc-headline{color:var(--blue-accent)}
+  .post-about-bg .svc-cell.feat:hover .svc-num .star{color:var(--blue-accent)}
+  .post-about-bg .svc-cell.feat:hover .svc-headline .mark{background:var(--blue-accent);color:var(--cream)}
 
   /* Career: dark timeline and light typography. */
   .post-about-bg .career-aside p{color:var(--bone-2)}
@@ -554,22 +576,22 @@
 
   .post-about-bg footer{border-color:var(--line-d2)}
 
+  /* На узком экране пятна шире и уходят за край: синий читается полосами
+     вдоль страницы, а не кружками по центру. */
   @media(max-width:700px){
-    .gradient-shape{
-      width:var(--mw,170vw);height:var(--mh,72vw);
-      filter:blur(clamp(38px,10vw,64px));
-      -webkit-filter:blur(clamp(38px,10vw,64px));
+    .gradient-field{
+      background:
+        radial-gradient(105% 9% at 4% 5%,#0E1120 0%,#111530 11%,#141E42 22%,#16265C 31%,#18349B 41%,#1A44DC 49%,#2551E8 56%,#3059C8 63%,#3E5FA8 71%,rgba(70,96,158,.55) 80%,rgba(40,56,96,.28) 88%,rgba(12,14,22,0) 95%),
+        radial-gradient(88% 8% at 100% 20%,#0E1120 0%,#111530 11%,#141E42 22%,#16265C 31%,#18349B 41%,#1A44DC 49%,#2551E8 56%,#3059C8 63%,#3E5FA8 71%,rgba(70,96,158,.55) 80%,rgba(40,56,96,.28) 88%,rgba(12,14,22,0) 95%),
+        radial-gradient(95% 9% at 0% 35%,#0E1120 0%,#111530 11%,#141E42 22%,#16265C 31%,#18349B 41%,#1A44DC 49%,#2551E8 56%,#3059C8 63%,#3E5FA8 71%,rgba(70,96,158,.55) 80%,rgba(40,56,96,.28) 88%,rgba(12,14,22,0) 95%),
+        radial-gradient(90% 9% at 104% 50%,#0E1120 0%,#111530 11%,#141E42 22%,#16265C 31%,#18349B 41%,#1A44DC 49%,#2551E8 56%,#3059C8 63%,#3E5FA8 71%,rgba(70,96,158,.55) 80%,rgba(40,56,96,.28) 88%,rgba(12,14,22,0) 95%),
+        radial-gradient(102% 8% at 2% 65%,#0E1120 0%,#111530 11%,#141E42 22%,#16265C 31%,#18349B 41%,#1A44DC 49%,#2551E8 56%,#3059C8 63%,#3E5FA8 71%,rgba(70,96,158,.55) 80%,rgba(40,56,96,.28) 88%,rgba(12,14,22,0) 95%),
+        radial-gradient(90% 9% at 100% 81%,#0E1120 0%,#111530 11%,#141E42 22%,#16265C 31%,#18349B 41%,#1A44DC 49%,#2551E8 56%,#3059C8 63%,#3E5FA8 71%,rgba(70,96,158,.55) 80%,rgba(40,56,96,.28) 88%,rgba(12,14,22,0) 95%),
+        radial-gradient(98% 9% at 4% 96%,#0E1120 0%,#111530 11%,#141E42 22%,#16265C 31%,#18349B 41%,#1A44DC 49%,#2551E8 56%,#3059C8 63%,#3E5FA8 71%,rgba(70,96,158,.55) 80%,rgba(40,56,96,.28) 88%,rgba(12,14,22,0) 95%);
+      background-color:#0C0E16;
     }
-    .gradient-shape.s1{--x:4%;--mw:210vw;--mh:82vw}
-    .gradient-shape.s2{--x:102%;--mw:175vw;--mh:70vw}
-    .gradient-shape.s3{--x:-4%;--mw:190vw;--mh:76vw}
-    .gradient-shape.s4{--x:104%;--mw:180vw;--mh:82vw}
-    .gradient-shape.s5{--x:3%;--mw:205vw;--mh:72vw}
-    .gradient-shape.s6{--x:100%;--mw:180vw;--mh:78vw}
-    .gradient-shape.s7{--x:4%;--mw:195vw;--mh:80vw}
-    .post-about-bg::after{opacity:.23}
+    .post-about-bg::after{opacity:.14;background-size:240px 240px}
   }
-  @media(prefers-reduced-motion:reduce){.gradient-shape{animation:none}}
   .sec-head{
     display:grid;grid-template-columns:auto 1fr auto;gap:32px;align-items:end;
     padding-bottom:28px;border-bottom:1px solid var(--line-d);margin-bottom:56px;
@@ -629,7 +651,7 @@
   .about-copy-grid b{color:var(--bone);font-weight:700}
   .about-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:38px}
   .about-tags .pill::before{
-    width:15px;height:15px;border-radius:0;background:url("assets/icon.webp") center/contain no-repeat;box-shadow:none;
+    width:15px;height:15px;border-radius:3px;background:url("assets/icon.webp?v=2") center/contain no-repeat;box-shadow:none;
   }
   @media(max-width:760px){
     .showreel-section{height:56.25vw;min-height:280px}
@@ -646,10 +668,11 @@
 
   /* ───── SERVICES ───── */
   .svc-section{padding:90px 0 100px;background:var(--cream);color:var(--ink);position:relative;border-top:1px solid var(--line-l)}
-  /* обводка через gap-линии: одинаковые 1px при любом числе колонок, ничего не пропадает */
-  .svc{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--ink);border:1px solid var(--ink)}
+  /* Без обводки и без gap-линий: плашки разделяет только просвет,
+     сквозь него видно поле. */
+  .svc{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;background:transparent;border:0}
   @media(max-width:900px){.svc{grid-template-columns:repeat(2,1fr)}}
-  @media(max-width:560px){.svc{grid-template-columns:1fr}}
+  @media(max-width:560px){.svc{grid-template-columns:1fr;gap:8px}}
   .svc-cell{
     padding:28px 22px;
     background:var(--cream);transition:background .25s,color .25s;
@@ -954,7 +977,7 @@
 <header class="top">
   <div class="nav-bar">
     <a class="brand" href="#hero">
-      <img class="brand-mark" src="assets/icon.webp" alt="Таня Самараковская — логотип">
+      <img class="brand-mark" src="assets/icon.webp?v=2" alt="Таня Самараковская — логотип">
       <span data-i18n="nav.brand">Таня Самараковская</span> <small data-i18n="nav.brandRole">· Креативный директор</small>
     </a>
     <nav class="top-nav">
@@ -1050,6 +1073,11 @@
   </button>
 </section>
 
+<!-- Фон-поле и зерно начинаются здесь, с «Обо мне», и идут до подвала. -->
+<div class="post-about-bg">
+
+  <div class="gradient-field" aria-hidden="true"></div>
+
 <!-- ════════════ ABOUT ════════════ -->
 <section class="sec on-graphite about-sec" id="about" data-screen-label="01 About">
   <div class="wrap">
@@ -1085,18 +1113,6 @@
     <span data-i18n="marq.line">Креативная стратегия <i class="star-ico"></i> Рекламные кампании <i class="star-ico"></i> Art direction <i class="star-ico"></i> Брендинг <i class="star-ico"></i> Спецпроекты <i class="star-ico"></i> Сторителлинг <i class="star-ico"></i> AI production <i class="star-ico"></i> Продюсирование <i class="star-ico"></i></span>
   </div>
 </div>
-
-<div class="post-about-bg">
-
-  <div class="gradient-field" aria-hidden="true">
-    <span class="gradient-shape s1"></span>
-    <span class="gradient-shape s2"></span>
-    <span class="gradient-shape s3"></span>
-    <span class="gradient-shape s4"></span>
-    <span class="gradient-shape s5"></span>
-    <span class="gradient-shape s6"></span>
-    <span class="gradient-shape s7"></span>
-  </div>
 
 <!-- ════════════ SERVICES ════════════ -->
 <section class="svc-section" id="services" data-screen-label="02 Services">
@@ -1450,8 +1466,8 @@
         <a class="titem" href="#">
           <span class="tyear">2009—16</span>
           <div>
-            <h3 class="ttitle" data-i18n="career.t7">Диджитал и&nbsp;<span class="mark">реклама</span></h3>
-            <p class="tdesc" data-i18n="career.d7">Digital-спецпроекты, рекламные кампании, интерактивные промо-механики в&nbsp;международных агентствах Actis Wunderman, ADV Digital. Путь от технического исполнения к&nbsp;арт-дирекшену.</p>
+            <h3 class="ttitle" data-i18n="career.t7">Actis Wunderman <span class="mark">·</span> ADV&nbsp;Digital</h3>
+            <p class="tdesc" data-i18n="career.d7">Международные digital-агентства. Рекламные кампании, digital-спецпроекты, интерактивные промо-механики. Путь от технического исполнения к&nbsp;арт-дирекшену.</p>
           </div>
           <span class="tarrow">↗︎</span>
         </a>
@@ -1618,8 +1634,8 @@
     'career.d5':'Theater projects BAAL, POLE, Candide: video art, lighting scores. Projection mapping. TouchDesigner, Cinema 4D, Resolume Arena, vvvv.',
     'career.t6':'BHSAD <span class="mark">/</span> Design for Interactive Environments',
     'career.d6':'A shift from screen design to designing experience in space. Installations, motion, the viewer’s interaction with the object.',
-    'career.t7':'Digital &amp;&nbsp;<span class="mark">advertising</span>',
-    'career.d7':'Digital special projects, advertising campaigns, interactive promo mechanics at the international agencies Actis Wunderman and ADV Digital. A path from technical execution to art direction.',
+    'career.t7':'Actis Wunderman <span class="mark">·</span> ADV&nbsp;Digital',
+    'career.d7':'International digital agencies. Advertising campaigns, digital special projects, interactive promo mechanics. A path from technical execution to art direction.',
 
     'contact.num':'05 / Contact',
     'contact.h1':'Let’s',
