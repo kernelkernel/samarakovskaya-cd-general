@@ -654,7 +654,12 @@
   @media (max-width:560px){.pipeline-grid{grid-template-columns:1fr}}
 
   /* === LIGHTBOX v2 === */
-  .lightbox{position:fixed;inset:0;background:rgba(6,6,6,.96);display:none;z-index:9999;align-items:stretch;justify-content:stretch;padding:0;cursor:default;flex:1;min-width:0;min-height:0;display:flex;align-items:center;justify-content:center;padding:60px 70px;overflow:hidden;box-sizing:border-box}
+  /* Правило .lightbox и .lightbox-stage когда-то склеились в одно: второй
+     display:flex перебивал display:none, и лайтбокс висел поверх страницы
+     сразу при загрузке. Разнесены обратно, как на wayofwater. */
+  .lightbox{position:fixed;inset:0;background:rgba(6,6,6,.96);display:none;z-index:9999;align-items:stretch;justify-content:stretch;padding:0;cursor:default;-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}
+  .lightbox.open{display:flex}
+  .lightbox-stage{position:relative;flex:1;min-width:0;min-height:0;display:flex;align-items:center;justify-content:center;padding:60px 70px;overflow:hidden;box-sizing:border-box}
   .lightbox-imgwrap{position:relative;width:100%;height:100%;display:flex;align-items:center;justify-content:center;overflow:hidden;border-radius:10px;cursor:zoom-in}
   .lightbox-imgwrap.zoomed{cursor:grab;overflow:auto;align-items:flex-start;justify-content:flex-start}
   .lightbox-imgwrap.zoomed:active{cursor:grabbing}
