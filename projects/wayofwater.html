@@ -6,7 +6,9 @@
 <meta name="robots" content="noindex, nofollow">
 <title>Путь воды — Case · Tanya Samarakovskaya</title>
 <meta name="description" content="«Путь воды» — мультимедийная выставка: experience design от концепции до запуска. Москвариум, 2022—2024.">
-<link rel="icon" type="image/webp" href="../assets/icon.webp">
+<link rel="icon" href="../assets/favicon.ico?v=2" sizes="48x48">
+<link rel="icon" type="image/webp" href="../assets/icon.webp?v=2" sizes="512x512">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png?v=2">
 <meta property="og:type" content="article">
 <meta property="og:locale" content="ru_RU">
 <meta property="og:site_name" content="Tanya Samarakovskaya">
@@ -140,7 +142,7 @@ body.dark-rail .rail-st.active .ring{background:var(--wave);border-color:var(--w
 @media(max-width:780px){.hero-tagline{text-align:left}}
 
 .hero-center{flex:1;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;text-align:center;padding:60px 0 12px}
-.hero-h{font-family:var(--sans);font-weight:300;font-size:clamp(48px,12.5vw,240px);letter-spacing:-.055em;line-height:.84;color:#fff;text-shadow:0 4px 30px rgba(0,0,0,.4);white-space:nowrap;text-align:center}
+.hero-h{font-family:var(--sans);font-weight:300;font-size:clamp(48px,12.5vw,240px);letter-spacing:-.055em;line-height:.84;color:#fff;white-space:nowrap;text-align:center}
 .hero-h .a{display:inline}
 .hero-h .b{display:inline;font-family:var(--display);font-weight:400;font-style:normal;color:var(--wave);margin-left:.16em}
 .hero-h .stroke{display:inline-block;height:.05em;width:.32em;background:var(--wave);vertical-align:middle;margin:0 .08em .14em 0;border-radius:99px}
@@ -801,6 +803,18 @@ img.broken{visibility:hidden}
   background-image:repeating-linear-gradient(45deg,rgba(255,255,255,.04) 0 8px,rgba(255,255,255,.08) 8px 16px);
   background-color:rgba(255,255,255,.03);color:rgba(255,255,255,.4)}
 .zstrip .img-fallback,.aside-frame .img-fallback,.g-item .img-fallback,.icard-vis .img-fallback,.axo .img-fallback,.plan-img .img-fallback{position:absolute;inset:0}
+
+/* ── Зерно: единая текстура сайта. Тайл 320px — клетка повтора не читается,
+   размер самого зерна прежний (baseFrequency не менялась). Режим overlay,
+   чтобы шум одинаково читался и на тёмных секциях, и на светлом поле. ── */
+html::after{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:990;
+  opacity:.17;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='320' height='320' viewBox='0 0 320 320'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.92' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat:repeat;background-size:320px 320px;
+  filter:contrast(170%);
+}
+@media(max-width:700px){html::after{background-size:240px 240px;opacity:.14}}
 </style>
 <style id="ru-switch-css">
 .nav-end{display:inline-flex;align-items:center;gap:10px}
