@@ -336,6 +336,28 @@
 <link rel="alternate" hreflang="x-default" href="https://samarakovskaya.art/projects/kandid.html">
 <!-- Yandex.Metrika counter -->
 <script type="text/javascript">
+    /* Метка собственных визитов. Не зависит от IP и страны VPN:
+       флаг хранится в localStorage конкретного браузера.
+       Включить метку:  https://t.samarakovskaya.art/?me=1
+       Снять метку:     https://t.samarakovskaya.art/?me=0
+       Помеченные визиты видны в Метрике как параметр визита owner = tanya. */
+    (function(){
+        try{
+            var p = new URLSearchParams(location.search).get('me');
+            if(p !== null){
+                if(p === '0' || p === 'off'){ localStorage.removeItem('ym_owner'); }
+                else { localStorage.setItem('ym_owner','1'); }
+                var on = localStorage.getItem('ym_owner') === '1';
+                document.addEventListener('DOMContentLoaded', function(){
+                    var n = document.createElement('div');
+                    n.textContent = on ? 'Метрика: визиты помечены как OWNER' : 'Метрика: метка OWNER снята';
+                    n.style.cssText = 'position:fixed;left:14px;bottom:14px;z-index:99999;padding:9px 13px;border-radius:8px;font:500 12px/1.2 ui-monospace,monospace;background:#16161A;color:#fff;border:1px solid rgba(255,255,255,.35);box-shadow:0 6px 24px rgba(0,0,0,.35)';
+                    document.body.appendChild(n);
+                    setTimeout(function(){ n.remove(); }, 4000);
+                });
+            }
+        }catch(e){}
+    })();
     (function(m,e,t,r,i,k,a){
         m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
         m[i].l=1*new Date();
@@ -343,6 +365,14 @@
         k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
     })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=111808725', 'ym');
     ym(111808725, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+    (function(){
+        try{
+            if(localStorage.getItem('ym_owner') === '1'){
+                ym(111808725, 'params', {owner:'tanya'});
+                ym(111808725, 'userParams', {owner:'tanya'});
+            }
+        }catch(e){}
+    })();
 </script>
 <noscript><div><img src="https://mc.yandex.ru/watch/111808725" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 <!-- /Yandex.Metrika counter -->
