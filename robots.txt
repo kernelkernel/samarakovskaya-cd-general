@@ -1,8 +1,14 @@
 User-agent: *
-Disallow: /
+Allow: /
 
-# Вторая версия сайта закрыта от индексации: основной сайт samarakovskaya.art
-# и эта версия пересекаются по содержанию, поисковики могут счесть их дублями.
-# Дополнительно на каждой странице стоит <meta name="robots" content="noindex, nofollow">.
-# Снять запрет, когда тексты разойдутся: убрать Disallow, поменять meta на index,
-# вернуть строку Sitemap и вернуть sitemap.xml в корень.
+Second version of the portfolio. Excluded from search results
+
+via meta name="robots" content="noindex, nofollow" on every page.
+
+Crawling is allowed on purpose: link previews, link checkers
+
+and AI assistants must be able to read the site by direct link.
+
+Main version: samarakovskaya.art
+
+Sitemap is not published while this version stays noindex.
