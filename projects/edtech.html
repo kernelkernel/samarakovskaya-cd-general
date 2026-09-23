@@ -15,11 +15,11 @@
 <meta property="og:url" content="https://t.samarakovskaya.art/projects/edtech.html">
 <meta property="og:title" content="EdTech Project · Tanya Samarakovskaya">
 <meta property="og:description" content="Персональный проект обучающей платформы для изучения языков, для преподавателей и учеников.">
-<meta property="og:image" content="https://t.samarakovskaya.art/assets/edtech/preview.webp">
+<meta property="og:image" content="https://t.samarakovskaya.art/assets/edtech/crew.webp">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="EdTech Project · Tanya Samarakovskaya">
 <meta name="twitter:description" content="Персональный проект обучающей платформы для изучения языков, для преподавателей и учеников.">
-<meta name="twitter:image" content="https://t.samarakovskaya.art/assets/edtech/preview.webp">
+<meta name="twitter:image" content="https://t.samarakovskaya.art/assets/edtech/crew.webp">
 <link rel="canonical" href="https://t.samarakovskaya.art/projects/edtech.html">
 <!-- Шаблон: nebula.html (система «синее поле»). Макет главной платформы: assets/edtech/landing-01…06.webp, нарезка из PDF 1080×6000 pt при 2x -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -391,9 +391,10 @@ body{background:transparent;position:relative}
 .hero.ed .hero-body{padding:0 24px 0}
 .hero.ed .hero-h{font-size:clamp(54px,11.5vw,184px);line-height:.86;letter-spacing:-.05em}
 .hero.ed .hero-sub{max-width:720px;font-family:var(--fr);font-weight:700;font-size:clamp(20px,2.4vw,34px);line-height:1.2;color:var(--ink);text-shadow:0 2px 24px rgba(6,8,16,.6)}
-.hero-peek{position:relative;background:#111016;width:min(1180px,calc(100% - 40px));margin:64px auto 0;height:clamp(240px,38vw,520px);overflow:hidden;border-radius:20px 20px 0 0;border:1px solid var(--border);border-bottom:0;box-shadow:0 -20px 80px rgba(23,75,255,.28)}
-.hero-peek img{width:100%;height:auto}
-.hero-peek::after{content:"";position:absolute;left:0;right:0;bottom:0;height:45%;background:linear-gradient(180deg,transparent,rgba(6,8,16,.85))}
+/* картинка в шапке целиком: без обрезки и без затемнения, высота по пропорции */
+.hero-peek{position:relative;background:#EEECF9;width:min(1180px,calc(100% - 40px));margin:64px auto 72px;overflow:hidden;border-radius:20px;border:1px solid var(--border);box-shadow:0 30px 120px rgba(23,75,255,.30)}
+.hero-peek img{display:block;width:100%;height:auto}
+@media(max-width:720px){.hero-peek{margin:44px auto 48px;border-radius:14px}}
 @media (prefers-reduced-motion:no-preference){.hero-peek{opacity:0;transform:translateY(40px);animation:nbRise 1s cubic-bezier(.2,.7,.2,1) .55s forwards}}
 
 /* браузерная рамка */
@@ -498,7 +499,7 @@ body{background:transparent;position:relative}
       <div class="hero-fact">Статус<b>В разработке</b></div>
     </div>
   </div>
-  <div class="hero-peek"><img src="../assets/edtech/preview.webp" width="1920" height="1190" alt="Первый экран платформы" loading="eager"></div>
+  <div class="hero-peek"><img src="../assets/edtech/crew.webp" width="2280" height="1334" alt="Шесть персонажей платформы: ученик выбирает, кем учиться" loading="eager"></div>
 </section>
 
 <!-- ══ TICKER ══ -->
@@ -598,24 +599,24 @@ body{background:transparent;position:relative}
 <!-- ══ PREV / NEXT ══ -->
 <nav class="proj-nav" aria-label="Другие проекты">
   <div class="proj-nav-inner">
-    <a class="proj-nav-card" href="kandid.html">
-      <img class="proj-nav-bg" src="../assets/preview_projects/kandid.webp" alt="" aria-hidden="true">
+    <a class="proj-nav-card" href="cgi-worldcup.html">
+      <img class="proj-nav-bg" src="../assets/preview_projects/cgi-worldcup.webp" alt="" aria-hidden="true">
       <div class="proj-nav-content">
         <div class="proj-nav-dir">← Предыдущий</div>
-        <div class="proj-nav-name">Кандид</div>
-        <div class="proj-nav-sub">Театр · видеодизайн · 2016</div>
+        <div class="proj-nav-name">CGI for World Cup 2026</div>
+        <div class="proj-nav-sub">CGI-кампания · 2026</div>
       </div>
     </a>
     <a class="proj-nav-contact" href="https://t.me/samarakovskaya_tanya" target="_blank" rel="noopener">
       <div class="proj-nav-contact-label">Есть проект?</div>
       <div class="proj-nav-contact-btn">Написать ↗</div>
     </a>
-    <a class="proj-nav-card" href="moskvaruim.html">
-      <img class="proj-nav-bg" src="../assets/msq_10let/photo/webp/city-01.webp" alt="" aria-hidden="true">
+    <a class="proj-nav-card" href="branding.html">
+      <img class="proj-nav-bg" src="../assets/art-direction/photo/webp/buddysol-packs.webp" alt="" aria-hidden="true">
       <div class="proj-nav-content">
         <div class="proj-nav-dir">Следующий →</div>
-        <div class="proj-nav-name">Рыбов показываем</div>
-        <div class="proj-nav-sub">Рекламная кампания 360° · 2024</div>
+        <div class="proj-nav-name">Брендинг</div>
+        <div class="proj-nav-sub">Айдентика · упаковка · 2023—25</div>
       </div>
     </a>
   </div>
