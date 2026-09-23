@@ -785,6 +785,20 @@
   .wcard.s6{grid-column:span 6}.wcard.s8{grid-column:span 8}
   .wcard.s12{grid-column:span 12;min-height:clamp(360px,38vw,520px)}
   .wcard.s12 .wcard-title-over{font-size:clamp(56px,8vw,128px);letter-spacing:-.05em;line-height:.85}
+  /* EdTech: разделённая карточка. Слева название на тёмном, справа персонажи целиком, без обрезки и без затемнения */
+  .wcard.wcard-split{display:grid;grid-template-columns:5fr 7fr;padding:0;min-height:0;background:#0E1120}
+  .wcard-split .split-txt{display:flex;flex-direction:column;justify-content:space-between;padding:20px;position:relative;z-index:2}
+  .wcard-split .split-txt .wcard-foot{flex-direction:column;align-items:flex-start;gap:22px}
+  .wcard-split .wcard-title-over{font-size:clamp(48px,6.2vw,104px)!important}
+  .wcard-split .split-vis{background:#EEECF9;display:flex;align-items:center;justify-content:center;overflow:hidden}
+  .wcard-split .split-vis img{width:100%;height:auto;display:block;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+  .wcard-split:hover .split-vis img{transform:scale(1.03)}
+  @media(max-width:560px){
+    .wcard.wcard-split{grid-template-columns:1fr;min-height:0}
+    .wcard-split .split-vis{order:-1}
+    .wcard-split .split-txt{padding:16px;gap:28px}
+    .wcard-split .split-txt .wcard-foot{flex-direction:row;align-items:flex-end;justify-content:space-between}
+  }
   @media(max-width:900px){.wcard,.wcard.s4,.wcard.s5,.wcard.s6,.wcard.s7,.wcard.s8{grid-column:span 6}.wcard.s12{grid-column:span 12}}
   @media(max-width:560px){.wcard,.wcard.s12{grid-column:1/-1;min-height:300px}}
   /* мобайл: длинные названия вылезали за карточку и выталкивали стрелку за экран.
@@ -1253,12 +1267,12 @@
         <span class="wrow-year">2026</span>
         <span class="wrow-go">↗︎</span>
       </a>
-      <a class="wrow" href="projects/troyka-lovemeet.html">
+      <a class="wrow" href="projects/edtech.html">
         <span class="wrow-num">03</span>
-        <span class="wrow-thumb"><img loading="lazy" decoding="async" src="assets/preview_projects/troyka-lovemeet.webp" alt="Случайное знакомство — AR-проект на картах Тройки" onerror="this.style.display='none'"><span class="ph">◇</span></span>
-        <span class="wrow-title" data-i18n="work.l.troyka">Случайное<em> знакомство</em></span>
-        <span class="wrow-tags">Cards · AR · Video production</span>
-        <span class="wrow-year">2023</span>
+        <span class="wrow-thumb"><img loading="lazy" decoding="async" src="assets/edtech/crew-cards.webp" alt="EdTech Project: обучающая платформа для изучения языков" onerror="this.style.display='none'"><span class="ph">◎</span></span>
+        <span class="wrow-title" data-i18n="work.l.edtech">EdTech <em>Project</em></span>
+        <span class="wrow-tags">EdTech · Product · Gamification</span>
+        <span class="wrow-year">soon</span>
         <span class="wrow-go">↗︎</span>
       </a>
       <a class="wrow" href="projects/branding.html">
@@ -1301,12 +1315,12 @@
         <span class="wrow-year">2022—24</span>
         <span class="wrow-go">↗︎</span>
       </a>
-      <a class="wrow" href="projects/souzmultpark.html">
+      <a class="wrow" href="projects/troyka-lovemeet.html">
         <span class="wrow-num">09</span>
-        <span class="wrow-thumb"><img loading="lazy" decoding="async" src="assets/preview_projects/souzmultpark.webp" alt="Союзмультпарк — интерактивный парк" onerror="this.style.display='none'"><span class="ph">✦</span></span>
-        <span class="wrow-title" data-i18n="work.l.souz">Союзмульт<em>парк</em></span>
-        <span class="wrow-tags">Interactive parks</span>
-        <span class="wrow-year">2020—23</span>
+        <span class="wrow-thumb"><img loading="lazy" decoding="async" src="assets/preview_projects/troyka-lovemeet.webp" alt="Случайное знакомство — AR-проект на картах Тройки" onerror="this.style.display='none'"><span class="ph">◇</span></span>
+        <span class="wrow-title" data-i18n="work.l.troyka">Случайное<em> знакомство</em></span>
+        <span class="wrow-tags">Cards · AR · Video production</span>
+        <span class="wrow-year">2023</span>
         <span class="wrow-go">↗︎</span>
       </a>
       <a class="wrow" href="projects/nebula.html">
@@ -1325,18 +1339,18 @@
         <span class="wrow-year">2016</span>
         <span class="wrow-go">↗︎</span>
       </a>
-      <a class="wrow" href="projects/edtech.html">
+      <a class="wrow" href="projects/souzmultpark.html">
         <span class="wrow-num">12</span>
-        <span class="wrow-thumb"><img loading="lazy" decoding="async" src="assets/edtech/preview.webp" alt="EdTech Project: обучающая платформа для изучения языков" onerror="this.style.display='none'"><span class="ph">◎</span></span>
-        <span class="wrow-title" data-i18n="work.l.edtech">EdTech <em>Project</em></span>
-        <span class="wrow-tags">EdTech · Product · Gamification</span>
-        <span class="wrow-year">soon</span>
+        <span class="wrow-thumb"><img loading="lazy" decoding="async" src="assets/preview_projects/souzmultpark.webp" alt="Союзмультпарк — интерактивный парк" onerror="this.style.display='none'"><span class="ph">✦</span></span>
+        <span class="wrow-title" data-i18n="work.l.souz">Союзмульт<em>парк</em></span>
+        <span class="wrow-tags">Interactive parks</span>
+        <span class="wrow-year">2020—23</span>
         <span class="wrow-go">↗︎</span>
       </a>
     </div>
 
     <!-- GRID — ритм 2 · 1 крупный · 2 · 1 крупный · 2 · 1 крупный · 2 -->
-    <div class="works-grid">
+        <div class="works-grid">
       <!-- два -->
       <a class="wcard s6" href="projects/moskvaruim.html">
         <div class="vis"><img loading="lazy" decoding="async" src="assets/msq_10let/photo/webp/city-01.webp" alt="Рыбов показываем — рекламная кампания 360°" onerror="this.style.display='none'"><div class="vph" data-i18n="work.g.moskvaruim">Рыбов показываем</div></div>
@@ -1351,10 +1365,12 @@
       </a>
 
       <!-- крупный (флагман) -->
-      <a class="wcard s12" href="projects/troyka-lovemeet.html">
-        <div class="vis"><img loading="lazy" decoding="async" src="assets/preview_projects/troyka-lovemeet.webp" alt="Случайное знакомство — AR-проект на картах Тройки" onerror="this.style.display='none'"><div class="vph" data-i18n="work.g.troyka">Случайное знакомство</div></div>
-        <div class="wcard-top"><span class="tag" data-i18n="cat.arproject">● AR-проект</span></div>
-        <div class="wcard-foot"><h3 class="wcard-title-over" data-i18n="work.g.troyka">Случайное знакомство</h3><span class="wcard-go">↗︎</span></div>
+      <a class="wcard s12 wcard-split" href="projects/edtech.html">
+        <div class="split-txt">
+          <div class="wcard-top"><span class="tag" data-i18n="cat.edtech">● Образовательная платформа</span></div>
+          <div class="wcard-foot"><h3 class="wcard-title-over" data-i18n="work.g.edtech">EdTech Project</h3><span class="wcard-go">↗︎</span></div>
+        </div>
+        <div class="split-vis"><img loading="lazy" decoding="async" src="assets/edtech/crew-cards.webp" width="1440" height="1202" alt="EdTech Project: персонажи обучающей платформы" onerror="this.style.display='none'"></div>
       </a>
 
       <!-- два -->
@@ -1391,10 +1407,10 @@
       </a>
 
       <!-- крупный (флагман) -->
-      <a class="wcard s12" href="projects/souzmultpark.html">
-        <div class="vis"><img loading="lazy" decoding="async" src="assets/preview_projects/souzmultpark.webp" alt="Союзмультпарк — интерактивный парк" onerror="this.style.display='none'"><div class="vph" data-i18n="work.g.souz">Союзмультпарк</div></div>
-        <div class="wcard-top"><span class="tag" data-i18n="cat.park">● Интерактивный парк</span></div>
-        <div class="wcard-foot"><h3 class="wcard-title-over" data-i18n="work.g.souz">Союзмультпарк</h3><span class="wcard-go">↗︎</span></div>
+      <a class="wcard s12" href="projects/troyka-lovemeet.html">
+        <div class="vis"><img loading="lazy" decoding="async" src="assets/preview_projects/troyka-lovemeet.webp" alt="Случайное знакомство — AR-проект на картах Тройки" onerror="this.style.display='none'"><div class="vph" data-i18n="work.g.troyka">Случайное знакомство</div></div>
+        <div class="wcard-top"><span class="tag" data-i18n="cat.arproject">● AR-проект</span></div>
+        <div class="wcard-foot"><h3 class="wcard-title-over" data-i18n="work.g.troyka">Случайное знакомство</h3><span class="wcard-go">↗︎</span></div>
       </a>
 
       <!-- два -->
@@ -1410,11 +1426,11 @@
         <div class="wcard-foot"><h3 class="wcard-title-over" data-i18n="work.g.kandid">Кандид</h3><span class="wcard-go">↗︎</span></div>
       </a>
 
-      <!-- крупный: EdTech -->
-      <a class="wcard s12" href="projects/edtech.html">
-        <div class="vis"><img loading="lazy" decoding="async" src="assets/edtech/card.webp" style="object-position:50% 18%" alt="EdTech Project: обучающая платформа для изучения языков" onerror="this.style.display='none'"><div class="vph" data-i18n="work.g.edtech">EdTech Project</div></div>
-        <div class="wcard-top"><span class="tag" data-i18n="cat.edtech">● Образовательная платформа</span></div>
-        <div class="wcard-foot"><h3 class="wcard-title-over" data-i18n="work.g.edtech">EdTech Project</h3><span class="wcard-go">↗︎</span></div>
+      <!-- крупный (флагман) -->
+      <a class="wcard s12" href="projects/souzmultpark.html">
+        <div class="vis"><img loading="lazy" decoding="async" src="assets/preview_projects/souzmultpark.webp" alt="Союзмультпарк — интерактивный парк" onerror="this.style.display='none'"><div class="vph" data-i18n="work.g.souz">Союзмультпарк</div></div>
+        <div class="wcard-top"><span class="tag" data-i18n="cat.park">● Интерактивный парк</span></div>
+        <div class="wcard-foot"><h3 class="wcard-title-over" data-i18n="work.g.souz">Союзмультпарк</h3><span class="wcard-go">↗︎</span></div>
       </a>
 
     </div>
