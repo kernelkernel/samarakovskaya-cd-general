@@ -765,6 +765,22 @@
     padding:20px;transition:transform .25s;color:var(--bone);
   }
   .wcard:hover{transform:translateY(-3px)}
+  .wcard .vis video{width:100%;height:100%;object-fit:cover;display:block;position:relative;z-index:1}
+  /* Вид «Плитки» (на сравнение): все проекты одинаковыми полосами во всю ширину,
+     высота ~40% экрана, чтобы на экран помещалось минимум два проекта. */
+  body[data-view="tiles"] .works-grid{display:grid;grid-template-columns:1fr;gap:10px}
+  body[data-view="tiles"] .works-list{display:none}
+  body[data-view="tiles"] .works-grid>.wcard{grid-column:1/-1!important;min-height:0;height:clamp(230px,40vh,420px)}
+  body[data-view="tiles"] .wcard .wcard-title-over{font-size:clamp(30px,4.4vw,64px)!important;line-height:.92}
+  body[data-view="tiles"] .wcard .wcard-top .tag{font-size:clamp(11px,1vw,14px);padding:7px 13px}
+  body[data-view="tiles"] .wcard.wcard-split{grid-template-columns:5fr 7fr}
+  body[data-view="tiles"] .wcard-split .split-vis img{width:auto;height:100%;max-width:100%;object-fit:contain}
+  @media(max-width:560px){
+    body[data-view="tiles"] .works-grid>.wcard{height:230px}
+    body[data-view="tiles"] .wcard.wcard-split{grid-template-columns:1fr 1fr}
+    body[data-view="tiles"] .wcard-split .split-vis{order:0}
+    body[data-view="tiles"] .wcard .wcard-title-over{font-size:26px!important}
+  }
   .wcard .vis{position:absolute;inset:0;z-index:0}
   .wcard .vis img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.2,.7,.2,1);position:relative;z-index:1}
   .wcard:hover .vis img{transform:scale(1.045)}
@@ -853,33 +869,32 @@
   }
 
   /* ───── AWARDS ─────
-     Две стеклянные карточки по проектам, как плашки «Компетенций».
-     Карточка целиком ведёт на кейс. */
-  .awards{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
-  @media(max-width:880px){.awards{grid-template-columns:1fr}}
+     Компактно: четыре карточки в ряд. Главная строка — номинация,
+     под ней премия, внизу приписка «за проект» со ссылкой на кейс. */
+  .awards{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+  @media(max-width:1100px){.awards{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:560px){.awards{grid-template-columns:1fr;gap:8px}}
   .acard{
-    display:flex;flex-direction:column;gap:22px;min-height:100%;
-    padding:clamp(24px,3vw,40px);
+    display:flex;flex-direction:column;gap:12px;
+    padding:20px 20px 16px;
     background:rgba(12,13,18,.78);color:var(--bone);
     backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
-    transition:background .3s,color .3s;
   }
-  .acard:hover{background:rgba(241,236,221,.95);color:var(--ink)}
-  .acard-top{display:flex;justify-content:space-between;align-items:center;font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:var(--bone-3);transition:color .3s}
-  .acard-top span:first-child{display:inline-flex;align-items:center;gap:10px}
-  .acard-top span:first-child::before{content:"✦";color:var(--lime);font-size:14px}
-  .acard-go{width:32px;height:32px;border-radius:50%;border:1px solid var(--line-d2);display:grid;place-items:center;color:var(--bone-2);transition:all .25s;font-variant-emoji:text}
-  .acard:hover .acard-top{color:var(--ink-3)}
-  .acard:hover .acard-go{background:var(--blue-accent);color:var(--cream);border-color:transparent;transform:rotate(45deg)}
-  .acard-name{font-family:"Bricolage Grotesque","Space Grotesk",sans-serif;font-weight:800;font-size:clamp(34px,4.2vw,60px);line-height:.92;letter-spacing:-.04em}
-  .acard:hover .acard-name{color:var(--blue-accent)}
-  .acard-status{font-size:clamp(16px,1.35vw,19px);line-height:1.4;font-weight:600;letter-spacing:-.01em;max-width:34ch}
-  .alist{list-style:none;margin:auto 0 0;padding:0;border-top:1px solid var(--line-d2);transition:border-color .3s}
-  .alist li{display:flex;flex-direction:column;gap:6px;padding:16px 0;border-bottom:1px solid var(--line-d2);transition:border-color .3s}
-  .alist b{font-weight:600;font-size:15px;line-height:1.3;letter-spacing:-.01em}
-  .alist span{font-family:"JetBrains Mono",monospace;font-size:10px;text-transform:uppercase;letter-spacing:.08em;line-height:1.6;color:var(--bone-2);transition:color .3s}
-  .acard:hover .alist,.acard:hover .alist li{border-color:var(--line-l2)}
-  .acard:hover .alist span{color:var(--ink-3)}
+  .acard-top{display:flex;justify-content:space-between;align-items:center;gap:10px;font-family:"JetBrains Mono",monospace;font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--bone-3)}
+  .acard-status{display:inline-flex;align-items:center;gap:8px;color:var(--bone)}
+  .acard-status::before{content:"✦";color:var(--lime);font-size:12px}
+  .acard-nom{font-weight:700;font-size:clamp(17px,1.35vw,21px);line-height:1.18;letter-spacing:-.015em;text-wrap:balance}
+  .acard-award{font-family:"JetBrains Mono",monospace;font-size:10px;text-transform:uppercase;letter-spacing:.08em;line-height:1.55;color:var(--bone-2)}
+  .acard-proj{
+    margin-top:auto;padding-top:12px;border-top:1px solid var(--line-d2);
+    display:flex;justify-content:space-between;align-items:center;gap:10px;
+    font-size:13px;color:var(--bone-2);
+  }
+  .acard-proj b{color:var(--bone);font-weight:600;transition:color .2s}
+  .acard-proj .acard-go{width:26px;height:26px;flex-shrink:0;border-radius:50%;border:1px solid var(--line-d2);display:grid;place-items:center;font-size:12px;font-variant-emoji:text;transition:all .25s}
+  .acard-proj:hover b{color:var(--lime-deep)}
+  .acard-proj:hover .acard-go{background:var(--blue-accent);color:var(--cream);border-color:transparent;transform:rotate(45deg)}
+  #awards .sec-head{margin-bottom:36px}
 
   /* ───── CONTACT ───── */
   .contact-h{
@@ -948,6 +963,9 @@
     .reveal,.stagger>*{opacity:1!important;transform:none!important;transition:none}
     .hero-name .row,.hero-mid,.hero-stats{opacity:1!important;transform:none!important;animation:none!important}
   }
+  /* IP-персонажи: длинное название, кегль меньше, чем у остальных крупных карточек */
+  .works-grid .wcard.wcard-ip .wcard-title-over{font-size:clamp(40px,5.2vw,80px);line-height:.9}
+  @media(max-width:560px){.works-grid .wcard.wcard-ip .wcard-title-over{font-size:clamp(24px,7vw,34px)}}
 </style>
 <script type="application/ld+json">
 {
@@ -1044,7 +1062,7 @@
 <noscript><div><img src="https://mc.yandex.ru/watch/111808725" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 <!-- /Yandex.Metrika counter -->
 </head>
-<body data-view="list">
+<body data-view="grid">
 
 <div class="cur" id="cur"></div>
 <div class="cur-ring" id="curRing"></div>
@@ -1277,8 +1295,8 @@
 
     <div class="works-tools reveal">
       <div class="view-toggle" id="viewToggle">
-        <button data-view="list" class="on" data-i18n="works.list">≡ Список</button>
-        <button data-view="grid" data-i18n="works.grid">◧ Сетка</button>
+        <button data-view="list" data-i18n="works.list">≡ Список</button>
+        <button data-view="grid" class="on" data-i18n="works.grid">◧ Сетка</button>
       </div>
     </div>
 
@@ -1310,7 +1328,7 @@
       </a>
       <a class="wrow" href="projects/branding.html">
         <span class="wrow-num">04</span>
-        <span class="wrow-thumb"><img loading="lazy" decoding="async" src="assets/art-direction/photo/webp/buddysol-packs.webp" alt="Брендинг — айдентика, упаковка, продуктовые линейки" onerror="this.style.display='none'"><span class="ph">◈</span></span>
+        <span class="wrow-thumb"><img loading="lazy" decoding="async" src="assets/preview_projects/branding.webp" alt="Брендинг — айдентика, упаковка, продуктовые линейки" onerror="this.style.display='none'"><span class="ph">◈</span></span>
         <span class="wrow-title" data-i18n="work.l.branding">Брендинг</span>
         <span class="wrow-tags">Branding · Identity · Packaging</span>
         <span class="wrow-year">2023—25</span>
@@ -1324,16 +1342,24 @@
         <span class="wrow-year">2024—26</span>
         <span class="wrow-go">↗︎</span>
       </a>
-      <a class="wrow" href="projects/art-direction.html">
+      <a class="wrow" href="projects/ip-characters.html">
         <span class="wrow-num">06</span>
-        <span class="wrow-thumb"><img loading="lazy" decoding="async" src="assets/preview_projects/art-direction.webp" alt="Кампании и key visuals — арт-дирекшн" onerror="this.style.display='none'"><span class="ph">✦</span></span>
+        <span class="wrow-thumb"><img loading="lazy" decoding="async" src="assets/preview_projects/ip-characters.webp" alt="Разработка вирусных IP-персонажей" onerror="this.style.display='none'"><span class="ph">♥</span></span>
+        <span class="wrow-title" data-i18n="work.l.ip">Вирусные <em>IP-персонажи</em></span>
+        <span class="wrow-tags">Characters · IP · Content</span>
+        <span class="wrow-year">2024—26</span>
+        <span class="wrow-go">↗︎</span>
+      </a>
+      <a class="wrow" href="projects/art-direction.html">
+        <span class="wrow-num">07</span>
+        <span class="wrow-thumb"><img loading="lazy" decoding="async" src="assets/preview_projects/art-direction.webp?v=2" alt="Кампании и key visuals — арт-дирекшн" onerror="this.style.display='none'"><span class="ph">✦</span></span>
         <span class="wrow-title" data-i18n="work.l.artdir">Кампании <em>и KV</em></span>
         <span class="wrow-tags">Campaigns · Key visuals · Merch</span>
         <span class="wrow-year">2023—25</span>
         <span class="wrow-go">↗︎</span>
       </a>
       <a class="wrow" href="projects/clean-ocean.html">
-        <span class="wrow-num">07</span>
+        <span class="wrow-num">08</span>
         <span class="wrow-thumb"><img loading="lazy" decoding="async" src="assets/preview_projects/clean-ocean.webp" alt="С океаном начистоту — WebAR-квест" onerror="this.style.display='none'"><span class="ph">◐</span></span>
         <span class="wrow-title" data-i18n="work.l.ocean">С океаном <em>начистоту</em></span>
         <span class="wrow-tags">WebAR · Quest · Creative direction</span>
@@ -1341,19 +1367,11 @@
         <span class="wrow-go">↗︎</span>
       </a>
       <a class="wrow" href="projects/wayofwater.html">
-        <span class="wrow-num">08</span>
+        <span class="wrow-num">09</span>
         <span class="wrow-thumb"><img loading="lazy" decoding="async" src="assets/preview_projects/wayofwater.webp" alt="Путь воды — мультимедийная выставка" onerror="this.style.display='none'"><span class="ph">~</span></span>
         <span class="wrow-title" data-i18n="work.l.wow">Путь <em>воды</em></span>
         <span class="wrow-tags">Exhibitions · Experience design</span>
         <span class="wrow-year">2022—24</span>
-        <span class="wrow-go">↗︎</span>
-      </a>
-      <a class="wrow" href="projects/troyka-lovemeet.html">
-        <span class="wrow-num">09</span>
-        <span class="wrow-thumb"><img loading="lazy" decoding="async" src="assets/preview_projects/troyka-lovemeet.webp" alt="Случайное знакомство — AR-проект на картах Тройки" onerror="this.style.display='none'"><span class="ph">◇</span></span>
-        <span class="wrow-title" data-i18n="work.l.troyka">Случайное<em> знакомство</em></span>
-        <span class="wrow-tags">Cards · AR · Video production</span>
-        <span class="wrow-year">2023</span>
         <span class="wrow-go">↗︎</span>
       </a>
       <a class="wrow" href="projects/nebula.html">
@@ -1372,8 +1390,16 @@
         <span class="wrow-year">2016</span>
         <span class="wrow-go">↗︎</span>
       </a>
-      <a class="wrow" href="projects/souzmultpark.html">
+      <a class="wrow" href="projects/troyka-lovemeet.html">
         <span class="wrow-num">12</span>
+        <span class="wrow-thumb"><img loading="lazy" decoding="async" src="assets/preview_projects/troyka-lovemeet.webp" alt="Случайное знакомство — AR-проект на картах Тройки" onerror="this.style.display='none'"><span class="ph">◇</span></span>
+        <span class="wrow-title" data-i18n="work.l.troyka">Случайное<em> знакомство</em></span>
+        <span class="wrow-tags">Cards · AR · Video production</span>
+        <span class="wrow-year">2023</span>
+        <span class="wrow-go">↗︎</span>
+      </a>
+      <a class="wrow" href="projects/souzmultpark.html">
+        <span class="wrow-num">13</span>
         <span class="wrow-thumb"><img loading="lazy" decoding="async" src="assets/preview_projects/souzmultpark.webp" alt="Союзмультпарк — интерактивный парк" onerror="this.style.display='none'"><span class="ph">✦</span></span>
         <span class="wrow-title" data-i18n="work.l.souz">Союзмульт<em>парк</em></span>
         <span class="wrow-tags">Interactive parks</span>
@@ -1382,7 +1408,7 @@
       </a>
     </div>
 
-    <!-- GRID — ритм 2 · 1 крупный · 2 · 1 крупный · 2 · 1 крупный · 2 -->
+    <!-- GRID — ритм 2 · 1 · 2 · 1 · 2 · 1 · 2 · 2 (обновлено 30.09.2026) -->
         <div class="works-grid">
       <!-- два -->
       <a class="wcard s6" href="projects/moskvaruim.html">
@@ -1397,7 +1423,7 @@
         <div class="wcard-foot"><h3 class="wcard-title-over" data-i18n="work.g.cgiwc">CGI for World Cup 2026</h3><span class="wcard-go">↗︎</span></div>
       </a>
 
-      <!-- крупный (флагман) -->
+      <!-- крупный -->
       <a class="wcard s12 wcard-split" href="projects/edtech.html">
         <div class="split-txt">
           <div class="wcard-top"><span class="tag" data-i18n="cat.edtech">● Образовательная платформа</span></div>
@@ -1408,7 +1434,7 @@
 
       <!-- два -->
       <a class="wcard s6" href="projects/branding.html">
-        <div class="vis"><img loading="lazy" decoding="async" src="assets/art-direction/photo/webp/buddysol-packs.webp" alt="Брендинг — айдентика, упаковка, продуктовые линейки" onerror="this.style.display='none'"><div class="vph" data-i18n="work.g.branding">Брендинг</div></div>
+        <div class="vis"><img loading="lazy" decoding="async" src="assets/preview_projects/branding.webp" alt="Брендинг — айдентика, упаковка, продуктовые линейки" onerror="this.style.display='none'"><div class="vph" data-i18n="work.g.branding">Брендинг</div></div>
         <div class="wcard-top"><span class="tag" data-i18n="cat.branding">● Брендинг</span></div>
         <div class="wcard-foot"><h3 class="wcard-title-over" data-i18n="work.g.branding">Брендинг</h3><span class="wcard-go">↗︎</span></div>
       </a>
@@ -1419,53 +1445,58 @@
         <div class="wcard-foot"><h3 class="wcard-title-over" data-i18n="work.g.capy">КапибараБууум</h3><span class="wcard-go">↗︎</span></div>
       </a>
 
-      <!-- крупный (флагман) -->
-      <a class="wcard s12" href="projects/art-direction.html">
-        <div class="vis"><img loading="lazy" decoding="async" src="assets/preview_projects/art-direction.webp" alt="Кампании и key visuals — арт-дирекшн" onerror="this.style.display='none'"><div class="vph" data-i18n="work.g.artdir">Кампании и KV</div></div>
+      <!-- крупный -->
+      <a class="wcard s12 wcard-ip" href="projects/ip-characters.html">
+        <div class="vis"><img loading="lazy" decoding="async" src="assets/preview_projects/ip-characters.webp" alt="Разработка вирусных IP-персонажей" onerror="this.style.display='none'"><div class="vph" data-i18n="work.g.ip">Разработка вирусных IP-персонажей</div></div>
+        <div class="wcard-top"><span class="tag" data-i18n="cat.ip">● IP-персонажи</span></div>
+        <div class="wcard-foot"><h3 class="wcard-title-over" data-i18n="work.g.ip">Разработка вирусных IP-персонажей</h3><span class="wcard-go">↗︎</span></div>
+      </a>
+
+      <!-- два -->
+      <a class="wcard s6" href="projects/art-direction.html">
+        <div class="vis"><img loading="lazy" decoding="async" src="assets/preview_projects/art-direction.webp?v=2" alt="Кампании и key visuals — арт-дирекшн" onerror="this.style.display='none'"><div class="vph" data-i18n="work.g.artdir">Кампании и KV</div></div>
         <div class="wcard-top"><span class="tag" data-i18n="cat.artdirection">● Арт-дирекшн</span></div>
         <div class="wcard-foot"><h3 class="wcard-title-over" data-i18n="work.g.artdir">Кампании и KV</h3><span class="wcard-go">↗︎</span></div>
       </a>
 
-      <!-- два -->
       <a class="wcard s6" href="projects/clean-ocean.html">
         <div class="vis"><img loading="lazy" decoding="async" src="assets/preview_projects/clean-ocean.webp" alt="С океаном начистоту — WebAR-квест" onerror="this.style.display='none'"><div class="vph" data-i18n="work.g.ocean">С океаном начистоту</div></div>
         <div class="wcard-top"><span class="tag" data-i18n="cat.webar">● WebAR-квест</span></div>
         <div class="wcard-foot"><h3 class="wcard-title-over" data-i18n="work.g.ocean">С океаном начистоту</h3><span class="wcard-go">↗︎</span></div>
       </a>
 
-      <a class="wcard s6" href="projects/wayofwater.html">
+      <!-- крупный -->
+      <a class="wcard s12" href="projects/wayofwater.html">
         <div class="vis"><img loading="lazy" decoding="async" src="assets/preview_projects/wayofwater.webp" alt="Путь воды — мультимедийная выставка" onerror="this.style.display='none'"><div class="vph" data-i18n="work.g.wow">Путь воды</div></div>
         <div class="wcard-top"><span class="tag" data-i18n="cat.exhibition">● Выставка</span></div>
         <div class="wcard-foot"><h3 class="wcard-title-over" data-i18n="work.g.wow">Путь воды</h3><span class="wcard-go">↗︎</span></div>
       </a>
 
-      <!-- крупный (флагман) -->
-      <a class="wcard s12" href="projects/troyka-lovemeet.html">
-        <div class="vis"><img loading="lazy" decoding="async" src="assets/preview_projects/troyka-lovemeet.webp" alt="Случайное знакомство — AR-проект на картах Тройки" onerror="this.style.display='none'"><div class="vph" data-i18n="work.g.troyka">Случайное знакомство</div></div>
-        <div class="wcard-top"><span class="tag" data-i18n="cat.arproject">● AR-проект</span></div>
-        <div class="wcard-foot"><h3 class="wcard-title-over" data-i18n="work.g.troyka">Случайное знакомство</h3><span class="wcard-go">↗︎</span></div>
-      </a>
-
       <!-- два -->
       <a class="wcard s6" href="projects/nebula.html">
         <div class="vis"><img loading="lazy" decoding="async" src="assets/preview_projects/nebula.webp" alt="Небула — арт-инсталляция" onerror="this.style.display='none'"><div class="vph" data-i18n="work.g.nebula">Небула</div></div>
-        <div class="wcard-top"><span class="tag" data-i18n="cat.exhibition">● Выставка</span></div>
+        <div class="wcard-top"><span class="tag" data-i18n="cat.immersive">● Иммерсивное пространство</span></div>
         <div class="wcard-foot"><h3 class="wcard-title-over" data-i18n="work.g.nebula">Небула</h3><span class="wcard-go">↗︎</span></div>
       </a>
 
       <a class="wcard s6" href="projects/kandid.html">
         <div class="vis"><img loading="lazy" decoding="async" src="assets/preview_projects/kandid.webp" alt="Кандид — театральный видеодизайн" onerror="this.style.display='none'"><div class="vph" data-i18n="work.g.kandid">Кандид</div></div>
-        <div class="wcard-top"><span class="tag" data-i18n="cat.theater">● Театр</span></div>
+        <div class="wcard-top"><span class="tag" data-i18n="cat.theater">● Спектакль</span></div>
         <div class="wcard-foot"><h3 class="wcard-title-over" data-i18n="work.g.kandid">Кандид</h3><span class="wcard-go">↗︎</span></div>
       </a>
 
-      <!-- крупный (флагман) -->
-      <a class="wcard s12" href="projects/souzmultpark.html">
+      <!-- два -->
+      <a class="wcard s6" href="projects/troyka-lovemeet.html">
+        <div class="vis"><img loading="lazy" decoding="async" src="assets/preview_projects/troyka-lovemeet.webp" alt="Случайное знакомство — AR-проект на картах Тройки" onerror="this.style.display='none'"><div class="vph" data-i18n="work.g.troyka">Случайное знакомство</div></div>
+        <div class="wcard-top"><span class="tag" data-i18n="cat.arproject">● Видеосъёмки + AR-спецпроект</span></div>
+        <div class="wcard-foot"><h3 class="wcard-title-over" data-i18n="work.g.troyka">Случайное знакомство</h3><span class="wcard-go">↗︎</span></div>
+      </a>
+
+      <a class="wcard s6" href="projects/souzmultpark.html">
         <div class="vis"><img loading="lazy" decoding="async" src="assets/preview_projects/souzmultpark.webp" alt="Союзмультпарк — интерактивный парк" onerror="this.style.display='none'"><div class="vph" data-i18n="work.g.souz">Союзмультпарк</div></div>
         <div class="wcard-top"><span class="tag" data-i18n="cat.park">● Интерактивный парк</span></div>
         <div class="wcard-foot"><h3 class="wcard-title-over" data-i18n="work.g.souz">Союзмультпарк</h3><span class="wcard-go">↗︎</span></div>
       </a>
-
     </div>
   </div>
 </section>
@@ -1578,24 +1609,30 @@
     </div>
 
     <div class="awards reveal stagger">
-      <a class="acard" href="projects/wayofwater.html">
-        <span class="acard-top"><span>2023</span><span class="acard-go">↗︎</span></span>
-        <h3 class="acard-name" data-i18n="awards.wow.name">Путь воды</h3>
-        <p class="acard-status" data-i18n="awards.wow.status">Лауреат трёх отраслевых премий 2023&nbsp;года</p>
-        <ul class="alist">
-          <li><b>Digital Leaders Award</b><span data-i18n="awards.wow.n1">Геймификация просветительских проектов</span></li>
-          <li><b data-i18n="awards.wow.a2">«Лучшее для России. Развитие регионов»</b><span data-i18n="awards.wow.n2">Лучший проект для детей</span></li>
-          <li><b data-i18n="awards.wow.a3">«Качество обслуживания и права потребителей»</b><span data-i18n="awards.wow.n3">Пространство года для отдыха и развлечений всей семьи</span></li>
-        </ul>
-      </a>
-      <a class="acard" href="projects/capybarabooom.html">
-        <span class="acard-top"><span>2026&#8209;2027</span><span class="acard-go">↗︎</span></span>
-        <h3 class="acard-name">КапибараБууум</h3>
-        <p class="acard-status" data-i18n="awards.capy.status">Участник международной премии blooloop Innovation Awards 2026&#8209;2027 в&nbsp;сфере иммерсивных развлечений и аттракционов</p>
-        <ul class="alist">
-          <li><b>blooloop Innovation Awards</b><span data-i18n="awards.capy.n1">Иммерсивные развлечения и аттракционы</span></li>
-        </ul>
-      </a>
+      <article class="acard">
+        <div class="acard-top"><span class="acard-status" data-i18n="awards.laureate">Лауреат</span><span>2023</span></div>
+        <h3 class="acard-nom" data-i18n="awards.n1">Геймификация просветительских проектов</h3>
+        <p class="acard-award">Digital Leaders Award</p>
+        <a class="acard-proj" href="projects/wayofwater.html"><span><span data-i18n="awards.for">за проект</span> <b data-i18n="awards.wow">«Путь воды»</b></span><span class="acard-go">↗︎</span></a>
+      </article>
+      <article class="acard">
+        <div class="acard-top"><span class="acard-status" data-i18n="awards.laureate">Лауреат</span><span>2023</span></div>
+        <h3 class="acard-nom" data-i18n="awards.n2">Лучший проект для детей</h3>
+        <p class="acard-award" data-i18n="awards.a2">«Лучшее для России. Развитие регионов»</p>
+        <a class="acard-proj" href="projects/wayofwater.html"><span><span data-i18n="awards.for">за проект</span> <b data-i18n="awards.wow">«Путь воды»</b></span><span class="acard-go">↗︎</span></a>
+      </article>
+      <article class="acard">
+        <div class="acard-top"><span class="acard-status" data-i18n="awards.laureate">Лауреат</span><span>2023</span></div>
+        <h3 class="acard-nom" data-i18n="awards.n3">Пространство года для отдыха и развлечений всей семьи</h3>
+        <p class="acard-award" data-i18n="awards.a3">«Качество обслуживания и права потребителей»</p>
+        <a class="acard-proj" href="projects/wayofwater.html"><span><span data-i18n="awards.for">за проект</span> <b data-i18n="awards.wow">«Путь воды»</b></span><span class="acard-go">↗︎</span></a>
+      </article>
+      <article class="acard">
+        <div class="acard-top"><span class="acard-status" data-i18n="awards.entrant">Номинант</span><span>2026&#8209;2027</span></div>
+        <h3 class="acard-nom" data-i18n="awards.n4">Иммерсивные развлечения и аттракционы</h3>
+        <p class="acard-award" data-i18n="awards.a4">Международная премия blooloop Innovation Awards</p>
+        <a class="acard-proj" href="projects/capybarabooom.html"><span><span data-i18n="awards.for">за проект</span> <b>«КапибараБууум»</b></span><span class="acard-go">↗︎</span></a>
+      </article>
     </div>
   </div>
 </section>
@@ -1702,9 +1739,11 @@
     'works.side':'30+ delivered<br><b>projects</b>',
     'works.list':'≡ List',
     'works.grid':'◧ Grid',
+    'works.tiles':'▭ Tiles',
 
     'work.l.nebula':'Nebula',
     'work.l.capy':'Capybara<em>Booom</em>',
+    'work.l.ip':'Viral <em>IP characters</em>',
     'work.l.kandid':'Candide',
     'work.l.wow':'Way of <em>Water</em>',
     'work.l.moskvaruim':'Got <em>Fish?</em>',
@@ -1716,6 +1755,7 @@
 
     'work.g.nebula':'Nebula',
     'work.g.capy':'CapybaraBooom',
+    'work.g.ip':'Viral IP character development',
     'work.g.kandid':'Candide',
     'work.g.wow':'Way of Water',
     'work.g.moskvaruim':'Got Fish?',
@@ -1734,14 +1774,16 @@
 
     'cat.cgi':'● CGI campaign',
     'cat.exhibition':'● Exhibition',
-    'cat.theater':'● Theater',
+    'cat.immersive':'● Immersive space',
+    'cat.theater':'● Performance',
     'cat.adcampaign':'● Ad campaign',
-    'cat.arproject':'● AR project',
+    'cat.arproject':'● Video shoots + AR special project',
     'cat.webar':'● WebAR quest',
     'cat.park':'● Interactive park',
     'cat.branding':'● Branding',
     'cat.artdirection':'● Art direction',
     'cat.edtech':'● Learning platform',
+    'cat.ip':'● IP characters',
 
     'career.h':'Experience',
     'career.side':'12+ years of practice',
@@ -1767,15 +1809,17 @@
 
     'awards.h':'Awards',
     'awards.side':'Industry<br>and international awards',
-    'awards.wow.name':'Way of Water',
-    'awards.wow.status':'Winner of three industry awards in 2023',
-    'awards.wow.n1':'Gamification of educational projects',
-    'awards.wow.a2':'“Best for Russia. Regional Development”',
-    'awards.wow.n2':'Best project for children',
-    'awards.wow.a3':'“Service Quality and Consumer Rights”',
-    'awards.wow.n3':'Family leisure and entertainment space of the year',
-    'awards.capy.status':'Entrant in the international blooloop Innovation Awards 2026&#8209;2027 in immersive entertainment and attractions',
-    'awards.capy.n1':'Immersive entertainment and attractions',
+    'awards.laureate':'Winner',
+    'awards.entrant':'Nominee',
+    'awards.for':'for',
+    'awards.wow':'Way of Water',
+    'awards.n1':'Gamification of educational projects',
+    'awards.a2':'Best for Russia. Regional Development',
+    'awards.n2':'Best project for children',
+    'awards.a3':'Service Quality and Consumer Rights',
+    'awards.n3':'Family leisure and entertainment space of the year',
+    'awards.n4':'Immersive entertainment and attractions',
+    'awards.a4':'blooloop Innovation Awards, international',
 
     'contact.num':'06 / Contact',
     'contact.h1':'Let’s',
@@ -1910,13 +1954,14 @@
   const _wg = document.querySelector('.works-grid');
   function applyView(v){
     if(!_wl || !_wg) return;
-    _wl.style.display = v === 'grid' ? 'none' : '';
-    _wg.style.display = v === 'grid' ? 'grid' : 'none';
+    _wl.style.display = v === 'list' ? '' : 'none';
+    _wg.style.display = v === 'list' ? 'none' : 'grid';
   }
   if(vt) vt.addEventListener('click', e => {
     const b = e.target.closest('button'); if(!b) return;
     applyView(b.dataset.view);
   });
+  applyView(document.body.dataset.view || 'grid');
   // мобайл: по умолчанию вид «сетка»
   if(window.matchMedia('(max-width:768px)').matches){
     document.body.dataset.view = 'grid';
