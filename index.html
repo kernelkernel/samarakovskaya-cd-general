@@ -31,6 +31,7 @@
 <link rel="preload" href="assets/hero-poster-photo.webp" as="image" type="image/webp" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" href="assets/showreel-poster.webp" as="image">
 <link rel="preconnect" href="https://player.vimeo.com" crossorigin>
 <link rel="preconnect" href="https://i.vimeocdn.com" crossorigin>
 <link rel="preconnect" href="https://f.vimeocdn.com" crossorigin>
@@ -613,7 +614,10 @@
     overflow:hidden;background:#050507;border-top:1px solid var(--line-d);
     border-bottom:1px solid var(--line-d);
   }
-  .showreel-media{position:absolute;inset:0;overflow:hidden;background:#050507}
+  /* Шоурил: сначала постер (первый кадр), затем первые 3 секунды ролика своим файлом, затем Vimeo плавно перекрывает их, когда реально пошёл */
+  .showreel-media{position:absolute;inset:0;overflow:hidden;background:#050507 url("assets/showreel-poster.webp") center/cover no-repeat}
+  .showreel-intro{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .45s ease}
+  .showreel-media.is-ready .showreel-intro{opacity:0}
   .showreel-media iframe{
     position:absolute;top:50%;left:50%;width:177.78vh;height:56.25vw;
     min-width:100%;min-height:100%;transform:translate(-50%,-50%);
@@ -1017,7 +1021,6 @@
 }
 </style>
 <link rel="alternate" hreflang="ru" href="https://t.samarakovskaya.art/">
-<link rel="alternate" hreflang="en" href="https://t.samarakovskaya.art/en/">
 <link rel="alternate" hreflang="x-default" href="https://t.samarakovskaya.art/">
 <!-- Yandex.Metrika counter -->
 <script type="text/javascript">
@@ -1061,6 +1064,7 @@
 </script>
 <noscript><div><img src="https://mc.yandex.ru/watch/111808725" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 <!-- /Yandex.Metrika counter -->
+<link rel="stylesheet" href="assets/modules/site-nav.css?v=20261022">
 </head>
 <body data-view="grid">
 
@@ -1068,7 +1072,7 @@
 <div class="cur-ring" id="curRing"></div>
 
 <!-- TOP NAV -->
-<header class="top">
+<header class="top site-nav">
   <div class="nav-bar">
     <a class="brand" href="#hero">
       <img class="brand-mark" src="assets/icon.webp?v=2" alt="Таня Самараковская — логотип">
@@ -1082,11 +1086,7 @@
       <a href="#awards" data-i18n="nav.awards">Награды</a>
       <a href="#contact" data-i18n="nav.contact">Контакты</a>
     </nav>
-    <div class="lang-toggle" id="langToggle" role="group" aria-label="Language / Язык">
-      <span class="lang-seg on" data-lang="ru">RU</span>
-      <a class="lang-seg" data-lang="en" href="en/index.html">EN</a>
-    </div>
-    <a class="nav-cta" href="https://t.me/samarakovskaya_tanya" target="_blank" rel="noopener" data-i18n="nav.cta">Написать</a>
+    <div class="nav-end"><a class="nav-cta" href="https://t.me/samarakovskaya_tanya" target="_blank" rel="noopener" data-i18n="nav.cta">Написать</a></div>
   </div>
 </header>
 
@@ -1153,6 +1153,7 @@
 <!-- ════════════ SHOWREEL — CLEAN VIDEO ONLY ════════════ -->
 <section class="showreel-section" id="showreel" aria-label="Showreel">
   <div class="showreel-media" aria-hidden="true">
+    <video class="showreel-intro" autoplay muted loop playsinline disablepictureinpicture preload="auto" poster="assets/showreel-poster.webp"><source src="assets/showreel-intro.mp4" type="video/mp4"></video>
     <iframe
       id="showreelVideo"
       src="https://player.vimeo.com/video/1221219490?badge=0&autopause=0&player_id=showreelVideo&app_id=58479&autoplay=1&loop=1&muted=1&title=0&byline=0&portrait=0&controls=0&dnt=1"
@@ -1392,7 +1393,7 @@
       </a>
       <a class="wrow" href="projects/troyka-lovemeet.html">
         <span class="wrow-num">12</span>
-        <span class="wrow-thumb"><img loading="lazy" decoding="async" src="assets/preview_projects/troyka-lovemeet.webp" alt="Случайное знакомство — AR-проект на картах Тройки" onerror="this.style.display='none'"><span class="ph">◇</span></span>
+        <span class="wrow-thumb"><img loading="lazy" decoding="async" src="assets/preview_projects/troyka-lovemeet.webp?v=20261022" alt="Случайное знакомство — AR-проект на картах Тройки" onerror="this.style.display='none'"><span class="ph">◇</span></span>
         <span class="wrow-title" data-i18n="work.l.troyka">Случайное<em> знакомство</em></span>
         <span class="wrow-tags">Cards · AR · Video production</span>
         <span class="wrow-year">2023</span>
@@ -1487,7 +1488,7 @@
 
       <!-- крупный -->
       <a class="wcard s12" href="projects/troyka-lovemeet.html">
-        <div class="vis"><img loading="lazy" decoding="async" src="assets/preview_projects/troyka-lovemeet.webp" alt="Случайное знакомство — AR-проект на картах Тройки" onerror="this.style.display='none'"><div class="vph" data-i18n="work.g.troyka">Случайное знакомство</div></div>
+        <div class="vis"><img loading="lazy" decoding="async" src="assets/preview_projects/troyka-lovemeet.webp?v=20261022" alt="Случайное знакомство — AR-проект на картах Тройки" onerror="this.style.display='none'"><div class="vph" data-i18n="work.g.troyka">Случайное знакомство</div></div>
         <div class="wcard-top"><span class="tag" data-i18n="cat.arproject">● Видеосъёмки + AR-спецпроект</span></div>
         <div class="wcard-foot"><h3 class="wcard-title-over" data-i18n="work.g.troyka">Случайное знакомство</h3><span class="wcard-go">↗︎</span></div>
       </a>
@@ -1672,7 +1673,6 @@ Ford, L’Oréal, Colgate, Canon, Jaguar, Unilever, Adidas, MasterCard, Coca-Col
   <div class="foot-row">
     <span>© 2026 · <b>Tanya Samarakovskaya</b> · Creative director · Creative producer</span>
     <span><a href="#hero" data-i18n="footer.top">Наверх ↑</a></span>
-    <a class="foot-lang" href="en/index.html" hreflang="en">EN</a>
   </div>
 </footer>
 
@@ -2018,35 +2018,9 @@ Ford, L’Oréal, Colgate, Canon, Jaguar, Unilever, Adidas, MasterCard, Coca-Col
     }, 3000);
   })();
 
-  /* Active nav on scroll.
-     Раньше считалось по offsetTop, а секции services/works/career/contact лежат
-     внутри .post-about-bg с position:relative — offsetTop отсчитывался от неё,
-     а не от документа, и подсветка почти сразу улетала на «Контакты».
-     Считаем абсолютную позицию через getBoundingClientRect. */
-  const navLinks = [...document.querySelectorAll('.top-nav a')];
-  const navTargets = navLinks
-    .map(a => ({ link:a, el:document.getElementById(a.getAttribute('href').slice(1)) }))
-    .filter(t => t.el);
-  const NAV_OFFSET = 140;              // высота плашки навигации плюс запас
-  let navQueued = false;
-  function setActiveNav(){
-    navQueued = false;
-    const y = window.scrollY + NAV_OFFSET;
-    const bottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2;
-    let active = null;
-    for(const t of navTargets){
-      if(t.el.getBoundingClientRect().top + window.scrollY <= y) active = t;
-    }
-    if(bottom) active = navTargets[navTargets.length - 1];
-    navLinks.forEach(a => a.classList.toggle('on', !!active && a === active.link));
-  }
-  function queueNav(){ if(!navQueued){ navQueued = true; requestAnimationFrame(setActiveNav); } }
-  window.addEventListener('scroll', queueNav, {passive:true});
-  window.addEventListener('resize', queueNav, {passive:true});
-  setActiveNav();
 </script>
 
-<script src="https://player.vimeo.com/api/player.js"></script>
+<script src="https://player.vimeo.com/api/player.js" async></script>
 <script>
   (function(){
     var btn = document.getElementById('soundToggle');
@@ -2077,7 +2051,11 @@ Ford, L’Oréal, Colgate, Canon, Jaguar, Unilever, Adidas, MasterCard, Coca-Col
     }
 
     function revealVideo(){
-      if(showreelMedia && !showreelMedia.classList.contains('is-ready')) showreelMedia.classList.add('is-ready');
+      if(showreelMedia && !showreelMedia.classList.contains('is-ready')){
+        showreelMedia.classList.add('is-ready');
+        var intro = showreelMedia.querySelector('.showreel-intro');
+        if(intro) setTimeout(function(){ try{ intro.pause(); }catch(e){} }, 600);
+      }
     }
 
     function initVimeo(){
@@ -2091,7 +2069,7 @@ Ford, L’Oréal, Colgate, Canon, Jaguar, Unilever, Adidas, MasterCard, Coca-Col
       player.on('playing', revealVideo);
       player.on('timeupdate', revealVideo);
       // fallback: если play не сработал быстро — всё равно показываем
-      setTimeout(revealVideo, 2200);
+      setTimeout(revealVideo, 8000);
     }
     initVimeo();
 
@@ -2173,5 +2151,6 @@ Ford, L’Oréal, Colgate, Canon, Jaguar, Unilever, Adidas, MasterCard, Coca-Col
   else v.addEventListener('loadeddata', tryPlay, {once:true});
 })();
 </script>
+<script src="assets/modules/site-nav.js?v=20261022" defer></script>
 </body>
 </html>
