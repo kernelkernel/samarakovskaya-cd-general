@@ -1,0 +1,102 @@
+/* Cobalt Field — generated from tokens.json */
+:root, [data-theme="night"] {
+  --bg-000: #07080f;
+  --bg-100: #0b0d18;
+  --bg-200: #141832;
+  --bg-300: #1c2142;
+  --field-deep: #16265c;
+  --field-core: #1a44dc;
+  --field-glow: #3d63f0;
+  --mist-100: #0d1128;
+  --mist-200: #161b3d;
+  --mist-300: #1f2550;
+  --mist-ink: #eef1f8;
+  --mist-muted: #a9b1cc;
+  --mist-faint: #8f98b8;
+  --ultra-100: #1a3fd0;
+  --ultra-smoke: #070b24;
+  --ultra-ink: #f3f6ff;
+  --ultra-muted: #c9d4ff;
+  --ink: #eef1f8;
+  --ink-muted: #a3aac2;
+  --ink-faint: #8a92b0;
+  --line: rgba(238,241,248,0.14);
+  --line-strong: rgba(238,241,248,0.34);
+  --glass: rgba(11,13,24,0.42);
+  --accent: #2f58ff;
+  --accent-hover: #2448d8;
+  --on-accent: #f3f6ff;
+  --accent-text: #8fa8ff;
+  --focus: #8fa8ff;
+  --scrim: rgba(7,8,15,0.6);
+  --shadow-lift: 0 40px 90px -30px rgba(3,6,28,0.85);
+  --shadow-glass: inset 0 1px 0 rgba(255,255,255,0.12), 0 10px 30px -12px rgba(3,6,28,0.6);
+}
+[data-theme="day"] {
+  --bg-000: #d7dce7;
+  --bg-100: #e6e9f0;
+  --bg-200: #f3f5f9;
+  --bg-300: #d7dce7;
+  --field-deep: #a9bbff;
+  --field-core: #3a63e8;
+  --field-glow: #6fb5e8;
+  --mist-100: #e6e9f0;
+  --mist-200: #f3f5f9;
+  --mist-300: #d7dce7;
+  --mist-ink: #1c2a6e;
+  --mist-muted: #46507a;
+  --mist-faint: #535d80;
+  --ink: #1c2a6e;
+  --ink-muted: #46507a;
+  --ink-faint: #535d80;
+  --line: rgba(28,42,110,0.16);
+  --line-strong: rgba(28,42,110,0.4);
+  --glass: rgba(243,245,249,0.6);
+  --accent: #2f58ff;
+  --accent-hover: #2448d8;
+  --accent-text: #2448d8;
+  --focus: #1c2a6e;
+  --shadow-lift: 0 40px 80px -36px rgba(28,42,110,0.35);
+  --shadow-glass: inset 0 1px 0 rgba(255,255,255,0.9), 0 10px 30px -16px rgba(28,42,110,0.3);
+}
+:root {
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 72px;
+  --space-9: 136px;
+  --space-10: 200px;
+  --radius-sm: 0px;
+  --radius-lg: 0px;
+  --radius-pill: 999px;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --dur-fast: 180ms;
+  --dur-base: 420ms;
+  --dur-slow: 900ms;
+  --dur-mood: 1200ms;
+  --dur-drift: 38s;
+  --z-field: 0;
+  --z-content: 2;
+  --z-preview: 40;
+  --z-nav: 80;
+  --z-grid: 90;
+  --z-grain: 100;
+  --font-display: "Geologica", "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "Martian Mono", ui-monospace, "SF Mono", Menlo, monospace;
+}
+.display-xl { font-family: var(--font-display); font-size: 184px; line-height: 0.84; font-weight: 400; letter-spacing: -0.06em; }
+.display-l { font-family: var(--font-display); font-size: 128px; line-height: 0.88; font-weight: 400; letter-spacing: -0.055em; }
+.display-m { font-family: var(--font-display); font-size: 76px; line-height: 0.94; font-weight: 400; letter-spacing: -0.045em; }
+.heading { font-family: var(--font-display); font-size: 40px; line-height: 1.04; font-weight: 400; letter-spacing: -0.035em; }
+.title { font-family: var(--font-display); font-size: 24px; line-height: 1.15; font-weight: 500; letter-spacing: -0.02em; }
+.lead { font-family: var(--font-display); font-size: 22px; line-height: 1.38; font-weight: 350; letter-spacing: -0.015em; }
+.body { font-family: var(--font-display); font-size: 17px; line-height: 1.55; font-weight: 350; letter-spacing: -0.005em; }
+.small { font-family: var(--font-display); font-size: 14px; line-height: 1.45; font-weight: 400; letter-spacing: 0em; }
+.meta { font-family: var(--font-mono); font-size: 11px; line-height: 1.4; font-weight: 400; letter-spacing: 0.06em; }
+.numeral { font-family: var(--font-mono); font-size: 14px; line-height: 1.2; font-weight: 500; letter-spacing: 0em; }

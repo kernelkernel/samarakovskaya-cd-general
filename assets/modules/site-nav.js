@@ -1,63 +1,36 @@
 /* ═══════════════════════════════════════════════════════════════════
-   SITE NAV · поведение шапки (модуль, общий для всех страниц General)
+   SITE NAV · шапка и док страниц кейсов (Cobalt Field, 22.10.2026)
    Разметка кейса (единая):
-   <header class="top site-nav">
-     <div class="nav-bar">
-       <a class="back" href="../index.html#works">Все проекты</a>
-       <nav class="mag-nav" id="magNav">
-         <a class="mag-pill" href="#id" data-section="id">Раздел</a> …
-       </nav>
-       <div class="nav-end"><a class="nav-cta" href="https://t.me/samarakovskaya_tanya" target="_blank" rel="noopener">Написать</a></div>
-     </div>
-   </header>
-   Главная: вместо .back — .brand, вместо .mag-nav — nav.top-nav с <a href="#id">.
+   <header class="cf-head site-nav"><div class="cf-wrap"><div class="cf-grid">
+     <a class="cf-head__brand cf-head__back" href="../index.html#works">…Все проекты…</a>
+     <nav class="cf-head__links"><a class="cf-head__link" href="#id" data-section="id">Раздел<sup>01</sup></a> …</nav>
+     <div class="cf-head__end">«Написать» → Telegram</div>
+   </div></div></header>
+   <div class="cf-dock site-dock">…счётчик, точки по разделам, «Все проекты», «Написать»…</div>
+   Точки и счётчик дока ведёт TS.nav из bundle.js. Здесь: шапка уезжает,
+   когда первый экран кейса (.hero) ушёл из вида, и появляется док;
+   подсветка текущего раздела в шапке.
    ═══════════════════════════════════════════════════════════════════ */
 (function(){
-  var nav = document.querySelector('header.site-nav');
-  if(!nav) return;
-  var links = [].slice.call(nav.querySelectorAll('.mag-pill[data-section], .top-nav a[href^="#"]'));
-  var fine = window.matchMedia && window.matchMedia('(hover:hover) and (pointer:fine)').matches;
+  var head = document.querySelector('.cf-head.site-nav');
+  var dock = document.querySelector('.cf-dock.site-dock');
+  var hero = document.querySelector('section.hero');
+  if(hero && 'IntersectionObserver' in window){
+    new IntersectionObserver(function(en){
+      var away = !en[0].isIntersecting;
+      if(head) head.classList.toggle('is-away', away);
+      if(dock) dock.classList.toggle('is-on', away);
+    }, {threshold:0.12}).observe(hero);
+  } else if(dock){ dock.classList.add('is-on'); }
 
-  links.forEach(function(a){
-    if(a.classList.contains('mag-pill')){
-      if(fine){
-        a.addEventListener('mousemove', function(e){
-          var r = a.getBoundingClientRect();
-          a.style.transform = 'translate(' + (e.clientX - r.left - r.width/2)*0.3 + 'px,' + (e.clientY - r.top - r.height/2)*0.35 + 'px)';
-        });
-        a.addEventListener('mouseleave', function(){ a.style.transform = ''; });
-      }
-      a.addEventListener('click', function(e){
-        var t = document.getElementById(a.dataset.section);
-        if(!t) return;
-        e.preventDefault();
-        t.scrollIntoView({behavior:'smooth', block:'start'});
-      });
-    }
-  });
-
-  var targets = links.map(function(a){
-    var id = a.dataset.section || (a.getAttribute('href') || '').slice(1);
-    return {a:a, el:id ? document.getElementById(id) : null};
-  }).filter(function(t){ return t.el; });
-  if(!targets.length) return;
-
-  var queued = false;
-  function apply(){
-    queued = false;
-    var line = window.scrollY + Math.max(140, window.innerHeight * 0.3);
-    var atBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2;
-    var active = null;
-    for(var i = 0; i < targets.length; i++){
-      if(targets[i].el.getBoundingClientRect().top + window.scrollY <= line) active = targets[i];
-    }
-    if(atBottom) active = targets[targets.length - 1];
-    targets.forEach(function(t){ t.a.classList.toggle('on', !!active && t === active); });
-  }
-  function queue(){ if(!queued){ queued = true; requestAnimationFrame(apply); } }
-  window.addEventListener('scroll', queue, {passive:true});
-  window.addEventListener('resize', queue, {passive:true});
-  window.addEventListener('load', queue);
-  if(window.ResizeObserver) new ResizeObserver(queue).observe(document.body);
-  apply();
+  if(!head) return;
+  var links = [].slice.call(head.querySelectorAll('.cf-head__link[data-section]'));
+  if(!links.length || !('IntersectionObserver' in window)) return;
+  var io = new IntersectionObserver(function(en){
+    en.forEach(function(e){
+      if(!e.isIntersecting) return;
+      links.forEach(function(a){ a.classList.toggle('on', a.dataset.section === e.target.id); });
+    });
+  }, {rootMargin:'-45% 0px -50% 0px'});
+  links.forEach(function(a){ var t = document.getElementById(a.dataset.section); if(t) io.observe(t); });
 })();

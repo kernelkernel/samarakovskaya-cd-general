@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ru">
+<html lang="ru" data-theme="night">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -35,7 +35,6 @@
 -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,700;12..96,800&display=swap" rel="stylesheet">
 <link rel="alternate" hreflang="ru" href="https://t.samarakovskaya.art/projects/branding.html">
 <link rel="alternate" hreflang="x-default" href="https://t.samarakovskaya.art/projects/branding.html">
 <!-- Yandex.Metrika counter -->
@@ -80,12 +79,15 @@
 </script>
 <noscript><div><img src="https://mc.yandex.ru/watch/111808725" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 <!-- /Yandex.Metrika counter -->
-<link rel="stylesheet" href="../assets/modules/case.css?v=20261022b">
-<link rel="stylesheet" href="../assets/modules/site-nav.css?v=20261022">
+<link rel="stylesheet" href="../assets/cobalt/tokens.css?v=20261022cf">
+<link rel="stylesheet" href="../assets/cobalt/bundle.css?v=20261022cf">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css">
+<link rel="stylesheet" href="../assets/modules/case.css?v=20261023b">
+<link rel="stylesheet" href="../assets/modules/site-nav.css?v=20261023">
 <style id="page-css">
 /* Стили уникальных блоков этой страницы. Всё общее в assets/modules/case.css */
 .hero-pillbar{position:absolute;top:80px;left:0;right:0;z-index:4;display:flex;flex-wrap:wrap;gap:9px;justify-content:center;padding:0 24px}
-.hero-pill{display:inline-flex;align-items:center;gap:9px;padding:9px 16px;border:1px solid rgba(241,236,221,.22);border-radius:999px;font-family:var(--mono);font-size:11.5px;letter-spacing:.01em;color:var(--ink);background:rgba(10,10,15,.5);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);transition:border-color .25s}
+.hero-pill{display:inline-flex;align-items:center;gap:9px;padding:9px 16px;border:1px solid rgba(238,241,248,.22);border-radius:999px;font-family:var(--mono);font-size:11.5px;letter-spacing:.01em;color:var(--ink);background:rgba(10,10,15,.5);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);transition:border-color .25s}
 .hero-pill::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--accent);flex-shrink:0}
 .hero-pill:hover{border-color:var(--accent)}
 .hero-pill.lead{background:var(--accent);color:#161018;border-color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:.06em}
@@ -139,7 +141,7 @@
 .ad-cap{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:14px 16px;color:#fff;transform:translateY(10px);opacity:0;transition:transform .45s cubic-bezier(.2,.7,.2,1),opacity .45s;pointer-events:none}
 .ad-tile:hover .ad-cap{transform:none;opacity:1}
 .ad-cap span{font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:.14em;color:var(--accent-2)}
-.ad-tag{position:absolute;left:12px;bottom:12px;z-index:2;display:inline-flex;align-items:center;gap:7px;max-width:calc(100% - 24px);padding:5px 11px 5px 9px;border-radius:999px;background:rgba(8,9,14,.58);border:1px solid rgba(241,236,221,.2);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);font-family:var(--mono);font-size:10px;line-height:1.25;letter-spacing:.03em;color:var(--ink);pointer-events:none;transition:opacity .35s,transform .45s cubic-bezier(.2,.7,.2,1)}
+.ad-tag{position:absolute;left:12px;bottom:12px;z-index:2;display:inline-flex;align-items:center;gap:7px;max-width:calc(100% - 24px);padding:5px 11px 5px 9px;border-radius:999px;background:rgba(8,9,14,.58);border:1px solid rgba(238,241,248,.2);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);font-family:var(--mono);font-size:10px;line-height:1.25;letter-spacing:.03em;color:var(--ink);pointer-events:none;transition:opacity .35s,transform .45s cubic-bezier(.2,.7,.2,1)}
 .ad-tag::before{content:"";flex:0 0 auto;width:6px;height:6px;border-radius:50%;background:var(--accent);box-shadow:0 0 10px var(--glow)}
 .ad-tile:hover .ad-tag{opacity:0;transform:translateY(8px)}
 .ad-cap b{display:block;font-family:var(--fr);font-weight:700;font-size:clamp(13px,1.15vw,17px);letter-spacing:-.01em;margin-top:3px;line-height:1.05}
@@ -216,7 +218,7 @@
 }
 .ad-pop-body{padding:34px 32px;display:flex;flex-direction:column;gap:16px;overflow:auto}
 .ad-pop-kicker{font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.14em;color:var(--accent-2)}
-.ad-pop-title{font-family:var(--fr);font-weight:800;font-size:clamp(24px,3vw,34px);line-height:1.02;letter-spacing:-.02em;color:#fff}
+.ad-pop-title{font-family:var(--fr);font-weight:500;font-size:clamp(24px,3vw,34px);line-height:1.02;letter-spacing:-.02em;color:#fff}
 .ad-pop-desc{font-size:15px;line-height:1.6;color:var(--ink-2)}
 .ad-pop-tasklabel{font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--ink-3);margin-bottom:-8px}
 .ad-pop-task{font-size:14.5px;line-height:1.55;color:var(--ink);border-left:2px solid var(--accent);padding-left:14px}
@@ -229,19 +231,21 @@
 </style>
 </head>
 <body class="case">
-<div class="site-field" aria-hidden="true"></div>
+<div class="cf-field cf-field--fixed" data-show="cobalt" aria-hidden="true"><div class="cf-mood cf-mood--cobalt"><div class="cf-drift cf-drift--a"></div><div class="cf-drift cf-drift--b"></div><div class="cf-vignette"></div></div><div class="cf-lens"></div></div>
+<div class="cf-grain" aria-hidden="true"></div>
 <div class="cur" id="cur"></div>
 <div class="cur-ring" id="ring"></div>
 
-<header class="top site-nav">
-  <div class="nav-bar">
-    <a class="back" href="../index.html#works">Все проекты</a>
-    <nav class="mag-nav" id="magNav">
-      <a class="mag-pill" href="#zone-brands" data-section="zone-brands">Бренды и продукты</a>
-    </nav>
-    <div class="nav-end"><a class="nav-cta" href="https://t.me/samarakovskaya_tanya" target="_blank" rel="noopener">Написать</a></div>
-  </div>
-</header>
+<header class="cf-head site-nav"><div class="cf-wrap"><div class="cf-grid">
+  <a class="cf-head__brand cf-head__back" href="../index.html#works"><span class="cf-circle"><i class="ph ph-arrow-left"></i></span><span>Все проекты<small>Таня Самараковская</small></span></a>
+  <nav class="cf-head__links" aria-label="Разделы проекта"><a class="cf-head__link" href="#zone-brands" data-section="zone-brands">Бренды и продукты</a></nav>
+  <div class="cf-head__end"><a class="cf-cta cf-hoverparent" href="https://t.me/samarakovskaya_tanya" target="_blank" rel="noopener" data-magnetic="0.25"><span class="cf-cta__label">Написать</span><span class="cf-circle cf-circle--solid"><i class="ph ph-arrow-up-right"></i><i class="ph ph-arrow-up-right"></i></span></a></div>
+</div></div></header>
+<div class="cf-dock site-dock"><div class="cf-wrap">
+  <div class="cf-dock__count"><span class="numeral" data-dock-num>01</span><span class="cf-dock__now" data-dock-now>Бренды и продукты</span></div>
+  <nav class="cf-dots" aria-label="Разделы проекта"><a class="cf-dot" href="#zone-brands" aria-label="Бренды и продукты"><span class="cf-dot__tip">Бренды и продукты</span></a></nav>
+  <div class="cf-dock__end"><a class="dock-back" href="../index.html#works"><span class="cf-circle cf-circle--glass"><i class="ph ph-arrow-left"></i></span><span class="dock-back__lbl">Все проекты</span></a></div>
+</div></div>
 
 <!-- ══ HERO ══ -->
 <section class="hero" id="zone-hero">
@@ -488,7 +492,9 @@ pop.addEventListener('click',e=>{if(e.target===pop)closePop();});
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&pop.classList.contains('open'))closePop();});
 </script>
 
-<script src="../assets/modules/case.js?v=20261022b" defer></script>
-<script src="../assets/modules/site-nav.js?v=20261022" defer></script>
+<script src="../assets/cobalt/bundle.js?v=20261022cf"></script>
+<script>window.TS && TS.init(document);</script>
+<script src="../assets/modules/case.js?v=20261022cf" defer></script>
+<script src="../assets/modules/site-nav.js?v=20261022cf" defer></script>
 </body>
 </html>

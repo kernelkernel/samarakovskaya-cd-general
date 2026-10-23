@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ru">
+<html lang="ru" data-theme="night">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -23,7 +23,6 @@
 <link rel="canonical" href="https://t.samarakovskaya.art/projects/wayofwater.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400;1,9..144,500&family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,700&display=swap" rel="stylesheet">
 <link rel="alternate" hreflang="ru" href="https://t.samarakovskaya.art/projects/wayofwater.html">
 <link rel="alternate" hreflang="x-default" href="https://t.samarakovskaya.art/projects/wayofwater.html">
 <!-- Yandex.Metrika counter -->
@@ -69,11 +68,14 @@
 <noscript><div><img src="https://mc.yandex.ru/watch/111808725" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 <!-- /Yandex.Metrika counter -->
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap">
-<link rel="stylesheet" href="../assets/modules/case.css?v=20261022b">
-<link rel="stylesheet" href="../assets/modules/site-nav.css?v=20261022">
+<link rel="stylesheet" href="../assets/cobalt/tokens.css?v=20261022cf">
+<link rel="stylesheet" href="../assets/cobalt/bundle.css?v=20261022cf">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css">
+<link rel="stylesheet" href="../assets/modules/case.css?v=20261023b">
+<link rel="stylesheet" href="../assets/modules/site-nav.css?v=20261023">
 <style id="page-css">
 /* Стили уникальных блоков этой страницы. Всё общее в assets/modules/case.css */
-body.case{--deep:#08243b;--deep-2:#0d3553;--display:"Bricolage Grotesque",sans-serif;--forest:#163d28;--frost:#eaf4f8;--ice:#d7eaef;--leaf:#7fc78a;--paper:rgba(9,11,18,.5);--paper-2:rgba(9,11,18,.62);--paper-3:rgba(241,236,221,.14);--sun:#f4c66b;--urban:#13191f;--water:#1268a6;--wave:#3ec5e8}
+body.case{--deep:#08243b;--deep-2:#0d3553;--display:var(--font-display);--forest:#163d28;--frost:#eaf4f8;--ice:#d7eaef;--leaf:#7fc78a;--paper:rgba(9,11,18,.5);--paper-2:rgba(9,11,18,.62);--paper-3:rgba(238,241,248,.14);--sun:#f4c66b;--urban:#13191f;--water:#1268a6;--wave:#3ec5e8}
 .rail{position:fixed;top:0;bottom:0;left:0;width:44px;z-index:30;pointer-events:none}
 @media(max-width:1100px){
   .rail{width:36px}
@@ -437,10 +439,10 @@ body.dark-rail .rail-st.active .ring{background:var(--wave);border-color:var(--w
 .pq::after{content:"";position:absolute;inset:0;background:radial-gradient(120% 90% at 50% 30%,rgba(8,36,59,.55),rgba(8,36,59,.94));z-index:0}
 .pq-inner{position:relative;z-index:1;max-width:1100px;width:100%;text-align:center}
 .pq-mark{display:block;font-family:var(--display);font-size:clamp(56px,8vw,110px);line-height:.35;color:var(--wave);opacity:.55;margin-bottom:22px}
-.pq-text{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-style:normal;font-size:clamp(30px,5.4vw,80px);line-height:1.0;letter-spacing:-.035em;color:#fff;text-wrap:balance}
+.pq-text{font-family:var(--font-display);font-weight:500;font-style:normal;font-size:clamp(30px,5.4vw,80px);line-height:1.0;letter-spacing:-.035em;color:#fff;text-wrap:balance}
 .pq-hl{position:relative;display:inline-block;color:var(--ink);padding:0 .14em;z-index:1}
 .pq-hl::before{content:"";position:absolute;inset:.08em -.04em .14em -.04em;background:var(--wave);border-radius:999px;z-index:-1}
-.pq-attr{font-family:"Geist Mono",monospace;font-size:10px;text-transform:uppercase;letter-spacing:.16em;color:rgba(255,255,255,.5);margin-top:40px;display:block}
+.pq-attr{font-family:var(--font-mono);font-size:10px;text-transform:uppercase;letter-spacing:.16em;color:rgba(255,255,255,.5);margin-top:40px;display:block}
 .proc-label{font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.18em;color:rgba(199,232,239,.45);margin:48px 0 18px;padding-bottom:12px;border-bottom:1px solid rgba(255,255,255,.1);display:flex;justify-content:space-between;align-items:baseline}
 .proc-label .small{color:rgba(199,232,239,.3)}
 .process-flow{display:grid;grid-template-columns:repeat(12,1fr);gap:12px;margin:40px 0 56px;width:100vw;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);padding:0 24px;box-sizing:border-box}
@@ -498,7 +500,7 @@ body.dark-rail .rail-st.active .ring{background:var(--wave);border-color:var(--w
   .spec-compact{padding:30px 22px}
 }
 .spec-compact-h{font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:rgba(199,232,239,.45);margin-bottom:28px;display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:12px}
-.spec-compact-h b{color:#fff;font-family:"Bricolage Grotesque",sans-serif;font-style:normal;font-weight:800;font-size:clamp(20px,2.2vw,28px);letter-spacing:-.02em;text-transform:none}
+.spec-compact-h b{color:#fff;font-family:var(--font-display);font-style:normal;font-weight:500;font-size:clamp(20px,2.2vw,28px);letter-spacing:-.02em;text-transform:none}
 .spec-nums{display:grid;grid-template-columns:repeat(5,1fr);gap:0;border-top:1px solid rgba(199,232,239,.15)}
 @media(max-width:880px){
   .spec-nums{grid-template-columns:repeat(3,1fr)}
@@ -508,7 +510,7 @@ body.dark-rail .rail-st.active .ring{background:var(--wave);border-color:var(--w
 }
 .spec-num-cell{padding:22px 16px 20px;border-right:1px solid rgba(199,232,239,.1);border-bottom:1px solid rgba(199,232,239,.1)}
 .spec-num-cell:last-child{border-right:0}
-.spec-num-v{font-family:"Bricolage Grotesque",sans-serif;font-style:normal;font-size:clamp(32px,3.8vw,58px);line-height:.88;color:#fff;letter-spacing:-.035em;font-weight:800}
+.spec-num-v{font-family:var(--font-display);font-style:normal;font-size:clamp(32px,3.8vw,58px);line-height:.88;color:#fff;letter-spacing:-.035em;font-weight:500}
 .spec-num-v sup{font-size:.4em;opacity:1;color:var(--wave);vertical-align:top;margin-left:.08em;font-weight:700}
 .spec-num-l{font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:.12em;color:var(--wave);margin-top:6px}
 .spec-num-d{font-size:11px;color:rgba(199,232,239,.5);margin-top:4px;line-height:1.4}
@@ -575,7 +577,8 @@ body.dark-rail .rail-st.active .ring{background:var(--wave);border-color:var(--w
 </style>
 </head>
 <body class="case">
-<div class="site-field" aria-hidden="true"></div>
+<div class="cf-field cf-field--fixed" data-show="cobalt" aria-hidden="true"><div class="cf-mood cf-mood--cobalt"><div class="cf-drift cf-drift--a"></div><div class="cf-drift cf-drift--b"></div><div class="cf-vignette"></div></div><div class="cf-lens"></div></div>
+<div class="cf-grain" aria-hidden="true"></div>
 
 <!-- ============== LEFT RIVER RAIL (PATH) ============== -->
 <aside class="rail" aria-hidden="true">
@@ -614,19 +617,16 @@ body.dark-rail .rail-st.active .ring{background:var(--wave);border-color:var(--w
 </aside>
 
 <!-- ============== TOP NAV ============== -->
-<header class="top site-nav">
-  <div class="nav-bar">
-    <a class="back" href="../index.html#works">Все проекты</a>
-    <nav class="mag-nav" id="magNav">
-      <a class="mag-pill" href="#zone-intro" data-section="zone-intro" data-i18n="n.about">О проекте</a>
-      <a class="mag-pill" href="#zone-priroda" data-section="zone-priroda" data-i18n="n.zones">Зоны</a>
-      <a class="mag-pill" href="#zone-quest" data-section="zone-quest" data-i18n="n.quest">Квест</a>
-      <a class="mag-pill" href="#zone-process" data-section="zone-process" data-i18n="n.process">Процесс</a>
-      <a class="mag-pill" href="#zone-end" data-section="zone-end" data-i18n="n.role">Роль</a>
-    </nav>
-    <div class="nav-end"><a class="nav-cta" href="https://t.me/samarakovskaya_tanya" target="_blank" rel="noopener">Написать</a></div>
-  </div>
-</header>
+<header class="cf-head site-nav"><div class="cf-wrap"><div class="cf-grid">
+  <a class="cf-head__brand cf-head__back" href="../index.html#works"><span class="cf-circle"><i class="ph ph-arrow-left"></i></span><span>Все проекты<small>Таня Самараковская</small></span></a>
+  <nav class="cf-head__links" aria-label="Разделы проекта"><a class="cf-head__link" href="#zone-intro" data-section="zone-intro">О проекте</a><a class="cf-head__link" href="#zone-priroda" data-section="zone-priroda">Зоны</a><a class="cf-head__link" href="#zone-quest" data-section="zone-quest">Квест</a><a class="cf-head__link" href="#zone-process" data-section="zone-process">Процесс</a><a class="cf-head__link" href="#zone-end" data-section="zone-end">Роль</a></nav>
+  <div class="cf-head__end"><a class="cf-cta cf-hoverparent" href="https://t.me/samarakovskaya_tanya" target="_blank" rel="noopener" data-magnetic="0.25"><span class="cf-cta__label">Написать</span><span class="cf-circle cf-circle--solid"><i class="ph ph-arrow-up-right"></i><i class="ph ph-arrow-up-right"></i></span></a></div>
+</div></div></header>
+<div class="cf-dock site-dock"><div class="cf-wrap">
+  <div class="cf-dock__count"><span class="numeral" data-dock-num>01</span><span class="cf-dock__now" data-dock-now>О проекте</span></div>
+  <nav class="cf-dots" aria-label="Разделы проекта"><a class="cf-dot" href="#zone-intro" aria-label="О проекте"><span class="cf-dot__tip">О проекте</span></a><a class="cf-dot" href="#zone-priroda" aria-label="Зоны"><span class="cf-dot__tip">Зоны</span></a><a class="cf-dot" href="#zone-quest" aria-label="Квест"><span class="cf-dot__tip">Квест</span></a><a class="cf-dot" href="#zone-process" aria-label="Процесс"><span class="cf-dot__tip">Процесс</span></a><a class="cf-dot" href="#zone-end" aria-label="Роль"><span class="cf-dot__tip">Роль</span></a></nav>
+  <div class="cf-dock__end"><a class="dock-back" href="../index.html#works"><span class="cf-circle cf-circle--glass"><i class="ph ph-arrow-left"></i></span><span class="dock-back__lbl">Все проекты</span></a></div>
+</div></div>
 
 <!-- ============== HERO — FULL BLEED PHOTO ============== -->
 <section class="hero" id="zone-hero">
@@ -2123,7 +2123,9 @@ positionStations();update();
 })();
 </script>
 
-<script src="../assets/modules/case.js?v=20261022b" defer></script>
-<script src="../assets/modules/site-nav.js?v=20261022" defer></script>
+<script src="../assets/cobalt/bundle.js?v=20261022cf"></script>
+<script>window.TS && TS.init(document);</script>
+<script src="../assets/modules/case.js?v=20261022cf" defer></script>
+<script src="../assets/modules/site-nav.js?v=20261022cf" defer></script>
 </body>
 </html>

@@ -1,104 +1,28 @@
 /* ═══════════════════════════════════════════════════════════════════
-   SITE NAV · единый модуль шапки для ВСЕХ страниц сайта General
-   Источник: шапка главной (вид) + шапка кейса CGI (структура).
-   Правила:
-   1. Стили шапки живут ТОЛЬКО в этом файле. В страницах шапку не стилизуем.
-   2. Разметка одна на все страницы (шаблоны в начале site-nav.js).
-   3. Справа всегда одна кнопка «Написать» → Telegram.
-   4. После правки этого файла поднять ?v= в подключении на всех страницах.
+   SITE NAV · шапка и док страниц кейсов на Cobalt Field (22.10.2026)
+   Основные стили шапки (.cf-head) и дока (.cf-dock) живут в
+   assets/cobalt/bundle.css. Здесь только то, что нужно кейсам:
+   ссылка «Все проекты» слева и активный пункт меню.
+   Разметка: шаблон в начале site-nav.js.
+   После правки поднять ?v= во всех подключениях.
    ═══════════════════════════════════════════════════════════════════ */
-header.site-nav{
-  --sn-bg:rgba(9,11,18,.86);
-  --sn-bg-m:rgba(20,20,24,.92);
-  --sn-line:rgba(111,144,208,.28);
-  --sn-ink:#F1ECDD;
-  --sn-ink-2:rgba(241,236,221,.62);
-  --sn-blue:#174BFF;
-  --sn-blue-h:#3563ff;
-  --sn-mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
-  --sn-sans:"Space Grotesk",system-ui,sans-serif;
-  position:fixed;top:16px;left:50%;right:auto;bottom:auto;transform:translateX(-50%);
-  z-index:60;margin:0;padding:0;
-  width:calc(100% - 2*clamp(24px,5.5vw,72px));max-width:1176px;
-  background:none;border:0;box-shadow:none;
-}
-header.site-nav *{box-sizing:border-box}
-header.site-nav a{text-decoration:none}
-
-header.site-nav .nav-bar{
-  display:flex;align-items:center;justify-content:flex-start;gap:10px;min-width:0;
-  grid-template-columns:none;
-  background:var(--sn-bg);
-  backdrop-filter:blur(24px) saturate(135%);-webkit-backdrop-filter:blur(24px) saturate(135%);
-  border:1px solid var(--sn-line);border-radius:999px;
-  padding:7px 8px 7px 15px;margin:0;
-  box-shadow:0 12px 36px rgba(0,0,0,.26),inset 0 1px 0 rgba(255,255,255,.04);
-  color:var(--sn-ink);
+.cf-head.site-nav .cf-head__back{gap:var(--space-3)}
+.cf-head.site-nav .cf-head__back .cf-circle{--d:40px;font-size:16px;border-color:rgba(238,241,248,.34);color:#eef1f8}
+.cf-head.site-nav .cf-head__back:hover .cf-circle{border-color:#eef1f8}
+.cf-head.site-nav .cf-head__back .cf-circle i{transition:transform var(--dur-base) var(--ease-spring)}
+.cf-head.site-nav .cf-head__back:hover .cf-circle i{transform:translateX(-3px)}
+.cf-head.site-nav .cf-head__links{justify-content:flex-start;gap:clamp(16px,2.4vw,40px)}
+.cf-head.site-nav .cf-head__link.on{opacity:1}
+.cf-head.site-nav .cf-head__link.on::after{transform:scaleX(1)}
+.cf-dock.site-dock .cf-circle i{transition:transform var(--dur-base) var(--ease-spring)}
+.cf-dock.site-dock a:hover .ph-arrow-left{transform:translateX(-3px)}
+@media (max-width:1023px){
+  .cf-head.site-nav .cf-head__brand{grid-column:1/span 3}
+  .cf-head.site-nav .cf-head__end{grid-column:4/span 1}
 }
 
-/* левый край: логотип (главная) или «Все проекты» (кейсы) */
-header.site-nav .brand{display:inline-flex;align-items:center;gap:9px;font-family:var(--sn-sans);font-size:13px;font-weight:600;white-space:nowrap;color:var(--sn-ink);min-width:0;flex-shrink:0}
-header.site-nav .brand-mark{width:22px;height:22px;border-radius:6px;flex-shrink:0;object-fit:cover;box-shadow:0 0 0 1px rgba(23,75,255,.55),0 0 18px rgba(23,75,255,.3)}
-header.site-nav .brand small{color:var(--sn-ink-2);font-weight:400;margin-left:2px;font-size:11px;text-transform:uppercase;letter-spacing:.06em}
-header.site-nav .back{
-  display:inline-flex;align-items:center;gap:10px;flex-shrink:0;white-space:nowrap;
-  padding:8px 6px 8px 4px;
-  font-family:var(--sn-mono);font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:.08em;
-  color:var(--sn-ink);
-}
-header.site-nav .back::before{content:"←";color:var(--sn-blue);font-size:14px;line-height:1;transition:transform .2s}
-header.site-nav .back:hover::before{transform:translateX(-3px)}
-
-/* центр: меню разделов */
-header.site-nav .top-nav,
-header.site-nav .mag-nav{flex:1 1 auto;display:flex;align-items:center;justify-content:center;gap:1px;min-width:0;overflow:hidden;margin:0;padding:0}
-header.site-nav .top-nav a,
-header.site-nav .mag-pill{
-  display:inline-flex;align-items:center;
-  padding:8px 11px;border-radius:999px;
-  font-family:var(--sn-mono);font-size:10px;font-weight:400;line-height:1.2;
-  text-transform:uppercase;letter-spacing:.08em;white-space:nowrap;
-  color:var(--sn-ink-2);background:transparent;box-shadow:none;
-  transition:color .2s,background .2s,transform .25s;
-}
-header.site-nav .top-nav a:hover,
-header.site-nav .mag-pill:hover{color:var(--sn-ink);background:rgba(23,75,255,.12)}
-header.site-nav .top-nav a.on,
-header.site-nav .mag-pill.on{color:#fff;background:rgba(23,75,255,.28);box-shadow:inset 0 0 0 1px rgba(111,144,208,.2)}
-
-/* правый край: одна кнопка */
-header.site-nav .nav-end{display:inline-flex;align-items:center;gap:10px;margin:0 0 0 auto;flex-shrink:0}
-header.site-nav .lang-toggle{display:none}  /* язык выключен, пока нет английской версии */
-header.site-nav .nav-cta{
-  display:inline-flex;align-items:center;gap:7px;white-space:nowrap;
-  background:var(--sn-blue);color:#fff;border:0;
-  padding:9px 15px;border-radius:999px;
-  font-family:var(--sn-mono);font-size:10px;font-weight:600;line-height:1.2;
-  text-transform:uppercase;letter-spacing:.1em;
-  transition:background .2s,box-shadow .2s;
-}
-header.site-nav .nav-cta::after{content:"↗\FE0E";font-variant-emoji:text}
-header.site-nav .nav-cta:hover{background:var(--sn-blue-h);box-shadow:0 0 22px rgba(23,75,255,.42)}
-
-/* адаптив */
-@media(max-width:1120px){
-  header.site-nav .brand small{display:none}
-  header.site-nav .top-nav a,header.site-nav .mag-pill{padding:8px 9px;font-size:9.5px;letter-spacing:.06em}
-  header.site-nav .nav-cta{padding:9px 13px;letter-spacing:.07em}
-}
-@media(max-width:920px){
-  header.site-nav .top-nav,header.site-nav .mag-nav{display:none}
-  header.site-nav .nav-bar{background:var(--sn-bg-m);backdrop-filter:blur(24px) saturate(120%);-webkit-backdrop-filter:blur(24px) saturate(120%)}
-}
-@media(max-width:480px){
-  header.site-nav{width:calc(100% - 24px);top:12px}
-  header.site-nav .nav-bar{gap:8px;padding:6px 6px 6px 12px}
-  header.site-nav .brand{font-size:12px;gap:8px;overflow:hidden;text-overflow:ellipsis}
-  header.site-nav .brand-mark{width:20px;height:20px}
-  header.site-nav .back{font-size:10px;gap:8px}
-  header.site-nav .nav-cta{padding:8px 10px;font-size:9px;letter-spacing:.05em;gap:5px}
-}
-@media(max-width:380px){
-  header.site-nav .brand{font-size:11px;gap:7px}
-  header.site-nav .nav-cta{padding:8px 9px;font-size:8.5px}
-}
+/* 23.10.2026: в доке одна подписанная кнопка «Все проекты» вместо двух круглых без подписи */
+.cf-dock.site-dock .dock-back{display:inline-flex;align-items:center;gap:var(--space-3);color:#fff;font-size:14px;font-weight:500;pointer-events:auto}
+.cf-dock.site-dock .dock-back .cf-circle{--d:44px;font-size:17px}
+.cf-dock.site-dock .dock-back:hover .ph-arrow-left{transform:translateX(-3px)}
+@media (max-width:767px){.cf-dock.site-dock .dock-back__lbl{display:none}}

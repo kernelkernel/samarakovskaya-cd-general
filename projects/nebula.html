@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ru">
+<html lang="ru" data-theme="night">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -39,7 +39,6 @@
 -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,700;12..96,800&display=swap" rel="stylesheet">
 <link rel="alternate" hreflang="ru" href="https://t.samarakovskaya.art/projects/nebula.html">
 <link rel="alternate" hreflang="x-default" href="https://t.samarakovskaya.art/projects/nebula.html">
 <!-- Yandex.Metrika counter -->
@@ -84,13 +83,16 @@
 </script>
 <noscript><div><img src="https://mc.yandex.ru/watch/111808725" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 <!-- /Yandex.Metrika counter -->
-<link rel="stylesheet" href="../assets/modules/case.css?v=20261022b">
-<link rel="stylesheet" href="../assets/modules/site-nav.css?v=20261022">
+<link rel="stylesheet" href="../assets/cobalt/tokens.css?v=20261022cf">
+<link rel="stylesheet" href="../assets/cobalt/bundle.css?v=20261022cf">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css">
+<link rel="stylesheet" href="../assets/modules/case.css?v=20261023b">
+<link rel="stylesheet" href="../assets/modules/site-nav.css?v=20261023">
 <style id="page-css">
 /* Стили уникальных блоков этой страницы. Всё общее в assets/modules/case.css */
 @keyframes ticker-scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
-.sec.warm{background:rgba(23,75,255,.025)}
-.sec.deep{background:rgba(0,0,0,.35);border-color:rgba(23,75,255,.1)}
+.sec.warm{background:rgba(47,88,255,.025)}
+.sec.deep{background:rgba(0,0,0,.35);border-color:rgba(47,88,255,.1)}
 .setup-desc{font-family:var(--mono);font-size:11px;color:var(--ink-3);line-height:1.6}
 .yt-wrap{position:relative;cursor:pointer;border-radius:var(--r);overflow:hidden;background:#000;border:1px solid var(--border-s);padding-bottom:56.25%;height:0}
 .yt-thumb{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .3s}
@@ -120,13 +122,13 @@
 @media(max-width:600px){
   .sceno-left{border-right:none;border-bottom:1px solid var(--border-s);padding:20px 0 12px}
 }
-.sceno-num{font-family:var(--fr);font-style:italic;font-size:52px;line-height:1;color:rgba(169,155,255,.2)}
+.sceno-num{font-family:var(--fr);font-style:normal;font-size:52px;line-height:1;color:rgba(169,155,255,.2)}
 .sceno-dur{font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--accent-2)}
 .sceno-right{padding:28px 0 28px 28px}
 @media(max-width:600px){
   .sceno-right{padding:16px 0 24px}
 }
-.sceno-title{font-family:var(--fr);font-style:italic;font-size:clamp(22px,3vw,36px);font-weight:400;color:var(--ink);margin-bottom:12px;letter-spacing:-.01em}
+.sceno-title{font-family:var(--fr);font-style:normal;font-size:clamp(22px,3vw,36px);font-weight:400;color:var(--ink);margin-bottom:12px;letter-spacing:-.01em}
 .sceno-desc{font-size:clamp(14px,1.2vw,16px);line-height:1.8;color:var(--ink-2)}
 .sceno-transition{display:flex;align-items:center;gap:14px;padding:14px 0;opacity:.5}
 .sceno-transition .line{flex:1;height:1px;background:var(--border-s)}
@@ -152,7 +154,7 @@
 .gif-mosaic .proc-item img{width:100%;height:100%;object-fit:cover}
 .deliv{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:28px;margin-bottom:64px}
 .deliv-cell{background:rgba(255,255,255,.03);border:1px solid var(--border-s);border-radius:var(--r);padding:28px 24px;transition:border-color .2s}
-.deliv-cell:hover{border-color:rgba(23,75,255,.25)}
+.deliv-cell:hover{border-color:rgba(47,88,255,.25)}
 .deliv-icon{font-size:26px;margin-bottom:16px}
 .deliv-h{font-family:var(--sans);font-weight:600;font-size:13px;text-transform:uppercase;letter-spacing:.07em;color:var(--ink);margin-bottom:12px}
 .deliv-list{list-style:none;display:flex;flex-direction:column;gap:6px}
@@ -164,39 +166,35 @@
 .quote-mark{font-family:var(--fr);font-size:clamp(60px,10vw,120px);line-height:.5;color:var(--accent-2);opacity:.3;display:block;margin-bottom:24px}
 .quote-attr{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:var(--ink-3)}
 .sceno-num,.sceno-title{font-style:normal!important}
-.sceno-num{font-family:var(--fr);font-weight:800;color:rgba(169,155,255,.22)}
+.sceno-num{font-family:var(--fr);font-weight:500;color:rgba(169,155,255,.22)}
 .sceno-title{font-family:var(--fr);font-weight:700}
 .quote-mark{font-family:var(--fr)}
 @keyframes nbRise{to{opacity:1;transform:none}}
 .sec.warm{background:transparent}
 .sec.deep{background:transparent}
 .deliv-cell{
-  background:rgba(9,11,18,.58);border-color:rgba(241,236,221,.14);
+  background:rgba(9,11,18,.58);border-color:rgba(238,241,248,.14);
 }
 </style>
 </head>
 <body class="case">
 <!-- фон страницы: градиентное поле, как на главной -->
-<div class="site-field" aria-hidden="true">
-</div>
+<div class="cf-field cf-field--fixed" data-show="cobalt" aria-hidden="true"><div class="cf-mood cf-mood--cobalt"><div class="cf-drift cf-drift--a"></div><div class="cf-drift cf-drift--b"></div><div class="cf-vignette"></div></div><div class="cf-lens"></div></div>
+<div class="cf-grain" aria-hidden="true"></div>
 
 <div class="cur" id="cur"></div>
 <div class="cur-ring" id="ring"></div>
 
-<header class="top site-nav">
-  <div class="nav-bar">
-    <a class="back" href="../index.html#works">Все проекты</a>
-    <nav class="mag-nav" id="magNav">
-      <a class="mag-pill" href="#zone-intro" data-section="zone-intro" data-i18n="n.s1">Концепция</a>
-      <a class="mag-pill" href="#zone-video" data-section="zone-video" data-i18n="n.s2">Видео</a>
-      <a class="mag-pill" href="#zone-gallery" data-section="zone-gallery" data-i18n="n.s3">Галерея</a>
-      <a class="mag-pill" href="#zone-sceno" data-section="zone-sceno" data-i18n="n.s4">Сценография</a>
-      <a class="mag-pill" href="#zone-process" data-section="zone-process" data-i18n="n.s5">Процесс</a>
-      <a class="mag-pill" href="#zone-credits" data-section="zone-credits" data-i18n="n.s6">Реализация</a>
-    </nav>
-    <div class="nav-end"><a class="nav-cta" href="https://t.me/samarakovskaya_tanya" target="_blank" rel="noopener">Написать</a></div>
-  </div>
-</header>
+<header class="cf-head site-nav"><div class="cf-wrap"><div class="cf-grid">
+  <a class="cf-head__brand cf-head__back" href="../index.html#works"><span class="cf-circle"><i class="ph ph-arrow-left"></i></span><span>Все проекты<small>Таня Самараковская</small></span></a>
+  <nav class="cf-head__links" aria-label="Разделы проекта"><a class="cf-head__link" href="#zone-intro" data-section="zone-intro">Концепция</a><a class="cf-head__link" href="#zone-video" data-section="zone-video">Видео</a><a class="cf-head__link" href="#zone-gallery" data-section="zone-gallery">Галерея</a><a class="cf-head__link" href="#zone-sceno" data-section="zone-sceno">Сценография</a><a class="cf-head__link" href="#zone-process" data-section="zone-process">Процесс</a><a class="cf-head__link" href="#zone-credits" data-section="zone-credits">Реализация</a></nav>
+  <div class="cf-head__end"><a class="cf-cta cf-hoverparent" href="https://t.me/samarakovskaya_tanya" target="_blank" rel="noopener" data-magnetic="0.25"><span class="cf-cta__label">Написать</span><span class="cf-circle cf-circle--solid"><i class="ph ph-arrow-up-right"></i><i class="ph ph-arrow-up-right"></i></span></a></div>
+</div></div></header>
+<div class="cf-dock site-dock"><div class="cf-wrap">
+  <div class="cf-dock__count"><span class="numeral" data-dock-num>01</span><span class="cf-dock__now" data-dock-now>Концепция</span></div>
+  <nav class="cf-dots" aria-label="Разделы проекта"><a class="cf-dot" href="#zone-intro" aria-label="Концепция"><span class="cf-dot__tip">Концепция</span></a><a class="cf-dot" href="#zone-video" aria-label="Видео"><span class="cf-dot__tip">Видео</span></a><a class="cf-dot" href="#zone-gallery" aria-label="Галерея"><span class="cf-dot__tip">Галерея</span></a><a class="cf-dot" href="#zone-sceno" aria-label="Сценография"><span class="cf-dot__tip">Сценография</span></a><a class="cf-dot" href="#zone-process" aria-label="Процесс"><span class="cf-dot__tip">Процесс</span></a><a class="cf-dot" href="#zone-credits" aria-label="Реализация"><span class="cf-dot__tip">Реализация</span></a></nav>
+  <div class="cf-dock__end"><a class="dock-back" href="../index.html#works"><span class="cf-circle cf-circle--glass"><i class="ph ph-arrow-left"></i></span><span class="dock-back__lbl">Все проекты</span></a></div>
+</div></div>
 
 <!-- ══ HERO ══ -->
 <!-- slot: hero-img -->
@@ -704,7 +702,9 @@ const spy=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){Objec
 spy.disconnect(); /* подсветку ведёт скрипт ниже */
 </script>
 
-<script src="../assets/modules/case.js?v=20261022b" defer></script>
-<script src="../assets/modules/site-nav.js?v=20261022" defer></script>
+<script src="../assets/cobalt/bundle.js?v=20261022cf"></script>
+<script>window.TS && TS.init(document);</script>
+<script src="../assets/modules/case.js?v=20261022cf" defer></script>
+<script src="../assets/modules/site-nav.js?v=20261022cf" defer></script>
 </body>
 </html>

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ru">
+<html lang="ru" data-theme="night">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -10,28 +10,18 @@
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=2">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/cobalt/tokens.css?v=20261022cf">
+<link rel="stylesheet" href="/assets/cobalt/bundle.css?v=20261022cf">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css">
 <style>
-  *{margin:0;padding:0;box-sizing:border-box}
-  html,body{height:100%}
-  body{
-    background:#16161a;color:#efe9da;
-    font-family:"Space Grotesk",sans-serif;
-    display:flex;align-items:center;justify-content:center;
-    min-height:100vh;padding:32px;text-align:center;
-  }
-  .wrap{max-width:520px}
-  .code{font-size:clamp(96px,22vw,200px);font-weight:700;line-height:.9;letter-spacing:-.05em}
-  .code em{font-family:"Bricolage Grotesque",sans-serif;font-style:italic;color:#c9f24d}
-  .msg{margin:24px 0 36px;font-size:clamp(16px,2.4vw,20px);color:rgba(239,233,218,.7);line-height:1.4}
-  .label{font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.18em;color:rgba(239,233,218,.4);margin-bottom:20px}
-  a.home{
-    display:inline-flex;align-items:center;gap:10px;
-    background:#c9f24d;color:#16161a;text-decoration:none;
-    font-weight:600;font-size:15px;padding:14px 26px;border-radius:40px;
-    transition:transform .2s;
-  }
-  a.home:hover{transform:translateY(-2px)}
+/* 404 на Cobalt Field */
+.e404{position:relative;z-index:2;min-height:100dvh;display:flex;flex-direction:column;justify-content:flex-end;padding-bottom:var(--space-8)}
+.e404 .cf-sechead__num{grid-column:1/-1}
+.e404__code{grid-column:1/-1;margin:0;font-size:min(320px,30vw);line-height:.84;font-weight:300;letter-spacing:-.07em}
+.e404__code b{font-weight:600;color:var(--accent-text)}
+.e404__msg{grid-column:1/span 6;margin:var(--space-6) 0 0;color:var(--ink-muted)}
+.e404__cta{grid-column:10/span 3;justify-self:end;align-self:end}
+@media(max-width:767px){.e404__msg,.e404__cta{grid-column:1/-1;justify-self:start}.e404__cta{margin-top:var(--space-5)}}
 </style>
 <!-- Yandex.Metrika counter -->
 <script type="text/javascript">
@@ -77,11 +67,16 @@
 <!-- /Yandex.Metrika counter -->
 </head>
 <body>
-  <div class="wrap">
-    <div class="label">Страница не найдена</div>
-    <div class="code">4<em>0</em>4</div>
-    <p class="msg">Такой страницы нет или она переехала. Вернёмся на главную.</p>
-    <a class="home" href="/">На главную <span>↗</span></a>
+<div class="cf-field cf-field--fixed" data-show="cobalt" aria-hidden="true"><div class="cf-mood cf-mood--cobalt"><div class="cf-drift cf-drift--a"></div><div class="cf-drift cf-drift--b"></div><div class="cf-vignette"></div></div><div class="cf-lens"></div></div>
+<div class="cf-grain" aria-hidden="true"></div>
+<main class="e404"><div class="cf-wrap"><div class="cf-sechead cf-grid"><span class="cf-sechead__num numeral meta cf-meta">Страница не найдена</span></div>
+  <div class="cf-grid">
+    <p class="e404__code">4<b>0</b>4</p>
+    <p class="e404__msg lead">Такой страницы нет или она переехала. Вернёмся на главную.</p>
+    <a class="e404__cta cf-cta cf-hoverparent" href="/"><span class="cf-cta__label">На главную</span><span class="cf-circle cf-circle--solid"><i class="ph ph-arrow-up-right"></i><i class="ph ph-arrow-up-right"></i></span></a>
   </div>
+</div></main>
+<script src="/assets/cobalt/bundle.js?v=20261022cf"></script>
+<script>window.TS && TS.init(document);</script>
 </body>
 </html>

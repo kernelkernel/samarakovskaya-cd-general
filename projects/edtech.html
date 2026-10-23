@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ru">
+<html lang="ru" data-theme="night">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -24,7 +24,6 @@
 <!-- Шаблон: nebula.html (система «синее поле»). Макет главной платформы: assets/edtech/landing-01…06.webp, нарезка из PDF 1080×6000 pt при 2x -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,700;12..96,800&display=swap" rel="stylesheet">
 <!-- Yandex.Metrika counter -->
 <script type="text/javascript">
     /* Метка собственных визитов. Не зависит от IP и страны VPN:
@@ -67,17 +66,16 @@
 </script>
 <noscript><div><img src="https://mc.yandex.ru/watch/111808725" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 <!-- /Yandex.Metrika counter -->
-<link rel="stylesheet" href="../assets/modules/case.css?v=20261022b">
-<link rel="stylesheet" href="../assets/modules/site-nav.css?v=20261022">
+<link rel="stylesheet" href="../assets/cobalt/tokens.css?v=20261022cf">
+<link rel="stylesheet" href="../assets/cobalt/bundle.css?v=20261022cf">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css">
+<link rel="stylesheet" href="../assets/modules/case.css?v=20261023b">
+<link rel="stylesheet" href="../assets/modules/site-nav.css?v=20261023">
 <style id="page-css">
 /* Стили уникальных блоков этой страницы. Всё общее в assets/modules/case.css */
 @keyframes ticker-scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 @keyframes nbRise{to{opacity:1;transform:none}}
-.hero.ed{min-height:auto;justify-content:flex-start;padding-top:150px;background:transparent}
-.hero.ed .hero-body{padding:0 24px 0}
-.hero.ed .hero-h{font-size:clamp(54px,11.5vw,184px);line-height:.86;letter-spacing:-.05em}
-.hero.ed .hero-sub{max-width:720px;font-family:var(--fr);font-weight:700;font-size:clamp(20px,2.4vw,34px);line-height:1.2;color:var(--ink);text-shadow:0 2px 24px rgba(6,8,16,.6)}
-.hero-peek{position:relative;background:#EEECF9;width:min(1180px,calc(100% - 40px));margin:64px auto 72px;overflow:hidden;border-radius:20px;border:1px solid var(--border);box-shadow:0 30px 120px rgba(23,75,255,.30)}
+.hero-peek{position:relative;background:#EEECF9;width:min(1180px,calc(100% - 40px));margin:64px auto 72px;overflow:hidden;border-radius:20px;border:1px solid var(--border);box-shadow:0 30px 120px rgba(47,88,255,.30)}
 .hero-peek img{display:block;width:100%;height:auto}
 @media(max-width:720px){
   .hero-peek{margin:44px auto 48px;border-radius:14px}
@@ -87,13 +85,13 @@
 }
 .frame{max-width:1100px;margin:0 auto;border-radius:18px;overflow:hidden;border:1px solid var(--border);background:#0b0d16;box-shadow:0 30px 120px rgba(0,0,0,.45)}
 .frame-bar{display:flex;align-items:center;gap:8px;padding:12px 16px;background:rgba(9,11,18,.92);border-bottom:1px solid var(--border-s)}
-.frame-bar i{width:10px;height:10px;border-radius:50%;background:rgba(241,236,221,.18)}
-.frame-url{margin-left:14px;flex:1;max-width:360px;padding:6px 14px;border-radius:999px;background:rgba(241,236,221,.06);font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.frame-bar i{width:10px;height:10px;border-radius:50%;background:rgba(238,241,248,.18)}
+.frame-url{margin-left:14px;flex:1;max-width:360px;padding:6px 14px;border-radius:999px;background:rgba(238,241,248,.06);font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .frame-shot img{display:block;width:100%;height:auto}
 .scope-lbl{font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.12em;color:var(--accent-2);margin-top:64px}
 .scope-lbl + .scope{margin-top:18px}
 .soon{display:flex;flex-direction:column;align-items:center;text-align:center;gap:18px;padding:24px 0 8px}
-.soon-btn{display:inline-flex;align-items:center;gap:12px;padding:20px 38px;border-radius:999px;background:#3A3D47;color:rgba(241,236,221,.62);border:1px solid rgba(241,236,221,.12);font-family:var(--mono);font-size:13px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;cursor:not-allowed;user-select:none}
+.soon-btn{display:inline-flex;align-items:center;gap:12px;padding:20px 38px;border-radius:999px;background:#3A3D47;color:rgba(238,241,248,.62);border:1px solid rgba(238,241,248,.12);font-family:var(--mono);font-size:13px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;cursor:not-allowed;user-select:none}
 .soon-btn::after{content:"↗\FE0E";opacity:.6}
 .soon-cap{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-3)}
 .soon-cap::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--accent-2);margin-right:10px;vertical-align:1px;animation:soonPulse 1.8s ease-in-out infinite}
@@ -101,29 +99,33 @@
 @media (prefers-reduced-motion:reduce){
   .soon-cap::before{animation:none}
 }
+/* 23.10: заглавная картинка как у остальных кейсов: карточки персонажей, та же, что в превью на главной */
+.hero .hero-img{object-position:50% 35%}
 </style>
 </head>
-<body class="case rounded">
+<body class="case">
 <!-- фон страницы: градиентное поле, как на главной -->
-<div class="site-field" aria-hidden="true"></div>
+<div class="cf-field cf-field--fixed" data-show="cobalt" aria-hidden="true"><div class="cf-mood cf-mood--cobalt"><div class="cf-drift cf-drift--a"></div><div class="cf-drift cf-drift--b"></div><div class="cf-vignette"></div></div><div class="cf-lens"></div></div>
+<div class="cf-grain" aria-hidden="true"></div>
 
 <div class="cur" id="cur"></div>
 <div class="cur-ring" id="ring"></div>
 
-<header class="top site-nav">
-  <div class="nav-bar">
-    <a class="back" href="../index.html#works">Все проекты</a>
-    <nav class="mag-nav" id="magNav">
-      <a class="mag-pill" href="#zone-intro" data-section="zone-intro">О проекте</a>
-      <a class="mag-pill" href="#zone-screen" data-section="zone-screen">Главная</a>
-      <a class="mag-pill" href="#zone-status" data-section="zone-status">Статус</a>
-    </nav>
-    <div class="nav-end"><a class="nav-cta" href="https://t.me/samarakovskaya_tanya" target="_blank" rel="noopener">Написать</a></div>
-  </div>
-</header>
+<header class="cf-head site-nav"><div class="cf-wrap"><div class="cf-grid">
+  <a class="cf-head__brand cf-head__back" href="../index.html#works"><span class="cf-circle"><i class="ph ph-arrow-left"></i></span><span>Все проекты<small>Таня Самараковская</small></span></a>
+  <nav class="cf-head__links" aria-label="Разделы проекта"><a class="cf-head__link" href="#zone-intro" data-section="zone-intro">О проекте</a><a class="cf-head__link" href="#zone-screen" data-section="zone-screen">Главная</a><a class="cf-head__link" href="#zone-status" data-section="zone-status">Статус</a></nav>
+  <div class="cf-head__end"><a class="cf-cta cf-hoverparent" href="https://t.me/samarakovskaya_tanya" target="_blank" rel="noopener" data-magnetic="0.25"><span class="cf-cta__label">Написать</span><span class="cf-circle cf-circle--solid"><i class="ph ph-arrow-up-right"></i><i class="ph ph-arrow-up-right"></i></span></a></div>
+</div></div></header>
+<div class="cf-dock site-dock"><div class="cf-wrap">
+  <div class="cf-dock__count"><span class="numeral" data-dock-num>01</span><span class="cf-dock__now" data-dock-now>О проекте</span></div>
+  <nav class="cf-dots" aria-label="Разделы проекта"><a class="cf-dot" href="#zone-intro" aria-label="О проекте"><span class="cf-dot__tip">О проекте</span></a><a class="cf-dot" href="#zone-screen" aria-label="Главная"><span class="cf-dot__tip">Главная</span></a><a class="cf-dot" href="#zone-status" aria-label="Статус"><span class="cf-dot__tip">Статус</span></a></nav>
+  <div class="cf-dock__end"><a class="dock-back" href="../index.html#works"><span class="cf-circle cf-circle--glass"><i class="ph ph-arrow-left"></i></span><span class="dock-back__lbl">Все проекты</span></a></div>
+</div></div>
 
 <!-- ══ HERO ══ -->
-<section class="hero ed" id="zone-hero">
+<section class="hero" id="zone-hero">
+  <img class="hero-img" src="../assets/edtech/crew-cards.webp" alt="EdTech Project: персонажи платформы" loading="eager">
+  <div class="hero-glow"></div>
   <div class="hero-body">
     <div class="hero-kicker">Персональный проект · образовательная платформа</div>
     <h1 class="hero-h">EdTech Project</h1>
@@ -135,7 +137,6 @@
       <div class="hero-fact">Статус<b>В разработке</b></div>
     </div>
   </div>
-  <div class="hero-peek"><img src="../assets/edtech/crew.webp" width="2280" height="1334" alt="Шесть персонажей платформы: ученик выбирает, кем учиться" loading="eager"></div>
 </section>
 
 <!-- ══ TICKER ══ -->
@@ -286,7 +287,9 @@ const spy=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){Objec
 spy.disconnect(); /* подсветку ведёт скрипт ниже */
 </script>
 
-<script src="../assets/modules/case.js?v=20261022b" defer></script>
-<script src="../assets/modules/site-nav.js?v=20261022" defer></script>
+<script src="../assets/cobalt/bundle.js?v=20261022cf"></script>
+<script>window.TS && TS.init(document);</script>
+<script src="../assets/modules/case.js?v=20261022cf" defer></script>
+<script src="../assets/modules/site-nav.js?v=20261022cf" defer></script>
 </body>
 </html>
