@@ -1,0 +1,278 @@
+/* ═══════════════════════════════════════════════════════════════════
+   CD_GENERAL · надстройка над Cobalt Field для главной
+   Только то, чего нет в bundle.css: курсор-лупа сайта, новый крупный
+   проект над видами «Проекты», шоурил Vimeo в режиме cover.
+   Цвета, шрифты, отступы берутся из tokens.css.
+   ═══════════════════════════════════════════════════════════════════ */
+
+html { scroll-behavior: smooth; background: var(--bg-000); }
+section[id] { scroll-margin-top: 24px; }
+body { overflow-x: hidden; }
+
+/* ── Курсор-лупа сайта (сохранён как был, перекрашен в токены) ── */
+@media (hover: hover) and (pointer: fine) {
+  html, body, a, button, summary { cursor: none; }
+}
+.cur {
+  position: fixed; top: 0; left: 0; width: 12px; height: 12px; border-radius: 50%;
+  background: var(--ink); pointer-events: none; z-index: 9999; mix-blend-mode: difference;
+  transform: translate(-50%, -50%); transition: width .2s, height .2s; will-change: transform;
+}
+.cur.hot { width: 68px; height: 68px; }
+.cur.hot::after {
+  content: "\2197\FE0E"; position: absolute; inset: 0; display: grid; place-items: center;
+  color: var(--bg-100); font-family: var(--font-display); font-weight: 500; font-size: 20px;
+}
+.cur-ring {
+  position: fixed; top: 0; left: 0; width: 36px; height: 36px; border: 1.5px solid var(--ink);
+  border-radius: 50%; pointer-events: none; z-index: 9998; transform: translate(-50%, -50%);
+  transition: opacity .2s; mix-blend-mode: difference; will-change: transform;
+}
+.cur-ring.hot { opacity: 0; }
+@media (hover: none) { .cur, .cur-ring { display: none; } }
+
+/* ── Выделение в заголовке толщиной (без наклона) ── */
+.cf-em { font-weight: 600; }
+.cf-sechead__title .cf-em { color: var(--ink-muted); }
+
+/* ── Шоурил: Vimeo поверх вступительного ролика, заполняет кадр ── */
+.cf-reel__media .showreel-intro { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.cf-vimeo { position: absolute; inset: 0; overflow: hidden; opacity: 0; transition: opacity var(--dur-slow) var(--ease-out); }
+.cf-vimeo.is-ready { opacity: 1; }
+.cf-reel__media .cf-vimeo iframe {
+  position: absolute; left: 50%; top: 50%; border: 0; pointer-events: none;
+  width: max(100%, calc(100% * 16 / 9)); height: max(100%, calc(100vw * 9 / 16));
+  min-width: calc(100dvh * 1.12 * 16 / 9);
+  transform: translate(-50%, -50%);
+}
+.cf-reel__media { cursor: pointer; }
+
+/* ── Новый крупный проект над видами ── */
+.cf-feature { row-gap: var(--space-6); align-items: start; padding-bottom: var(--space-9); }
+.cf-feature__text { grid-column: 1 / span 5; display: grid; gap: var(--space-5); align-content: start; position: sticky; top: var(--space-7); }
+.cf-feature__meta { display: flex; align-items: baseline; gap: var(--space-4); padding-top: var(--space-4); border-top: 1px solid var(--line); }
+.cf-feature__num { color: var(--accent-text); }
+.cf-feature__meta .cf-meta:last-child { margin-left: auto; }
+.cf-feature__title { margin: 0; }
+.cf-feature__sub { margin: 0; color: var(--ink); max-width: 22em; }
+.cf-feature__body { margin: 0; color: var(--ink-muted); max-width: 34em; }
+.cf-feature__pass { margin: 0; display: grid; }
+.cf-feature__pass div { display: grid; grid-template-columns: 9em minmax(0, 1fr); gap: var(--space-4); padding-block: var(--space-3); border-top: 1px solid var(--line); }
+.cf-feature__pass dt { padding-top: 3px; }
+.cf-feature__pass dd { margin: 0; font-size: 16px; }
+.cf-feature__fig { grid-column: 6 / span 7; margin: 0; display: grid; gap: var(--space-3); }
+.cf-feature__img { position: relative; overflow: hidden; aspect-ratio: 1400 / 1783; background: var(--bg-200); box-shadow: var(--shadow-lift); }
+.cf-feature__img img { width: 100%; height: 100%; object-fit: cover; transform: scale(1.001); transition: transform 1.6s var(--ease-out); }
+.cf-feature__fig:hover .cf-feature__img img { transform: scale(1.03); }
+@supports (animation-timeline: view()) {
+  @media (min-width: 768px) and (prefers-reduced-motion: no-preference) {
+    .cf-feature__img img { animation: cf-reel-par linear both; animation-timeline: view(); }
+  }
+}
+.cf-feature__fig figcaption { display: flex; justify-content: space-between; gap: var(--space-4); padding-top: var(--space-3); border-top: 1px solid var(--line); }
+@media (max-width: 1023px) {
+  .cf-feature__text, .cf-feature__fig { grid-column: 1 / -1; position: static; }
+  .cf-feature__fig { max-width: 640px; }
+}
+@media (max-width: 767px) {
+  .cf-feature { padding-bottom: var(--space-8); }
+  .cf-feature__pass div { grid-template-columns: 7.5em minmax(0, 1fr); }
+  .cf-feature__fig figcaption span:last-child { display: none; }
+}
+
+/* строка «Паспорта Океана» в индексе ведёт к крупной карточке */
+.cf-wrow--new .cf-wrow__idx { color: var(--accent-text); }
+
+/* В подзаголовке компетенций выделение толщиной, без наклона */
+.cf-svc__lead em { font-style: normal; font-variation-settings: normal; font-weight: 600; }
+.cf-cycle { font-style: normal; font-variation-settings: normal; }
+.cf-cycle__track span { font-style: normal; font-weight: 600; font-variation-settings: normal; }
+
+/* Телефон: колонки проектов идут по порядку номеров, тумблер видов помещается в ширину */
+@media (max-width: 767px) {
+  .cf-cols { display: flex; flex-direction: column; }
+  .cf-cols__col { display: contents; }
+  .cf-cols .cf-pcard { order: var(--o, 0); }
+  .cf-cols__wide { order: 99; }
+  .cf-works__tools { flex-wrap: wrap; row-gap: var(--space-4); }
+  .cf-toggle { max-width: 100%; }
+  .cf-toggle button { padding-inline: 12px; }
+}
+/* док не перекрывает подвал */
+.cf-foot__row{margin-bottom:0}
+.cf-foot{padding-bottom:var(--space-4)}
+
+/* ═══════════════ Правки 23.10.2026 ═══════════════ */
+
+/* Первый экран: имя в три строки, левее лица; затемнение снизу мягче */
+.cf-hero__name { font-size: min(176px, 11.4vw); line-height: .9; }
+.cf-hero .cf-wrap { position: relative; z-index: 1; }
+.cf-hero__scrim {
+  background:
+    linear-gradient(90deg, rgba(7, 8, 15, .55) 0%, transparent 52%),
+    linear-gradient(0deg, rgba(7, 8, 15, .66) 0%, rgba(7, 8, 15, .2) 30%, transparent 55%);
+}
+
+/* Круговой текст: как на прежнем сайте. Отсчёт от нижнего блока первого экрана (.cf-wrap), поэтому кольцо уходит вниз и может заходить на текст и кнопки */
+.hero-curve {
+  position: absolute; z-index: 0; pointer-events: none;
+  right: -3%; top: 6%; width: 44vw; max-width: 660px; opacity: .85;
+}
+.hero-curve svg { display: block; width: 100%; height: auto; animation: hero-curve-rot 80s linear infinite; }
+.hero-curve text { font-family: var(--font-display); font-weight: 700; font-size: 30px; letter-spacing: .02em; fill: #3d63f0; }
+@keyframes hero-curve-rot { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .hero-curve svg { animation: none; } }
+@media (max-width: 980px) { .hero-curve { display: none; } }
+
+/* Шоурил: без подписи; док прячется, пока шоурил на экране */
+.cf-reel__bar .cf-grid { justify-content: end; }
+.cf-reel__ctl { grid-column: 1 / -1; }
+.cf-dock { transition: opacity var(--dur-base) var(--ease-out); }
+.cf-dock.is-reel { opacity: 0; pointer-events: none; }
+.cf-dock.is-reel * { pointer-events: none !important; }
+
+/* Рубрики «Обо мне»: крупные наклеенные плашки */
+.cf-rubrics { display: flex; flex-wrap: wrap; gap: 14px 10px; padding-top: var(--space-3); }
+.cf-rubric {
+  display: inline-flex; align-items: center; padding: .42em .9em .48em;
+  border: 1.5px solid var(--ink); border-radius: var(--radius-pill);
+  font-family: var(--font-display); font-size: clamp(20px, 2.1vw, 32px); font-weight: 650; line-height: 1;
+  letter-spacing: -.02em; color: var(--ink); background: transparent;
+  transform: rotate(var(--r, 0deg));
+  transition: transform var(--dur-base) var(--ease-spring), background-color var(--dur-fast) linear, color var(--dur-fast) linear;
+}
+.cf-rubric--solid { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
+.cf-rubric--light { background: var(--ink); color: var(--bg-100); }
+.cf-rubric:hover { transform: rotate(0deg) scale(1.08); }
+
+/* Проекты: только вид «Колонки». Переключатель скрыт, «Лента» и «Индекс» остаются в разметке */
+.cf-works .cf-toggle { display: none; }
+/* подпись: название и короткая рубрика, без номера, года и линии */
+.cf-cols .cf-pcard__cap { display: block; padding-top: 0; border-top: 0; }
+.cf-cols .cf-pcard:hover .cf-pcard__name { font-variation-settings: normal; transform: none; }
+.cf-cols:has(.cf-pcard:hover) .cf-pcard:not(:hover) .cf-pcard__img img { filter: none; }
+@media (max-width: 767px) {
+  .cf-cols__wide { display: contents; }
+  .cf-cols__wide .cf-pcard { order: var(--o, 0); }
+}
+
+/* Опыт: заметная кнопка CV */
+.cv-btn {
+  display: flex; align-items: center; justify-content: space-between; gap: var(--space-5);
+  padding: 22px 22px 22px 32px; border-radius: var(--radius-pill);
+  background: var(--accent); color: var(--on-accent);
+  transition: background-color var(--dur-fast) linear, transform var(--dur-base) var(--ease-out);
+}
+.cv-btn:hover { background: var(--accent-hover); transform: translateY(-2px); }
+.cv-btn__txt { display: grid; gap: 6px; }
+.cv-btn__lbl { font-family: var(--font-display); font-size: clamp(26px, 2.4vw, 34px); font-weight: 650; line-height: 1; letter-spacing: -.02em; }
+.cv-btn__meta { font-family: var(--font-mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; opacity: .8; }
+.cv-btn__ico { flex: none; display: grid; place-items: center; width: 64px; height: 64px; border-radius: 50%; background: var(--on-accent); color: var(--accent); font-size: 26px; transition: transform var(--dur-base) var(--ease-spring); }
+.cv-btn:hover .cv-btn__ico { transform: translateY(4px); }
+@media (max-width: 1023px) { .cv-btn { max-width: 420px; } }
+.cv-btn { padding: 18px 18px 18px 28px; }
+.cv-btn__lbl { white-space: nowrap; font-size: clamp(22px, 1.9vw, 30px); }
+.cv-btn__ico { width: 56px; height: 56px; font-size: 22px; }
+
+/* Компетенции: без английской колонки плюс встаёт к правому краю */
+@media (min-width: 768px) { .cf-svc__row summary { grid-template-columns: 4.5em minmax(0, 1fr) 56px; } }
+
+/* Подвал без крупной надписи: строка не уходит под док */
+.cf-foot { padding-bottom: 112px; }
+.cf-foot__row { border-bottom: 0; padding-bottom: 0; }
+@media (max-width: 767px) { .cf-foot { padding-bottom: 96px; } }
+/* 23.10: в кнопке CV только слово, шире и крупнее */
+.cv-btn__lbl { font-size: clamp(34px, 3vw, 44px); }
+
+/* ═══════════════ Телефон: компактная главная, 23.10.2026 ═══════════════
+   Всё ниже действует только до 767px. Компьютер и планшет не меняются.
+   Кнопки «Подробнее» и раскрытие опыта добавляет site.js. */
+.m-more, .m-acc-ico { display: none; }
+@media (max-width: 767px) {
+  /* ритм: меньше воздуха между разделами и под заголовками */
+  .cf-section { padding-block: 48px; }
+  .cf-sechead { margin-bottom: var(--space-5); padding-top: var(--space-3); }
+  .display-l { font-size: 40px; }
+  .display-m { font-size: 30px; }
+  .lead { font-size: 17px; }
+  .cf-dock { display: none; }
+
+  /* первый экран: цифры плотнее */
+  .cf-hero__body { row-gap: var(--space-5); }
+  .cf-hero__stats { row-gap: var(--space-4); column-gap: var(--space-4); padding-top: var(--space-3); }
+  .cf-stat__v { font-size: 30px; }
+  .cf-stat__t { font-size: 15px; padding-top: 2px; }
+  .cf-stat__l { font-size: 12px; }
+
+  /* шоурил: кадр по пропорции видео вместо целого экрана */
+  .cf-reel { height: auto; min-height: 0; aspect-ratio: 4 / 3; }
+  .cf-reel__bar { bottom: var(--space-4); }
+
+  .cf-marquee { padding-block: var(--space-4); }
+  .cf-marquee__item { font-size: 34px; padding-inline: var(--space-4); }
+
+  /* обо мне */
+  .cf-about { row-gap: var(--space-5); }
+  .cf-about__statement { font-size: 28px; }
+  .cf-rubric { font-size: 17px; }
+  .cf-rubrics { gap: 10px 8px; }
+
+  /* компетенции: без номеров, строки ниже */
+  .cf-svc__lead { font-size: 26px; margin-bottom: var(--space-6); }
+  .cf-svc__idx { display: none; }
+  .cf-svc__row summary { grid-template-columns: minmax(0, 1fr) 40px; padding: var(--space-4) 0; }
+  .cf-svc__row .cf-circle { --d: 40px; }
+  .cf-svc__name { font-size: 20px; }
+  .cf-svc__body { grid-template-columns: minmax(0, 1fr); padding-bottom: var(--space-4); }
+  .cf-svc__body p { grid-column: 1; font-size: 15px; }
+
+  /* проекты: кадры ниже, подписи компактнее */
+  .cf-cols { row-gap: var(--space-5); }
+  .cf-cols .cf-pcard { gap: var(--space-2); }
+  .cf-cols .cf-pcard .cf-pcard__img, .cf-cols .cf-pcard--tall .cf-pcard__img, .cf-cols .cf-cols__wide .cf-pcard__img { aspect-ratio: 16 / 9; }
+  .cf-cols .cf-pcard__name { font-size: 19px; line-height: 1.15; }
+  .cf-cols .cf-pcard__cat { margin-top: 4px; }
+
+  /* опыт: инструменты и описания по нажатию */
+  .cf-career__aside { gap: var(--space-4); margin-bottom: var(--space-6); }
+  .cf-titem { padding-block: var(--space-4); gap: 2px; cursor: pointer; position: relative; padding-right: 52px; }
+  .cf-titem h3 { font-size: 19px; margin: 0; }
+  .cf-titem p { display: none; font-size: 15px; margin-top: var(--space-2); }
+  .cf-titem.is-open p { display: block; }
+  .m-acc-ico { display: grid; position: absolute; right: 0; top: var(--space-4); --d: 36px; font-size: 15px; }
+  .cf-titem:first-child .m-acc-ico { top: 0; }
+  .m-acc-ico i { transition: transform var(--dur-base) var(--ease-spring); }
+  .cf-titem.is-open .m-acc-ico i { transform: rotate(45deg); }
+
+  /* свёрнутые тексты */
+  .m-clamp:not(.is-open) { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+  .m-fold:not(.is-open) { display: none; }
+  .m-more { display: inline-flex; align-items: center; gap: 8px; justify-self: start; padding: 0; margin: 0; border: 0; background: none; color: var(--accent-text); font-family: var(--font-mono); font-size: 12px; letter-spacing: .06em; text-transform: uppercase; }
+  .m-more i { transition: transform var(--dur-base) var(--ease-out); }
+  .m-more.is-open i { transform: rotate(180deg); }
+
+  /* награды: кадр ниже, строки плотнее */
+  .cf-award__img, .cf-award--solo .cf-award__img { aspect-ratio: 16 / 7; }
+  .cf-award__body { padding: var(--space-5); gap: var(--space-3); }
+  .cf-award__item { padding-block: var(--space-3); }
+  .cf-award__nom { font-size: 15px; }
+  .cf-award__org { font-size: 12px; }
+
+  /* контакты */
+  .cf-contact { padding-block: var(--space-8) var(--space-7); }
+  .cf-contact__h { font-size: 34px; margin-bottom: var(--space-6); }
+  .cf-link { padding-block: var(--space-4); }
+  .cf-link__val { font-size: 19px; }
+  .cv-btn { padding: 14px 14px 14px 24px; }
+  .cv-btn__ico { width: 48px; height: 48px; font-size: 20px; }
+  .cf-foot { padding-bottom: var(--space-6); }
+}
+
+/* Картинка целиком: если не совпадает с форматом карточки, поля заливаются цветом фона картинки (белый) */
+.fit-whole { background: #fff; }
+.fit-whole img { object-fit: contain !important; object-position: 50% 50% !important; }
+/* 23.10: карточка «Случайного знакомства» чуть ближе, белые поля сверху и снизу срезаны */
+@media (min-width: 768px) {
+  .cf-cols .fit-whole img { transform: scale(1.12); }
+  .cf-cols .cf-pcard:hover .fit-whole img { transform: scale(1.16); }
+}

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ru">
+<html lang="ru" data-theme="night">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -23,7 +23,6 @@
 <link rel="canonical" href="https://t.samarakovskaya.art/projects/moskvaruim.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&display=swap" rel="stylesheet">
 <link rel="alternate" hreflang="ru" href="https://t.samarakovskaya.art/projects/moskvaruim.html">
 <link rel="alternate" hreflang="x-default" href="https://t.samarakovskaya.art/projects/moskvaruim.html">
 <!-- Yandex.Metrika counter -->
@@ -68,26 +67,27 @@
 </script>
 <noscript><div><img src="https://mc.yandex.ru/watch/111808725" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 <!-- /Yandex.Metrika counter -->
-<link rel="stylesheet" href="../assets/modules/case.css?v=20261022b">
-<link rel="stylesheet" href="../assets/modules/site-nav.css?v=20261022">
+<link rel="stylesheet" href="../assets/cobalt/tokens.css?v=20261022cf">
+<link rel="stylesheet" href="../assets/cobalt/bundle.css?v=20261022cf">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css">
+<link rel="stylesheet" href="../assets/modules/case.css?v=20261023b">
+<link rel="stylesheet" href="../assets/modules/site-nav.css?v=20261023">
 </head>
 <body class="case">
-<div class="site-field" aria-hidden="true"></div>
+<div class="cf-field cf-field--fixed" data-show="cobalt" aria-hidden="true"><div class="cf-mood cf-mood--cobalt"><div class="cf-drift cf-drift--a"></div><div class="cf-drift cf-drift--b"></div><div class="cf-vignette"></div></div><div class="cf-lens"></div></div>
+<div class="cf-grain" aria-hidden="true"></div>
 <div class="cur" id="cur"></div>
 <div class="cur-ring" id="ring"></div>
-<header class="top site-nav">
-<div class="nav-bar">
-<a class="back" href="../index.html#works">Все проекты</a>
-<nav class="mag-nav" id="magNav">
-<a class="mag-pill" data-section="zone-concept" href="#zone-concept">Концепт</a>
-<a class="mag-pill" data-section="zone-campaign" href="#zone-campaign">Кампания</a>
-<a class="mag-pill" data-section="zone-video" href="#zone-video">Видео</a>
-<a class="mag-pill" data-section="zone-gallery" href="#zone-gallery">Галерея</a>
-<a class="mag-pill" data-section="zone-credits" href="#zone-credits">Команда</a>
-</nav>
-<div class="nav-end"><a class="nav-cta" href="https://t.me/samarakovskaya_tanya" rel="noopener" target="_blank">Написать</a></div>
-</div>
-</header>
+<header class="cf-head site-nav"><div class="cf-wrap"><div class="cf-grid">
+  <a class="cf-head__brand cf-head__back" href="../index.html#works"><span class="cf-circle"><i class="ph ph-arrow-left"></i></span><span>Все проекты<small>Таня Самараковская</small></span></a>
+  <nav class="cf-head__links" aria-label="Разделы проекта"><a class="cf-head__link" href="#zone-concept" data-section="zone-concept">Концепт</a><a class="cf-head__link" href="#zone-campaign" data-section="zone-campaign">Кампания</a><a class="cf-head__link" href="#zone-video" data-section="zone-video">Видео</a><a class="cf-head__link" href="#zone-gallery" data-section="zone-gallery">Галерея</a><a class="cf-head__link" href="#zone-credits" data-section="zone-credits">Команда</a></nav>
+  <div class="cf-head__end"><a class="cf-cta cf-hoverparent" href="https://t.me/samarakovskaya_tanya" target="_blank" rel="noopener" data-magnetic="0.25"><span class="cf-cta__label">Написать</span><span class="cf-circle cf-circle--solid"><i class="ph ph-arrow-up-right"></i><i class="ph ph-arrow-up-right"></i></span></a></div>
+</div></div></header>
+<div class="cf-dock site-dock"><div class="cf-wrap">
+  <div class="cf-dock__count"><span class="numeral" data-dock-num>01</span><span class="cf-dock__now" data-dock-now>Концепт</span></div>
+  <nav class="cf-dots" aria-label="Разделы проекта"><a class="cf-dot" href="#zone-concept" aria-label="Концепт"><span class="cf-dot__tip">Концепт</span></a><a class="cf-dot" href="#zone-campaign" aria-label="Кампания"><span class="cf-dot__tip">Кампания</span></a><a class="cf-dot" href="#zone-video" aria-label="Видео"><span class="cf-dot__tip">Видео</span></a><a class="cf-dot" href="#zone-gallery" aria-label="Галерея"><span class="cf-dot__tip">Галерея</span></a><a class="cf-dot" href="#zone-credits" aria-label="Команда"><span class="cf-dot__tip">Команда</span></a></nav>
+  <div class="cf-dock__end"><a class="dock-back" href="../index.html#works"><span class="cf-circle cf-circle--glass"><i class="ph ph-arrow-left"></i></span><span class="dock-back__lbl">Все проекты</span></a></div>
+</div></div>
 
 <!-- ══ HERO ══ -->
 <section class="hero" id="top">
@@ -255,7 +255,9 @@
 
 
 
-<script src="../assets/modules/case.js?v=20261022b" defer></script>
-<script src="../assets/modules/site-nav.js?v=20261022" defer></script>
+<script src="../assets/cobalt/bundle.js?v=20261022cf"></script>
+<script>window.TS && TS.init(document);</script>
+<script src="../assets/modules/case.js?v=20261022cf" defer></script>
+<script src="../assets/modules/site-nav.js?v=20261022cf" defer></script>
 </body>
 </html>

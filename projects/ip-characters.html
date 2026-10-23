@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ru">
+<html lang="ru" data-theme="night">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -24,7 +24,6 @@
 <!-- Шаблон: branding.html (галерея). Страница собрана 30.09.2026 из имеющихся материалов. -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,700;12..96,800&display=swap" rel="stylesheet">
 <link rel="alternate" hreflang="ru" href="https://t.samarakovskaya.art/projects/ip-characters.html">
 <link rel="alternate" hreflang="x-default" href="https://t.samarakovskaya.art/projects/ip-characters.html">
 <!-- Yandex.Metrika counter -->
@@ -69,12 +68,15 @@
 </script>
 <noscript><div><img src="https://mc.yandex.ru/watch/111808725" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 <!-- /Yandex.Metrika counter -->
-<link rel="stylesheet" href="../assets/modules/case.css?v=20261022b">
-<link rel="stylesheet" href="../assets/modules/site-nav.css?v=20261022">
+<link rel="stylesheet" href="../assets/cobalt/tokens.css?v=20261022cf">
+<link rel="stylesheet" href="../assets/cobalt/bundle.css?v=20261022cf">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css">
+<link rel="stylesheet" href="../assets/modules/case.css?v=20261023b">
+<link rel="stylesheet" href="../assets/modules/site-nav.css?v=20261023">
 <style id="page-css">
 /* Стили уникальных блоков этой страницы. Всё общее в assets/modules/case.css */
 .hero-pillbar{position:absolute;top:80px;left:0;right:0;z-index:4;display:flex;flex-wrap:wrap;gap:9px;justify-content:center;padding:0 24px}
-.hero-pill{display:inline-flex;align-items:center;gap:9px;padding:9px 16px;border:1px solid rgba(241,236,221,.22);border-radius:999px;font-family:var(--mono);font-size:11.5px;letter-spacing:.01em;color:var(--ink);background:rgba(10,10,15,.5);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);transition:border-color .25s}
+.hero-pill{display:inline-flex;align-items:center;gap:9px;padding:9px 16px;border:1px solid rgba(238,241,248,.22);border-radius:999px;font-family:var(--mono);font-size:11.5px;letter-spacing:.01em;color:var(--ink);background:rgba(10,10,15,.5);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);transition:border-color .25s}
 .hero-pill::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--accent);flex-shrink:0}
 .hero-pill:hover{border-color:var(--accent)}
 .hero-pill.lead{background:var(--accent);color:#161018;border-color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:.06em}
@@ -97,7 +99,7 @@
 .ad-cap{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:14px 16px;color:#fff;transform:translateY(10px);opacity:0;transition:transform .45s cubic-bezier(.2,.7,.2,1),opacity .45s;pointer-events:none}
 .ad-tile:hover .ad-cap{transform:none;opacity:1}
 .ad-cap span{font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:.14em;color:var(--accent-2)}
-.ad-tag{position:absolute;left:12px;bottom:12px;z-index:2;display:inline-flex;align-items:center;gap:7px;max-width:calc(100% - 24px);padding:5px 11px 5px 9px;border-radius:999px;background:rgba(8,9,14,.58);border:1px solid rgba(241,236,221,.2);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);font-family:var(--mono);font-size:10px;line-height:1.25;letter-spacing:.03em;color:var(--ink);pointer-events:none;transition:opacity .35s,transform .45s cubic-bezier(.2,.7,.2,1)}
+.ad-tag{position:absolute;left:12px;bottom:12px;z-index:2;display:inline-flex;align-items:center;gap:7px;max-width:calc(100% - 24px);padding:5px 11px 5px 9px;border-radius:999px;background:rgba(8,9,14,.58);border:1px solid rgba(238,241,248,.2);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);font-family:var(--mono);font-size:10px;line-height:1.25;letter-spacing:.03em;color:var(--ink);pointer-events:none;transition:opacity .35s,transform .45s cubic-bezier(.2,.7,.2,1)}
 .ad-tag::before{content:"";flex:0 0 auto;width:6px;height:6px;border-radius:50%;background:var(--accent);box-shadow:0 0 10px var(--glow)}
 .ad-tile:hover .ad-tag{opacity:0;transform:translateY(8px)}
 .ad-cap b{display:block;font-family:var(--fr);font-weight:700;font-size:clamp(13px,1.15vw,17px);letter-spacing:-.01em;margin-top:3px;line-height:1.05}
@@ -142,7 +144,7 @@
 }
 .why-card{background:var(--bg-2);border:1px solid var(--border-s);border-radius:var(--r);padding:24px 22px 26px;display:flex;flex-direction:column;gap:14px}
 .why-num{font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.14em;color:var(--accent-2)}
-.why-h{font-family:var(--fr);font-weight:800;font-size:clamp(22px,1.9vw,28px);line-height:1;letter-spacing:-.02em;color:#fff}
+.why-h{font-family:var(--fr);font-weight:500;font-size:clamp(22px,1.9vw,28px);line-height:1;letter-spacing:-.02em;color:#fff}
 .why-p{font-size:15px;line-height:1.55;color:var(--ink-2)}
 .sec-intro{max-width:760px;margin:-8px auto 36px;text-align:center;font-size:clamp(16px,1.3vw,19px);line-height:1.55;color:var(--ink-2)}
 .sec-link{display:inline-flex;align-items:center;gap:8px;margin-top:18px;font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--accent-2);border-bottom:1px solid rgba(201,184,255,.35);padding-bottom:3px;transition:color .2s,border-color .2s}
@@ -156,7 +158,7 @@
 .rtile{position:relative;border-radius:var(--r);overflow:hidden;aspect-ratio:4/5;display:flex;flex-direction:column;justify-content:flex-end;padding:14px 16px;background:radial-gradient(120% 90% at 50% 30%,var(--rt-a,#3a2f63) 0%,var(--rt-b,#16131f) 72%)}
 .rtile img{position:absolute;left:50%;top:44%;transform:translate(-50%,-50%);width:88%;height:78%;object-fit:contain;transition:transform .6s cubic-bezier(.2,.7,.2,1);filter:drop-shadow(0 18px 30px rgba(0,0,0,.35))}
 .rtile:hover img{transform:translate(-50%,-52%) scale(1.05)}
-.rtile .rt-name{position:relative;z-index:2;font-family:var(--fr);font-weight:800;font-size:clamp(17px,1.5vw,22px);line-height:1;letter-spacing:-.02em;color:#fff}
+.rtile .rt-name{position:relative;z-index:2;font-family:var(--fr);font-weight:500;font-size:clamp(17px,1.5vw,22px);line-height:1;letter-spacing:-.02em;color:#fff}
 .rtile .rt-trait{position:relative;z-index:2;margin-top:6px;font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.72)}
 .capy-tone{--rt-a:#ffcf7a;--rt-b:#e8894c}
 .capy-tone .rt-name,.capy-tone .rt-trait{text-shadow:0 1px 10px rgba(80,30,0,.35)}
@@ -176,25 +178,41 @@
   .ad-cap{display:none}
   .ad-tile::after{opacity:.3}
 }
+
+/* 23.10: сетка галерей страницы на 12 колонок (общий .gal в case.css на 3 колонки ломал c4/c5/c7/c8/c12) */
+.gal{grid-template-columns:repeat(12,minmax(0,1fr))}
+.gal>.ad-tile{min-height:0;aspect-ratio:auto;height:clamp(260px,30vw,440px)}
+.gal>.ad-tile[data-id="crew"]{height:auto;aspect-ratio:2280/1334}
+.gal>.ad-tile[data-id="crew"] img,.gal>.ad-tile[data-id="landing"] img,.gal>.ad-tile[data-id="diva"] img{object-fit:cover;object-position:50% 0}
+@media(max-width:860px){
+  .gal{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .gal>.ad-tile{height:auto;aspect-ratio:4/5}
+  .gal>.c12,.gal>.c8,.gal>.c7{aspect-ratio:16/10}
+  .gal>.ad-tile[data-id="crew"]{aspect-ratio:2280/1334}
+}
+/* 23.10: вводная мысль в тон остального текста сайта, от линии заголовка */
+.why-lead{max-width:none;margin:0 0 48px calc((100% - 11*var(--space-5))/12*2 + 2*var(--space-5));padding-right:calc((100% - 11*var(--space-5))/12*3);text-align:left;font-weight:400;font-size:clamp(22px,2.4vw,34px);line-height:1.25;letter-spacing:-.015em;color:var(--ink);text-wrap:pretty}
+@media(max-width:780px){.why-lead{margin-left:0;padding-right:0}}
+/* 23.10: плашки первого экрана ниже шапки */
+.hero-pillbar{top:116px;justify-content:flex-start;padding:0 var(--gutter,72px)}
 </style>
 </head>
 <body class="case">
-<div class="site-field" aria-hidden="true"></div>
+<div class="cf-field cf-field--fixed" data-show="cobalt" aria-hidden="true"><div class="cf-mood cf-mood--cobalt"><div class="cf-drift cf-drift--a"></div><div class="cf-drift cf-drift--b"></div><div class="cf-vignette"></div></div><div class="cf-lens"></div></div>
+<div class="cf-grain" aria-hidden="true"></div>
 <div class="cur" id="cur"></div>
 <div class="cur-ring" id="ring"></div>
 
-<header class="top site-nav">
-  <div class="nav-bar">
-    <a class="back" href="../index.html#works">Все проекты</a>
-    <nav class="mag-nav" id="magNav">
-      <a class="mag-pill" href="#zone-why" data-section="zone-why">Зачем персонажи</a>
-      <a class="mag-pill" href="#zone-capy" data-section="zone-capy">КапибараБууум</a>
-      <a class="mag-pill" href="#zone-edtech" data-section="zone-edtech">EdTech</a>
-      <a class="mag-pill" href="#zone-wow" data-section="zone-wow">Путь воды</a>
-    </nav>
-    <div class="nav-end"><a class="nav-cta" href="https://t.me/samarakovskaya_tanya" target="_blank" rel="noopener">Написать</a></div>
-  </div>
-</header>
+<header class="cf-head site-nav"><div class="cf-wrap"><div class="cf-grid">
+  <a class="cf-head__brand cf-head__back" href="../index.html#works"><span class="cf-circle"><i class="ph ph-arrow-left"></i></span><span>Все проекты<small>Таня Самараковская</small></span></a>
+  <nav class="cf-head__links" aria-label="Разделы проекта"><a class="cf-head__link" href="#zone-why" data-section="zone-why">Зачем персонажи</a><a class="cf-head__link" href="#zone-capy" data-section="zone-capy">КапибараБууум</a><a class="cf-head__link" href="#zone-edtech" data-section="zone-edtech">EdTech</a><a class="cf-head__link" href="#zone-wow" data-section="zone-wow">Путь воды</a></nav>
+  <div class="cf-head__end"><a class="cf-cta cf-hoverparent" href="https://t.me/samarakovskaya_tanya" target="_blank" rel="noopener" data-magnetic="0.25"><span class="cf-cta__label">Написать</span><span class="cf-circle cf-circle--solid"><i class="ph ph-arrow-up-right"></i><i class="ph ph-arrow-up-right"></i></span></a></div>
+</div></div></header>
+<div class="cf-dock site-dock"><div class="cf-wrap">
+  <div class="cf-dock__count"><span class="numeral" data-dock-num>01</span><span class="cf-dock__now" data-dock-now>Зачем персонажи</span></div>
+  <nav class="cf-dots" aria-label="Разделы проекта"><a class="cf-dot" href="#zone-why" aria-label="Зачем персонажи"><span class="cf-dot__tip">Зачем персонажи</span></a><a class="cf-dot" href="#zone-capy" aria-label="КапибараБууум"><span class="cf-dot__tip">КапибараБууум</span></a><a class="cf-dot" href="#zone-edtech" aria-label="EdTech"><span class="cf-dot__tip">EdTech</span></a><a class="cf-dot" href="#zone-wow" aria-label="Путь воды"><span class="cf-dot__tip">Путь воды</span></a></nav>
+  <div class="cf-dock__end"><a class="dock-back" href="../index.html#works"><span class="cf-circle cf-circle--glass"><i class="ph ph-arrow-left"></i></span><span class="dock-back__lbl">Все проекты</span></a></div>
+</div></div>
 
 <!-- ══ HERO ══ -->
 <section class="hero" id="zone-hero">
@@ -381,7 +399,9 @@ const vObs=new IntersectionObserver(es=>es.forEach(e=>{
 document.querySelectorAll('.ad-tile video').forEach(v=>vObs.observe(v));
 </script>
 
-<script src="../assets/modules/case.js?v=20261022b" defer></script>
-<script src="../assets/modules/site-nav.js?v=20261022" defer></script>
+<script src="../assets/cobalt/bundle.js?v=20261022cf"></script>
+<script>window.TS && TS.init(document);</script>
+<script src="../assets/modules/case.js?v=20261022cf" defer></script>
+<script src="../assets/modules/site-nav.js?v=20261022cf" defer></script>
 </body>
 </html>
