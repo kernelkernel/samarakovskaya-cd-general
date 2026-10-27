@@ -69,7 +69,9 @@ assets/capybarabooom/kv/*.png
 
 # WayOfWater — PNG-дубли (webp-версии используются на сайте)
 assets/wayofwater/process/*.png
-assets/wayofwater/concept/
+assets/wayofwater/concept/*
+# Исключение: аксонометрия используется на странице wayofwater
+!assets/wayofwater/concept/axo-01.webp
 assets/wayofwater/characters/Salty_new.png
 
 # Baal — неиспользуемые исходники
