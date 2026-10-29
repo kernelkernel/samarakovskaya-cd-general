@@ -245,10 +245,10 @@
         if (video) { video.muted = !on; if (on) video.play && video.play(); }
         btns.forEach(function (b) {
           b.setAttribute("aria-pressed", String(on));
-          b.setAttribute("aria-label", on ? "Выключить звук" : "Включить звук");
+          b.setAttribute("aria-label", (document.documentElement.lang==="en") ? (on ? "Mute" : "Unmute") : (on ? "Выключить звук" : "Включить звук"));
           var ic = b.querySelector("i"); if (ic) ic.className = on ? "ph ph-speaker-high" : "ph ph-speaker-slash";
         });
-        if (label) label.textContent = on ? "Звук выкл" : "Со звуком";
+        if (label) label.textContent = (document.documentElement.lang==="en") ? (on ? "Sound off" : "Sound on") : (on ? "Звук выкл" : "Со звуком");
         r.dispatchEvent(new CustomEvent("cf:sound", { detail: { on: on }, bubbles: true }));
       };
       btns.forEach(function (b) { b.addEventListener("click", function (e) { e.stopPropagation(); toggle(); }); });

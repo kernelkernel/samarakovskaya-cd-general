@@ -62,7 +62,7 @@
 
   function paintDock(on) {
     if (!dockBtn) return;
-    dockBtn.setAttribute("aria-label", on ? "Выключить звук шоурила" : "Включить звук шоурила");
+    dockBtn.setAttribute("aria-label", (document.documentElement.lang==="en") ? (on ? "Mute showreel" : "Unmute showreel") : (on ? "Выключить звук шоурила" : "Включить звук шоурила"));
     var ic = dockBtn.querySelector("i"); if (ic) ic.className = on ? "ph ph-speaker-high" : "ph ph-speaker-slash";
   }
   if (reel) {
@@ -73,7 +73,7 @@
         if (on) player.setVolume(0.7).then(function () { return player.setMuted(false); }).catch(function () {});
         else player.setMuted(true);
       }
-      if (followLbl) followLbl.textContent = on ? "Без звука" : "Со звуком";
+      if (followLbl) followLbl.textContent = (document.documentElement.lang==="en") ? (on ? "Sound off" : "Sound on") : (on ? "Без звука" : "Со звуком");
       paintDock(on);
     });
     var reelBtn = reel.querySelector("[data-sound]");
@@ -143,16 +143,16 @@
       var on = !target.classList.contains("is-open");
       target.classList.toggle("is-open", on); b.classList.toggle("is-open", on);
       b.setAttribute("aria-expanded", on ? "true" : "false");
-      b.querySelector("span").textContent = on ? "Свернуть" : label;
+      b.querySelector("span").textContent = on ? ((document.documentElement.lang==="en") ? "Show less" : "Свернуть") : label;
     });
     target.insertAdjacentElement("afterend", b);
   }
   /* «Обо мне»: длинный абзац до трёх строк */
   var about = document.querySelectorAll(".cf-about__text");
-  if (about[1]) moreBtn(about[1], "Подробнее", "m-clamp");
+  if (about[1]) moreBtn(about[1], (document.documentElement.lang==="en") ? "Read more" : "Подробнее", "m-clamp");
   /* «Опыт»: список инструментов под кнопкой */
   var stack = document.querySelector(".cf-career__aside .cf-stack");
-  if (stack) moreBtn(stack, "Инструменты", "m-fold");
+  if (stack) moreBtn(stack, (document.documentElement.lang==="en") ? "Tools" : "Инструменты", "m-fold");
   /* «Опыт»: описание места работы по нажатию */
   document.querySelectorAll(".cf-titem").forEach(function (li) {
     var ico = document.createElement("span");
