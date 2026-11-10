@@ -87,6 +87,119 @@
 
 
 <style id="lang-sw">.cf-head__lang{margin-left:calc(var(--space-4,16px)*-0.25)}.cf-head__lang::before{content:"";position:absolute;left:calc(-1*var(--space-4,16px)*.75);top:50%;width:1px;height:14px;transform:translateY(-50%);background:currentColor;opacity:.35}.cf-head__lang::after{left:0}.cf-lang-m{display:none}@media (min-width:1024px) and (max-width:1279px){.cf-head__links{grid-column:4/span 7;margin-right:28px;gap:12px}.cf-head__link{font-size:14px}}@media (max-width:1023px){.cf-head__end{display:flex;align-items:center;gap:20px}.cf-lang-m{display:inline-block;font-size:15px;opacity:.78;transition:opacity .2s}.cf-lang-m:hover{opacity:1}}</style>
+
+<style>
+#awards .cf-award__status--prominent {
+  align-self: start;
+  padding: .35em .65em;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  background: var(--bg-300);
+  color: var(--ink);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .035em;
+}
+.cf-award__video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  background: var(--bg-300);
+  cursor: pointer;
+}
+#awards .cf-award__video img {
+  object-position: 40% 76%;
+  transform: scale(1.48);
+  transform-origin: 40% 76%;
+}
+.cf-award__video:focus-visible { outline: 2px solid var(--focus); outline-offset: -3px; }
+.cf-award__video .cf-circle { position: absolute; bottom: 16px; left: 16px; }
+
+#awards .cf-sechead__title { font-size: clamp(42px, 8vw, 116px); }
+@media (min-width: 720px) {
+  #awards .cf-awards > .cf-award { grid-column: 1 / span 6; }
+  #awards .cf-awards > .cf-award:nth-child(even) { grid-column: 7 / span 6; }
+  #awards .cf-awards .cf-award__img { aspect-ratio: 16 / 9; }
+}
+@media (min-width: 1024px) {
+  #awards .cf-awards > .cf-award { grid-column: 3 / span 5; }
+  #awards .cf-awards > .cf-award:nth-child(even) { grid-column: 8 / span 5; }
+}
+#awards .cf-award__cover { isolation: isolate; }
+#awards .cf-award__cover::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(7, 12, 27, .2), transparent 42%, rgba(7, 12, 27, .88));
+  pointer-events: none;
+}
+#awards .cf-award__marks {
+  position: absolute;
+  z-index: 1;
+  top: clamp(10px, 2vw, 24px);
+  left: clamp(10px, 2vw, 24px);
+  display: flex;
+  align-items: center;
+  gap: clamp(6px, 1.2vw, 16px);
+  padding: 8px clamp(8px, 1.25vw, 16px);
+  border-radius: 8px;
+  background: rgba(239, 243, 255, .89);
+  backdrop-filter: blur(10px);
+}
+#awards .cf-award__marks img {
+  display: block;
+  width: auto;
+  height: clamp(21px, 3vw, 36px);
+  max-width: clamp(58px, 13vw, 148px);
+  object-fit: contain;
+  filter: brightness(0) saturate(100%) invert(10%) sepia(28%) saturate(1428%) hue-rotate(184deg);
+  transform: none;
+}
+#awards .cf-award__project-label {
+  position: absolute;
+  z-index: 1;
+  inset: auto clamp(10px, 2vw, 24px) clamp(10px, 2vw, 24px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  color: #fff;
+  font-size: clamp(14px, 1.4vw, 20px);
+}
+#awards .cf-award__project-label i { font-size: 1.1em; }
+#awards .cf-award__entry {
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: start;
+  gap: 10px;
+  padding-block: clamp(13px, 1.5vw, 20px);
+}
+#awards .cf-award__entry:first-child { border-top: 0; padding-top: 0; }
+#awards .cf-award__entry:last-child { padding-bottom: 0; }
+#awards .cf-award__name {
+  margin: 0;
+  font-size: clamp(21px, 2.1vw, 34px);
+  line-height: 1.08;
+  font-weight: 600;
+  letter-spacing: -.025em;
+  text-wrap: pretty;
+}
+#awards .cf-award__entry .cf-award__status { max-width: 100%; white-space: normal; }
+@media (min-width: 1024px) {
+  #awards .cf-award__list:has(.cf-award__entry + .cf-award__entry) .cf-award__entry { grid-template-columns: minmax(0, 1fr) auto; align-items: baseline; }
+  #awards .cf-award__entry .cf-award__nom { grid-column: 1 / -1; }
+}
+#awards .cf-award__entry .cf-award__nom { color: var(--ink-muted); }
+#awards .cf-award__press-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 12px;
+}
+
+</style>
 </head>
 <body>
 <div class="cur" id="cur"></div>
@@ -97,13 +210,13 @@
 
 <header class="cf-head"><div class="cf-wrap"><div class="cf-grid">
   <a class="cf-head__brand" href="#hero"><img src="../assets/icon.webp?v=2" alt="Tanya Samarakovskaya, logo"><span>Tanya Samarakovskaya<small>creative director</small></span></a>
-  <nav class="cf-head__links" aria-label="Sections"><a class="cf-head__link" href="#about">About</a><a class="cf-head__link" href="#services">Expertise</a><a class="cf-head__link" href="#works">Projects</a><a class="cf-head__link" href="#career">Experience</a><a class="cf-head__link" href="#awards">Awards</a><a class="cf-head__link" href="#contact">Contact</a><a class="cf-head__link cf-head__lang" href="../" hreflang="ru" lang="ru">RU</a></nav>
+  <nav class="cf-head__links" aria-label="Sections"><a class="cf-head__link" href="#about">About</a><a class="cf-head__link" href="#services">Expertise</a><a class="cf-head__link" href="#works">Projects</a><a class="cf-head__link" href="#career">Experience</a><a class="cf-head__link" href="#awards">Press &amp; Awards</a><a class="cf-head__link" href="#contact">Contact</a><a class="cf-head__link cf-head__lang" href="../" hreflang="ru" lang="ru">RU</a></nav>
   <div class="cf-head__end"><a class="cf-lang-m" href="../" hreflang="ru" lang="ru">RU</a><a class="cf-cta cf-hoverparent" href="https://t.me/samarakovskaya_tanya" target="_blank" rel="noopener" data-magnetic="0.25"><span class="cf-cta__label">Get in touch</span><span class="cf-circle cf-circle--solid"><i class="ph ph-arrow-up-right"></i><i class="ph ph-arrow-up-right"></i></span></a></div>
 </div></div></header>
 
 <div class="cf-dock"><div class="cf-wrap">
   <div class="cf-dock__count"><span class="numeral" data-dock-num>01</span><span class="cf-dock__now" data-dock-now>About</span></div>
-  <nav class="cf-dots" aria-label="Sections"><a class="cf-dot" href="#about" aria-label="About"><span class="cf-dot__tip">About</span></a><a class="cf-dot" href="#services" aria-label="Expertise"><span class="cf-dot__tip">Expertise</span></a><a class="cf-dot" href="#works" aria-label="Projects"><span class="cf-dot__tip">Projects</span></a><a class="cf-dot" href="#career" aria-label="Experience"><span class="cf-dot__tip">Experience</span></a><a class="cf-dot" href="#awards" aria-label="Awards"><span class="cf-dot__tip">Awards</span></a><a class="cf-dot" href="#contact" aria-label="Contact"><span class="cf-dot__tip">Contact</span></a></nav>
+  <nav class="cf-dots" aria-label="Sections"><a class="cf-dot" href="#about" aria-label="About"><span class="cf-dot__tip">About</span></a><a class="cf-dot" href="#services" aria-label="Expertise"><span class="cf-dot__tip">Expertise</span></a><a class="cf-dot" href="#works" aria-label="Projects"><span class="cf-dot__tip">Projects</span></a><a class="cf-dot" href="#career" aria-label="Experience"><span class="cf-dot__tip">Experience</span></a><a class="cf-dot" href="#awards" aria-label="Press &amp; Awards"><span class="cf-dot__tip">Press &amp; Awards</span></a><a class="cf-dot" href="#contact" aria-label="Contact"><span class="cf-dot__tip">Contact</span></a></nav>
 </div></div>
 
 <main style="position:relative;z-index:2">
@@ -239,30 +352,100 @@
 
 <!-- ═══ 05 НАГРАДЫ ═══ -->
 <section class="cf-section" id="awards" data-mood-section data-mood="mist" style="overflow:clip">
-  <div class="cf-wrap"><div class="cf-sechead cf-grid"><span class="cf-sechead__num numeral"><b>05</b></span><h2 class="cf-sechead__title display-l cf-lines"><span class="cf-line"><span>Awards</span></span></h2></div>
-    <div class="cf-grid"><p class="cf-sec-side" data-reveal>Industry and international awards</p></div>
+  <div class="cf-wrap"><div class="cf-sechead cf-grid"><span class="cf-sechead__num numeral"><b>05</b></span><h2 class="cf-sechead__title display-l cf-lines"><span class="cf-line"><span>Press &amp; Awards</span></span></h2></div>
     <div class="cf-awards cf-grid" data-reveal-group>
       <a class="cf-award" href="../projects/wayofwater.html" data-reveal>
-        <div class="cf-award__img"><img src="../assets/preview_projects/wayofwater.webp" alt="Way of Water multimedia exhibition" loading="lazy"></div>
+        <div class="cf-award__img cf-award__cover">
+          <img src="../assets/preview_projects/wayofwater.webp" alt="" loading="lazy">
+          <span class="cf-award__marks" aria-hidden="true"><img src="../assets/award-logos/digital.svg" alt=""><img src="../assets/award-logos/regions.png" alt=""><img src="../assets/award-logos/quality.svg" alt=""></span>
+          <span class="cf-award__project-label">Way of Water<i class="ph ph-arrow-up-right" aria-hidden="true"></i></span>
+        </div>
         <div class="cf-award__body">
-          <div class="cf-award__proj"><h3 class="title">Way of Water</h3><span class="cf-circle"><i class="ph ph-arrow-up-right"></i><i class="ph ph-arrow-up-right"></i></span></div>
           <ul class="cf-award__list">
-            <li class="cf-award__item"><p class="cf-award__nom">Gamification of Educational Projects</p><span class="cf-award__status meta cf-meta">Winner 2023</span><p class="cf-award__org">Digital Leaders Award</p></li>
-            <li class="cf-award__item"><p class="cf-award__nom">Best Project for Children</p><span class="cf-award__status meta cf-meta">Winner 2023</span><p class="cf-award__org">Best for Russia. Regional Development</p></li>
-            <li class="cf-award__item"><p class="cf-award__nom">Family Leisure and Entertainment Space of the Year</p><span class="cf-award__status meta cf-meta">Winner 2023</span><p class="cf-award__org">Service Quality and Consumer Rights</p></li>
+            <li class="cf-award__item cf-award__entry">
+              <h3 class="cf-award__name">Digital Leaders Award</h3>
+              <span class="cf-award__status cf-award__status--prominent meta cf-meta">Winner · 2023</span>
+              <p class="cf-award__nom">Gamification of Educational Projects</p>
+            </li>
+            <li class="cf-award__item cf-award__entry">
+              <h3 class="cf-award__name">Best for Russia. Regional Development</h3>
+              <span class="cf-award__status cf-award__status--prominent meta cf-meta">Winner · 2023</span>
+              <p class="cf-award__nom">Best Project for Children</p>
+            </li>
+            <li class="cf-award__item cf-award__entry">
+              <h3 class="cf-award__name">Service Quality and Consumer Rights</h3>
+              <span class="cf-award__status cf-award__status--prominent meta cf-meta">Winner · 2023</span>
+              <p class="cf-award__nom">Family Leisure and Entertainment Space of the Year</p>
+            </li>
           </ul>
         </div>
       </a>
       <a class="cf-award cf-award--solo" href="../projects/capybarabooom.html" data-reveal>
-        <div class="cf-award__img"><img src="../assets/preview_projects/capybaraboom.webp" alt="CapybaraBooom exhibition" loading="lazy"></div>
+        <div class="cf-award__img cf-award__cover">
+          <img src="../assets/preview_projects/capybaraboom.webp" alt="" loading="lazy">
+          <span class="cf-award__marks" aria-hidden="true"><img src="../assets/award-logos/blooloop.png" alt=""></span>
+          <span class="cf-award__project-label">CapybaraBooom<i class="ph ph-arrow-up-right" aria-hidden="true"></i></span>
+        </div>
         <div class="cf-award__body">
-          <div class="cf-award__proj"><h3 class="title">CapybaraBooom</h3><span class="cf-circle"><i class="ph ph-arrow-up-right"></i><i class="ph ph-arrow-up-right"></i></span></div>
-          <ul class="cf-award__list"><li class="cf-award__item"><p class="cf-award__nom">Immersive Entertainment &amp; Attractions</p><span class="cf-award__status meta cf-meta">Nominee 2026–2027</span><p class="cf-award__org">blooloop Innovation Awards, international</p></li></ul>
+          <ul class="cf-award__list">
+            <li class="cf-award__item cf-award__entry">
+              <h3 class="cf-award__name">blooloop Innovation Awards</h3>
+              <span class="cf-award__status cf-award__status--prominent meta cf-meta">Nominee · 2026–2027</span>
+              <p class="cf-award__nom">Immersive Entertainment &amp; Attractions</p>
+            </li>
+          </ul>
         </div>
       </a>
+      <a class="cf-award" href="../projects/branding.html#buddy-sol-award" data-reveal>
+        <div class="cf-award__img cf-award__cover">
+          <img src="../assets/art-direction/photo/webp/buddysol-packs.webp" alt="" loading="lazy">
+          <span class="cf-award__marks" aria-hidden="true"><img src="../assets/award-logos/mercury.svg" alt=""><img src="../assets/award-logos/3itech.svg" alt=""></span>
+          <span class="cf-award__project-label">Buddy&amp;Sol<i class="ph ph-arrow-up-right" aria-hidden="true"></i></span>
+        </div>
+        <div class="cf-award__body">
+          <ul class="cf-award__list">
+            <li class="cf-award__item cf-award__entry">
+              <h3 class="cf-award__name">AI Jury 3iTech / Silver Mercury</h3>
+              <span class="cf-award__status cf-award__status--prominent meta cf-meta">Bronze Diploma · 2024</span>
+              <p class="cf-award__nom">Parallel judging</p>
+            </li>
+          </ul>
+        </div>
+      </a>
+      <article class="cf-award cf-award--solo" data-reveal>
+        <div class="cf-award__img">
+          <button class="cf-award__video" type="button" aria-label="Play the Clean Ocean video">
+            <img src="../assets/msq_clean-ocean/photo/webp/clean-ocean-ar-02.webp" alt="" loading="lazy">
+            <span class="cf-circle cf-circle--solid" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
+          </button>
+          <template><iframe src="https://player.vimeo.com/video/1200388837?h=7cd92f8373&amp;autoplay=1" title="Clean Ocean · Sostav.ru" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="display:block;width:100%;height:100%;border:0"></iframe></template>
+        </div>
+        <div class="cf-award__body">
+          <div class="cf-award__press-meta">
+            <span class="cf-award__status cf-award__status--prominent meta cf-meta">Article</span>
+            <span class="cf-award__org">Sostav.ru · 2026</span>
+          </div>
+          <a class="cf-award__proj cf-hoverparent" href="https://www.sostav.ru/publication/s-okeanom-nachistotu-moskvarium-zapuskaet-ekokvest-dlya-moskvichej-i-gostej-stolitsy-84573.html" target="_blank" rel="noopener">
+            <h3 class="cf-award__name">Clean Ocean</h3><span class="cf-circle"><i class="ph ph-arrow-up-right"></i><i class="ph ph-arrow-up-right"></i></span>
+          </a>
+          <p class="cf-award__nom">Moskvarium × BBDO</p>
+        </div>
+      </article>
     </div>
   </div>
 </section>
+
+
+<script>
+{
+  const preview = document.querySelector('.cf-award__video');
+  preview.addEventListener('click', () => {
+    const player = preview.nextElementSibling.content.firstElementChild.cloneNode(true);
+    preview.replaceWith(player);
+    player.focus();
+  }, { once: true });
+}
+</script>
 
 <!-- ═══ 06 КОНТАКТЫ ═══ -->
 <section class="cf-contact" id="contact" data-mood-section data-mood="cobalt">
