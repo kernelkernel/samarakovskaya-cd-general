@@ -87,6 +87,119 @@
 <link rel="alternate" hreflang="ru" href="https://t.samarakovskaya.art/">
 <link rel="alternate" hreflang="en" href="https://t.samarakovskaya.art/en/">
 <style id="lang-sw">.cf-head__lang{margin-left:calc(var(--space-4,16px)*-0.25)}.cf-head__lang::before{content:"";position:absolute;left:calc(-1*var(--space-4,16px)*.75);top:50%;width:1px;height:14px;transform:translateY(-50%);background:currentColor;opacity:.35}.cf-head__lang::after{left:0}.cf-lang-m{display:none}@media (min-width:1024px) and (max-width:1279px){.cf-head__links{grid-column:4/span 7;margin-right:28px;gap:12px}.cf-head__link{font-size:14px}}@media (max-width:1023px){.cf-head__end{display:flex;align-items:center;gap:20px}.cf-lang-m{display:inline-block;font-size:15px;opacity:.78;transition:opacity .2s}.cf-lang-m:hover{opacity:1}}</style>
+
+<style>
+#awards .cf-award__status--prominent {
+  align-self: start;
+  padding: .35em .65em;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  background: var(--bg-300);
+  color: var(--ink);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .035em;
+}
+.cf-award__video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  background: var(--bg-300);
+  cursor: pointer;
+}
+#awards .cf-award__video img {
+  object-position: 40% 76%;
+  transform: scale(1.48);
+  transform-origin: 40% 76%;
+}
+.cf-award__video:focus-visible { outline: 2px solid var(--focus); outline-offset: -3px; }
+.cf-award__video .cf-circle { position: absolute; bottom: 16px; left: 16px; }
+
+#awards .cf-sechead__title { font-size: clamp(42px, 8vw, 116px); }
+@media (min-width: 720px) {
+  #awards .cf-awards > .cf-award { grid-column: 1 / span 6; }
+  #awards .cf-awards > .cf-award:nth-child(even) { grid-column: 7 / span 6; }
+  #awards .cf-awards .cf-award__img { aspect-ratio: 16 / 9; }
+}
+@media (min-width: 1024px) {
+  #awards .cf-awards > .cf-award { grid-column: 3 / span 5; }
+  #awards .cf-awards > .cf-award:nth-child(even) { grid-column: 8 / span 5; }
+}
+#awards .cf-award__cover { isolation: isolate; }
+#awards .cf-award__cover::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(7, 12, 27, .2), transparent 42%, rgba(7, 12, 27, .88));
+  pointer-events: none;
+}
+#awards .cf-award__marks {
+  position: absolute;
+  z-index: 1;
+  top: clamp(10px, 2vw, 24px);
+  left: clamp(10px, 2vw, 24px);
+  display: flex;
+  align-items: center;
+  gap: clamp(6px, 1.2vw, 16px);
+  padding: 8px clamp(8px, 1.25vw, 16px);
+  border-radius: 8px;
+  background: rgba(239, 243, 255, .89);
+  backdrop-filter: blur(10px);
+}
+#awards .cf-award__marks img {
+  display: block;
+  width: auto;
+  height: clamp(21px, 3vw, 36px);
+  max-width: clamp(58px, 13vw, 148px);
+  object-fit: contain;
+  filter: brightness(0) saturate(100%) invert(10%) sepia(28%) saturate(1428%) hue-rotate(184deg);
+  transform: none;
+}
+#awards .cf-award__project-label {
+  position: absolute;
+  z-index: 1;
+  inset: auto clamp(10px, 2vw, 24px) clamp(10px, 2vw, 24px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  color: #fff;
+  font-size: clamp(14px, 1.4vw, 20px);
+}
+#awards .cf-award__project-label i { font-size: 1.1em; }
+#awards .cf-award__entry {
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: start;
+  gap: 10px;
+  padding-block: clamp(13px, 1.5vw, 20px);
+}
+#awards .cf-award__entry:first-child { border-top: 0; padding-top: 0; }
+#awards .cf-award__entry:last-child { padding-bottom: 0; }
+#awards .cf-award__name {
+  margin: 0;
+  font-size: clamp(21px, 2.1vw, 34px);
+  line-height: 1.08;
+  font-weight: 600;
+  letter-spacing: -.025em;
+  text-wrap: pretty;
+}
+#awards .cf-award__entry .cf-award__status { max-width: 100%; white-space: normal; }
+@media (min-width: 1024px) {
+  #awards .cf-award__list:has(.cf-award__entry + .cf-award__entry) .cf-award__entry { grid-template-columns: minmax(0, 1fr) auto; align-items: baseline; }
+  #awards .cf-award__entry .cf-award__nom { grid-column: 1 / -1; }
+}
+#awards .cf-award__entry .cf-award__nom { color: var(--ink-muted); }
+#awards .cf-award__press-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 12px;
+}
+
+</style>
 </head>
 <body>
 <div class="cur" id="cur"></div>
@@ -97,13 +210,13 @@
 
 <header class="cf-head"><div class="cf-wrap"><div class="cf-grid">
   <a class="cf-head__brand" href="#hero"><img src="assets/icon.webp?v=2" alt="Таня Самараковская, логотип"><span>Таня Самараковская<small>креативный директор</small></span></a>
-  <nav class="cf-head__links" aria-label="Разделы"><a class="cf-head__link" href="#about">Обо мне</a><a class="cf-head__link" href="#services">Компетенции</a><a class="cf-head__link" href="#works">Проекты</a><a class="cf-head__link" href="#career">Опыт</a><a class="cf-head__link" href="#awards">Награды</a><a class="cf-head__link" href="#contact">Контакты</a><a class="cf-head__link cf-head__lang" href="en/" hreflang="en" lang="en">EN</a></nav>
+  <nav class="cf-head__links" aria-label="Разделы"><a class="cf-head__link" href="#about">Обо мне</a><a class="cf-head__link" href="#services">Компетенции</a><a class="cf-head__link" href="#works">Проекты</a><a class="cf-head__link" href="#career">Опыт</a><a class="cf-head__link" href="#awards">Статьи и награды</a><a class="cf-head__link" href="#contact">Контакты</a><a class="cf-head__link cf-head__lang" href="en/" hreflang="en" lang="en">EN</a></nav>
   <div class="cf-head__end"><a class="cf-lang-m" href="en/" hreflang="en" lang="en">EN</a><a class="cf-cta cf-hoverparent" href="https://t.me/samarakovskaya_tanya" target="_blank" rel="noopener" data-magnetic="0.25"><span class="cf-cta__label">Написать</span><span class="cf-circle cf-circle--solid"><i class="ph ph-arrow-up-right"></i><i class="ph ph-arrow-up-right"></i></span></a></div>
 </div></div></header>
 
 <div class="cf-dock"><div class="cf-wrap">
   <div class="cf-dock__count"><span class="numeral" data-dock-num>01</span><span class="cf-dock__now" data-dock-now>Обо мне</span></div>
-  <nav class="cf-dots" aria-label="Разделы"><a class="cf-dot" href="#about" aria-label="Обо мне"><span class="cf-dot__tip">Обо мне</span></a><a class="cf-dot" href="#services" aria-label="Компетенции"><span class="cf-dot__tip">Компетенции</span></a><a class="cf-dot" href="#works" aria-label="Проекты"><span class="cf-dot__tip">Проекты</span></a><a class="cf-dot" href="#career" aria-label="Опыт"><span class="cf-dot__tip">Опыт</span></a><a class="cf-dot" href="#awards" aria-label="Награды"><span class="cf-dot__tip">Награды</span></a><a class="cf-dot" href="#contact" aria-label="Контакты"><span class="cf-dot__tip">Контакты</span></a></nav>
+  <nav class="cf-dots" aria-label="Разделы"><a class="cf-dot" href="#about" aria-label="Обо мне"><span class="cf-dot__tip">Обо мне</span></a><a class="cf-dot" href="#services" aria-label="Компетенции"><span class="cf-dot__tip">Компетенции</span></a><a class="cf-dot" href="#works" aria-label="Проекты"><span class="cf-dot__tip">Проекты</span></a><a class="cf-dot" href="#career" aria-label="Опыт"><span class="cf-dot__tip">Опыт</span></a><a class="cf-dot" href="#awards" aria-label="Статьи и награды"><span class="cf-dot__tip">Статьи и награды</span></a><a class="cf-dot" href="#contact" aria-label="Контакты"><span class="cf-dot__tip">Контакты</span></a></nav>
 </div></div>
 
 <main style="position:relative;z-index:2">
@@ -230,7 +343,7 @@
           <div><dt class="meta cf-meta">AI</dt><dd>Magnific Spaces · Nano Banana · ChatGPT · Claude · Seedream · Kling · Suno</dd></div>
           <div><dt class="meta cf-meta">Flow</dt><dd>Bitrix · Notion · Miro</dd></div>
         </dl>
-        <a class="cv-btn" href="assets/cv/CV_Samarakovskaya_Creative_Director.pdf" download="CV_Самараковская_Креативный_директор.pdf"><span class="cv-btn__lbl">CV</span><span class="cv-btn__ico"><i class="ph ph-arrow-down"></i></span></a>
+        <a class="cv-btn" href="assets/cv/CV_%D0%A1%D0%B0%D0%BC%D0%B0%D1%80%D0%B0%D0%BA%D0%BE%D0%B2%D1%81%D0%BA%D0%B0%D1%8F_%D0%9A%D1%80%D0%B5%D0%B0%D1%82%D0%B8%D0%B2%D0%BD%D1%8B%D0%B9%20%D0%B4%D0%B8%D1%80%D0%B5%D0%BA%D1%82%D0%BE%D1%80_%D0%9F%D1%80%D0%BE%D0%B4%D1%8E%D1%81%D0%B5%D1%80.pdf" download="CV_Самараковская_Креативный_директор.pdf"><span class="cv-btn__lbl">CV</span><span class="cv-btn__ico"><i class="ph ph-arrow-down"></i></span></a>
       </aside>
       <ol class="cf-timeline"><span class="cf-timeline__rail" aria-hidden="true"></span><li class="cf-titem" data-reveal><span class="cf-titem__year numeral">2024—н.в.</span><div><h3 class="heading">Москвариум <span>/ Креативный директор</span></h3><p class="body">Руководство креативными проектами разного масштаба на стороне заказчика. Спецпроекты, рекламные кампании 360, фото- и видеосъёмки, брендинг, АР-квесты, партнерские и фестивальные интеграции.</p></div></li><li class="cf-titem" data-reveal><span class="cf-titem__year numeral">2021—2024</span><div><h3 class="heading">Москвариум <span>/ Креативный директор мультимедийных проектов</span></h3><p class="body">Руководство мультимедийными выставочными проектами на стороне заказчика: концепция, сценарная архитектура, визуальное направление, подрядчики, бюджет, сроки и запуск. Ключевые проекты: «Путь воды», «КапибараБууум», гастроли и расширение «Океана Юрского периода».</p></div></li><li class="cf-titem" data-reveal><span class="cf-titem__year numeral">2018—21</span><div><h3 class="heading">Hello Computer <span>/ Креативный директор · ведущий креатор</span></h3><p class="body">Интерактивные парки, выставки, городские фестивали, мультимедийные инсталляции. Концепции, механики взаимодействия, питчи, визуальные системы. Союзмультпарк, Nebula, Окская жемчужина, «Вместе ярче» на ВДНХ.</p></div></li><li class="cf-titem" data-reveal><span class="cf-titem__year numeral">2017—21</span><div><h3 class="heading">Конференции <span>/ Лекции</span></h3><p class="body">Лекции на фестивалях Intervals Education, EFEST 2021, фестиваль «Круг света». Темы - experience design, интерактивные среды, сторителлинг и phygital-проекты.</p></div></li><li class="cf-titem" data-reveal><span class="cf-titem__year numeral">2015—18</span><div><h3 class="heading">Медиаарт <span>/ Театр · Маппинг · Фестивали</span></h3><p class="body">Театральные проекты BAAL, POLE, Кандид: видеоарт, световые партитуры. Проекционный маппинг. TouchDesigner, Cinema 4D, Resolume Arena, vvvv.</p></div></li><li class="cf-titem" data-reveal><span class="cf-titem__year numeral">2012—14</span><div><h3 class="heading">Британская высшая школа дизайна <span>/ Дизайн в интерактивной среде</span></h3><p class="body">Переход от экранного дизайна к проектированию опыта в пространстве. Инсталляции, motion, взаимодействие зрителя с объектом.</p></div></li><li class="cf-titem" data-reveal><span class="cf-titem__year numeral">2009—16</span><div><h3 class="heading">Actis Wunderman · ADV&nbsp;Digital</h3><p class="body">Международные digital-агентства. Работа с проектами для крупных международных и российских брендов: BMW, Audi, Microsoft, Ford, L’Oréal, Colgate, Canon, Jaguar, Unilever, Adidas, MasterCard, Coca-Cola, Michelin, Citibank и другие бренды. Рекламные кампании, digital-спецпроекты, интерактивные промо-механики.</p></div></li></ol>
     </div>
@@ -239,30 +352,100 @@
 
 <!-- ═══ 05 НАГРАДЫ ═══ -->
 <section class="cf-section" id="awards" data-mood-section data-mood="mist" style="overflow:clip">
-  <div class="cf-wrap"><div class="cf-sechead cf-grid"><span class="cf-sechead__num numeral"><b>05</b></span><h2 class="cf-sechead__title display-l cf-lines"><span class="cf-line"><span>Награды</span></span></h2></div>
-    <div class="cf-grid"><p class="cf-sec-side" data-reveal>Отраслевые и международные премии</p></div>
+  <div class="cf-wrap"><div class="cf-sechead cf-grid"><span class="cf-sechead__num numeral"><b>05</b></span><h2 class="cf-sechead__title display-l cf-lines"><span class="cf-line"><span>Статьи и награды</span></span></h2></div>
     <div class="cf-awards cf-grid" data-reveal-group>
       <a class="cf-award" href="projects/wayofwater.html" data-reveal>
-        <div class="cf-award__img"><img src="assets/preview_projects/wayofwater.webp" alt="Мультимедийная выставка «Путь воды»" loading="lazy"></div>
+        <div class="cf-award__img cf-award__cover">
+          <img src="assets/preview_projects/wayofwater.webp" alt="" loading="lazy">
+          <span class="cf-award__marks" aria-hidden="true"><img src="assets/award-logos/digital.svg" alt=""><img src="assets/award-logos/regions.png" alt=""><img src="assets/award-logos/quality.svg" alt=""></span>
+          <span class="cf-award__project-label">«Путь воды»<i class="ph ph-arrow-up-right" aria-hidden="true"></i></span>
+        </div>
         <div class="cf-award__body">
-          <div class="cf-award__proj"><h3 class="title">«Путь воды»</h3><span class="cf-circle"><i class="ph ph-arrow-up-right"></i><i class="ph ph-arrow-up-right"></i></span></div>
           <ul class="cf-award__list">
-            <li class="cf-award__item"><p class="cf-award__nom">Геймификация просветительских проектов</p><span class="cf-award__status meta cf-meta">Лауреат 2023</span><p class="cf-award__org">Digital Leaders Award</p></li>
-            <li class="cf-award__item"><p class="cf-award__nom">Лучший проект для детей</p><span class="cf-award__status meta cf-meta">Лауреат 2023</span><p class="cf-award__org">«Лучшее для России. Развитие регионов»</p></li>
-            <li class="cf-award__item"><p class="cf-award__nom">Пространство года для отдыха и развлечений всей семьи</p><span class="cf-award__status meta cf-meta">Лауреат 2023</span><p class="cf-award__org">«Качество обслуживания и права потребителей»</p></li>
+            <li class="cf-award__item cf-award__entry">
+              <h3 class="cf-award__name">Digital Leaders Award</h3>
+              <span class="cf-award__status cf-award__status--prominent meta cf-meta">Лауреат · 2023</span>
+              <p class="cf-award__nom">Геймификация просветительских проектов</p>
+            </li>
+            <li class="cf-award__item cf-award__entry">
+              <h3 class="cf-award__name">Лучшее для России. Развитие регионов</h3>
+              <span class="cf-award__status cf-award__status--prominent meta cf-meta">Лауреат · 2023</span>
+              <p class="cf-award__nom">Лучший проект для детей</p>
+            </li>
+            <li class="cf-award__item cf-award__entry">
+              <h3 class="cf-award__name">Качество обслуживания и права потребителей</h3>
+              <span class="cf-award__status cf-award__status--prominent meta cf-meta">Лауреат · 2023</span>
+              <p class="cf-award__nom">Пространство года для отдыха и развлечений всей семьи</p>
+            </li>
           </ul>
         </div>
       </a>
       <a class="cf-award cf-award--solo" href="projects/capybarabooom.html" data-reveal>
-        <div class="cf-award__img"><img src="assets/preview_projects/capybaraboom.webp" alt="Выставка «КапибараБууум»" loading="lazy"></div>
+        <div class="cf-award__img cf-award__cover">
+          <img src="assets/preview_projects/capybaraboom.webp" alt="" loading="lazy">
+          <span class="cf-award__marks" aria-hidden="true"><img src="assets/award-logos/blooloop.png" alt=""></span>
+          <span class="cf-award__project-label">«КапибараБууум»<i class="ph ph-arrow-up-right" aria-hidden="true"></i></span>
+        </div>
         <div class="cf-award__body">
-          <div class="cf-award__proj"><h3 class="title">«КапибараБууум»</h3><span class="cf-circle"><i class="ph ph-arrow-up-right"></i><i class="ph ph-arrow-up-right"></i></span></div>
-          <ul class="cf-award__list"><li class="cf-award__item"><p class="cf-award__nom">Иммерсивные развлечения и аттракционы</p><span class="cf-award__status meta cf-meta">Номинант 2026&#8209;2027</span><p class="cf-award__org">Международная премия blooloop Innovation Awards</p></li></ul>
+          <ul class="cf-award__list">
+            <li class="cf-award__item cf-award__entry">
+              <h3 class="cf-award__name">blooloop Innovation Awards</h3>
+              <span class="cf-award__status cf-award__status--prominent meta cf-meta">Номинант · 2026–2027</span>
+              <p class="cf-award__nom">Иммерсивные развлечения и аттракционы</p>
+            </li>
+          </ul>
         </div>
       </a>
+      <a class="cf-award" href="projects/branding.html#buddy-sol-award" data-reveal>
+        <div class="cf-award__img cf-award__cover">
+          <img src="assets/art-direction/photo/webp/buddysol-packs.webp" alt="" loading="lazy">
+          <span class="cf-award__marks" aria-hidden="true"><img src="assets/award-logos/mercury.svg" alt=""><img src="assets/award-logos/3itech.svg" alt=""></span>
+          <span class="cf-award__project-label">Buddy&amp;Sol<i class="ph ph-arrow-up-right" aria-hidden="true"></i></span>
+        </div>
+        <div class="cf-award__body">
+          <ul class="cf-award__list">
+            <li class="cf-award__item cf-award__entry">
+              <h3 class="cf-award__name">AI-жюри 3iTech / Silver Mercury</h3>
+              <span class="cf-award__status cf-award__status--prominent meta cf-meta">Бронзовый диплом · 2024</span>
+              <p class="cf-award__nom">Параллельное судейство</p>
+            </li>
+          </ul>
+        </div>
+      </a>
+      <article class="cf-award cf-award--solo" data-reveal>
+        <div class="cf-award__img">
+          <button class="cf-award__video" type="button" aria-label="Смотреть видео «С океаном начистоту»">
+            <img src="assets/msq_clean-ocean/photo/webp/clean-ocean-ar-02.webp" alt="" loading="lazy">
+            <span class="cf-circle cf-circle--solid" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
+          </button>
+          <template><iframe src="https://player.vimeo.com/video/1200388837?h=7cd92f8373&amp;autoplay=1" title="«С океаном начистоту» · Sostav.ru" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="display:block;width:100%;height:100%;border:0"></iframe></template>
+        </div>
+        <div class="cf-award__body">
+          <div class="cf-award__press-meta">
+            <span class="cf-award__status cf-award__status--prominent meta cf-meta">Статья</span>
+            <span class="cf-award__org">Sostav.ru · 2026</span>
+          </div>
+          <a class="cf-award__proj cf-hoverparent" href="https://www.sostav.ru/publication/s-okeanom-nachistotu-moskvarium-zapuskaet-ekokvest-dlya-moskvichej-i-gostej-stolitsy-84573.html" target="_blank" rel="noopener">
+            <h3 class="cf-award__name">«С океаном начистоту»</h3><span class="cf-circle"><i class="ph ph-arrow-up-right"></i><i class="ph ph-arrow-up-right"></i></span>
+          </a>
+          <p class="cf-award__nom">Москвариум × BBDO</p>
+        </div>
+      </article>
     </div>
   </div>
 </section>
+
+
+<script>
+{
+  const preview = document.querySelector('.cf-award__video');
+  preview.addEventListener('click', () => {
+    const player = preview.nextElementSibling.content.firstElementChild.cloneNode(true);
+    preview.replaceWith(player);
+    player.focus();
+  }, { once: true });
+}
+</script>
 
 <!-- ═══ 06 КОНТАКТЫ ═══ -->
 <section class="cf-contact" id="contact" data-mood-section data-mood="cobalt">
@@ -273,7 +456,7 @@
       <div class="cf-links" data-reveal>
         <a class="cf-link" href="mailto:tsamarakovskaya@gmail.com" data-copy="tsamarakovskaya@gmail.com"><span class="cf-link__lbl meta cf-meta">Email</span><span class="cf-link__val heading">tsamarakovskaya@gmail.com</span><span class="cf-link__note meta cf-meta">Скопировано</span><span class="cf-circle"><i class="ph ph-copy"></i><i class="ph ph-copy"></i></span></a>
         <a class="cf-link" href="https://t.me/samarakovskaya_tanya" target="_blank" rel="noopener"><span class="cf-link__lbl meta cf-meta">Telegram</span><span class="cf-link__val heading">@samarakovskaya_tanya</span><span class="cf-circle"><i class="ph ph-arrow-up-right"></i><i class="ph ph-arrow-up-right"></i></span></a>
-        <a class="cf-link" href="assets/cv/CV_Samarakovskaya_Creative_Director.pdf" download="CV_Самараковская_Креативный_директор.pdf"><span class="cf-link__lbl meta cf-meta">CV</span><span class="cf-link__val heading">PDF</span><span class="cf-circle"><i class="ph ph-arrow-down"></i><i class="ph ph-arrow-down"></i></span></a>
+        <a class="cf-link" href="assets/cv/CV_%D0%A1%D0%B0%D0%BC%D0%B0%D1%80%D0%B0%D0%BA%D0%BE%D0%B2%D1%81%D0%BA%D0%B0%D1%8F_%D0%9A%D1%80%D0%B5%D0%B0%D1%82%D0%B8%D0%B2%D0%BD%D1%8B%D0%B9%20%D0%B4%D0%B8%D1%80%D0%B5%D0%BA%D1%82%D0%BE%D1%80_%D0%9F%D1%80%D0%BE%D0%B4%D1%8E%D1%81%D0%B5%D1%80.pdf" download="CV_Самараковская_Креативный_директор.pdf"><span class="cf-link__lbl meta cf-meta">CV</span><span class="cf-link__val heading">PDF</span><span class="cf-circle"><i class="ph ph-arrow-down"></i><i class="ph ph-arrow-down"></i></span></a>
       </div>
     </div>
   </div>
